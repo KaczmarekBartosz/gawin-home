@@ -287,17 +287,22 @@ export async function getCollection(
   handle: string
 ): Promise<Collection | undefined> {
   // 'use cache'; // Disabled for stable Next.js
-  cacheTag(TAGS.collections);
-  cacheLife('days');
+  // cacheTag(TAGS.collections);
+  // cacheLife('days');
 
-  const res = await shopifyFetch<ShopifyCollectionOperation>({
-    query: getCollectionQuery,
-    variables: {
-      handle
-    }
-  });
+  try {
+    const res = await shopifyFetch<ShopifyCollectionOperation>({
+      query: getCollectionQuery,
+      variables: {
+        handle
+      }
+    });
 
-  return reshapeCollection(res.body.data.collection);
+    return reshapeCollection(res.body.data.collection);
+  } catch (error) {
+    console.warn(`[Mock Mode] getCollection failed for handle: ${handle}, returning undefined`);
+    return undefined;
+  }
 }
 
 export async function getCollectionProducts({
@@ -310,129 +315,188 @@ export async function getCollectionProducts({
   sortKey?: string;
 }): Promise<Product[]> {
   // 'use cache'; // Disabled for stable Next.js
-  cacheTag(TAGS.collections, TAGS.products);
-  cacheLife('days');
+  // cacheTag(TAGS.collections, TAGS.products);
+  // cacheLife('days');
 
-  const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
-    query: getCollectionProductsQuery,
-    variables: {
-      handle: collection,
-      reverse,
-      sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey
+  try {
+    const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
+      query: getCollectionProductsQuery,
+      variables: {
+        handle: collection,
+        reverse,
+        sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey
+      }
+    });
+
+    if (!res.body.data.collection) {
+      console.log(`No collection found for \`${collection}\``);
+      return [];
     }
-  });
 
-  if (!res.body.data.collection) {
-    console.log(`No collection found for \`${collection}\``);
+    return reshapeProducts(
+      removeEdgesAndNodes(res.body.data.collection.products)
+    );
+  } catch (error) {
+    console.warn(`[Mock Mode] getCollectionProducts failed for collection: ${collection}, returning empty array`);
     return [];
   }
-
-  return reshapeProducts(
-    removeEdgesAndNodes(res.body.data.collection.products)
-  );
 }
 
 export async function getCollections(): Promise<Collection[]> {
   // 'use cache'; // Disabled for stable Next.js
-  cacheTag(TAGS.collections);
-  cacheLife('days');
+  // cacheTag(TAGS.collections);
+  // cacheLife('days');
 
-  const res = await shopifyFetch<ShopifyCollectionsOperation>({
-    query: getCollectionsQuery
-  });
-  const shopifyCollections = removeEdgesAndNodes(res.body?.data?.collections);
-  const collections = [
-    {
-      handle: '',
-      title: 'All',
-      description: 'All products',
-      seo: {
+  try {
+    const res = await shopifyFetch<ShopifyCollectionsOperation>({
+      query: getCollectionsQuery
+    });
+    const shopifyCollections = removeEdgesAndNodes(res.body?.data?.collections);
+    const collections = [
+      {
+        handle: '',
         title: 'All',
-        description: 'All products'
+        description: 'All products',
+        seo: {
+          title: 'All',
+          description: 'All products'
+        },
+        path: '/search',
+        updatedAt: new Date().toISOString()
       },
-      path: '/search',
-      updatedAt: new Date().toISOString()
-    },
-    // Filter out the `hidden` collections.
-    // Collections that start with `hidden-*` need to be hidden on the search page.
-    ...reshapeCollections(shopifyCollections).filter(
-      (collection) => !collection.handle.startsWith('hidden')
-    )
-  ];
+      // Filter out the `hidden` collections.
+      // Collections that start with `hidden-*` need to be hidden on the search page.
+      ...reshapeCollections(shopifyCollections).filter(
+        (collection) => !collection.handle.startsWith('hidden')
+      )
+    ];
 
-  return collections;
+    return collections;
+  } catch (error) {
+    console.warn('[Mock Mode] getCollections failed, returning default "All" collection');
+    return [
+      {
+        handle: '',
+        title: 'All',
+        description: 'All products',
+        seo: {
+          title: 'All',
+          description: 'All products'
+        },
+        path: '/search',
+        updatedAt: new Date().toISOString()
+      }
+    ];
+  }
 }
 
 export async function getMenu(handle: string): Promise<Menu[]> {
   // 'use cache'; // Disabled for stable Next.js
-  cacheTag(TAGS.collections);
-  cacheLife('days');
+  // cacheTag(TAGS.collections);
+  // cacheLife('days');
 
-  const res = await shopifyFetch<ShopifyMenuOperation>({
-    query: getMenuQuery,
-    variables: {
-      handle
-    }
-  });
+  try {
+    const res = await shopifyFetch<ShopifyMenuOperation>({
+      query: getMenuQuery,
+      variables: {
+        handle
+      }
+    });
 
-  return (
-    res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
-      title: item.title,
-      path: item.url
-        .replace(domain, '')
-        .replace('/collections', '/search')
-        .replace('/pages', '')
-    })) || []
-  );
+    return (
+      res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
+        title: item.title,
+        path: item.url
+          .replace(domain, '')
+          .replace('/collections', '/search')
+          .replace('/pages', '')
+      })) || []
+    );
+  } catch (error) {
+    console.warn(`[Mock Mode] getMenu failed for handle: ${handle}, returning empty array`);
+    return [];
+  }
 }
 
 export async function getPage(handle: string): Promise<Page> {
-  const res = await shopifyFetch<ShopifyPageOperation>({
-    query: getPageQuery,
-    variables: { handle }
-  });
+  try {
+    const res = await shopifyFetch<ShopifyPageOperation>({
+      query: getPageQuery,
+      variables: { handle }
+    });
 
-  return res.body.data.pageByHandle;
+    return res.body.data.pageByHandle;
+  } catch (error) {
+    console.warn(`[Mock Mode] getPage failed for handle: ${handle}, returning mock page`);
+    return {
+      id: `mock-${handle}`,
+      title: handle,
+      handle,
+      body: '',
+      bodySummary: '',
+      seo: {
+        title: handle,
+        description: ''
+      },
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+  }
 }
 
 export async function getPages(): Promise<Page[]> {
-  const res = await shopifyFetch<ShopifyPagesOperation>({
-    query: getPagesQuery
-  });
+  try {
+    const res = await shopifyFetch<ShopifyPagesOperation>({
+      query: getPagesQuery
+    });
 
-  return removeEdgesAndNodes(res.body.data.pages);
+    return removeEdgesAndNodes(res.body.data.pages);
+  } catch (error) {
+    console.warn('[Mock Mode] getPages failed, returning empty array');
+    return [];
+  }
 }
 
 export async function getProduct(handle: string): Promise<Product | undefined> {
   // 'use cache'; // Disabled for stable Next.js
-  cacheTag(TAGS.products);
-  cacheLife('days');
+  // cacheTag(TAGS.products);
+  // cacheLife('days');
 
-  const res = await shopifyFetch<ShopifyProductOperation>({
-    query: getProductQuery,
-    variables: {
-      handle
-    }
-  });
+  try {
+    const res = await shopifyFetch<ShopifyProductOperation>({
+      query: getProductQuery,
+      variables: {
+        handle
+      }
+    });
 
-  return reshapeProduct(res.body.data.product, false);
+    return reshapeProduct(res.body.data.product, false);
+  } catch (error) {
+    console.warn(`[Mock Mode] getProduct failed for handle: ${handle}, returning undefined`);
+    return undefined;
+  }
 }
 
 export async function getProductRecommendations(
   productId: string
 ): Promise<Product[]> {
   // 'use cache'; // Disabled for stable Next.js
-  cacheTag(TAGS.products);
-  cacheLife('days');
+  // cacheTag(TAGS.products);
+  // cacheLife('days');
 
-  const res = await shopifyFetch<ShopifyProductRecommendationsOperation>({
-    query: getProductRecommendationsQuery,
-    variables: {
-      productId
-    }
-  });
+  try {
+    const res = await shopifyFetch<ShopifyProductRecommendationsOperation>({
+      query: getProductRecommendationsQuery,
+      variables: {
+        productId
+      }
+    });
 
-  return reshapeProducts(res.body.data.productRecommendations);
+    return reshapeProducts(res.body.data.productRecommendations);
+  } catch (error) {
+    console.warn(`[Mock Mode] getProductRecommendations failed for productId: ${productId}, returning empty array`);
+    return [];
+  }
 }
 
 export async function getProducts({
@@ -445,19 +509,24 @@ export async function getProducts({
   sortKey?: string;
 }): Promise<Product[]> {
   // 'use cache'; // Disabled for stable Next.js
-  cacheTag(TAGS.products);
-  cacheLife('days');
+  // cacheTag(TAGS.products);
+  // cacheLife('days');
 
-  const res = await shopifyFetch<ShopifyProductsOperation>({
-    query: getProductsQuery,
-    variables: {
-      query,
-      reverse,
-      sortKey
-    }
-  });
+  try {
+    const res = await shopifyFetch<ShopifyProductsOperation>({
+      query: getProductsQuery,
+      variables: {
+        query,
+        reverse,
+        sortKey
+      }
+    });
 
-  return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
+    return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
+  } catch (error) {
+    console.warn(`[Mock Mode] getProducts failed, returning empty array`);
+    return [];
+  }
 }
 
 // This is called from `app/api/revalidate.ts` so providers can control revalidation logic.

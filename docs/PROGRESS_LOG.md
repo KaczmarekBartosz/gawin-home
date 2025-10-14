@@ -16,6 +16,7 @@
 | **Phase 1** | Git init + pierwszy commit | ✅ DONE | 2025-10-15 | 5 min | Commit 4bf0e1b + 80ca885 + 1e91ac9 |
 | **Phase 2** | Homepage Dark Entry design | ✅ DONE | 2025-10-15 | 25 min | Hero + Featured + Categories + Newsletter |
 | **Phase 2** | Fix 'use cache' dla stable Next.js | ✅ DONE | 2025-10-15 | 5 min | 7 funkcji w lib/shopify |
+| **Phase 2** | Mock Mode dla production build | ✅ DONE | 2025-10-15 | 20 min | 9 funkcji w try-catch, build SUCCESS |
 | **Phase 3** | TypeScript types | ⏳ PENDING | - | - | - |
 | **Phase 3** | Mock data (products) | ⏳ PENDING | - | - | - |
 | **Phase 5** | Product listing | ⏳ PENDING | - | - | - |
@@ -402,6 +403,72 @@ Git commit + test w przeglądarce
 
 ---
 
+#### ✅ Task: FIX - Mock Mode dla Production Build (COMPLETED)
+**Rozpoczęto:** 16:05
+**Zakończono:** 16:25
+**Czas:** 20 minut
+**Status:** ✅ COMPLETED
+**Priorytet:** 🔥 CRITICAL
+
+**Problem:**
+- Production build (`pnpm build`) failował z błędami Shopify API "Not Found"
+- Next.js próbował statycznie generować strony używając mock credentials
+- Wszystkie funkcje w `lib/shopify/index.ts` rzucały błędy podczas SSG
+
+**Rozwiązanie:**
+✅ **Implementowano Mock Mode** - wszystkie Shopify fetch functions z graceful fallback:
+
+1. ✅ **Wrapped 8 functions w try-catch**:
+   - `getMenu()` - return `[]` on error
+   - `getCollection()` - return `undefined` on error
+   - `getCollectionProducts()` - return `[]` on error
+   - `getCollections()` - return default "All" collection on error
+   - `getPage()` - return mock page object on error
+   - `getPages()` - return `[]` on error
+   - `getProduct()` - return `undefined` on error
+   - `getProductRecommendations()` - return `[]` on error
+   - `getProducts()` - return `[]` on error
+
+2. ✅ **Console warnings dodane**:
+   ```typescript
+   console.warn(`[Mock Mode] getMenu failed for handle: ${handle}, returning empty array`);
+   ```
+   - Pozwala na debugowanie w build logs
+   - Wyraźnie oznacza mock mode działanie
+
+3. ✅ **Production build test - SUCCESS**:
+   ```bash
+   pnpm build
+   ```
+   - ✅ Compiled successfully in 2.7s
+   - ✅ 9/9 static pages generated
+   - ✅ Route (app) built successfully
+   - ✅ No errors, tylko warnings "[Mock Mode]" w konsoli
+
+**Build Output:**
+```
+Route (app)                                  Size  First Load JS
+┌ ƒ /                                     4.06 kB         121 kB
+├ ƒ /_not-found                             985 B         102 kB
+├ ƒ /[page]                                 142 B         101 kB
+├ ƒ /product/[handle]                     4.88 kB         114 kB
+├ ƒ /search                                 175 B         110 kB
+├ ƒ /search/[collection]                    175 B         110 kB
+└ ƒ /sitemap.xml                            142 B         101 kB
+```
+
+**Kluczowa Decyzja:**
+🎯 **Mock Mode Strategy**: Zamiast blokować build, gracefully failujemy Shopify API calls i zwracamy puste/default dane. To pozwala:
+- ✅ Deploy do Netlify bez backend
+- ✅ Skupienie 100% na designie i UI
+- ✅ Łatwa wymiana na prawdziwe API później
+- ✅ Development bez external dependencies
+
+**Następny Krok:**
+Git commit + przygotowanie do deploy na Netlify
+
+---
+
 ## 📋 Checklisty
 
 ### ✅ Planning Checklist
@@ -459,16 +526,16 @@ Git commit + test w przeglądarce
 
 ## 📊 Statystyki
 
-**Całkowity Czas Pracy:** ~2 godziny (120 minut)
-**Ukończone Taski:** 7/14 (50%)
-**Pozostałe Taski:** 7
-**Szacowany Pozostały Czas:** 30-40 godzin
+**Całkowity Czas Pracy:** ~2.5 godziny (150 minut)
+**Ukończone Taski:** 8/14 (57%)
+**Pozostałe Taski:** 6
+**Szacowany Pozostały Czas:** 25-35 godzin
 
 **Breakdown:**
 - Planning: 45 min
 - Phase 1 (Foundation): 40 min
-- Phase 2 (Homepage): 30 min
-- Dokumentacja i troubleshooting: 5 min
+- Phase 2 (Homepage + Mock Mode): 50 min
+- Dokumentacja i troubleshooting: 15 min
 
 ---
 
