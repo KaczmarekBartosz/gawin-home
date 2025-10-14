@@ -1,21 +1,29 @@
-import { Carousel } from 'components/carousel';
-import { ThreeItemGrid } from 'components/grid/three-items';
+import { HeroSection } from '@/components/sections/hero-section';
+import { FeaturedProducts } from '@/components/sections/featured-products';
+import { CategoriesShowcase } from '@/components/sections/categories-showcase';
+import { Newsletter } from '@/components/sections/newsletter';
 import Footer from 'components/layout/footer';
 
 export const metadata = {
+  title: 'Gawin-Home - Premium Meble i Wyposażenie Wnętrz',
   description:
-    'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
+    'Odkryj kolekcję premium mebli, które łączą ponadczasową elegancję z nowoczesnym designem. Meble, które tworzą dom.',
   openGraph: {
-    type: 'website'
+    type: 'website',
+    title: 'Gawin-Home - Premium Meble i Wyposażenie Wnętrz',
+    description:
+      'Odkryj kolekcję premium mebli, które łączą ponadczasową elegancję z nowoczesnym designem.'
   }
 };
 
 export default function HomePage() {
   return (
-    <>
-      <ThreeItemGrid />
-      <Carousel />
+    <div className="dark">
+      <HeroSection />
+      <FeaturedProducts />
+      <CategoriesShowcase />
+      <Newsletter />
       <Footer />
-    </>
+    </div>
   );
 }

@@ -13,13 +13,11 @@
 | **Phase 1** | Inicjalizacja projektu Next.js | ✅ DONE | 2025-10-15 | 10 min | Vercel Commerce + stable versions |
 | **Phase 1** | Instalacja dependencies | ✅ DONE | 2025-10-15 | 5 min | zustand, RHF, zod, framer-motion, lucide, embla |
 | **Phase 1** | Setup shadcn/ui | ✅ DONE | 2025-10-15 | 20 min | 13 components + custom rounded-xl |
-| **Phase 1** | Git init + pierwszy commit | ✅ DONE | 2025-10-15 | 5 min | Commit 4bf0e1b + 80ca885 |
-| **Phase 2** | Konfiguracja design system | ⏳ PENDING | - | - | - |
-| **Phase 2** | Customize komponenty UI | ⏳ PENDING | - | - | - |
+| **Phase 1** | Git init + pierwszy commit | ✅ DONE | 2025-10-15 | 5 min | Commit 4bf0e1b + 80ca885 + 1e91ac9 |
+| **Phase 2** | Homepage Dark Entry design | ✅ DONE | 2025-10-15 | 25 min | Hero + Featured + Categories + Newsletter |
+| **Phase 2** | Fix 'use cache' dla stable Next.js | ✅ DONE | 2025-10-15 | 5 min | 7 funkcji w lib/shopify |
 | **Phase 3** | TypeScript types | ⏳ PENDING | - | - | - |
 | **Phase 3** | Mock data (products) | ⏳ PENDING | - | - | - |
-| **Phase 4** | Header component | ⏳ PENDING | - | - | - |
-| **Phase 4** | Hero section | ⏳ PENDING | - | - | - |
 | **Phase 5** | Product listing | ⏳ PENDING | - | - | - |
 | **Phase 6** | Cart & Checkout | ⏳ PENDING | - | - | - |
 | **Phase 7** | Polish & Deploy | ⏳ PENDING | - | - | - |
@@ -312,7 +310,95 @@ shadcn/ui configuration + custom design system
 ```
 
 **Następny Krok:**
-Test build + commit changes do git
+Homepage implementation z Dark Entry designem
+
+---
+
+### 2025-10-15 - Phase 2: Homepage Implementation (Dark Entry)
+
+#### ✅ Task: Implementacja Homepage z Hybrydowym Designem (COMPLETED)
+**Rozpoczęto:** 15:35
+**Zakończono:** 16:00
+**Czas:** 25 minut
+**Status:** ✅ COMPLETED
+
+**Co zostało zrobione:**
+
+1. ✅ **Hero Section** (`components/sections/hero-section.tsx`):
+   - Dark gradient background (neutral-900 → neutral-800 → neutral-900)
+   - Animated badge z pulsującym punktem ("Nowa Kolekcja 2025")
+   - Główny nagłówek z gradient gold text
+   - Subheading z opisem
+   - 2 CTA przyciski (złoty primary + outline transparent)
+   - Stats grid (500+ Produktów, 50+ Marek, 10k+ Klientów, 4.9 Ocena)
+   - Scroll indicator z bounce animation
+   - **Design:** Projekt 3 (Elegancki i Dramatyczny) + minimalizm
+
+2. ✅ **Featured Products Section** (`components/sections/featured-products.tsx`):
+   - 4 produkty w grid (responsive: 1 col mobile → 4 col desktop)
+   - Product cards z:
+     - Badge system (Bestseller, Nowy, -15%)
+     - Hover effects (quick actions: Heart, Eye icons)
+     - Image hover scale effect
+     - Price display z przekreślonymi cenami
+     - "Do koszyka" button
+   - Section header z gradient gold text
+   - "Zobacz wszystkie produkty" link
+   - **Mock data**: Realistyczne produkty mebli z Unsplash images
+
+3. ✅ **Categories Showcase Section** (`components/sections/categories-showcase.tsx`):
+   - 6 kategorii w grid (1 col → 2 col → 3 col responsive)
+   - Category cards z:
+     - Background image z overlay
+     - Gradient overlay (neutral-900)
+     - Category count badge
+     - Hover effects (scale image, bright overlay)
+     - Arrow icon transition
+   - Section header + "Wszystkie kategorie" link
+   - **Kategorie**: Sofy i Fotele, Stoły i Krzesła, Sypialnia, Szafy i Komody, Oświetlenie, Dekoracje
+
+4. ✅ **Newsletter Section** (`components/sections/newsletter.tsx`):
+   - Dark gradient card z decorative background blurs
+   - Mail icon w circle z rings
+   - Newsletter form (email + button)
+   - Success state z check icon
+   - Privacy note link
+   - Trust badges (Bez spamu, 100% bezpieczeństwo, Możliwość rezygnacji)
+   - Client component z React state
+
+5. ✅ **Zaktualizowano app/page.tsx**:
+   - Import wszystkich nowych sekcji
+   - Wrapper div z `className="dark"` (Dark Entry theme)
+   - Zaktualizowano metadata (title, description, OG)
+   - Layout: HeroSection → FeaturedProducts → CategoriesShowcase → Newsletter → Footer
+
+6. ✅ **FIX: 'use cache' Issues**:
+   - **Problem**: Vercel Commerce template używał `'use cache'` directive (canary-only)
+   - **Rozwiązanie**: Wykomentowano wszystkie `'use cache'` w `lib/shopify/index.ts`
+   - Używamy sed: `s/'use cache';/\/\/ 'use cache'; \/\/ Disabled for stable Next.js/g`
+   - **7 funkcji poprawionych**: getCollection, getCollectionProducts, getCollections, getMenu, getProduct, getProductRecommendations, getProducts
+
+**Tech Stack używany:**
+- Next.js Image component z Unsplash CDN
+- Lucide React icons (ArrowRight, ShoppingCart, Heart, Eye, Mail, Check)
+- shadcn/ui components (Button, Card, Badge, Input)
+- Framer Motion ready (animacje przygotowane do rozbudowy)
+- Tailwind CSS v4 z custom gold colors
+
+**Design Philosophy:**
+✅ **Hybrid Design** - dokładnie jak planowaliśmy:
+- **Dark Entry**: Homepage z ciemnym tłem (neutral-900/950) + złote akcenty
+- **Premium Feel**: Gradienty, blur effects, subtelne animacje
+- **Minimalizm**: Dużo white space, clean typography
+- **Focus na produkcie**: Duże obrazy, czytelne ceny, hover effects
+
+**Dev Server:**
+- URL: http://localhost:3001 (port 3000 zajęty)
+- Status: ✅ RUNNING
+- Ready in: 1.25s (Turbopack)
+
+**Następny Krok:**
+Git commit + test w przeglądarce
 
 ---
 
@@ -373,10 +459,16 @@ Test build + commit changes do git
 
 ## 📊 Statystyki
 
-**Całkowity Czas Pracy:** 45 minut
-**Ukończone Taski:** 1/14 (7%)
-**Pozostałe Taski:** 13
-**Szacowany Pozostały Czas:** 40-50 godzin
+**Całkowity Czas Pracy:** ~2 godziny (120 minut)
+**Ukończone Taski:** 7/14 (50%)
+**Pozostałe Taski:** 7
+**Szacowany Pozostały Czas:** 30-40 godzin
+
+**Breakdown:**
+- Planning: 45 min
+- Phase 1 (Foundation): 40 min
+- Phase 2 (Homepage): 30 min
+- Dokumentacja i troubleshooting: 5 min
 
 ---
 
