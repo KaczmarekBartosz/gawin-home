@@ -10,10 +10,10 @@
 | Phase | Task | Status | Data | Czas | Notatki |
 |-------|------|--------|------|------|---------|
 | **Planning** | Utworzenie dokumentacji projektu | ✅ DONE | 2025-10-15 | 45 min | CLAUDE.md, IMPLEMENTATION_PLAN.md, QUICKSTART.md |
-| **Phase 1** | Inicjalizacja projektu Next.js | 🟡 IN PROGRESS | 2025-10-15 | - | - |
-| **Phase 1** | Instalacja dependencies | ⏳ PENDING | - | - | - |
-| **Phase 1** | Setup shadcn/ui | ⏳ PENDING | - | - | - |
-| **Phase 1** | Git init + pierwszy commit | ⏳ PENDING | - | - | - |
+| **Phase 1** | Inicjalizacja projektu Next.js | ✅ DONE | 2025-10-15 | 10 min | Vercel Commerce + stable versions |
+| **Phase 1** | Instalacja dependencies | ✅ DONE | 2025-10-15 | 5 min | zustand, RHF, zod, framer-motion, lucide, embla |
+| **Phase 1** | Setup shadcn/ui | ✅ DONE | 2025-10-15 | 20 min | 13 components + custom rounded-xl |
+| **Phase 1** | Git init + pierwszy commit | ✅ DONE | 2025-10-15 | 5 min | Commit 4bf0e1b + 80ca885 |
 | **Phase 2** | Konfiguracja design system | ⏳ PENDING | - | - | - |
 | **Phase 2** | Customize komponenty UI | ⏳ PENDING | - | - | - |
 | **Phase 3** | TypeScript types | ⏳ PENDING | - | - | - |
@@ -206,6 +206,116 @@ shadcn/ui configuration + custom design system
 
 ---
 
+#### ✅ Task: shadcn/ui Configuration + Design System (COMPLETED)
+**Rozpoczęto:** 15:10
+**Zakończono:** 15:30
+**Czas:** 20 minut
+**Status:** ✅ COMPLETED
+
+**Co zostało zrobione:**
+
+1. ✅ **shadcn/ui Initialization**:
+   ```bash
+   npx shadcn@latest init -d
+   ```
+   - Używamy defaults (New York style, Neutral colors, CSS variables)
+   - Automatyczna konfiguracja components.json
+   - Auto-update globals.css z CSS variables
+   - Instalacja: class-variance-authority, tailwind-merge, tw-animate-css
+
+2. ✅ **Dodano 13 Core Components**:
+   ```bash
+   npx shadcn@latest add button card input sheet dialog badge form select radio-group checkbox accordion skeleton
+   ```
+   - **Zainstalowano komponenty**:
+     - button.tsx, card.tsx, input.tsx, label.tsx
+     - sheet.tsx, dialog.tsx, badge.tsx
+     - form.tsx, select.tsx, radio-group.tsx, checkbox.tsx
+     - accordion.tsx, skeleton.tsx
+   - **Zainstalowano Radix UI primitives**:
+     - @radix-ui/react-accordion, @radix-ui/react-checkbox
+     - @radix-ui/react-dialog, @radix-ui/react-label
+     - @radix-ui/react-radio-group, @radix-ui/react-select
+     - @radix-ui/react-slot
+
+3. ✅ **Button Component - Customization**:
+   - **Zmiana: `rounded-md` → `rounded-xl`** (zgodnie z designem premium)
+   - Base class: `rounded-xl` (linia 8)
+   - Size variants: sm/lg również `rounded-xl` (linie 25, 26)
+   - **Powód**: `rounded-xl` (24px) = perfect balance, premium look
+
+4. ✅ **Utworzono Strukturę Folderów**:
+   ```bash
+   lib/stores/     # Zustand stores (cart, wishlist)
+   lib/data/       # Mock data (products, categories)
+   lib/config/     # Site config, constants
+   types/          # TypeScript types
+   components/layout/    # Header, Footer
+   components/commerce/  # ProductCard, Cart
+   components/sections/  # Page sections
+   ```
+   - Niektóre foldery już istniały w Vercel Commerce template
+   - Dodano brakujące foldery zgodnie z planem
+
+5. ✅ **Design System - Custom Colors w globals.css**:
+
+   **a) Zmiana --radius na 1.5rem (rounded-xl):**
+   ```css
+   --radius: 1.5rem; /* 24px - rounded-xl */
+   ```
+
+   **b) Light Showroom Theme (:root) - Product Pages:**
+   ```css
+   --background: oklch(1 0 0);         /* #ffffff - White */
+   --foreground: oklch(0.145 0 0);     /* #1a1a1a - Dark graphite */
+   --primary: oklch(0.75 0.12 85);     /* #d4af37 - Gold */
+   --primary-foreground: oklch(0.145 0 0); /* Dark text on gold */
+   --border: oklch(0.922 0 0);         /* #e5e5e5 - Light gray */
+   --ring: oklch(0.75 0.12 85);        /* Gold focus ring */
+   ```
+
+   **c) Dark Entry Theme (.dark) - Homepage:**
+   ```css
+   --background: oklch(0.145 0 0);     /* #1a1a1a - Dark graphite */
+   --foreground: oklch(0.985 0 0);     /* #f5f5f5 - Light text */
+   --card: oklch(0.205 0 0);           /* #252525 - Dark surface */
+   --primary: oklch(0.75 0.12 85);     /* #d4af37 - Gold */
+   --muted-foreground: oklch(0.708 0 0); /* #a0a0a0 - Muted text */
+   --border: oklch(1 0 0 / 10%);       /* Subtle border */
+   --ring: oklch(0.75 0.12 85);        /* Gold focus ring */
+   ```
+
+**Kluczowe Decyzje:**
+- ✅ **Gold (#d4af37)** jako primary color dla obu theme (premium accent)
+- ✅ **rounded-xl (1.5rem)** globalnie dla wszystkich przycisków
+- ✅ **Hybrid Design System**: Light default + Dark class dla homepage
+- ✅ **OKLCH colors** zamiast HSL (lepszy color space, perceptually uniform)
+
+**Stack Update:**
+```json
+{
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-checkbox": "^1.3.3",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-radio-group": "^1.3.8",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "tw-animate-css": "^1.4.0"
+  }
+}
+```
+
+**Następny Krok:**
+Test build + commit changes do git
+
+---
+
 ## 📋 Checklisty
 
 ### ✅ Planning Checklist
@@ -217,18 +327,18 @@ shadcn/ui configuration + custom design system
 - [ ] **NEXT:** Inicjalizacja projektu
 
 ### ⏳ Phase 1 Checklist (Foundation)
-- [ ] Vercel Commerce template cloned
-- [ ] Dependencies zainstalowane (zustand, RHF, zod, framer-motion, lucide, embla)
-- [ ] shadcn/ui zainicjalizowany
-- [ ] shadcn/ui komponenty dodane (button, card, input, sheet, dialog, badge, form, etc.)
-- [ ] Struktura folderów utworzona
-- [ ] Custom colors dodane do globals.css
-- [ ] Button component zaktualizowany (rounded-xl)
+- [x] ✅ Vercel Commerce template cloned
+- [x] ✅ Dependencies zainstalowane (zustand, RHF, zod, framer-motion, lucide, embla)
+- [x] ✅ shadcn/ui zainicjalizowany
+- [x] ✅ shadcn/ui komponenty dodane (button, card, input, sheet, dialog, badge, form, etc.)
+- [x] ✅ Struktura folderów utworzona
+- [x] ✅ Custom colors dodane do globals.css
+- [x] ✅ Button component zaktualizowany (rounded-xl)
 - [ ] Zustand cart store utworzony
-- [ ] Git initialized
-- [ ] Pierwszy commit wykonany
-- [ ] `pnpm dev` działa
-- [ ] `pnpm build` sukces
+- [x] ✅ Git initialized
+- [x] ✅ Pierwszy commit wykonany
+- [x] ✅ `pnpm dev` działa
+- [ ] `pnpm build` sukces (test pending)
 
 ### ⏳ Phase 2 Checklist (Design System)
 - [ ] Tailwind colors skonfigurowane
