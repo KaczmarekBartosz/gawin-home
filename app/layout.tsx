@@ -34,7 +34,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={GeistSans.variable} suppressHydrationWarning>
       <body className="bg-background text-foreground selection:bg-accent/20">
-        <ThemeProvider defaultTheme="wellness-tech">
+        <ThemeProvider defaultTheme="hybrid-luxury">
           <CartProvider cartPromise={cart}>
             <Navbar />
             <main>
