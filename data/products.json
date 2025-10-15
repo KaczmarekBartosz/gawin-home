@@ -1,0 +1,83 @@
+[
+  {
+    "slug": "sofa-aurum",
+    "title": "Sofa Aurum 3-osobowa",
+    "price": 5499,
+    "currency": "PLN",
+    "image": "https://images.unsplash.com/photo-1582582429416-0a1b72a7f3b9?q=80&w=1600&auto=format&fit=crop",
+    "category": "Sofy",
+    "tags": ["premium", "skóra"],
+    "description": "Elegancka sofa w odcieniu karmelu z delikatnymi akcentami złota. Idealna do przestronnych salonów o charakterze premium."
+  },
+  {
+    "slug": "fotel-velour-noir",
+    "title": "Fotel Velour Noir",
+    "price": 1899,
+    "currency": "PLN",
+    "image": "https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=1600&auto=format&fit=crop",
+    "category": "Fotele",
+    "tags": ["welur", "czarny"],
+    "description": "Miękki fotel z weluru w głębokiej czerni. Subtelne pikowania i profilowane oparcie zapewniają wyjątkowy komfort."
+  },
+  {
+    "slug": "stol-dębowy-atelier",
+    "title": "Stół Dębowy Atelier 200",
+    "price": 3799,
+    "currency": "PLN",
+    "image": "https://images.unsplash.com/photo-1582582494700-70a23b45d6ab?q=80&w=1600&auto=format&fit=crop",
+    "category": "Stoły",
+    "tags": ["dąb", "jadalnia"],
+    "description": "Maszyny blat z litego dębu i minimalistyczne nogi stalowe. Wykończenie olejowane, efekt naturalnego drewna."
+  },
+  {
+    "slug": "krzeslo-luna",
+    "title": "Krzesło Luna",
+    "price": 599,
+    "currency": "PLN",
+    "image": "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?q=80&w=1600&auto=format&fit=crop",
+    "category": "Krzesła",
+    "tags": ["skandynawski", "jasne drewno"],
+    "description": "Krzesło o lekkiej formie z profilowanym siedziskiem. Idealne do nowoczesnych jadalni i kuchni."
+  },
+  {
+    "slug": "komoda-linea",
+    "title": "Komoda Linea 160",
+    "price": 2499,
+    "currency": "PLN",
+    "image": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1600&auto=format&fit=crop",
+    "category": "Komody",
+    "tags": ["fornir", "szuflady soft-close"],
+    "description": "Komoda fornirowana w układzie pionowym z systemem soft-close. Dużo miejsca na przechowywanie."
+  },
+  {
+    "slug": "lozko-aria-king",
+    "title": "Łóżko Aria King",
+    "price": 4299,
+    "currency": "PLN",
+    "image": "https://images.unsplash.com/photo-1600490653835-8571b8b21fce?q=80&w=1600&auto=format&fit=crop",
+    "category": "Łóżka",
+    "tags": ["tapicerowane", "king size"],
+    "description": "Łóżko tapicerowane z wysokim wezgłowiem i pikowaniem. Konstrukcja stabilna, materac 180x200."
+  },
+  {
+    "slug": "lampa-golden-ring",
+    "title": "Lampa Golden Ring",
+    "price": 799,
+    "currency": "PLN",
+    "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1600&auto=format&fit=crop",
+    "category": "Oświetlenie",
+    "tags": ["złoto", "sufitowa"],
+    "description": "Nowoczesna lampa sufitowa w formie pierścienia, wykończenie szczotkowane złoto."
+  },
+  {
+    "slug": "dywan-cashmere",
+    "title": "Dywan Cashmere Sand",
+    "price": 1299,
+    "currency": "PLN",
+    "image": "https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1600&auto=format&fit=crop",
+    "category": "Dodatki",
+    "tags": ["miękki", "beż"],
+    "description": "Miękki dywan w kolorze piaskowym. Nadaje wnętrzu przytulności i elegancji."
+  }
+]
+

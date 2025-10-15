@@ -34,6 +34,28 @@
 
 ## 📝 Szczegółowy Log Postępu
 
+### 2025-10-15 - Design Unblock (Mock)
+
+#### ✅ Task: Przygotowanie mocków i pełnej strony głównej do projektowania
+Status: COMPLETED
+
+Co zrobiono:
+- Dodano trasy mockowe: `app/mock`, `app/mock/products`, `app/mock/product/[slug]`.
+- Dodano sekcje strony głównej (Dark Entry + Light Showroom):
+  - `components/sections/hero-section.tsx`, `trusted-brands.tsx`,
+  - `featured-products.tsx`, `categories-showcase.tsx`, `newsletter.tsx`.
+- Dodano mock dane produktów: `data/products.json` + adapter `lib/data-adapters/mock.ts`.
+- Rozszerzono `next.config.ts` o domeny obrazów (Unsplash/Pexels/Picsum).
+- Dodano `docs/DESIGN_START.md` (instrukcja pracy na mocku) i `netlify.toml`.
+- Dodano `scripts/dev.ps1` (szybki start dev; opcja `-Open`).
+
+Jak uruchomić:
+- `pnpm install && pnpm dev`, otwórz `http://localhost:3000/mock`.
+
+Uwagi/Troubleshooting:
+- Wystąpił błąd builda (`@alloc/quick-lru` oraz PNPM virtual store). Zapisano
+  kroki naprawy w `docs/TROUBLESHOOTING.md`.
+
 ### 2025-10-15 - Planning & Documentation
 
 #### ✅ Task: Utworzenie Dokumentacji Projektu
