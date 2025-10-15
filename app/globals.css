@@ -317,11 +317,122 @@ button {
   --ring: 212 175 55;
 }
 
+/* ========================================
+   BRAND COLOR ALIASES (for easier usage)
+   ======================================== */
+
+:root,
+:root[data-theme='hybrid-luxury'] {
+  /* Brand Colors - Semantic Names */
+  --brand-cream: 250 250 249; /* #FAFAF9 - same as background */
+  --brand-sand: 245 245 245; /* #F5F5F5 - same as secondary */
+  --brand-charcoal: 26 26 26; /* #1A1A1A - same as foreground/primary */
+  --brand-gold: 212 165 116; /* #d4a574 - same as accent */
+  --brand-copper: 184 149 106; /* #b8956a - same as accent-blue (hover) */
+  --neutral-border: 229 231 235; /* #E5E7EB - ~E5E5E5 */
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* ========================================
+   TYPOGRAPHY UTILITIES (Gawin-Home)
+   ======================================== */
+
+@layer utilities {
+  /* Display (Hero Headings) */
+  .text-display-hero {
+    @apply text-5xl lg:text-7xl font-bold tracking-tighter;
+  }
+
+  /* Heading Styles */
+  .text-h1 {
+    @apply text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  .text-h2 {
+    @apply text-3xl lg:text-4xl font-bold;
+  }
+
+  .text-h3 {
+    @apply text-xl lg:text-2xl font-semibold;
+  }
+
+  /* Body Styles */
+  .text-body-descriptive {
+    @apply text-base lg:text-lg leading-relaxed text-neutral-600;
+  }
+
+  .text-body-standard {
+    @apply text-base;
+  }
+
+  /* Label Styles */
+  .text-label {
+    @apply text-sm font-medium uppercase tracking-wider;
+  }
+
+  /* Brand Color Utilities */
+  .bg-brand-cream {
+    background-color: rgb(var(--brand-cream));
+  }
+
+  .bg-brand-sand {
+    background-color: rgb(var(--brand-sand));
+  }
+
+  .bg-brand-charcoal {
+    background-color: rgb(var(--brand-charcoal));
+  }
+
+  .bg-brand-gold {
+    background-color: rgb(var(--brand-gold));
+  }
+
+  .bg-brand-copper {
+    background-color: rgb(var(--brand-copper));
+  }
+
+  .text-brand-cream {
+    color: rgb(var(--brand-cream));
+  }
+
+  .text-brand-sand {
+    color: rgb(var(--brand-sand));
+  }
+
+  .text-brand-charcoal {
+    color: rgb(var(--brand-charcoal));
+  }
+
+  .text-brand-gold {
+    color: rgb(var(--brand-gold));
+  }
+
+  .text-brand-copper {
+    color: rgb(var(--brand-copper));
+  }
+
+  .border-brand-gold {
+    border-color: rgb(var(--brand-gold));
+  }
+
+  .border-brand-copper {
+    border-color: rgb(var(--brand-copper));
+  }
+
+  .border-neutral-border {
+    border-color: rgb(var(--neutral-border));
+  }
+
+  /* Ring Utilities for Focus States */
+  .ring-brand-gold {
+    --tw-ring-color: rgb(var(--brand-gold));
   }
 }
