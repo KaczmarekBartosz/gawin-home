@@ -72,83 +72,175 @@ button {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-:root {
+/* ========================================
+   THEME SYSTEM - Wellness Tech (Default)
+   ======================================== */
+
+:root,
+:root[data-theme='wellness-tech'] {
   /* Gawin-Home Custom Radius (rounded-xl for buttons) */
-  --radius: 1.5rem; /* 24px - rounded-xl */
+  --radius: 1rem; /* 16px - Wellness Tech base radius */
 
-  /* Light Showroom Theme (Product pages) */
-  --background: oklch(1 0 0); /* #ffffff */
-  --foreground: oklch(0.145 0 0); /* #1a1a1a */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  /* Wellness Tech - Light, clean, health-app inspired */
+  --background: 248 248 248; /* #F8F8F8 - Light grey canvas */
+  --foreground: 51 51 51; /* #333333 - Dark grey text */
 
-  /* Gold Primary (Premium accent) */
-  --primary: oklch(0.75 0.12 85); /* Gold #d4af37 */
-  --primary-foreground: oklch(0.145 0 0); /* Dark text on gold */
+  --card: 255 255 255; /* #FFFFFF - Pure white cards */
+  --card-foreground: 51 51 51;
+  --popover: 255 255 255;
+  --popover-foreground: 51 51 51;
 
-  --secondary: oklch(0.97 0 0); /* Light gray */
-  --secondary-foreground: oklch(0.145 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.145 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0); /* #e5e5e5 */
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.75 0.12 85); /* Gold ring for focus */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.75 0.12 85); /* Gold */
-  --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.145 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.75 0.12 85);
+  /* Primary - Dark grey */
+  --primary: 51 51 51;
+  --primary-foreground: 255 255 255;
+
+  /* Accent - Energetic orange/gold (prices, CTA) */
+  --accent: 255 140 66; /* #FF8C42 */
+  --accent-foreground: 255 255 255;
+
+  /* Accent Blue - Info/availability */
+  --accent-blue: 91 141 239; /* #5B8DEF */
+  --accent-blue-foreground: 255 255 255;
+
+  /* Accent Green - Success/eco */
+  --accent-green: 76 175 80; /* #4CAF50 */
+  --accent-green-foreground: 255 255 255;
+
+  /* UI states */
+  --secondary: 232 232 232; /* #E8E8E8 */
+  --secondary-foreground: 51 51 51;
+  --muted: 232 232 232;
+  --muted-foreground: 117 117 117; /* #757575 */
+  --border: 224 224 224; /* #E0E0E0 */
+  --input: 232 232 232;
+  --ring: 255 140 66; /* Orange focus ring */
+
+  /* Status colors */
+  --destructive: 239 68 68; /* #EF4444 */
+  --destructive-foreground: 255 255 255;
+  --warning: 245 158 11; /* #F59E0B */
+  --warning-foreground: 255 255 255;
+  --success: 76 175 80;
+  --success-foreground: 255 255 255;
+  --info: 91 141 239;
+  --info-foreground: 255 255 255;
+
+  /* Charts (using accent colors) */
+  --chart-1: 255 140 66; /* Accent orange */
+  --chart-2: 91 141 239; /* Accent blue */
+  --chart-3: 76 175 80; /* Accent green */
+  --chart-4: 156 163 175; /* Neutral grey */
+  --chart-5: 51 51 51; /* Primary dark */
+
+  /* Sidebar */
+  --sidebar: 255 255 255;
+  --sidebar-foreground: 51 51 51;
+  --sidebar-primary: 255 140 66;
+  --sidebar-primary-foreground: 255 255 255;
+  --sidebar-accent: 232 232 232;
+  --sidebar-accent-foreground: 51 51 51;
+  --sidebar-border: 224 224 224;
+  --sidebar-ring: 255 140 66;
+
+  /* Radius tokens for this theme */
+  --radius-sm: 0.5rem; /* 8px */
+  --radius-base: 0.75rem; /* 12px */
+  --radius-md: 1rem; /* 16px */
+  --radius-lg: 1.5rem; /* 24px - characteristic of wellness tech */
+  --radius-xl: 2rem; /* 32px */
+  --radius-2xl: 2.5rem; /* 40px */
 }
 
-.dark {
-  /* Dark Entry Theme (Homepage - Premium dark background) */
-  --background: oklch(0.145 0 0); /* #1a1a1a - Dark graphite */
-  --foreground: oklch(0.985 0 0); /* #f5f5f5 - Light text */
-  --card: oklch(0.205 0 0); /* #252525 - Dark surface */
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+/* ========================================
+   THEME SYSTEM - Dark Luxury (Example)
+   ======================================== */
+
+:root[data-theme='dark-luxury'] {
+  /* Dark Luxury - Premium dark with gold accents */
+  --radius: 0.5rem; /* Less rounded for more elegant feel */
+
+  --background: 26 26 26; /* #1a1a1a - Dark graphite */
+  --foreground: 245 245 245; /* #f5f5f5 - Light text */
+
+  --card: 37 37 37; /* #252525 - Dark surface */
+  --card-foreground: 245 245 245;
+  --popover: 37 37 37;
+  --popover-foreground: 245 245 245;
 
   /* Gold Primary (Premium accent) */
-  --primary: oklch(0.75 0.12 85); /* Gold #d4af37 */
-  --primary-foreground: oklch(0.145 0 0); /* Dark text on gold */
+  --primary: 212 175 55; /* Gold #d4af37 */
+  --primary-foreground: 26 26 26;
 
-  --secondary: oklch(0.269 0 0); /* Lighter dark surface */
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0); /* Muted text #a0a0a0 */
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%); /* Subtle border */
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.75 0.12 85); /* Gold ring for focus */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.75 0.12 85); /* Gold */
-  --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.75 0.12 85);
+  /* Accent - Gold */
+  --accent: 212 175 55;
+  --accent-foreground: 26 26 26;
+
+  --accent-blue: 100 149 237; /* Cornflower blue */
+  --accent-blue-foreground: 255 255 255;
+
+  --accent-green: 50 205 50; /* Lime green */
+  --accent-green-foreground: 255 255 255;
+
+  --secondary: 69 69 69;
+  --secondary-foreground: 245 245 245;
+  --muted: 69 69 69;
+  --muted-foreground: 160 160 160;
+  --border: 64 64 64;
+  --input: 64 64 64;
+  --ring: 212 175 55; /* Gold ring */
+
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
+  --warning: 245 158 11;
+  --warning-foreground: 255 255 255;
+  --success: 34 197 94;
+  --success-foreground: 255 255 255;
+  --info: 59 130 246;
+  --info-foreground: 255 255 255;
+
+  --chart-1: 212 175 55;
+  --chart-2: 100 149 237;
+  --chart-3: 50 205 50;
+  --chart-4: 160 160 160;
+  --chart-5: 245 245 245;
+
+  --sidebar: 37 37 37;
+  --sidebar-foreground: 245 245 245;
+  --sidebar-primary: 212 175 55;
+  --sidebar-primary-foreground: 26 26 26;
+  --sidebar-accent: 69 69 69;
+  --sidebar-accent-foreground: 245 245 245;
+  --sidebar-border: 64 64 64;
+  --sidebar-ring: 212 175 55;
+
+  --radius-sm: 0.25rem;
+  --radius-base: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+/* Legacy .dark class support (can be removed later) */
+.dark {
+  --background: 26 26 26;
+  --foreground: 245 245 245;
+  --card: 37 37 37;
+  --card-foreground: 245 245 245;
+  --popover: 37 37 37;
+  --popover-foreground: 245 245 245;
+  --primary: 212 175 55;
+  --primary-foreground: 26 26 26;
+  --secondary: 69 69 69;
+  --secondary-foreground: 245 245 245;
+  --muted: 69 69 69;
+  --muted-foreground: 160 160 160;
+  --accent: 69 69 69;
+  --accent-foreground: 245 245 245;
+  --destructive: 220 38 38;
+  --border: 64 64 64;
+  --input: 64 64 64;
+  --ring: 212 175 55;
 }
 
 @layer base {
