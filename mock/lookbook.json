@@ -1,0 +1,34 @@
+[
+  {
+    "id": "look_001",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80",
+      "alt": "Minimalistyczny salon z sofą modułową"
+    },
+    "caption": "Modułowa strefa relaksu"
+  },
+  {
+    "id": "look_002",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80",
+      "alt": "Elegancka jadalnia z dębowym stołem"
+    },
+    "caption": "Przestrzeń do dzielenia się chwilami"
+  },
+  {
+    "id": "look_003",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80",
+      "alt": "Przytulna sypialnia z tapicerowanym łóżkiem"
+    },
+    "caption": "Strefa odpoczynku"
+  },
+  {
+    "id": "look_004",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+      "alt": "Nowoczesne biuro domowe"
+    },
+    "caption": "Inspiracja do pracy"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "title": "Perfekcja w prostocie",
+  "subtitle": "Każdy detal ma znaczenie. Odkryj kolekcję mebli, które łączą ponadczasowy design z najwyższą jakością rzemiosła.",
+  "media": {
+    "type": "image",
+    "src": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2400&auto=format&fit=crop",
+    "alt": "Eleganckie wnętrze z nowoczesnymi meblami"
+  },
+  "cta": {
+    "primary": {
+      "label": "Odkryj Kolekcję",
+      "href": "#kolekcje"
+    },
+    "secondary": {
+      "label": "Zobacz inspiracje",
+      "href": "#lookbook"
+    }
+  }
+}
