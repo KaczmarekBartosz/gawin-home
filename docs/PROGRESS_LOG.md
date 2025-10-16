@@ -97,6 +97,18 @@ Status: COMPLETED
 
 - Faza wydajnościowa (placeholder blur, lazy-loading, Lighthouse ≥ 90) do domknięcia w kolejnym sprincie funkcjonalnym.
 
+### 2025-10-18 - Styl Fine-tuning „WEAVE × GAWIN” (Codex)
+
+#### ✅ Task: Premium art direction & storytelling
+
+Status: COMPLETED
+
+**Co zrobiono:**
+
+- Hero otrzymał studyjny render, monumentalną typografię i kapsułę CTA z ceną; dark product block oraz footer zostały wzbogacone o glass, gradienty złoto–miedź i typograficzne tła 5%.
+- Kolekcje zamieniono w plakaty, bestsellery zyskały większy oddech i uproszczone ProductCardy, value props mają outline’owe ikony premium, lookbook uzyskał asymetrię i storytelling, newsletter stał się aspiracyjną sceną „Dołącz do świata GAWIN”.
+- Ujednolicono ikonografię, tonalność kolorów i zaktualizowano logi (`docs/IMPLEMENTATION_PROGRESS.md`).
+
 ### 2025-10-15 - Design Unblock (Mock)
 
 #### ✅ Task: Przygotowanie mocków i pełnej strony głównej do projektowania

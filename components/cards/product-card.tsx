@@ -116,23 +116,20 @@ export function ProductCard({
         </div>
 
         <div className="space-y-6 px-8 py-10 md:px-10 md:py-12">
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-gold">
+          <div className="space-y-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-brand-gold/80">
               {product.category}
             </p>
-            <h3 className="text-xl font-semibold text-brand-charcoal line-clamp-2">
+            <h3 className="text-2xl font-semibold tracking-[-0.01em] text-brand-charcoal">
               {product.name}
             </h3>
-            <p className="text-sm text-[color:oklch(0.45_0_0)] line-clamp-2">
-              {product.description}
-            </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
             {product.fabrics.slice(0, 4).map((fabric) => (
               <span
                 key={fabric.id}
-                className="size-8 rounded-full border border-neutral-200 shadow-sm"
+                className="size-7 rounded-full border border-neutral-200 shadow-sm"
                 style={{ backgroundColor: fabric.swatch }}
                 title={fabric.name}
               />
@@ -146,16 +143,16 @@ export function ProductCard({
 
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-lg font-semibold text-brand-charcoal">
+              <p className="text-xl font-semibold text-brand-charcoal">
                 {priceLabel}
               </p>
               {compareLabel && (
-                <p className="text-sm text-[color:oklch(0.45_0_0)] line-through">
+                <p className="text-sm text-neutral-500 line-through">
                   {compareLabel}
                 </p>
               )}
             </div>
-            <div className="text-right text-sm text-[color:oklch(0.45_0_0)]">
+            <div className="text-right text-sm text-neutral-500">
               <span>
                 {product.dimensions.w}×{product.dimensions.d}×
                 {product.dimensions.h} {product.dimensions.unit}
@@ -163,16 +160,16 @@ export function ProductCard({
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-sm text-[color:oklch(0.45_0_0)]">
+          <div className="flex items-center justify-between text-xs text-neutral-500">
             <div className="flex items-center gap-1">
               {Array.from({ length: 5 }).map((_, index) => (
                 <span
                   key={index}
                   className={cn(
-                    "text-base",
+                    "text-sm",
                     index < Math.round(product.rating)
                       ? "text-brand-gold"
-                      : "text-[color:oklch(0.88_0_0)]",
+                      : "text-neutral-300",
                   )}
                 >
                   ★

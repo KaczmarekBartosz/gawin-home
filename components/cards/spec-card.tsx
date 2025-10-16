@@ -18,7 +18,7 @@ export function SpecCard({ title, items, className }: SpecCardProps) {
   return (
     <div
       className={cn(
-        "rounded-3xl border border-white/10 bg-white/8 px-8 py-10 text-brand-cream backdrop-blur",
+        "rounded-3xl border border-white/15 bg-white/10 px-8 py-10 text-brand-cream backdrop-blur-xl shadow-[0_30px_80px_rgba(0,0,0,0.35)]",
         "md:px-10 md:py-12",
         className,
       )}

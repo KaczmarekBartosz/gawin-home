@@ -58,14 +58,20 @@ export function Footer() {
   ];
 
   return (
-    <footer className="mesh-gradient-gold border-t border-brand-gold/20 relative overflow-hidden">
+    <footer className="relative overflow-hidden border-t border-brand-gold/15 bg-[radial-gradient(circle_at_top,rgba(212,165,116,0.16),transparent_55%),radial-gradient(circle_at_bottom,rgba(184,149,106,0.14),transparent_60%),linear-gradient(175deg,rgba(26,26,26,0.95),rgba(26,26,26,0.98))]">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-copper/5 rounded-full blur-3xl" />
+      <div className="absolute top-[-10%] right-[-5%] h-[420px] w-[420px] rounded-full bg-brand-gold/12 blur-3xl" />
+      <div className="absolute bottom-[-5%] left-[-10%] h-[360px] w-[360px] rounded-full bg-brand-copper/10 blur-[120px]" />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute right-6 top-12 text-[min(18vw,220px)] font-display uppercase tracking-[0.2em] text-white/5"
+      >
+        Gawin
+      </span>
 
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
+      <div className="container relative z-10 mx-auto max-w-7xl px-4 md:px-6">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 gap-10 py-16 md:grid-cols-2 lg:grid-cols-6">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 group mb-6">

@@ -319,3 +319,9 @@
 - ✅ Ujednolicono komponenty ProductCard/CategoryCard/SpecCard oraz UI atomy (Button, Input, IconButton, Accordion).
 - ✅ Zaktualizowano widoki `/listing`, `/pdp`, `/cart`, `/checkout` zgodnie ze spec (format cen `formatCurrency`, focus rings, akordeon FAQ, hotspots).
 - ℹ️ Pozostało: sekcja wydajności (placeholdery blur, lazy-load) + Lighthouse do weryfikacji w kolejnym sprincie.
+
+### 2025-10-18 16:30
+
+- ✅ Hero i sekcje ciemne przeprojektowane na studyjny klimat (nowy render, monumentalna typografia, kapsuła CTA, glassowy dark block, footer z typograficznym tłem).
+- ✅ Sekcje jasne zyskały układ „plakatowy”: kolekcje z plakatowymi kartami, bestsellery z większym oddechem, value props w stylu kart Apple, lookbook asymetryczny, newsletter storytellingowy.
+- ✅ Karty produktów uproszczone do premium meta (bez zbędnych opisów), spójne gradienty i ikonografia outline.
