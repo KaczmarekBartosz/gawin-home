@@ -46,9 +46,11 @@ pnpm install
 ```
 
 ### ✅ Weryfikacja
+
 ```bash
 pnpm dev
 ```
+
 Otwórz: http://localhost:3000 - powinna załadować się domyślna strona Vercel Commerce.
 
 ---
@@ -62,6 +64,7 @@ pnpm add zustand react-hook-form zod @hookform/resolvers
 ```
 
 **Co to daje:**
+
 - `zustand` - globalny state (koszyk, wishlist)
 - `react-hook-form` - professional forms
 - `zod` - schema validation
@@ -74,6 +77,7 @@ pnpm add lucide-react framer-motion embla-carousel-react
 ```
 
 **Co to daje:**
+
 - `lucide-react` - modern icon library
 - `framer-motion` - smooth animations
 - `embla-carousel-react` - efficient carousels
@@ -98,6 +102,7 @@ npx shadcn@latest init
 ```
 
 **Dodaj komponenty UI:**
+
 ```bash
 # Core components (Must have)
 npx shadcn@latest add button
@@ -121,6 +126,7 @@ npx shadcn@latest add skeleton
 ```
 
 ### ✅ Weryfikacja
+
 ```bash
 # Sprawdź czy powstały foldery:
 ls src/components/ui          # powinny być komponenty
@@ -141,20 +147,20 @@ Dodaj na początku pliku (ZARAZ PO `@tailwind` directives):
 @layer base {
   :root {
     /* === DARK ENTRY COLORS === */
-    --dark-bg: 26 26 26;           /* #1a1a1a */
-    --dark-surface: 37 37 37;       /* #252525 */
-    --gold-primary: 212 175 55;     /* #d4af37 */
-    --gold-hover: 193 155 43;       /* #c19b2b */
-    --text-light: 245 245 245;      /* #f5f5f5 */
-    --text-muted: 160 160 160;      /* #a0a0a0 */
+    --dark-bg: 26 26 26; /* #1a1a1a */
+    --dark-surface: 37 37 37; /* #252525 */
+    --gold-primary: 212 175 55; /* #d4af37 */
+    --gold-hover: 193 155 43; /* #c19b2b */
+    --text-light: 245 245 245; /* #f5f5f5 */
+    --text-muted: 160 160 160; /* #a0a0a0 */
 
     /* === LIGHT SHOWROOM COLORS === */
-    --light-bg: 255 255 255;        /* #ffffff */
-    --cream-bg: 245 245 240;        /* #f5f5f0 */
-    --light-surface: 250 250 250;   /* #fafafa */
-    --border-light: 229 229 229;    /* #e5e5e5 */
-    --text-dark: 26 26 26;          /* #1a1a1a */
-    --text-gray: 102 102 102;       /* #666666 */
+    --light-bg: 255 255 255; /* #ffffff */
+    --cream-bg: 245 245 240; /* #f5f5f0 */
+    --light-surface: 250 250 250; /* #fafafa */
+    --border-light: 229 229 229; /* #e5e5e5 */
+    --text-dark: 26 26 26; /* #1a1a1a */
+    --text-gray: 102 102 102; /* #666666 */
 
     /* === SEMANTIC COLORS (Already in Commerce) === */
     /* Użyj istniejących z Vercel Commerce i dodaj nasze custom */
@@ -200,8 +206,8 @@ const buttonVariants = cva(
         // ... reszta wariantów
       },
       // ...
-    }
-  }
+    },
+  },
 );
 ```
 
@@ -210,6 +216,7 @@ const buttonVariants = cva(
 Vercel Commerce już ma Geist font. Jeśli chcesz dodać Space Grotesk:
 
 **Edytuj `src/app/layout.tsx`:**
+
 ```typescript
 import { GeistSans } from "geist/font/sans";
 import { Space_Grotesk } from "next/font/google";
@@ -250,6 +257,7 @@ mkdir -p public/images/{products,categories,hero,logos}
 ### 4.2 Utwórz Podstawowe Pliki Config
 
 **Utwórz `src/config/site.ts`:**
+
 ```typescript
 export const siteConfig = {
   name: "Gawin Home",
@@ -259,6 +267,7 @@ export const siteConfig = {
 ```
 
 **Utwórz `src/lib/utils.ts` (jeśli nie istnieje):**
+
 ```typescript
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -282,6 +291,7 @@ export function formatPrice(amount: number, currency: string = "PLN"): string {
 ### 5.1 Cart Store
 
 **Utwórz `src/stores/useCartStore.ts`:**
+
 ```typescript
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
@@ -318,7 +328,7 @@ export const useCartStore = create<CartStore>()(
               items: state.items.map((i) =>
                 i.id === item.id
                   ? { ...i, quantity: i.quantity + item.quantity }
-                  : i
+                  : i,
               ),
             };
           }
@@ -336,7 +346,7 @@ export const useCartStore = create<CartStore>()(
       updateQuantity: (id, quantity) => {
         set((state) => ({
           items: state.items.map((item) =>
-            item.id === id ? { ...item, quantity } : item
+            item.id === id ? { ...item, quantity } : item,
           ),
         }));
       },
@@ -352,14 +362,14 @@ export const useCartStore = create<CartStore>()(
       getTotalPrice: () => {
         return get().items.reduce(
           (total, item) => total + item.price * item.quantity,
-          0
+          0,
         );
       },
     }),
     {
       name: "gawin-cart-storage",
-    }
-  )
+    },
+  ),
 );
 ```
 
@@ -372,6 +382,7 @@ export const useCartStore = create<CartStore>()(
 ```bash
 pnpm dev
 ```
+
 Otwórz: http://localhost:3000
 
 ### 6.2 Production Build
@@ -381,6 +392,7 @@ pnpm build
 ```
 
 **Sprawdź output:**
+
 - ✅ Build success
 - ✅ No TypeScript errors
 - ✅ No ESLint errors
@@ -434,11 +446,13 @@ Po ukończeniu Quick Start, sprawdź:
 **Po ukończeniu Quick Start, przejdź do:**
 
 1. **Data Layer Setup** (`IMPLEMENTATION_PLAN.md` → Phase 3)
+
    - Utwórz TypeScript types
    - Dodaj mock data (products.json)
    - Test data loading
 
 2. **Homepage Implementation** (`IMPLEMENTATION_PLAN.md` → Phase 4)
+
    - Header component
    - Hero section (dark entry)
    - Featured products
@@ -476,6 +490,7 @@ npx shadcn@latest add --help        # Lista komponentów
 ### Problem: `pnpm dev` nie startuje
 
 **Rozwiązanie:**
+
 ```bash
 # Usuń node_modules i lockfile
 rm -rf node_modules pnpm-lock.yaml
@@ -491,6 +506,7 @@ pnpm dev
 
 **Rozwiązanie:**
 Sprawdź dokładną ścieżkę:
+
 ```bash
 # Może być:
 # - src/app/globals.css
@@ -503,6 +519,7 @@ Sprawdź dokładną ścieżkę:
 ### Problem: TypeScript errors w `button.tsx`
 
 **Rozwiązanie:**
+
 ```bash
 # Update types
 pnpm add -D @types/react@latest @types/node@latest

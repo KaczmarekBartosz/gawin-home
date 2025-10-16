@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { ArrowRight, Phone } from 'lucide-react';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ArrowRight, Phone } from "lucide-react";
+import Image from "next/image";
 
 export function CTASection() {
   return (
@@ -41,25 +41,30 @@ export function CTASection() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-cream mb-6 leading-tight">
-              Gotowy na{' '}
+              Gotowy na{" "}
               <span className="gradient-gold-premium bg-clip-text text-transparent">
                 transformację
-              </span>{' '}
+              </span>{" "}
               swojego wnętrza?
             </h2>
             <p className="text-xl text-brand-cream/80 mb-8 leading-relaxed">
-              Umów się na bezpłatną konsultację z naszym doradcą. Pomożemy Ci wybrać idealne
-              meble, które odzwierciedlą Twój styl i spełnią wszystkie oczekiwania.
+              Umów się na bezpłatną konsultację z naszym doradcą. Pomożemy Ci
+              wybrać idealne meble, które odzwierciedlą Twój styl i spełnią
+              wszystkie oczekiwania.
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mb-10">
               <div className="glass-dark rounded-xl p-4 text-center">
-                <p className="text-3xl font-bold text-brand-gold mb-1">2,500+</p>
+                <p className="text-3xl font-bold text-brand-gold mb-1">
+                  2,500+
+                </p>
                 <p className="text-sm text-brand-cream/70">Klientów</p>
               </div>
               <div className="glass-dark rounded-xl p-4 text-center">
-                <p className="text-3xl font-bold text-brand-gold mb-1">10 lat</p>
+                <p className="text-3xl font-bold text-brand-gold mb-1">
+                  10 lat
+                </p>
                 <p className="text-sm text-brand-cream/70">Gwarancji</p>
               </div>
               <div className="glass-dark rounded-xl p-4 text-center">
@@ -117,7 +122,9 @@ export function CTASection() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="absolute -bottom-6 -left-6 glass-light rounded-2xl p-6 border-gradient-gold"
             >
-              <p className="text-sm text-brand-charcoal/60 mb-1">Średni czas realizacji</p>
+              <p className="text-sm text-brand-charcoal/60 mb-1">
+                Średni czas realizacji
+              </p>
               <p className="text-2xl font-bold text-brand-gold">14-30 dni</p>
             </motion.div>
 

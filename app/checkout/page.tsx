@@ -257,9 +257,7 @@ function Stepper() {
               <p className="text-sm font-semibold text-brand-charcoal">
                 {step.label}
               </p>
-              <p className="text-xs text-neutral-600">
-                {step.description}
-              </p>
+              <p className="text-xs text-neutral-600">{step.description}</p>
             </div>
           </div>
         </div>

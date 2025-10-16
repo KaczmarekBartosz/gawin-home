@@ -1,15 +1,18 @@
-import { CircularProgress } from 'components/ui/circular-progress';
-import { cn } from 'lib/utils';
-import Image from 'next/image';
-import Link from 'next/link';
-import type { Product } from 'lib/shopify/types';
+import { CircularProgress } from "components/ui/circular-progress";
+import { cn } from "lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import type { Product } from "lib/shopify/types";
 
 export interface ProductCardWellnessProps {
   product: Product;
   className?: string;
 }
 
-export function ProductCardWellness({ product, className }: ProductCardWellnessProps) {
+export function ProductCardWellness({
+  product,
+  className,
+}: ProductCardWellnessProps) {
   const { handle, title, featuredImage, priceRange } = product;
 
   // Mock metrics for Wellness Tech style (replace with real data later)
@@ -25,13 +28,13 @@ export function ProductCardWellness({ product, className }: ProductCardWellnessP
     <Link
       href={`/product/${handle}`}
       className={cn(
-        'group block',
-        'rounded-lg bg-card', // 24px rounded - characteristic of Wellness Tech
-        'border border-border',
-        'overflow-hidden',
-        'transition-all duration-200',
-        'hover:shadow-lg hover:scale-[1.02]',
-        className
+        "group block",
+        "rounded-lg bg-card", // 24px rounded - characteristic of Wellness Tech
+        "border border-border",
+        "overflow-hidden",
+        "transition-all duration-200",
+        "hover:shadow-lg hover:scale-[1.02]",
+        className,
       )}
     >
       {/* Product Image */}
@@ -54,7 +57,9 @@ export function ProductCardWellness({ product, className }: ProductCardWellnessP
       {/* Product Info */}
       <div className="p-6 space-y-4">
         {/* Title */}
-        <h3 className="text-lg font-semibold text-foreground line-clamp-2">{title}</h3>
+        <h3 className="text-lg font-semibold text-foreground line-clamp-2">
+          {title}
+        </h3>
 
         {/* Metrics - Circular Progress Indicators (Wellness Tech signature) */}
         <div className="flex justify-between gap-4">
@@ -84,17 +89,19 @@ export function ProductCardWellness({ product, className }: ProductCardWellnessP
             <span className="text-2xl font-bold text-[rgb(var(--accent))]">
               {price.amount}
             </span>
-            <span className="ml-1 text-sm text-muted-foreground">{price.currencyCode}</span>
+            <span className="ml-1 text-sm text-muted-foreground">
+              {price.currencyCode}
+            </span>
           </div>
           <button
             className={cn(
-              'px-4 py-2',
-              'rounded-lg', // 24px - Wellness Tech radius
-              'bg-[rgb(var(--accent))] text-white',
-              'font-medium text-sm',
-              'transition-opacity duration-200',
-              'hover:opacity-90',
-              'active:scale-95'
+              "px-4 py-2",
+              "rounded-lg", // 24px - Wellness Tech radius
+              "bg-[rgb(var(--accent))] text-white",
+              "font-medium text-sm",
+              "transition-opacity duration-200",
+              "hover:opacity-90",
+              "active:scale-95",
             )}
           >
             Zobacz

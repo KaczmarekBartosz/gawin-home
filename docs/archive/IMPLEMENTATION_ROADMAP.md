@@ -26,6 +26,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ## ETAP 1: Przygotowanie Infrastruktury (Foundation)
 
 ### 1.1 System Kolorów i Design Tokens
+
 - [x] Zdefiniowano theme w `lib/design-system/themes/hybrid-luxury.ts`
 - [x] Skonfigurowano CSS variables w `app/globals.css`
 - [ ] **TODO:** Dodać wszystkie kolory z DESIGN_GUIDELINES.md do CSS:
@@ -37,6 +38,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
   - `--neutral-border: #E5E7EB`
 
 ### 1.2 Komponenty UI Podstawowe (zgodnie z DESIGN_GUIDELINES)
+
 - [ ] **Button Component** - CVA variants:
   - [ ] `primary` - Gradient (gold → copper), `rounded-xl`
   - [ ] `secondary` - Outline gold, `rounded-xl`
@@ -52,6 +54,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
   - [ ] Focus: `border-brand-gold ring-2 ring-brand-gold/50`
 
 ### 1.3 Typografia (Geist Sans)
+
 - [x] Geist Sans zainstalowany
 - [ ] **TODO:** Zdefiniować utility classes w `globals.css`:
   - [ ] Display: `text-5xl lg:text-7xl font-bold tracking-tighter`
@@ -66,9 +69,11 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ## ETAP 2: Strona Główna - Sekcje (Homepage Sections)
 
 ### 2.1 Hero Section (Tryb "Elegancki")
+
 **Opis:** Kinematograficzne, pełnoekranowe wejście. Tło wideo/zdjęcie, ciemna nakładka.
 
 **Komponenty do stworzenia:**
+
 - [ ] `components/sections/home/HeroSection.tsx`
   - [ ] Pełnoekranowy layout (`min-h-screen`)
   - [ ] Background video/image
@@ -83,6 +88,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
   - [ ] Framer Motion: `initial={{ opacity: 0, y: 30 }}`
 
 **Specyfikacja techniczna:**
+
 - Tryb: Elegancki (ciemny)
 - Ikony: `strokeWidth={1.5}`, `h-5 w-5`
 - Animacja: `duration: 0.5`, `ease: "easeOut"`
@@ -90,9 +96,11 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ---
 
 ### 2.2 Nawigacja i Mega Menu (Sticky Header)
+
 **Opis:** Lepka nawigacja z mega menu rozwijanym po hover.
 
 **Komponenty do stworzenia:**
+
 - [ ] `components/layout/header/Header.tsx` - refaktoryzacja istniejącego
   - [ ] Sticky: `sticky top-0 z-50`
   - [ ] Transition: transparent → solid przy scroll
@@ -110,6 +118,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
   - [ ] Accordion dla kategorii
 
 **Struktura menu:**
+
 - Łóżka → [Wg. Stylu, Wg. Rozmiaru]
 - Sofy → [Wg. Stylu, Wg. Rozmiaru]
 - Stoły → [Wg. Stylu, Wg. Rozmiaru]
@@ -118,9 +127,11 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ---
 
 ### 2.3 Prezentacja Kolekcji (Tryb "Showroom")
+
 **Opis:** Siatka 3-4 kafelków z kategoriami.
 
 **Komponenty do stworzenia:**
+
 - [ ] `components/sections/home/CollectionsSection.tsx`
   - [ ] Tło: `bg-brand-sand`
   - [ ] Nagłówek H2: "Nasze Kolekcje"
@@ -132,14 +143,17 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
   - [ ] Hover: `shadow-lg`
 
 **Dane do przygotowania:**
+
 - [ ] `data/categories.json` - 4-6 kategorii ze zdjęciami
 
 ---
 
 ### 2.4 Bestsellery / Polecane Produkty (Tryb "Showroom")
+
 **Opis:** KLUCZOWA SEKCJA. Siatka produktów z pełną funkcjonalnością.
 
 **Komponenty do stworzenia:**
+
 - [ ] `components/sections/home/BestsellersSection.tsx`
   - [ ] Tło: `bg-brand-cream`
   - [ ] Nagłówek H2: "Bestsellery"
@@ -172,6 +186,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
     - [ ] `opacity-0 group-hover:opacity-100`
 
 **Dane do przygotowania:**
+
 - [ ] `data/products.json` - 10-12 produktów z pełnymi danymi:
   - [ ] Minimum 2 zdjęcia na produkt
   - [ ] Dostępne kolory (hex)
@@ -183,9 +198,11 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ---
 
 ### 2.5 Inspiracje / Lifestyle Imagery (Tryb "Elegancki/Mieszany")
+
 **Opis:** Shoppable images - zdjęcia aranżacji z tagami produktów.
 
 **Komponenty do stworzenia:**
+
 - [ ] `components/sections/home/InspirationsSection.tsx`
   - [ ] Pełnoekranowy baner lub gallery
   - [ ] 2-3 duże zdjęcia lifestyle
@@ -196,15 +213,18 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
   - [ ] Animacja: fade in tagów
 
 **Dane do przygotowania:**
+
 - [ ] 2-3 wysokiej jakości zdjęcia aranżacji wnętrz
 - [ ] JSON z pozycjami tagów (x, y, productId)
 
 ---
 
 ### 2.6 Sygnały Zaufania / Social Proof (Tryb "Showroom")
+
 **Opis:** Opinie klientów + logotypy płatności + gwarancje.
 
 **Komponenty do stworzenia:**
+
 - [ ] `components/sections/home/SocialProofSection.tsx`
   - [ ] Podsekcja 1: Karuzela opinii
   - [ ] Podsekcja 2: Logotypy płatności
@@ -219,15 +239,18 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
   - [ ] Tekst (np. "30 dni na zwrot")
 
 **Dane do przygotowania:**
+
 - [ ] `data/testimonials.json` - 3-5 opinii klientów
 - [ ] Logotypy: Przelewy24, Blik, Visa, Mastercard, FSC
 
 ---
 
 ### 2.7 Newsletter (Tryb "Showroom")
+
 **Opis:** Formularz zapisu do newslettera z zachętą (-10%).
 
 **Komponenty do stworzenia:**
+
 - [ ] `components/sections/home/NewsletterSection.tsx`
   - [ ] Nagłówek H3: "Dołącz do naszego klubu"
   - [ ] Podtytuł: "Otrzymaj -10% na pierwsze zakupy"
@@ -239,9 +262,11 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ---
 
 ### 2.8 Stopka / Footer (Tryb "Elegancki")
+
 **Opis:** Rozbudowany hub informacyjny z linkami i informacjami prawnymi.
 
 **Komponenty do stworzenia:**
+
 - [ ] `components/layout/footer/Footer.tsx`
   - [ ] Tło: `bg-brand-charcoal`
   - [ ] Tekst: `text-brand-cream`
@@ -259,6 +284,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ## ETAP 3: Dane Testowe (Mock Data)
 
 ### 3.1 Produkty
+
 - [ ] `data/products.json` - Minimum 10-12 produktów:
   - [ ] Łóżka (4 produkty)
   - [ ] Sofy (3 produkty)
@@ -266,6 +292,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
   - [ ] Oświetlenie (2 produkty)
 
 **Struktura każdego produktu:**
+
 ```json
 {
   "id": "prod_001",
@@ -302,12 +329,15 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ```
 
 ### 3.2 Kategorie
+
 - [ ] `data/categories.json` - 4-6 kategorii ze zdjęciami
 
 ### 3.3 Opinie
+
 - [ ] `data/testimonials.json` - 5 opinii klientów
 
 ### 3.4 Inspiracje
+
 - [ ] `data/inspirations.json` - 2-3 lifestyle images z tagami
 
 ---
@@ -315,6 +345,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ## ETAP 4: Integracja i Połączenie (Integration)
 
 ### 4.1 Strona Główna (app/page.tsx)
+
 - [ ] Import wszystkich sekcji
 - [ ] Ułożenie w kolejności narracji:
   1. Hero
@@ -326,11 +357,13 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 - [ ] Footer (w layout.tsx)
 
 ### 4.2 Animacje (Framer Motion)
+
 - [ ] Dodać `whileInView` do wszystkich sekcji
 - [ ] Stagger dla list produktów
 - [ ] Smooth scroll behavior
 
 ### 4.3 Responsywność
+
 - [ ] Test mobile (375px - iPhone SE)
 - [ ] Test tablet (768px - iPad)
 - [ ] Test desktop (1440px - laptop)
@@ -341,24 +374,28 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ## ETAP 5: Optymalizacja i Polish
 
 ### 5.1 Performance
+
 - [ ] Image optimization (Next.js Image)
 - [ ] Lazy loading dla sekcji
 - [ ] Code splitting
 - [ ] Bundle analysis
 
 ### 5.2 Accessibility
+
 - [ ] ARIA labels dla wszystkich interaktywnych elementów
 - [ ] Keyboard navigation
 - [ ] Focus states (wszystkie zgodne z `ring-brand-gold`)
 - [ ] Alt texts dla wszystkich obrazków
 
 ### 5.3 SEO
+
 - [ ] Metadata API (all pages)
 - [ ] Structured data (Product schema)
 - [ ] Sitemap
 - [ ] robots.txt
 
 ### 5.4 Testing
+
 - [ ] Manual testing (wszystkie flow)
 - [ ] Cross-browser (Chrome, Firefox, Safari)
 - [ ] Lighthouse audit (target: >90)
@@ -368,6 +405,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ## Checklist Główny (Quick Overview)
 
 ### Infrastructure ✅ / ⏳
+
 - [x] Theme system (hybrid-luxury)
 - [x] CSS variables
 - [ ] Button component (3 variants)
@@ -376,6 +414,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 - [ ] Typography utilities
 
 ### Homepage Sections ⏳
+
 - [ ] Hero Section
 - [ ] Navigation + Mega Menu
 - [ ] Collections Section
@@ -386,12 +425,14 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 - [ ] Footer
 
 ### Data ⏳
+
 - [ ] products.json (10-12 items)
 - [ ] categories.json (4-6 items)
 - [ ] testimonials.json (5 items)
 - [ ] inspirations.json (2-3 items)
 
 ### Integration ⏳
+
 - [ ] app/page.tsx - all sections
 - [ ] Framer Motion animations
 - [ ] Responsiveness
@@ -404,12 +445,14 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ## Uwagi Techniczne
 
 ### Konwencje CSS
+
 - **Przyciski:** ZAWSZE `rounded-xl` - NIGDY inaczej!
 - **Karty:** ZAWSZE `rounded-2xl`
 - **Ikony:** ZAWSZE `strokeWidth={1.5}`
 - **Złoto (#d4a574):** TYLKO dla CTA, cen, linków, focus states
 
 ### Framer Motion Pattern
+
 ```tsx
 <motion.div
   initial={{ opacity: 0, y: 30 }}
@@ -422,6 +465,7 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 ```
 
 ### Product Card Hover Pattern
+
 ```tsx
 <div className="group">
   <div className="overflow-hidden">
@@ -437,13 +481,13 @@ Skupiamy się na **perfekcyjnym wykonaniu** podstawowych funkcji zgodnie z filoz
 
 ## Status Realizacji
 
-| Etap | Postęp | Status |
-|------|--------|--------|
-| ETAP 1: Infrastructure | 40% | 🟡 W trakcie |
-| ETAP 2: Homepage Sections | 0% | 🔴 Oczekujące |
-| ETAP 3: Mock Data | 0% | 🔴 Oczekujące |
-| ETAP 4: Integration | 0% | 🔴 Oczekujące |
-| ETAP 5: Optimization | 0% | 🔴 Oczekujące |
+| Etap                      | Postęp | Status        |
+| ------------------------- | ------ | ------------- |
+| ETAP 1: Infrastructure    | 40%    | 🟡 W trakcie  |
+| ETAP 2: Homepage Sections | 0%     | 🔴 Oczekujące |
+| ETAP 3: Mock Data         | 0%     | 🔴 Oczekujące |
+| ETAP 4: Integration       | 0%     | 🔴 Oczekujące |
+| ETAP 5: Optimization      | 0%     | 🔴 Oczekujące |
 
 **Ogólny postęp:** 8% (infrastructure częściowo gotowa)
 

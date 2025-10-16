@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -44,8 +44,8 @@ export function HeroSection() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-[#a0a0a0] max-w-2xl mx-auto mb-12 leading-relaxed font-sans">
-              Każdy detal ma znaczenie. Odkryj kolekcję mebli,
-              które łączą ponadczasowy design z najwyższą jakością rzemiosła.
+              Każdy detal ma znaczenie. Odkryj kolekcję mebli, które łączą
+              ponadczasowy design z najwyższą jakością rzemiosła.
             </p>
 
             {/* CTA Buttons */}
@@ -56,13 +56,12 @@ export function HeroSection() {
                 className="text-base px-8 group"
               >
                 <span>Odkryj Kolekcję</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
+                <ArrowRight
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                  strokeWidth={1.5}
+                />
               </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-base px-8"
-              >
+              <Button variant="outline" size="lg" className="text-base px-8">
                 Umów konsultację
               </Button>
             </div>
@@ -77,15 +76,21 @@ export function HeroSection() {
           >
             <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">10 lat</p>
+                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">
+                  10 lat
+                </p>
                 <p className="text-sm text-[#a0a0a0]">Gwarancji</p>
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">2,500+</p>
+                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">
+                  2,500+
+                </p>
                 <p className="text-sm text-[#a0a0a0]">Klientów</p>
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">4.9/5</p>
+                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">
+                  4.9/5
+                </p>
                 <p className="text-sm text-[#a0a0a0]">Ocena</p>
               </div>
             </div>
@@ -102,7 +107,7 @@ export function HeroSection() {
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2"
         >
           <div className="w-1 h-2 bg-[#d4af37] rounded-full" />

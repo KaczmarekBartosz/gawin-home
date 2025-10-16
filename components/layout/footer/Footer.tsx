@@ -1,53 +1,60 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import Link from "next/link";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     shop: [
-      { label: 'Wszystkie produkty', href: '/products' },
-      { label: 'Nowości', href: '/products?filter=new' },
-      { label: 'Promocje', href: '/products?filter=sale' },
-      { label: 'Bestsellery', href: '/products?filter=bestsellers' },
+      { label: "Wszystkie produkty", href: "/products" },
+      { label: "Nowości", href: "/products?filter=new" },
+      { label: "Promocje", href: "/products?filter=sale" },
+      { label: "Bestsellery", href: "/products?filter=bestsellers" },
     ],
     categories: [
-      { label: 'Łóżka', href: '/category/lozka' },
-      { label: 'Sofy', href: '/category/sofy' },
-      { label: 'Stoły', href: '/category/stoly' },
-      { label: 'Oświetlenie', href: '/category/oswietlenie' },
+      { label: "Łóżka", href: "/category/lozka" },
+      { label: "Sofy", href: "/category/sofy" },
+      { label: "Stoły", href: "/category/stoly" },
+      { label: "Oświetlenie", href: "/category/oswietlenie" },
     ],
     company: [
-      { label: 'O nas', href: '/about' },
-      { label: 'Kontakt', href: '/contact' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Kariera', href: '/career' },
+      { label: "O nas", href: "/about" },
+      { label: "Kontakt", href: "/contact" },
+      { label: "Blog", href: "/blog" },
+      { label: "Kariera", href: "/career" },
     ],
     help: [
-      { label: 'Dostawa', href: '/delivery' },
-      { label: 'Zwroty', href: '/returns' },
-      { label: 'Gwarancja', href: '/warranty' },
-      { label: 'FAQ', href: '/faq' },
+      { label: "Dostawa", href: "/delivery" },
+      { label: "Zwroty", href: "/returns" },
+      { label: "Gwarancja", href: "/warranty" },
+      { label: "FAQ", href: "/faq" },
     ],
     legal: [
-      { label: 'Regulamin', href: '/terms' },
-      { label: 'Polityka prywatności', href: '/privacy' },
-      { label: 'Polityka cookies', href: '/cookies' },
+      { label: "Regulamin", href: "/terms" },
+      { label: "Polityka prywatności", href: "/privacy" },
+      { label: "Polityka cookies", href: "/cookies" },
     ],
   };
 
   const socialLinks = [
-    { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-    { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
   ];
 
   const contactInfo = [
-    { icon: Phone, text: '+48 123 456 789' },
-    { icon: Mail, text: 'kontakt@gawin-home.pl' },
-    { icon: MapPin, text: 'ul. Przykładowa 123, 00-001 Warszawa' },
+    { icon: Phone, text: "+48 123 456 789" },
+    { icon: Mail, text: "kontakt@gawin-home.pl" },
+    { icon: MapPin, text: "ul. Przykładowa 123, 00-001 Warszawa" },
   ];
 
   return (
@@ -70,8 +77,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-brand-cream/80 mb-6 leading-relaxed">
-              Meble premium, które łączą ponadczasowy design z najwyższą jakością wykonania.
-              Perfekcja w prostocie.
+              Meble premium, które łączą ponadczasowy design z najwyższą
+              jakością wykonania. Perfekcja w prostocie.
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3">
@@ -86,7 +93,10 @@ export function Footer() {
                     className="p-3 glass-dark rounded-xl hover:glass-gold transition-all duration-300 hover:scale-110"
                     aria-label={social.label}
                   >
-                    <Icon className="h-5 w-5 text-brand-cream" strokeWidth={1.5} />
+                    <Icon
+                      className="h-5 w-5 text-brand-cream"
+                      strokeWidth={1.5}
+                    />
                   </a>
                 );
               })}
@@ -112,7 +122,9 @@ export function Footer() {
 
           {/* Categories Links */}
           <div>
-            <h3 className="text-brand-cream font-bold mb-4 text-lg">Kategorie</h3>
+            <h3 className="text-brand-cream font-bold mb-4 text-lg">
+              Kategorie
+            </h3>
             <ul className="space-y-3">
               {footerLinks.categories.map((link) => (
                 <li key={link.href}>
@@ -170,9 +182,14 @@ export function Footer() {
               return (
                 <div key={info.text} className="flex items-center gap-3">
                   <div className="p-2 glass-dark rounded-lg">
-                    <Icon className="h-5 w-5 text-brand-gold" strokeWidth={1.5} />
+                    <Icon
+                      className="h-5 w-5 text-brand-gold"
+                      strokeWidth={1.5}
+                    />
                   </div>
-                  <span className="text-brand-cream/80 text-sm">{info.text}</span>
+                  <span className="text-brand-cream/80 text-sm">
+                    {info.text}
+                  </span>
                 </div>
               );
             })}

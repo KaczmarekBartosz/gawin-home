@@ -80,9 +80,7 @@ export default function CartPage() {
                     <h2 className="text-lg font-semibold text-brand-charcoal">
                       {line.product.name}
                     </h2>
-                    <p className="text-sm text-neutral-600">
-                      {line.variant}
-                    </p>
+                    <p className="text-sm text-neutral-600">{line.variant}</p>
                   </div>
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-sm font-medium text-brand-charcoal">

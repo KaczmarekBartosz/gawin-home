@@ -7,24 +7,24 @@
 
 ## 📊 Status Postępu
 
-| Phase        | Task                                                          | Status     | Data       | Czas    | Notatki                                                      |
-| ------------ | ------------------------------------------------------------- | ---------- | ---------- | ------- | ------------------------------------------------------------ |
-| **Planning** | Utworzenie dokumentacji projektu                              | ✅ DONE    | 2025-10-15 | 45 min  | CLAUDE.md, IMPLEMENTATION_PLAN.md, QUICKSTART.md             |
-| **Phase 1**  | Inicjalizacja projektu Next.js                                | ✅ DONE    | 2025-10-15 | 10 min  | Vercel Commerce + stable versions                            |
-| **Phase 1**  | Instalacja dependencies                                       | ✅ DONE    | 2025-10-15 | 5 min   | zustand, RHF, zod, framer-motion, lucide, embla              |
-| **Phase 1**  | Setup shadcn/ui                                               | ✅ DONE    | 2025-10-15 | 20 min  | 13 components + custom rounded-xl                            |
-| **Phase 1**  | Git init + pierwszy commit                                    | ✅ DONE    | 2025-10-15 | 5 min   | Commit 4bf0e1b + 80ca885 + 1e91ac9                           |
-| **Phase 2**  | Homepage Dark Entry design                                    | ✅ DONE    | 2025-10-15 | 25 min  | Hero + Featured + Categories + Newsletter                    |
-| **Phase 2**  | Fix 'use cache' dla stable Next.js                            | ✅ DONE    | 2025-10-15 | 5 min   | 7 funkcji w lib/shopify                                      |
-| **Phase 2**  | Mock Mode dla production build                                | ✅ DONE    | 2025-10-15 | 20 min  | 9 funkcji w try-catch, build SUCCESS                         |
-| **Phase 2**  | Aktualizacja design tokens + globals.css                      | ✅ DONE    | 2025-10-17 | 90 min  | OKLCH palette, font variables, utilities, motion tokens      |
-| **Phase 2**  | UI toolkit (Button, Input, Textarea, IconButton)              | ✅ DONE    | 2025-10-17 | 60 min  | Gradient CTA, focus rings, premium interactions              |
-| **Phase 3**  | Mock data (products, hero, categories, value props, lookbook) | ✅ DONE    | 2025-10-17 | 75 min  | 12 produktów z pełnymi danymi + adapter rewrite              |
-| **Phase 4**  | Widoki makiet Home / Listing / PDP                            | ✅ DONE    | 2025-10-17 | 120 min | Sekcje zgodne z Biblią, mock navigation                      |
-| **Phase 5**  | Motion presets & mikrointerakcje                              | ✅ DONE    | 2025-10-17 | 45 min  | `motion/presets.ts`, fadeInUp, scroll overflow, hover states |
-| **Phase 6**  | Koszyk + Checkout (makiety)                                   | ✅ DONE    | 2025-10-17 | 90 min  | Layout koszyka, checkout 3-krokowy, CTA mock                 |
-| **Phase 6**  | Dokumentacja postępu & QA checklist                           | ✅ DONE    | 2025-10-17 | 30 min  | Zaktualizowano IMPLEMENTATION_PROGRESS + log                 |
-| **Phase 7**  | Polish & Deploy (styl `nowy_styl.md`)                         | ✅ DONE    | 2025-10-18 | 150 min | Kompletny theming, sekcje home, update PDP/listing/cart/checkout |
+| Phase        | Task                                                          | Status  | Data       | Czas    | Notatki                                                          |
+| ------------ | ------------------------------------------------------------- | ------- | ---------- | ------- | ---------------------------------------------------------------- |
+| **Planning** | Utworzenie dokumentacji projektu                              | ✅ DONE | 2025-10-15 | 45 min  | CLAUDE.md, IMPLEMENTATION_PLAN.md, QUICKSTART.md                 |
+| **Phase 1**  | Inicjalizacja projektu Next.js                                | ✅ DONE | 2025-10-15 | 10 min  | Vercel Commerce + stable versions                                |
+| **Phase 1**  | Instalacja dependencies                                       | ✅ DONE | 2025-10-15 | 5 min   | zustand, RHF, zod, framer-motion, lucide, embla                  |
+| **Phase 1**  | Setup shadcn/ui                                               | ✅ DONE | 2025-10-15 | 20 min  | 13 components + custom rounded-xl                                |
+| **Phase 1**  | Git init + pierwszy commit                                    | ✅ DONE | 2025-10-15 | 5 min   | Commit 4bf0e1b + 80ca885 + 1e91ac9                               |
+| **Phase 2**  | Homepage Dark Entry design                                    | ✅ DONE | 2025-10-15 | 25 min  | Hero + Featured + Categories + Newsletter                        |
+| **Phase 2**  | Fix 'use cache' dla stable Next.js                            | ✅ DONE | 2025-10-15 | 5 min   | 7 funkcji w lib/shopify                                          |
+| **Phase 2**  | Mock Mode dla production build                                | ✅ DONE | 2025-10-15 | 20 min  | 9 funkcji w try-catch, build SUCCESS                             |
+| **Phase 2**  | Aktualizacja design tokens + globals.css                      | ✅ DONE | 2025-10-17 | 90 min  | OKLCH palette, font variables, utilities, motion tokens          |
+| **Phase 2**  | UI toolkit (Button, Input, Textarea, IconButton)              | ✅ DONE | 2025-10-17 | 60 min  | Gradient CTA, focus rings, premium interactions                  |
+| **Phase 3**  | Mock data (products, hero, categories, value props, lookbook) | ✅ DONE | 2025-10-17 | 75 min  | 12 produktów z pełnymi danymi + adapter rewrite                  |
+| **Phase 4**  | Widoki makiet Home / Listing / PDP                            | ✅ DONE | 2025-10-17 | 120 min | Sekcje zgodne z Biblią, mock navigation                          |
+| **Phase 5**  | Motion presets & mikrointerakcje                              | ✅ DONE | 2025-10-17 | 45 min  | `motion/presets.ts`, fadeInUp, scroll overflow, hover states     |
+| **Phase 6**  | Koszyk + Checkout (makiety)                                   | ✅ DONE | 2025-10-17 | 90 min  | Layout koszyka, checkout 3-krokowy, CTA mock                     |
+| **Phase 6**  | Dokumentacja postępu & QA checklist                           | ✅ DONE | 2025-10-17 | 30 min  | Zaktualizowano IMPLEMENTATION_PROGRESS + log                     |
+| **Phase 7**  | Polish & Deploy (styl `nowy_styl.md`)                         | ✅ DONE | 2025-10-18 | 150 min | Kompletny theming, sekcje home, update PDP/listing/cart/checkout |
 
 **Legend:**
 
@@ -68,27 +68,33 @@ Status: COMPLETED
 ### 2025-10-17 - Refinement Pass (Codex)
 
 #### ✅ Task: Polish nawigacji i sekcji Hero
+
 Status: COMPLETED
 
 **Co zrobiono:**
+
 - W `components/layout/PremiumNavbar.tsx` dodano wykrywanie aktywnej ścieżki (`usePathname`) z wyróżnieniem bieżącej sekcji (desktop + mobile) i poprawionymi stanami `aria-current`.
 - W `app/home/page.tsx` wzbogacono Hero o badge sprintu, dodatkowe akcenty świetlne (blurred glows) oraz spójne CTA z ikoną.
 
 **Uwagi:**
+
 - Kolejne sekcje wyglądają spójnie z Biblią; dalsze poprawki będą wynikały z feedbacku po przeglądzie wizualnym.
 
 ### 2025-10-18 - Styl „Technologiczny Luksus + Ciepły Minimalizm” (Codex)
 
 #### ✅ Task: Implementacja specyfikacji `docs/nowy_styl.md`
+
 Status: COMPLETED
 
 **Co zrobiono:**
+
 - Zaktualizowano `app/globals.css`, `Container`, `Section` oraz wszystkie atomy UI (Button, Input, Textarea, IconButton, Accordion) pod nowe tokeny OKLCH, radiusy i focus rings.
 - Całkowicie przebudowano `/home` zgodnie z sekcjami 5.1–5.8 specyfikacji (hero 12 kolumn z hotspotami, kolekcje, bestsellery z `snap-x`, value props, dark product block + `SpecCard`, lookbook, newsletter).
 - Ujednolicono karty i widoki `/listing`, `/pdp`, `/cart`, `/checkout` – format cen `3 499 zł`, hotspoty PDP, Material Passport, akordeon FAQ, makiety koszyka i checkoutu w nowej siatce.
 - Dodano `components/cards/spec-card.tsx`, funkcję `formatCurrency` w `lib/utils.ts`, aktualizacje logów w `docs/IMPLEMENTATION_PROGRESS.md`.
 
 **Pozostaje:**
+
 - Faza wydajnościowa (placeholder blur, lazy-loading, Lighthouse ≥ 90) do domknięcia w kolejnym sprincie funkcjonalnym.
 
 ### 2025-10-15 - Design Unblock (Mock)

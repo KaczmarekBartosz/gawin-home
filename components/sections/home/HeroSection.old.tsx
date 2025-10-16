@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
-import { Truck, ShieldCheck, Award, ChevronDown } from 'lucide-react';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Truck, ShieldCheck, Award, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection() {
   const features = [
     {
       icon: Truck,
-      title: 'Darmowa dostawa',
-      description: 'Przy zamówieniach powyżej 5000 zł',
+      title: "Darmowa dostawa",
+      description: "Przy zamówieniach powyżej 5000 zł",
     },
     {
       icon: ShieldCheck,
-      title: 'Gwarancja 10 lat',
-      description: 'Pewność na lata',
+      title: "Gwarancja 10 lat",
+      description: "Pewność na lata",
     },
     {
       icon: Award,
-      title: 'Ręczne wykonanie',
-      description: 'Perfekcja w każdym detalu',
+      title: "Ręczne wykonanie",
+      description: "Perfekcja w każdym detalu",
     },
   ];
 
@@ -59,7 +59,7 @@ export function HeroSection() {
               duration: 4 + Math.random() * 4,
               repeat: Infinity,
               delay: Math.random() * 2,
-              ease: 'easeInOut',
+              ease: "easeInOut",
             }}
           />
         ))}
@@ -109,9 +109,11 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-xl md:text-2xl text-brand-cream/80 max-w-3xl mx-auto mb-12 leading-relaxed"
             >
-              Odkryj kolekcję mebli premium, które łączą{' '}
-              <span className="text-brand-gold font-semibold">ponadczasowy design</span> z
-              najwyższą jakością wykonania
+              Odkryj kolekcję mebli premium, które łączą{" "}
+              <span className="text-brand-gold font-semibold">
+                ponadczasowy design
+              </span>{" "}
+              z najwyższą jakością wykonania
             </motion.p>
 
             {/* CTA Buttons */}
@@ -164,9 +166,13 @@ export function HeroSection() {
                       />
                     </div>
                     {/* Title */}
-                    <h3 className="text-lg font-bold text-brand-cream">{feature.title}</h3>
+                    <h3 className="text-lg font-bold text-brand-cream">
+                      {feature.title}
+                    </h3>
                     {/* Description */}
-                    <p className="text-sm text-brand-cream/70">{feature.description}</p>
+                    <p className="text-sm text-brand-cream/70">
+                      {feature.description}
+                    </p>
                   </div>
                 </motion.div>
               );
@@ -182,10 +188,12 @@ export function HeroSection() {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-brand-cream/50 uppercase tracking-wider">Scroll</span>
+        <span className="text-xs text-brand-cream/50 uppercase tracking-wider">
+          Scroll
+        </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="p-2 rounded-full glass-dark"
         >
           <ChevronDown className="h-5 w-5 text-brand-gold" strokeWidth={1.5} />

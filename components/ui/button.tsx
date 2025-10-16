@@ -19,8 +19,7 @@ const buttonVariants = cva(
         gold: "bg-gradient-to-br from-brand-gold to-brand-copper text-white shadow-soft hover:shadow-elevated hover:brightness-110",
         outline:
           "border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white",
-        ghost:
-          "bg-transparent text-brand-charcoal hover:bg-black/5",
+        ghost: "bg-transparent text-brand-charcoal hover:bg-black/5",
         subtle:
           "border border-transparent bg-brand-cream text-brand-charcoal hover:border-brand-gold/50 hover:shadow-soft",
         link: "text-brand-gold underline-offset-4 hover:underline",

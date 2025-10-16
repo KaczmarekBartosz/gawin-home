@@ -1,40 +1,46 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Instagram } from 'lucide-react';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { Instagram } from "lucide-react";
 
 const instagramPosts = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80',
-    alt: 'Minimalistyczna sypialnia',
+    image:
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
+    alt: "Minimalistyczna sypialnia",
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80',
-    alt: 'Elegancka sofa w salonie',
+    image:
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
+    alt: "Elegancka sofa w salonie",
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&q=80',
-    alt: 'Nowoczesna jadalnia',
+    image:
+      "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&q=80",
+    alt: "Nowoczesna jadalnia",
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&q=80',
-    alt: 'Stylowe krzesło',
+    image:
+      "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=800&q=80",
+    alt: "Stylowe krzesło",
   },
   {
     id: 5,
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
-    alt: 'Luksusowy salon',
+    image:
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
+    alt: "Luksusowy salon",
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80',
-    alt: 'Designerska lampa',
+    image:
+      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80",
+    alt: "Designerska lampa",
   },
 ];
 
@@ -64,7 +70,9 @@ export function InstagramSection() {
             className="inline-flex items-center gap-2 text-brand-gold hover:text-brand-copper transition-colors font-semibold"
           >
             Obserwuj nas na Instagramie
-            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            <span className="inline-block transition-transform group-hover:translate-x-1">
+              →
+            </span>
           </Link>
         </motion.div>
 
@@ -93,7 +101,10 @@ export function InstagramSection() {
                 />
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-brand-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Instagram className="h-8 w-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300" strokeWidth={1.5} />
+                  <Instagram
+                    className="h-8 w-8 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </Link>
             </motion.div>

@@ -51,16 +51,19 @@ Skupiamy się na **perfekcyjnym wykonaniu absolutnych podstaw**.
 **Wizja:** Kinematograficzne, pełnoekranowe wejście. Ma budzić emocje.
 
 **Design:**
+
 - Tryb "Elegancki" (ciemny)
 - Tło w postaci wysokiej jakości **wideo** (prezentującego detal mebla w zwolnionym tempie) lub zdjęcia lifestyle'owego
 
 **Treść:**
+
 - Minimalistyczna
 - Jeden, mocny nagłówek (np. "Twój Dom, Twoja Perfekcja")
 - Krótki podtytuł
 - Jeden, wyraźny przycisk CTA (wariant `primary`, złoty gradient)
 
 **Wyróżniki:**
+
 - Od razu widoczne **2-3 kluczowe propozycje wartości** (np. "Darmowa dostawa", "Gwarancja 10 lat")
 - W postaci subtelnych ikon z tekstem
 
@@ -71,6 +74,7 @@ Skupiamy się na **perfekcyjnym wykonaniu absolutnych podstaw**.
 **Wizja:** Błyskawiczny dostęp do całej oferty.
 
 **Struktura:**
+
 - Główne kategorie ("Łóżka", "Sofy") rozwijane w **mega menu**
 - Zawiera podkategorie (np. "wg. Stylu", "wg. Rozmiaru")
 - Zawiera inspirujące zdjęcie aranżacji
@@ -83,11 +87,13 @@ Skupiamy się na **perfekcyjnym wykonaniu absolutnych podstaw**.
 **Wizja:** Serce strony głównej, prezentujące naszą najlepszą ofertę.
 
 **Design:**
+
 - Tryb "Showroom" (jasny), aby skupić uwagę na produktach
 
 **Funkcjonalność (Krytyczne):**
 
 **Siatka produktów:**
+
 - 3-4 kolumny na desktopie
 
 **Interaktywna Karta Produktu:**
@@ -109,9 +115,11 @@ Po najechaniu myszką, musi zawierać:
 **Wizja:** Pokazanie mebli w kontekście aspiracyjnych, pięknych wnętrz. Sprzedajemy marzenie, nie tylko produkt.
 
 **Design:**
+
 - Pełnoekranowy baner lub sekcja z kilkoma dużymi zdjęciami
 
 **Funkcjonalność:**
+
 - Zdjęcia muszą być **"shoppable"**
 - Po najechaniu na aranżację powinny pojawić się **tagi na poszczególnych produktach**
 - Umożliwiające przejście do ich kart
@@ -127,6 +135,7 @@ Po najechaniu myszką, musi zawierać:
 1. **Minimalistyczna karuzela** z 2-3 wybranymi opiniami klientów ("Verified Buyer")
 
 2. **Sekcja z logotypami** partnerów płatności:
+
    - Przelewy24, Blik, Visa
    - Certyfikaty (np. FSC)
 
@@ -141,9 +150,11 @@ Po najechaniu myszką, musi zawierać:
 **Wizja:** Zakończenie strony w profesjonalny sposób i zebranie leadów.
 
 **Design:**
+
 - Stopka w Trybie "Eleganckim" (ciemnym)
 
 **Funkcjonalność:**
+
 - Stopka musi być **rozbudowanym hubem informacyjnym** z linkami do wszystkich podstron
 - Formularz newslettera prosty i zachęcający (**-10% na pierwsze zakupy**)
 
@@ -206,6 +217,7 @@ Wprowadzenie przełomowych technologii, które wyróżnią nas na tle całej kon
 ⭐ **Najwyższy priorytet**
 
 **Funkcjonalność:**
+
 - Narzędzie pozwalające klientowi na zmianę:
   - Tkaniny
   - Koloru
@@ -240,6 +252,7 @@ Twoim zadaniem jest **przełożenie tej wizji na kod**.
 ### Wymagania Techniczne
 
 **Kod musi być:**
+
 - ✅ Czysty
 - ✅ Skalowalny
 - ✅ Gotowy na rozbudowę o funkcje z Fazy 2 i 3
@@ -252,17 +265,18 @@ Twoim zadaniem jest **przełożenie tej wizji na kod**.
 
 ## Podsumowanie Faz
 
-| Faza | Cel | Status |
-|------|-----|--------|
-| **FAZA 1** | Fundament Premium (MVP) | 🔴 Do rozpoczęcia |
-| **FAZA 2** | Wzbogacenie Doświadczenia | 🔵 Planowane |
-| **FAZA 3** | Innowacja i Dominacja | 🔵 Planowane |
+| Faza       | Cel                       | Status            |
+| ---------- | ------------------------- | ----------------- |
+| **FAZA 1** | Fundament Premium (MVP)   | 🔴 Do rozpoczęcia |
+| **FAZA 2** | Wzbogacenie Doświadczenia | 🔵 Planowane      |
+| **FAZA 3** | Innowacja i Dominacja     | 🔵 Planowane      |
 
 ---
 
 ## Checklist Fazy 1
 
 ### Hero Section
+
 - [ ] Pełnoekranowe wideo/zdjęcie w tle
 - [ ] Ciemna nakładka (`bg-brand-charcoal/70`)
 - [ ] Nagłówek Display + podtytuł
@@ -270,11 +284,13 @@ Twoim zadaniem jest **przełożenie tej wizji na kod**.
 - [ ] 2-3 ikony z propozycjami wartości
 
 ### Nawigacja
+
 - [ ] Mega menu z podkategoriami
 - [ ] Zdjęcia aranżacji w menu
 - [ ] Sticky navigation podczas scroll
 
 ### Produkty / Bestsellery
+
 - [ ] Siatka 3-4 kolumny (responsive)
 - [ ] Hover: zmiana zdjęcia na drugie ujęcie
 - [ ] Ikona serca (wishlist)
@@ -285,16 +301,19 @@ Twoim zadaniem jest **przełożenie tej wizji na kod**.
 - [ ] Badges (NOWOŚĆ, PROMOCJA)
 
 ### Inspiracje (Lifestyle)
+
 - [ ] Pełnoekranowe banery ze zdjęciami
 - [ ] Shoppable images (tagi produktów)
 - [ ] Hover interactions
 
 ### Social Proof
+
 - [ ] Karuzela z opiniami klientów
 - [ ] Logotypy płatności i certyfikatów
 - [ ] Widoczne: "30 dni na zwrot", "10 lat gwarancji"
 
 ### Newsletter & Footer
+
 - [ ] Formularz newsletter z zachętą (-10%)
 - [ ] Stopka ciemna (Tryb Elegancki)
 - [ ] Rozbudowane linki do wszystkich podstron

@@ -1,5 +1,5 @@
 export function TrustedBrands() {
-  const brands = ['GawIn', 'Atelier', 'Linea', 'Aurum', 'Velour', 'Aria'];
+  const brands = ["GawIn", "Atelier", "Linea", "Aurum", "Velour", "Aria"];
   return (
     <section className="bg-neutral-900 py-8 text-neutral-400">
       <div className="mx-auto max-w-7xl px-6">
@@ -20,4 +20,3 @@ export function TrustedBrands() {
     </section>
   );
 }
-

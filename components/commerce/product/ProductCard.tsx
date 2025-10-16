@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState } from 'react';
-import { Heart, ShoppingCart } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { Heart, ShoppingCart } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
   product: {
@@ -42,7 +42,8 @@ export function ProductCard({ product, className }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isWishlisted, setIsWishlisted] = useState(false);
 
-  const currentImage = isHovered && product.images[1] ? product.images[1] : product.images[0];
+  const currentImage =
+    isHovered && product.images[1] ? product.images[1] : product.images[0];
 
   // Fallback if no images
   if (!currentImage) {
@@ -52,7 +53,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
   return (
     <Link
       href={`/product/${product.slug}`}
-      className={cn('group block', className)}
+      className={cn("group block", className)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -92,8 +93,10 @@ export function ProductCard({ product, className }: ProductCardProps) {
           >
             <Heart
               className={cn(
-                'h-5 w-5 transition-all duration-300',
-                isWishlisted ? 'fill-red-500 text-red-500 scale-110' : 'text-brand-charcoal'
+                "h-5 w-5 transition-all duration-300",
+                isWishlisted
+                  ? "fill-red-500 text-red-500 scale-110"
+                  : "text-brand-charcoal",
               )}
               strokeWidth={1.5}
             />
@@ -155,10 +158,10 @@ export function ProductCard({ product, className }: ProductCardProps) {
                   <span
                     key={i}
                     className={cn(
-                      'text-lg',
+                      "text-lg",
                       i < Math.floor(product.rating!)
-                        ? 'text-brand-gold'
-                        : 'text-neutral-border'
+                        ? "text-brand-gold"
+                        : "text-neutral-border",
                     )}
                   >
                     ★
@@ -176,10 +179,15 @@ export function ProductCard({ product, className }: ProductCardProps) {
             <div className="flex items-baseline justify-between">
               <div>
                 <p className="text-2xl font-bold gradient-gold-premium bg-clip-text text-transparent">
-                  {product.price.amount.toLocaleString('pl-PL')} {product.price.currency}
+                  {product.price.amount.toLocaleString("pl-PL")}{" "}
+                  {product.price.currency}
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  lub <span className="font-semibold text-brand-charcoal">{product.price.installment} zł</span>/mc
+                  lub{" "}
+                  <span className="font-semibold text-brand-charcoal">
+                    {product.price.installment} zł
+                  </span>
+                  /mc
                 </p>
               </div>
             </div>

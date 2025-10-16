@@ -4,12 +4,7 @@ import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  HandHeart,
-  ShieldCheck,
-  Truck,
-} from "lucide-react";
+import { ArrowRight, HandHeart, ShieldCheck, Truck } from "lucide-react";
 
 import { CategoryCard } from "@/components/cards/category-card";
 import { ProductCard } from "@/components/cards/product-card";
@@ -65,7 +60,8 @@ export default function HomePage() {
         {
           id: "fabric",
           label: "Tkanina Latte 12",
-          description: "Miękka bouclé odporniejsza na zabrudzenia (test Martindale 60k).",
+          description:
+            "Miękka bouclé odporniejsza na zabrudzenia (test Martindale 60k).",
           position: { top: "62%", left: "68%" },
         },
       ]
@@ -93,10 +89,7 @@ export default function HomePage() {
 
   return (
     <div className="space-y-0">
-      <HeroSection
-        product={heroProduct}
-        hotspots={heroHotspots}
-      />
+      <HeroSection product={heroProduct} hotspots={heroHotspots} />
 
       <Section tone="sand" id="kolekcje">
         <Container className="space-y-12">
@@ -195,9 +188,7 @@ export default function HomePage() {
                   <h3 className="mt-6 text-h3 text-brand-charcoal">
                     {prop.title}
                   </h3>
-                  <p className="mt-3 text-body-standard">
-                    {prop.description}
-                  </p>
+                  <p className="mt-3 text-body-standard">{prop.description}</p>
                 </motion.article>
               );
             })}
@@ -214,9 +205,7 @@ export default function HomePage() {
             className="flex flex-col gap-4 text-center"
           >
             <p className="text-label text-brand-gold">Inspiracje</p>
-            <h2 className="text-h2 text-brand-charcoal">
-              Hybrydowy lookbook
-            </h2>
+            <h2 className="text-h2 text-brand-charcoal">Hybrydowy lookbook</h2>
             <p className="mx-auto max-w-2xl text-body-descriptive">
               Duże zdjęcia lifestyle — layout docelowy dla sekcji inspiracyjnej.
               Hover = delikatny zoom obrazu.
@@ -258,7 +247,10 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <Button variant="outline" asChild>
-              <Link href="/listing#lookbook" className="group inline-flex items-center gap-2">
+              <Link
+                href="/listing#lookbook"
+                className="group inline-flex items-center gap-2"
+              >
                 Zobacz nasze inspiracje
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
@@ -481,9 +473,7 @@ function DarkProductBlock({ product, items }: DarkProductBlockProps) {
               Kolekcja Elegancka
             </span>
             <h3 className="text-2xl font-semibold">{product.name}</h3>
-            <p className="text-sm text-brand-cream/70">
-              {product.description}
-            </p>
+            <p className="text-sm text-brand-cream/70">{product.description}</p>
           </div>
         </motion.div>
 
@@ -502,10 +492,7 @@ function DarkProductBlock({ product, items }: DarkProductBlockProps) {
               CTA outline oraz cenę formatowaną zgodnie z kanonem.
             </p>
           </div>
-          <SpecCard
-            items={items}
-            className="border-white/15 bg-white/8"
-          />
+          <SpecCard items={items} className="border-white/15 bg-white/8" />
           <div className="flex flex-wrap items-center gap-4">
             <Button variant="gold" asChild>
               <Link href="/pdp">Zobacz szczegóły</Link>

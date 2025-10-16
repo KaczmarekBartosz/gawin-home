@@ -24,6 +24,7 @@ Successfully transformed the Gawin-Home homepage from a basic implementation to 
 ### 1. Design System Foundation
 
 #### Premium CSS Utilities (globals.css)
+
 ```css
 /* Glassmorphism Variants */
 .glass-light     // rgba(255,255,255,0.08) + blur(20px)
@@ -59,6 +60,7 @@ Successfully transformed the Gawin-Home homepage from a basic implementation to 
 ### 2. Premium Navigation (PremiumNavbar)
 
 **Features:**
+
 - Sticky header with scroll detection (transparent → glass-dark at 50px)
 - Gradient logo monogram ("G" in rounded square)
 - Animated underline on link hover (0 → 100% width transition)
@@ -68,6 +70,7 @@ Successfully transformed the Gawin-Home homepage from a basic implementation to 
 - All icons: `strokeWidth={1.5}` for premium feel
 
 **Tech:**
+
 - `useState` + `useEffect` for scroll tracking
 - Framer Motion for initial animation (slide from top)
 - AnimatePresence for mobile menu
@@ -76,12 +79,14 @@ Successfully transformed the Gawin-Home homepage from a basic implementation to 
 ### 3. Hero Section (Complete Redesign)
 
 **Before (Amateur):**
+
 - Simple dark overlay
 - Small heading (text-7xl)
 - Basic feature icons
 - No glassmorphism or glow
 
 **After (Premium):**
+
 ```typescript
 // Background
 mesh-gradient-gold + background image (opacity-30) + gradient overlay
@@ -112,6 +117,7 @@ glass-dark rounded-full + ChevronDown icon + bounce animation
 ### 4. Collections Section
 
 **Design:**
+
 - 4 category cards (Łóżka, Sofy, Stoły, Oświetlenie)
 - mesh-gradient-light background
 - Aspect ratio: 4:5 (portrait)
@@ -121,12 +127,14 @@ glass-dark rounded-full + ChevronDown icon + bounce animation
 - Text positioning: absolute bottom with gold arrow
 
 **Categories:**
+
 - Links to `/category/[slug]`
 - Gold "Zobacz więcej" with animated arrow
 
 ### 5. Bestsellers Section
 
 **Design:**
+
 - bg-white for clean product showcase
 - Grid: 1 col mobile → 2 col tablet → 4 col desktop
 - ProductCard components with full premium features
@@ -134,6 +142,7 @@ glass-dark rounded-full + ChevronDown icon + bounce animation
 ### 6. Newsletter Section
 
 **Design:**
+
 - mesh-gradient-light background
 - Decorative gradient orbs (blur-3xl, top-left + bottom-right)
 - glass-light card container with rounded-3xl
@@ -142,6 +151,7 @@ glass-dark rounded-full + ChevronDown icon + bounce animation
 - Submit button: shimmer + glow-gold + hover:scale-105
 
 **Features:**
+
 - Email validation (required)
 - Toast notification on success (Sonner)
 - Loading state with disabled button
@@ -150,72 +160,89 @@ glass-dark rounded-full + ChevronDown icon + bounce animation
 ### 7. ProductCard (8 Core Functions)
 
 **1. Hover Image Swap:**
+
 - Switch to second image on hover
 - Transition: duration-700 ease-out
 
 **2. Wishlist Heart:**
+
 - glass-light button with hover:glass-gold
 - Toggle red fill with scale-110 animation
 - Positioned top-right absolute
 
 **3. Color Swatches:**
+
 - Display 4 colors max (+X indicator)
 - w-7 h-7 rounded-full
 - hover:border-brand-gold + hover:scale-110
 
 **4. Dimensions:**
+
 - Show width in cm
 - text-sm text-muted-foreground
 
 **5. Rating:**
+
 - 5-star display (filled/empty based on rating)
 - Review count in parentheses
 
 **6. Price + Installment:**
+
 - gradient-gold-premium text with bg-clip-text
 - Monthly installment below (xx zł/mc)
 
 **7. Badges:**
+
 - NOWOŚĆ: gradient-gold-premium badge
 - PROMOCJA: red gradient badge
 - Positioned top-left absolute
 
 **8. Quick Add Button:**
+
 - gradient-gold-premium + shimmer
 - opacity-0 + translate-y-4 default
 - group-hover: opacity-100 + translate-y-0
 - hover:scale-105
 
 **Card Container:**
+
 - hover:shadow-xl + hover:glow-gold
 - Image: group-hover:scale-110 (stronger zoom)
 
 ### 8. Footer Component
 
 **Structure:**
+
 - 6-column grid (responsive: 1 → 2 → 6)
 - mesh-gradient-gold background
 - Decorative gradient orbs
 
 **Content Sections:**
+
 1. **Brand Column (lg:col-span-2)**
+
    - Gradient logo + brand name
    - Company description
    - Social media links (Facebook, Instagram, Twitter)
 
 2. **Shop Links**
+
    - All products, New, Sales, Bestsellers
 
 3. **Categories Links**
+
    - Łóżka, Sofy, Stoły, Oświetlenie
 
 4. **Company Links**
+
    - About, Contact, Blog, Career
 
 5. **Help Links**
+
    - Delivery, Returns, Warranty, FAQ
 
 6. **Contact Info (bottom section)**
+
    - Phone, Email, Address with icons in glass-dark containers
 
 7. **Bottom Bar**
@@ -223,6 +250,7 @@ glass-dark rounded-full + ChevronDown icon + bounce animation
    - Legal links (Terms, Privacy, Cookies)
 
 **Styling:**
+
 - Links: text-brand-cream/70 hover:text-brand-gold
 - Borders: border-brand-gold/20
 - Social buttons: glass-dark hover:glass-gold hover:scale-110
@@ -234,12 +262,14 @@ glass-dark rounded-full + ChevronDown icon + bounce animation
 ### "Hybrid Luxury" Theme
 
 ✅ **Dark Entry (Homepage)**
+
 - mesh-gradient-gold on Hero, Footer
 - Premium glassmorphism throughout
 - Gold accents and glows
 - Sophisticated animations
 
 ✅ **Light Showroom (Products)**
+
 - mesh-gradient-light on Collections, Newsletter
 - bg-white on Bestsellers
 - Clean backgrounds to showcase products
@@ -316,31 +346,34 @@ px-4 md:px-6                                    // Horizontal padding
 
 ### Before → After
 
-| Aspect | Before | After |
-|--------|--------|-------|
-| Hero Heading | text-7xl | text-9xl with glow |
-| Backgrounds | Solid colors | Mesh gradients |
-| Cards | Simple shadows | Glassmorphism + glow |
-| Buttons | Flat gold | Gradient + shimmer |
-| Animations | Basic | Premium micro-animations |
-| Images | Static | Hover scale + swap |
-| Newsletter | Invisible (white on white) | Glass card with orbs |
-| Footer | Not implemented | Comprehensive with glass |
-| Navigation | Basic | Sticky with scroll effects |
+| Aspect       | Before                     | After                      |
+| ------------ | -------------------------- | -------------------------- |
+| Hero Heading | text-7xl                   | text-9xl with glow         |
+| Backgrounds  | Solid colors               | Mesh gradients             |
+| Cards        | Simple shadows             | Glassmorphism + glow       |
+| Buttons      | Flat gold                  | Gradient + shimmer         |
+| Animations   | Basic                      | Premium micro-animations   |
+| Images       | Static                     | Hover scale + swap         |
+| Newsletter   | Invisible (white on white) | Glass card with orbs       |
+| Footer       | Not implemented            | Comprehensive with glass   |
+| Navigation   | Basic                      | Sticky with scroll effects |
 
 ### Interaction Design
 
 **Hover States:**
+
 - Scale transforms: `hover:scale-105`, `hover:scale-110`
 - Glow effects: `hover:glow-gold`
 - Color transitions: `hover:text-brand-gold`
 - Glass transitions: `hover:glass-gold`
 
 **Loading States:**
+
 - Button disabled during async operations
 - Loading text: "Zapisywanie..."
 
 **Empty States:**
+
 - Handled with proper typography and spacing
 
 ---
@@ -348,6 +381,7 @@ px-4 md:px-6                                    // Horizontal padding
 ## 📈 Metrics & Quality
 
 ### Code Quality
+
 - ✅ TypeScript: No errors
 - ✅ ESLint: No warnings
 - ✅ Proper component composition
@@ -355,6 +389,7 @@ px-4 md:px-6                                    // Horizontal padding
 - ✅ ARIA labels on interactive elements
 
 ### Design Quality
+
 - ✅ Consistent spacing (8px grid)
 - ✅ Consistent border radius (rounded-xl for buttons)
 - ✅ Consistent icon stroke width (1.5)
@@ -362,6 +397,7 @@ px-4 md:px-6                                    // Horizontal padding
 - ✅ Premium typography scale
 
 ### Performance
+
 - ✅ Lazy loading with Framer Motion
 - ✅ Optimized images with Next.js Image
 - ✅ CSS-based animations (GPU accelerated)
@@ -387,23 +423,27 @@ afad39d - feat: premium enhancements to Newsletter section and ProductCard
 ## 🔮 Next Steps (Future Enhancements)
 
 ### Phase 2: Product Pages
+
 - [ ] Product detail page with image gallery
 - [ ] Variant selector (colors, sizes)
 - [ ] Add to cart functionality
 - [ ] Related products carousel
 
 ### Phase 3: Cart & Checkout
+
 - [ ] Cart drawer with glassmorphism
 - [ ] Checkout flow (3 steps)
 - [ ] Payment integration
 
 ### Phase 4: Additional Pages
+
 - [ ] Products listing page with filters
 - [ ] Category pages
 - [ ] About page
 - [ ] Contact page with form
 
 ### Phase 5: Polish
+
 - [ ] Dark mode toggle (optional)
 - [ ] Loading skeletons
 - [ ] Error boundaries
@@ -417,28 +457,31 @@ afad39d - feat: premium enhancements to Newsletter section and ProductCard
 ### Important Conventions
 
 **Component Naming:**
+
 - PascalCase for component files: `HeroSection.tsx`
 - kebab-case for UI components: `button.tsx`
 
 **Styling Patterns:**
+
 ```typescript
 // Glass effects for overlays and cards
-glass-light / glass-dark / glass-gold
+glass - light / glass - dark / glass - gold;
 
 // Mesh gradients for section backgrounds
-mesh-gradient-gold / mesh-gradient-light
+mesh - gradient - gold / mesh - gradient - light;
 
 // Glow effects for interactive elements
-hover:glow-gold / glow-gold-intense
+hover: glow - gold / glow - gold - intense;
 
 // Premium gradients for text and buttons
-gradient-gold-premium
+gradient - gold - premium;
 
 // Animations for shimmer and movement
-shimmer / border-gradient-gold
+shimmer / border - gradient - gold;
 ```
 
 **Animation Patterns:**
+
 ```typescript
 // Scroll-triggered (sections)
 <motion.div
@@ -458,9 +501,11 @@ className="transition-transform duration-300 hover:scale-105"
 ### Known Issues
 
 1. **Unsplash Image 404s:** Some image URLs returning 404
+
    - **Fix:** Replace with valid Unsplash URLs or local images
 
 2. **Mock Mode Cart Errors:** GraphQL mutations failing (expected without Shopify)
+
    - **Fix:** Implement mock cart adapter or connect to Shopify
 
 3. **Menu Errors:** Menu queries failing (expected without backend)

@@ -1,38 +1,45 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Truck, ShieldCheck, Award, Headphones, Clock, Leaf } from 'lucide-react';
+import { motion } from "framer-motion";
+import {
+  Truck,
+  ShieldCheck,
+  Award,
+  Headphones,
+  Clock,
+  Leaf,
+} from "lucide-react";
 
 const features = [
   {
     icon: Truck,
-    title: 'Darmowa dostawa',
-    description: 'Bezpłatna dostawa i montaż przy zamówieniach powyżej 5000 zł',
+    title: "Darmowa dostawa",
+    description: "Bezpłatna dostawa i montaż przy zamówieniach powyżej 5000 zł",
   },
   {
     icon: ShieldCheck,
-    title: 'Gwarancja 10 lat',
-    description: 'Pełna gwarancja na konstrukcję i mechanizmy',
+    title: "Gwarancja 10 lat",
+    description: "Pełna gwarancja na konstrukcję i mechanizmy",
   },
   {
     icon: Award,
-    title: 'Ręczne wykończenie',
-    description: 'Każdy mebel wykonywany jest ręcznie przez mistrzów',
+    title: "Ręczne wykończenie",
+    description: "Każdy mebel wykonywany jest ręcznie przez mistrzów",
   },
   {
     icon: Headphones,
-    title: 'Wsparcie 24/7',
-    description: 'Nasz zespół doradców zawsze do Twojej dyspozycji',
+    title: "Wsparcie 24/7",
+    description: "Nasz zespół doradców zawsze do Twojej dyspozycji",
   },
   {
     icon: Clock,
-    title: 'Szybka realizacja',
-    description: 'Realizacja zamówienia w ciągu 14-30 dni roboczych',
+    title: "Szybka realizacja",
+    description: "Realizacja zamówienia w ciągu 14-30 dni roboczych",
   },
   {
     icon: Leaf,
-    title: 'Eko-friendly',
-    description: 'Drewno z certyfikowanych, odnawialnych źródeł',
+    title: "Eko-friendly",
+    description: "Drewno z certyfikowanych, odnawialnych źródeł",
   },
 ];
 
@@ -52,7 +59,9 @@ export function FeaturesSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-h2 text-brand-cream mb-4">Dlaczego Gawin-Home?</h2>
+          <h2 className="text-h2 text-brand-cream mb-4">
+            Dlaczego Gawin-Home?
+          </h2>
           <p className="text-body-descriptive text-brand-cream/80 max-w-2xl mx-auto">
             Oferujemy nie tylko meble, ale kompleksowe doświadczenie premium
           </p>
@@ -75,13 +84,20 @@ export function FeaturesSection() {
                   {/* Icon */}
                   <div className="mb-6">
                     <div className="inline-flex p-4 rounded-xl bg-brand-gold/10 group-hover:bg-brand-gold/20 transition-colors">
-                      <Icon className="h-8 w-8 text-brand-gold" strokeWidth={1.5} />
+                      <Icon
+                        className="h-8 w-8 text-brand-gold"
+                        strokeWidth={1.5}
+                      />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-brand-cream mb-3">{feature.title}</h3>
-                  <p className="text-brand-cream/70 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-brand-cream mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-brand-cream/70 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
               </motion.div>
             );

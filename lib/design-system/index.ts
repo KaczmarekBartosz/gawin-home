@@ -5,10 +5,10 @@
  */
 
 // Tokens & Types
-export * from './tokens/types';
+export * from "./tokens/types";
 
 // Themes
-export * from './themes';
+export * from "./themes";
 
 // Theme Provider
-export * from './theme-provider';
+export * from "./theme-provider";

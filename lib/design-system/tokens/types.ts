@@ -12,38 +12,38 @@ export interface ColorTokens {
 
   // Primary palette
   primary: string;
-  'primary-foreground': string;
+  "primary-foreground": string;
 
   // Accent colors (specific to each theme)
   accent: string;
-  'accent-foreground': string;
-  'accent-blue': string;
-  'accent-blue-foreground': string;
-  'accent-green': string;
-  'accent-green-foreground': string;
+  "accent-foreground": string;
+  "accent-blue": string;
+  "accent-blue-foreground": string;
+  "accent-green": string;
+  "accent-green-foreground": string;
 
   // UI states
   muted: string;
-  'muted-foreground': string;
+  "muted-foreground": string;
   border: string;
 
   // Status colors
   destructive: string;
-  'destructive-foreground': string;
+  "destructive-foreground": string;
   warning: string;
-  'warning-foreground': string;
+  "warning-foreground": string;
   success: string;
-  'success-foreground': string;
+  "success-foreground": string;
   info: string;
-  'info-foreground': string;
+  "info-foreground": string;
 
   // Card/Surface
   card: string;
-  'card-foreground': string;
+  "card-foreground": string;
 
   // Popover
   popover: string;
-  'popover-foreground': string;
+  "popover-foreground": string;
 
   // Input
   input: string;
@@ -62,11 +62,11 @@ export interface TypographyTokens {
     base: string;
     lg: string;
     xl: string;
-    '2xl': string;
-    '3xl': string;
-    '4xl': string;
-    '5xl': string;
-    '6xl': string;
+    "2xl": string;
+    "3xl": string;
+    "4xl": string;
+    "5xl": string;
+    "6xl": string;
   };
   fontWeight: {
     light: number;
@@ -109,7 +109,7 @@ export interface RadiusTokens {
   md: string;
   lg: string;
   xl: string;
-  '2xl': string;
+  "2xl": string;
   full: string;
 }
 
@@ -119,7 +119,7 @@ export interface ShadowTokens {
   md: string;
   lg: string;
   xl: string;
-  '2xl': string;
+  "2xl": string;
   inner: string;
   none: string;
 }
@@ -132,9 +132,9 @@ export interface AnimationTokens {
     slower: string;
   };
   timing: {
-    'ease-in': string;
-    'ease-out': string;
-    'ease-in-out': string;
+    "ease-in": string;
+    "ease-out": string;
+    "ease-in-out": string;
     linear: string;
     bounce: string;
   };

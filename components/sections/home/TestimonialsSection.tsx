@@ -1,33 +1,33 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import { Star, Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
     id: 1,
-    name: 'Anna Kowalska',
-    role: 'Architekt wnętrz',
-    avatar: 'https://i.pravatar.cc/150?img=1',
+    name: "Anna Kowalska",
+    role: "Architekt wnętrz",
+    avatar: "https://i.pravatar.cc/150?img=1",
     rating: 5,
-    text: 'Jakość wykonania mebli jest wyjątkowa. Sofa, którą kupiłam, zachwyca moich klientów podczas każdej wizyty. Obsługa klienta na najwyższym poziomie.',
+    text: "Jakość wykonania mebli jest wyjątkowa. Sofa, którą kupiłam, zachwyca moich klientów podczas każdej wizyty. Obsługa klienta na najwyższym poziomie.",
   },
   {
     id: 2,
-    name: 'Michał Nowak',
-    role: 'Właściciel restauracji',
-    avatar: 'https://i.pravatar.cc/150?img=12',
+    name: "Michał Nowak",
+    role: "Właściciel restauracji",
+    avatar: "https://i.pravatar.cc/150?img=12",
     rating: 5,
-    text: 'Zamówiłem meble do mojej restauracji i jestem zachwycony. Nie tylko wyglądają przepięknie, ale są też niezwykle wytrzymałe. Polecam każdemu!',
+    text: "Zamówiłem meble do mojej restauracji i jestem zachwycony. Nie tylko wyglądają przepięknie, ale są też niezwykle wytrzymałe. Polecam każdemu!",
   },
   {
     id: 3,
-    name: 'Katarzyna Wiśniewska',
-    role: 'Designer',
-    avatar: 'https://i.pravatar.cc/150?img=5',
+    name: "Katarzyna Wiśniewska",
+    role: "Designer",
+    avatar: "https://i.pravatar.cc/150?img=5",
     rating: 5,
-    text: 'Gawin-Home to synonim elegancji i klasy. Łóżko, które u nich nabyłam, to najlepsza inwestycja w moim domu. Jakość materiałów premium.',
+    text: "Gawin-Home to synonim elegancji i klasy. Łóżko, które u nich nabyłam, to najlepsza inwestycja w moim domu. Jakość materiałów premium.",
   },
 ];
 
@@ -49,7 +49,9 @@ export function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-h2 text-brand-charcoal mb-4">Co mówią nasi klienci</h2>
+          <h2 className="text-h2 text-brand-charcoal mb-4">
+            Co mówią nasi klienci
+          </h2>
           <p className="text-body-descriptive max-w-2xl mx-auto">
             Dołącz do grona zadowolonych właścicieli mebli premium
           </p>
@@ -69,7 +71,10 @@ export function TestimonialsSection() {
               <div className="glass-light rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-neutral-border/50 hover:border-brand-gold/30 h-full flex flex-col">
                 {/* Quote Icon */}
                 <div className="mb-6">
-                  <Quote className="h-10 w-10 text-brand-gold/30" strokeWidth={1.5} />
+                  <Quote
+                    className="h-10 w-10 text-brand-gold/30"
+                    strokeWidth={1.5}
+                  />
                 </div>
 
                 {/* Rating */}
@@ -99,8 +104,12 @@ export function TestimonialsSection() {
                     />
                   </div>
                   <div>
-                    <p className="font-semibold text-brand-charcoal">{testimonial.name}</p>
-                    <p className="text-sm text-brand-charcoal/60">{testimonial.role}</p>
+                    <p className="font-semibold text-brand-charcoal">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-sm text-brand-charcoal/60">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -117,7 +126,8 @@ export function TestimonialsSection() {
           className="text-center mt-12"
         >
           <p className="text-brand-charcoal/60">
-            Ponad <span className="font-bold text-brand-gold">2,500+</span> zadowolonych klientów
+            Ponad <span className="font-bold text-brand-gold">2,500+</span>{" "}
+            zadowolonych klientów
           </p>
         </motion.div>
       </div>

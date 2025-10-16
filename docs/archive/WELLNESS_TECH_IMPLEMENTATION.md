@@ -17,6 +17,7 @@ Stworzenie systemu themingu dla gawin-home, który pozwala na łatwe przełącza
 ### 1. **Architektura Design System** (`lib/design-system/`)
 
 #### Struktura plików:
+
 ```
 lib/design-system/
 ├── tokens/
@@ -31,6 +32,7 @@ lib/design-system/
 #### Kluczowe pliki:
 
 **`tokens/types.ts`** - Definicje typów:
+
 - `ColorTokens` - Wszystkie kolory (background, foreground, accent, accent-blue, accent-green, status)
 - `TypographyTokens` - Font family, sizes, weights, line-heights
 - `SpacingTokens` - System 8px grid (0-64)
@@ -40,6 +42,7 @@ lib/design-system/
 - `DesignTokens` - Main interface łączący wszystkie tokeny
 
 **`themes/wellness-tech.ts`** - Kompletny theme:
+
 - **Kolory:**
   - Background: `#F8F8F8` (jasna szarość)
   - Foreground: `#333333` (ciemnoszary tekst)
@@ -52,6 +55,7 @@ lib/design-system/
 - **Shadows:** Subtelne, miękkie cienie
 
 **`theme-provider.tsx`** - Provider z:
+
 - React Context dla aktualnego theme
 - `useTheme()` hook
 - Persistence w localStorage
@@ -63,8 +67,10 @@ lib/design-system/
 ### 2. **CSS Variables** (`app/globals.css`)
 
 Dodano sekcje:
+
 ```css
-:root, :root[data-theme='wellness-tech'] {
+:root,
+:root[data-theme="wellness-tech"] {
   /* Wellness Tech colors in RGB format */
   --background: 248 248 248;
   --foreground: 51 51 51;
@@ -79,7 +85,7 @@ Dodano sekcje:
   /* ... */
 }
 
-:root[data-theme='dark-luxury'] {
+:root[data-theme="dark-luxury"] {
   /* Example alternate theme */
   --background: 26 26 26;
   --primary: 212 175 55; /* Gold */
@@ -88,6 +94,7 @@ Dodano sekcje:
 ```
 
 **Dlaczego RGB format?**
+
 - Tailwind v4 używa `rgb(var(--color) / opacity)`
 - Pozwala na dynamiczną zmianę opacity: `bg-accent/20`
 
@@ -96,7 +103,7 @@ Dodano sekcje:
 ### 3. **Integracja z App** (`app/layout.tsx`)
 
 ```tsx
-import { ThemeProvider } from 'lib/design-system';
+import { ThemeProvider } from "lib/design-system";
 
 export default function RootLayout({ children }) {
   return (
@@ -112,6 +119,7 @@ export default function RootLayout({ children }) {
 ```
 
 **Zmiany:**
+
 - Dodano `ThemeProvider` wrapper
 - Zmieniono classes na theme-aware: `bg-background text-foreground`
 - Dodano `suppressHydrationWarning` (dla theme persistence)
@@ -125,6 +133,7 @@ export default function RootLayout({ children }) {
 **Charakterystyczny element Wellness Tech!**
 
 Features:
+
 - Okrągły progress indicator (jak w Whoop/Oura)
 - 3 size variants: `sm`, `md`, `lg`
 - 3 color variants: `accent` (orange), `blue`, `green`
@@ -133,13 +142,9 @@ Features:
 - Optional label poniżej
 
 Użycie:
+
 ```tsx
-<CircularProgress
-  value={92}
-  variant="accent"
-  size="md"
-  label="Komfort"
-/>
+<CircularProgress value={92} variant="accent" size="md" label="Komfort" />
 ```
 
 ---
@@ -151,6 +156,7 @@ Użycie:
 **Karta produktu w stylu Wellness Tech:**
 
 Elementy:
+
 - Zaokrąglone rogi (`rounded-lg` = 24px)
 - Białą kartę na jasnym tle
 - Aspect ratio 1:1 dla zdjęcia
@@ -171,11 +177,13 @@ Elementy:
 **Hero section w stylu Wellness Tech:**
 
 Layout:
+
 - 2 kolumny (grid lg:grid-cols-2)
 - Lewa: Tekst + CTAs
 - Prawa: Metrics dashboard z circular progress
 
 Elementy:
+
 - Badge z ikoną (rounded-full)
 - Heading z accent color span
 - 2 CTAs (primary + outline)
@@ -189,6 +197,7 @@ Elementy:
 **Kompletna strona demonstracyjna:**
 
 Sekcje:
+
 1. **HeroWellness** - Landing z metrykami
 2. **Featured Products** - 3 ProductCard components
 3. **Components Showcase:**
@@ -202,6 +211,7 @@ Sekcje:
 ## 🎨 Kluczowe Cechy Stylu "Wellness Tech"
 
 ### Visual Characteristics:
+
 - ✅ Jasne tło (#F8F8F8) + ciemnoszary tekst (#333333)
 - ✅ Zaokrąglone rogi (12-24px)
 - ✅ Dużo białej przestrzeni
@@ -211,6 +221,7 @@ Sekcje:
 - ✅ Subtelne cienie i animacje
 
 ### Data-Driven Aesthetics:
+
 - Metryki produktów jako % (Komfort, Trwałość, Ekologia)
 - Dashboard style layout
 - Clean, card-based organization
@@ -231,6 +242,7 @@ Sekcje:
 ## 📦 Utworzone Pliki (Nowe)
 
 ### Design System:
+
 1. `lib/design-system/tokens/types.ts` - Typy tokenów
 2. `lib/design-system/themes/wellness-tech.ts` - Theme Wellness Tech
 3. `lib/design-system/themes/index.ts` - Registry
@@ -238,14 +250,17 @@ Sekcje:
 5. `lib/design-system/index.ts` - Entry point
 
 ### Components:
+
 6. `components/ui/circular-progress.tsx` - Circular progress indicator
 7. `components/product/product-card-wellness.tsx` - Product card
 8. `components/sections/hero-wellness.tsx` - Hero section
 
 ### Pages:
+
 9. `app/wellness-demo/page.tsx` - Demo page
 
 ### Documentation:
+
 10. `docs/WELLNESS_TECH_IMPLEMENTATION.md` - Ten plik
 
 ---
@@ -253,6 +268,7 @@ Sekcje:
 ## 📝 Zmodyfikowane Pliki
 
 1. **`app/layout.tsx`**
+
    - Dodano import `ThemeProvider`
    - Wrapped app w `<ThemeProvider>`
    - Zmieniono classes na theme-aware
@@ -284,27 +300,32 @@ pnpm dev
 ## 🎯 Następne Kroki
 
 ### Priorytet 1: Rozbudowa Komponentów
+
 - [ ] Newsletter section w stylu Wellness Tech
 - [ ] Featured Products section z grid
 - [ ] Categories showcase
 - [ ] Footer w stylu Wellness Tech
 
 ### Priorytet 2: Więcej Theme'ów
+
 - [ ] Dodać `dark-luxury` theme (pełna implementacja)
 - [ ] Dodać `minimal-elegant` theme
 - [ ] ThemeSwitcher component (do testowania)
 
 ### Priorytet 3: Integracja z Danymi
+
 - [ ] Podłączyć circular progress do prawdziwych danych
 - [ ] Rozszerzyć typy Product o metrics
 - [ ] Adapter dla mock data z metrics
 
 ### Priorytet 4: Responsywność
+
 - [ ] Testy mobile (circular progress size)
 - [ ] Hero layout na mobile
 - [ ] ProductCard grid na różnych breakpointach
 
 ### Priorytet 5: Animacje
+
 - [ ] Framer Motion dla hero elements
 - [ ] Circular progress animation on scroll
 - [ ] Hover states i micro-interactions
@@ -314,16 +335,19 @@ pnpm dev
 ## 💡 Uwagi Techniczne
 
 ### pnpm vs npm
+
 - **pnpm** używa symlinksjest szybszy
 - node_modules/ dalej zajmuje ~500MB-1.5GB lokalnie
 - Oszczędność jest **globalna** (wiele projektów = shared packages)
 
 ### Tailwind v4
+
 - **Brak** `tailwind.config.ts` - wszystko w CSS!
 - Konfiguracja w `@theme` block w `globals.css`
 - CSS variables w RGB format: `--color: 255 140 66`
 
 ### Theme System
+
 - Data attribute: `data-theme="wellness-tech"`
 - Auto-persistence w localStorage
 - SSR-safe (suppressHydrationWarning)
@@ -334,16 +358,19 @@ pnpm dev
 ## 🎨 Design Philosophy
 
 **"Wellness Tech" to połączenie:**
+
 - Minimalizmu Apple
 - Data-driven Whoop/Oura
 - Czytelności Google Material (ale bardziej premium)
 
 **Nie jest to:**
+
 - Głośny, kolorowy e-commerce
 - Ciężkie animacje i efekty
 - Cluttered layout
 
 **Jest to:**
+
 - Spokojny, przemyślany interface
 - Focus na metrykach i wartości
 - Premium feel bez przesady

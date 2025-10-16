@@ -1,32 +1,32 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const brands = [
   {
-    name: 'Vitra',
-    logo: 'https://logo.clearbit.com/vitra.com',
+    name: "Vitra",
+    logo: "https://logo.clearbit.com/vitra.com",
   },
   {
-    name: 'Herman Miller',
-    logo: 'https://logo.clearbit.com/hermanmiller.com',
+    name: "Herman Miller",
+    logo: "https://logo.clearbit.com/hermanmiller.com",
   },
   {
-    name: 'Knoll',
-    logo: 'https://logo.clearbit.com/knoll.com',
+    name: "Knoll",
+    logo: "https://logo.clearbit.com/knoll.com",
   },
   {
-    name: 'Cassina',
-    logo: 'https://logo.clearbit.com/cassina.com',
+    name: "Cassina",
+    logo: "https://logo.clearbit.com/cassina.com",
   },
   {
-    name: 'B&B Italia',
-    logo: 'https://logo.clearbit.com/bebitalia.com',
+    name: "B&B Italia",
+    logo: "https://logo.clearbit.com/bebitalia.com",
   },
   {
-    name: 'Poltrona Frau',
-    logo: 'https://logo.clearbit.com/poltronafrau.com',
+    name: "Poltrona Frau",
+    logo: "https://logo.clearbit.com/poltronafrau.com",
   },
 ];
 
@@ -35,10 +35,14 @@ export function TrustedBrandsSection() {
     <section className="py-16 md:py-24 bg-white border-y border-neutral-border/30 relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(0 0 0) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, rgb(0 0 0) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { type ThemeName, getTheme } from './themes';
+import * as React from "react";
+import { type ThemeName, getTheme } from "./themes";
 
 interface ThemeContextValue {
   theme: ThemeName;
@@ -9,7 +9,9 @@ interface ThemeContextValue {
   tokens: ReturnType<typeof getTheme>;
 }
 
-const ThemeContext = React.createContext<ThemeContextValue | undefined>(undefined);
+const ThemeContext = React.createContext<ThemeContextValue | undefined>(
+  undefined,
+);
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -19,8 +21,8 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'wellness-tech',
-  storageKey = 'gawin-theme',
+  defaultTheme = "wellness-tech",
+  storageKey = "gawin-theme",
 }: ThemeProviderProps) {
   const [theme, setThemeState] = React.useState<ThemeName>(defaultTheme);
   const [mounted, setMounted] = React.useState(false);
@@ -40,15 +42,15 @@ export function ThemeProvider({
       localStorage.setItem(storageKey, newTheme);
 
       // Apply theme to document root
-      document.documentElement.setAttribute('data-theme', newTheme);
+      document.documentElement.setAttribute("data-theme", newTheme);
     },
-    [storageKey]
+    [storageKey],
   );
 
   // Apply theme on mount and theme change
   React.useEffect(() => {
     if (mounted) {
-      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute("data-theme", theme);
     }
   }, [theme, mounted]);
 
@@ -60,7 +62,7 @@ export function ThemeProvider({
       setTheme,
       tokens,
     }),
-    [theme, setTheme, tokens]
+    [theme, setTheme, tokens],
   );
 
   // Prevent flash of unstyled content
@@ -68,13 +70,15 @@ export function ThemeProvider({
     return null;
   }
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+  );
 }
 
 export function useTheme() {
   const context = React.useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 }

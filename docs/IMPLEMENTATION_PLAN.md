@@ -20,6 +20,7 @@
 ## Phase 1: Foundation Setup
 
 ### 🎯 Cel
+
 Utworzenie solidnego fundamentu projektu z Next.js 15, TypeScript i Tailwind v4.
 
 ### ⏱️ Czas: 2-3 godziny
@@ -49,12 +50,13 @@ code .
 ```
 
 **Odpowiedzi na pytania setup:**
+
 - TypeScript: ✅ Yes
 - ESLint: ✅ Yes
 - Tailwind CSS: ✅ Yes
 - `src/` directory: ✅ Yes
 - App Router: ✅ Yes
-- Customize import alias: ✅ Yes (@/*)
+- Customize import alias: ✅ Yes (@/\*)
 - Turbopack: ✅ Yes
 
 #### 1.2 Instalacja shadcn/ui
@@ -118,6 +120,7 @@ git commit -m "chore: initial project setup with Next.js 15 and shadcn/ui"
 #### 1.6 Prettier Configuration
 
 **Utwórz `.prettierrc.json`:**
+
 ```json
 {
   "semi": true,
@@ -134,6 +137,7 @@ git commit -m "chore: initial project setup with Next.js 15 and shadcn/ui"
 ## Phase 2: Design System
 
 ### 🎯 Cel
+
 Konfiguracja design systemu: kolory, typografia, komponenty.
 
 ### ⏱️ Czas: 3-4 godziny
@@ -143,6 +147,7 @@ Konfiguracja design systemu: kolory, typografia, komponenty.
 #### 2.1 Tailwind v4 Configuration
 
 **Edytuj `src/app/globals.css`:**
+
 ```css
 @import "tailwindcss";
 
@@ -162,30 +167,30 @@ Konfiguracja design systemu: kolory, typografia, komponenty.
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
-  --radius-xl: 1.5rem;    /* 🎯 PRIMARY for buttons */
+  --radius-xl: 1.5rem; /* 🎯 PRIMARY for buttons */
   --radius-2xl: 2rem;
 
   /* === DARK ENTRY COLORS === */
-  --color-dark-bg: oklch(0.11 0 0);           /* #1a1a1a */
-  --color-dark-surface: oklch(0.15 0 0);      /* #252525 */
-  --color-gold-primary: oklch(0.75 0.12 85);  /* #d4af37 */
-  --color-gold-hover: oklch(0.68 0.12 85);    /* #c19b2b */
-  --color-text-light: oklch(0.96 0 0);        /* #f5f5f5 */
-  --color-text-muted: oklch(0.63 0 0);        /* #a0a0a0 */
+  --color-dark-bg: oklch(0.11 0 0); /* #1a1a1a */
+  --color-dark-surface: oklch(0.15 0 0); /* #252525 */
+  --color-gold-primary: oklch(0.75 0.12 85); /* #d4af37 */
+  --color-gold-hover: oklch(0.68 0.12 85); /* #c19b2b */
+  --color-text-light: oklch(0.96 0 0); /* #f5f5f5 */
+  --color-text-muted: oklch(0.63 0 0); /* #a0a0a0 */
 
   /* === LIGHT SHOWROOM COLORS === */
-  --color-light-bg: oklch(1 0 0);             /* #ffffff */
-  --color-cream-bg: oklch(0.97 0.005 85);     /* #f5f5f0 */
-  --color-light-surface: oklch(0.98 0 0);     /* #fafafa */
-  --color-border-light: oklch(0.90 0 0);      /* #e5e5e5 */
-  --color-text-dark: oklch(0.11 0 0);         /* #1a1a1a */
-  --color-text-gray: oklch(0.40 0 0);         /* #666666 */
+  --color-light-bg: oklch(1 0 0); /* #ffffff */
+  --color-cream-bg: oklch(0.97 0.005 85); /* #f5f5f0 */
+  --color-light-surface: oklch(0.98 0 0); /* #fafafa */
+  --color-border-light: oklch(0.9 0 0); /* #e5e5e5 */
+  --color-text-dark: oklch(0.11 0 0); /* #1a1a1a */
+  --color-text-gray: oklch(0.4 0 0); /* #666666 */
 
   /* === ACCENT COLORS === */
-  --color-accent-blue: oklch(0.60 0.25 250);  /* #3b82f6 */
-  --color-accent-green: oklch(0.60 0.25 155); /* #10b981 */
-  --color-accent-red: oklch(0.60 0.25 25);    /* #ef4444 */
-  --color-accent-orange: oklch(0.70 0.20 60); /* #f59e0b */
+  --color-accent-blue: oklch(0.6 0.25 250); /* #3b82f6 */
+  --color-accent-green: oklch(0.6 0.25 155); /* #10b981 */
+  --color-accent-red: oklch(0.6 0.25 25); /* #ef4444 */
+  --color-accent-orange: oklch(0.7 0.2 60); /* #f59e0b */
 
   /* === SEMANTIC MAPPING === */
   --color-background: var(--color-light-bg);
@@ -210,10 +215,17 @@ Konfiguracja design systemu: kolory, typografia, komponenty.
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display tracking-tight;
   }
 }
@@ -229,6 +241,7 @@ Konfiguracja design systemu: kolory, typografia, komponenty.
 #### 2.2 Font Configuration
 
 **Edytuj `src/app/layout.tsx`:**
+
 ```typescript
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -253,6 +266,7 @@ export default function RootLayout({
 ```
 
 **Dodaj do `tailwind.config.ts`:**
+
 ```typescript
 fontFamily: {
   sans: ["var(--font-geist-sans)", "sans-serif"],
@@ -286,6 +300,7 @@ npx shadcn@latest add form
 **Edytuj `src/components/ui/button.tsx`:**
 
 Zmień `defaultVariants` radius:
+
 ```typescript
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-xl ...", // 🎯 rounded-xl
@@ -294,9 +309,12 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         gold: "bg-gold-primary text-dark-bg hover:bg-gold-hover", // NEW
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -311,13 +329,14 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 ```
 
 #### 2.5 Utility Functions
 
 **Utwórz `src/lib/utils.ts`:**
+
 ```typescript
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -347,6 +366,7 @@ export function formatDate(date: string | Date): string {
 ## Phase 3: Data Layer
 
 ### 🎯 Cel
+
 Utworzenie TypeScript types i mock data dla produktów.
 
 ### ⏱️ Czas: 2-3 godziny
@@ -356,6 +376,7 @@ Utworzenie TypeScript types i mock data dla produktów.
 #### 3.1 TypeScript Types
 
 **Utwórz `src/types/product.ts`:**
+
 ```typescript
 export interface Product {
   id: string;
@@ -427,6 +448,7 @@ export interface ProductSEO {
 ```
 
 **Utwórz `src/types/category.ts`:**
+
 ```typescript
 export interface Category {
   id: string;
@@ -446,6 +468,7 @@ export interface Subcategory {
 ```
 
 **Utwórz `src/types/cart.ts`:**
+
 ```typescript
 import type { Product } from "./product";
 
@@ -470,6 +493,7 @@ export interface CartItem {
 ```
 
 **Utwórz `src/types/index.ts`:**
+
 ```typescript
 export * from "./product";
 export * from "./category";
@@ -479,6 +503,7 @@ export * from "./cart";
 #### 3.2 Mock Data - Products
 
 **Utwórz `src/data/products.json`:**
+
 ```json
 [
   {
@@ -514,8 +539,18 @@ export * from "./cart";
         "name": "Kolor",
         "options": [
           { "name": "Beżowy", "value": "beige", "inStock": true },
-          { "name": "Szary", "value": "gray", "priceModifier": 200, "inStock": true },
-          { "name": "Ciemny Niebieski", "value": "navy", "priceModifier": 300, "inStock": false }
+          {
+            "name": "Szary",
+            "value": "gray",
+            "priceModifier": 200,
+            "inStock": true
+          },
+          {
+            "name": "Ciemny Niebieski",
+            "value": "navy",
+            "priceModifier": 300,
+            "inStock": false
+          }
         ]
       }
     ],
@@ -527,14 +562,23 @@ export * from "./cart";
         "unit": "cm"
       },
       "weight": 85,
-      "materials": ["Tkanina premium", "Drewno brzozowe", "Pianka wysokoelastyczna"],
+      "materials": [
+        "Tkanina premium",
+        "Drewno brzozowe",
+        "Pianka wysokoelastyczna"
+      ],
       "colors": ["Beżowy", "Szary", "Ciemny Niebieski"],
       "manufacturer": "Gawin Furniture Co."
     },
     "seo": {
       "title": "Sofa Skandynawska Bergen - Beżowa | Gawin Home",
       "description": "Elegancka sofa skandynawska Bergen w kolorze beżowym. Wysoka jakość, skandynawski design, komfort na lata.",
-      "keywords": ["sofa skandynawska", "sofa beżowa", "meble bergen", "sofa nowoczesna"]
+      "keywords": [
+        "sofa skandynawska",
+        "sofa beżowa",
+        "meble bergen",
+        "sofa nowoczesna"
+      ]
     },
     "inStock": true,
     "isFeatured": true,
@@ -568,8 +612,17 @@ export * from "./cart";
         "id": "leather-color",
         "name": "Kolor Skóry",
         "options": [
-          { "name": "Brązowy Vintage", "value": "brown-vintage", "inStock": true },
-          { "name": "Czarny Mat", "value": "black-matte", "priceModifier": 400, "inStock": true }
+          {
+            "name": "Brązowy Vintage",
+            "value": "brown-vintage",
+            "inStock": true
+          },
+          {
+            "name": "Czarny Mat",
+            "value": "black-matte",
+            "priceModifier": 400,
+            "inStock": true
+          }
         ]
       }
     ],
@@ -581,14 +634,23 @@ export * from "./cart";
         "unit": "cm"
       },
       "weight": 32,
-      "materials": ["Naturalna skóra", "Stal szczotkowana", "Pianka poliuretanowa"],
+      "materials": [
+        "Naturalna skóra",
+        "Stal szczotkowana",
+        "Pianka poliuretanowa"
+      ],
       "colors": ["Brązowy Vintage", "Czarny Mat"],
       "manufacturer": "Gawin Furniture Co."
     },
     "seo": {
       "title": "Fotel Loftowy Manhattan - Skórzany | Gawin Home",
       "description": "Ekskluzywny fotel loftowy Manhattan ze skóry naturalnej. Industrialny design, najwyższa jakość wykonania.",
-      "keywords": ["fotel loftowy", "fotel skórzany", "meble industrialne", "fotel manhattan"]
+      "keywords": [
+        "fotel loftowy",
+        "fotel skórzany",
+        "meble industrialne",
+        "fotel manhattan"
+      ]
     },
     "inStock": true,
     "isFeatured": true,
@@ -600,11 +662,12 @@ export * from "./cart";
 ]
 ```
 
-*(Dodaj więcej produktów - docelowo 10-12)*
+_(Dodaj więcej produktów - docelowo 10-12)_
 
 #### 3.3 Mock Data - Categories
 
 **Utwórz `src/data/categories.json`:**
+
 ```json
 [
   {
@@ -654,6 +717,7 @@ export * from "./cart";
 #### 3.4 Configuration Files
 
 **Utwórz `src/config/site.ts`:**
+
 ```typescript
 export const siteConfig = {
   name: "Gawin Home",
@@ -722,6 +786,7 @@ export const navigationConfig = {
 ## Phase 4: Homepage Implementation
 
 ### 🎯 Cel
+
 Implementacja ciemnej, eleganciej strony głównej.
 
 ### ⏱️ Czas: 6-8 godzin
@@ -731,6 +796,7 @@ Implementacja ciemnej, eleganciej strony głównej.
 #### 4.1 Header Component
 
 **Utwórz `src/components/layout/header/Header.tsx`:**
+
 ```typescript
 "use client";
 
@@ -845,6 +911,7 @@ export function Header() {
 #### 4.2 Hero Section
 
 **Utwórz `src/components/sections/home/HeroSection.tsx`:**
+
 ```typescript
 import Link from "next/link";
 import Image from "next/image";
@@ -932,19 +999,20 @@ export function HeroSection() {
 }
 ```
 
-*(Więcej komponentów sekcji w kolejnych krokach)*
+_(Więcej komponentów sekcji w kolejnych krokach)_
 
 ---
 
 ## Phase 5-7: Detailed Implementation
 
-*(Kontynuacja szczegółowych kroków dla Product Pages, Cart & Checkout, Polish & Deploy w kolejnych sekcjach dokumentu)*
+_(Kontynuacja szczegółowych kroków dla Product Pages, Cart & Checkout, Polish & Deploy w kolejnych sekcjach dokumentu)_
 
 ---
 
 ## ✅ Checklisty Kontrolne
 
 ### Pre-Implementation Checklist
+
 - [ ] Folder `C:\Users\NicoN\Desktop\Claude\gawin-home` utworzony
 - [ ] Git zainicjalizowany
 - [ ] Dependencies zainstalowane
@@ -952,6 +1020,7 @@ export function HeroSection() {
 - [ ] Struktura folderów utworzona
 
 ### Phase 1 Done Checklist
+
 - [ ] `npm run dev` działa bez błędów
 - [ ] `npm run build` kończy się sukcesem
 - [ ] Tailwind CSS v4 skonfigurowany
@@ -959,6 +1028,7 @@ export function HeroSection() {
 - [ ] ESLint + Prettier działa
 
 ### Phase 2 Done Checklist
+
 - [ ] Design system (kolory) w `globals.css`
 - [ ] Button component z `rounded-xl`
 - [ ] Wszystkie komponenty shadcn/ui dodane
@@ -966,6 +1036,7 @@ export function HeroSection() {
 - [ ] Preview Button variants w przeglądarce
 
 ### Phase 3 Done Checklist
+
 - [ ] TypeScript types utworzone
 - [ ] Mock data (products.json) gotowe
 - [ ] Categories.json gotowe
@@ -977,6 +1048,7 @@ export function HeroSection() {
 ## 🚀 Następne Kroki
 
 Po ukończeniu Phase 1-3, przejdź do implementacji:
+
 1. Header + Footer
 2. Homepage sections (Hero, Featured, Categories)
 3. Product listing page

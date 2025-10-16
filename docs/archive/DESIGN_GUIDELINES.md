@@ -21,17 +21,21 @@ Poniższy dokument jest **ostatecznym i jedynym źródłem prawdy** w kwestiach 
 Stosujemy **dualizm wizualny**:
 
 #### Tryb "Elegancki" (Ciemny)
+
 Używany do budowania pierwszego wrażenia i prestiżu.
 
 **Zastosowanie:**
+
 - Sekcja Hero
 - Banery promocyjne
 - Stopka (Footer)
 
 #### Tryb "Showroom" (Jasny)
+
 Używany do prezentacji produktów. Ma być czysty, minimalistyczny i nie odciągać uwagi od oferty.
 
 **Zastosowanie:**
+
 - Listingi produktów
 - Strony produktowe
 - Tła większości sekcji
@@ -42,28 +46,28 @@ Używany do prezentacji produktów. Ma być czysty, minimalistyczny i nie odcią
 
 Implementacja w `app/globals.css` jako zmienne CSS i w `tailwind.config.ts`.
 
-| Token CSS | Wartość Hex | Nazwa Klasy Tailwind | Zastosowanie |
-|-----------|-------------|---------------------|--------------|
-| `--brand-cream` | `#FAFAF9` | `bg-brand-cream` | Główne tło "Showroom" |
-| `--brand-sand` | `#F5F5F5` | `bg-brand-sand` | Tło dla wyróżnionych sekcji |
-| `--brand-charcoal` | `#1A1A1A` | `bg-brand-charcoal` | Główne tło "Eleganckie", tekst |
-| `--brand-gold` | `#d4a574` | `bg-brand-gold`, `text-brand-gold`, `border-brand-gold` | **Tylko** dla CTA, cen, linków, focusów |
-| `--brand-copper` | `#b8956a` | `hover:bg-brand-copper` | Stan `:hover` dla złotych elementów |
-| `--neutral-border` | `#E5E7EB` | `border-neutral-200` | Subtelne ramki i separatory |
+| Token CSS          | Wartość Hex | Nazwa Klasy Tailwind                                    | Zastosowanie                            |
+| ------------------ | ----------- | ------------------------------------------------------- | --------------------------------------- |
+| `--brand-cream`    | `#FAFAF9`   | `bg-brand-cream`                                        | Główne tło "Showroom"                   |
+| `--brand-sand`     | `#F5F5F5`   | `bg-brand-sand`                                         | Tło dla wyróżnionych sekcji             |
+| `--brand-charcoal` | `#1A1A1A`   | `bg-brand-charcoal`                                     | Główne tło "Eleganckie", tekst          |
+| `--brand-gold`     | `#d4a574`   | `bg-brand-gold`, `text-brand-gold`, `border-brand-gold` | **Tylko** dla CTA, cen, linków, focusów |
+| `--brand-copper`   | `#b8956a`   | `hover:bg-brand-copper`                                 | Stan `:hover` dla złotych elementów     |
+| `--neutral-border` | `#E5E7EB`   | `border-neutral-200`                                    | Subtelne ramki i separatory             |
 
 ---
 
 ### 3. Typografia (Geist Sans)
 
-| Element | Klasy Tailwind | Zastosowanie |
-|---------|----------------|--------------|
-| **Display (Hero)** | `text-5xl lg:text-7xl font-bold tracking-tighter` | Główny nagłówek w sekcji Hero |
-| **Heading 1** | `text-4xl lg:text-5xl font-bold tracking-tight` | Tytuły stron |
-| **Heading 2** | `text-3xl lg:text-4xl font-bold` | Tytuły głównych sekcji |
-| **Heading 3** | `text-xl lg:text-2xl font-semibold` | Tytuły kart, podsekcji |
-| **Body (Opisowy)** | `text-base lg:text-lg leading-relaxed text-neutral-600` | Długie opisy produktów |
-| **Body (Standard)** | `text-base` | Standardowy tekst |
-| **Label** | `text-sm font-medium uppercase tracking-wider` | Etykiety, kategorie |
+| Element             | Klasy Tailwind                                          | Zastosowanie                  |
+| ------------------- | ------------------------------------------------------- | ----------------------------- |
+| **Display (Hero)**  | `text-5xl lg:text-7xl font-bold tracking-tighter`       | Główny nagłówek w sekcji Hero |
+| **Heading 1**       | `text-4xl lg:text-5xl font-bold tracking-tight`         | Tytuły stron                  |
+| **Heading 2**       | `text-3xl lg:text-4xl font-bold`                        | Tytuły głównych sekcji        |
+| **Heading 3**       | `text-xl lg:text-2xl font-semibold`                     | Tytuły kart, podsekcji        |
+| **Body (Opisowy)**  | `text-base lg:text-lg leading-relaxed text-neutral-600` | Długie opisy produktów        |
+| **Body (Standard)** | `text-base`                                             | Standardowy tekst             |
+| **Label**           | `text-sm font-medium uppercase tracking-wider`          | Etykiety, kategorie           |
 
 ---
 
@@ -72,6 +76,7 @@ Implementacja w `app/globals.css` jako zmienne CSS i w `tailwind.config.ts`.
 #### Przyciski (`<Button />`)
 
 **Wspólne atrybuty:**
+
 ```
 rounded-xl font-semibold transition-all duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-gold
 ```
@@ -81,10 +86,12 @@ rounded-xl font-semibold transition-all duration-300 focus-visible:ring-2 focus-
 **Warianty:**
 
 1. **`primary` (Gradientowy CTA):**
+
    - Klasy: `bg-gradient-to-br from-brand-gold to-brand-copper text-white shadow-lg`
    - Interakcja: `hover:brightness-110 hover:shadow-md active:brightness-100`
 
 2. **`secondary` (Outline):**
+
    - Klasy: `bg-transparent border border-brand-gold text-brand-gold`
    - Interakcja: `hover:bg-brand-gold hover:text-white`
 
@@ -126,9 +133,11 @@ rounded-xl font-semibold transition-all duration-300 focus-visible:ring-2 focus-
 ### 6. Animacje (Framer Motion)
 
 **Timing:**
+
 - Domyślny `duration: 0.5`, `ease: "easeOut"`
 
 **Wejście Sekcji:**
+
 ```jsx
 initial={{ opacity: 0, y: 30 }}
 whileInView={{ opacity: 1, y: 0 }}
@@ -136,6 +145,7 @@ viewport={{ once: true, amount: 0.2 }}
 ```
 
 **Stagger (dla list):**
+
 - Kontener listy powinien mieć animację `staggerChildren` z opóźnieniem **0.1s** dla każdego elementu
 
 ---
@@ -153,11 +163,13 @@ Strona główna to **narracja**, która prowadzi klienta przez cztery etapy:
 **Cel:** Zrobić piorunujące pierwsze wrażenie i zdefiniować markę w 3 sekundy.
 
 **Design:**
+
 - Tryb "Elegancki"
 - Pełnoekranowy (`min-h-screen`) obraz lub wideo w tle
 - Pokryte półprzezroczystą, ciemną nakładką (`bg-brand-charcoal/70`)
 
 **Komponenty:**
+
 - Nagłówek Display: np. "Perfekcja w Twoim Domu"
 - Krótki podtytuł
 - Główny przycisk CTA (wariant `primary`): "Odkryj Kolekcję"
@@ -169,10 +181,12 @@ Strona główna to **narracja**, która prowadzi klienta przez cztery etapy:
 **Cel:** Szybkie pokazanie szerokości oferty i nawigacja do kluczowych kategorii.
 
 **Design:**
+
 - Tryb "Showroom"
 - Jasne tło (`bg-brand-sand`), aby wyróżnić się od tła strony
 
 **Komponenty:**
+
 - Nagłówek H2: "Nasze Kolekcje"
 - Siatka 3-4 kafelków (`<CategoryCard />`) ze zdjęciami reprezentującymi kategorie (np. "Sofy", "Stoły", "Oświetlenie")
 - Kafelki są klikalne
@@ -184,10 +198,12 @@ Strona główna to **narracja**, która prowadzi klienta przez cztery etapy:
 **Cel:** Pokazanie, co jest popularne i co kupują inni. Buduje zaufanie i ułatwia wybór.
 
 **Design:**
+
 - Tryb "Showroom"
 - Jasne tło (`bg-brand-cream`)
 
 **Komponenty:**
+
 - Nagłówek H2: "Bestsellery"
 - Pozioma karuzela (np. **Embla Carousel**) z 4-5 komponentami `<ProductCard />`
 - Karuzela musi być interaktywna (przeciąganie, strzałki na desktopie)
@@ -199,10 +215,12 @@ Strona główna to **narracja**, która prowadzi klienta przez cztery etapy:
 **Cel:** Odpowiedzenie na pytanie "Dlaczego mam kupić właśnie tutaj?".
 
 **Design:**
+
 - Tryb "Showroom"
 - Prosta, czysta sekcja
 
 **Komponenty:**
+
 - Nagłówek H2: "Jakość, na której możesz polegać"
 - Siatka 3 ikon z krótkim tekstem, np.:
   - Ikona `Truck`: "Darmowa dostawa od 5000 PLN"
@@ -216,10 +234,12 @@ Strona główna to **narracja**, która prowadzi klienta przez cztery etapy:
 **Cel:** Zainspirowanie klienta, pokazanie produktów w kontekście pięknych aranżacji.
 
 **Design:**
+
 - Tryb "Elegancki" lub mieszany
 - Duży, wysokiej jakości baner ze zdjęciem aranżacji wnętrza
 
 **Komponenty:**
+
 - Duży obraz z nałożonym tekstem i przyciskiem CTA (wariant `secondary`): "Zobacz nasze inspiracje"
 
 ---
@@ -229,10 +249,12 @@ Strona główna to **narracja**, która prowadzi klienta przez cztery etapy:
 **Cel:** Zbudowanie bazy mailingowej i utrzymanie kontaktu z klientem.
 
 **Design:**
+
 - Tryb "Showroom"
 - Prosta sekcja zorientowana na konwersję
 
 **Komponenty:**
+
 - Nagłówek H3: "Dołącz do naszego klubu"
 - Pole `<Input />` na adres e-mail
 - Przycisk CTA (wariant `primary`): "Zapisz się"
@@ -244,10 +266,12 @@ Strona główna to **narracja**, która prowadzi klienta przez cztery etapy:
 **Cel:** Nawigacja, informacje prawne, budowanie zaufania.
 
 **Design:**
+
 - Tryb "Elegancki"
 - Ciemne tło (`bg-brand-charcoal`), biały/kremowy tekst
 
 **Komponenty:**
+
 - Logo, krótkie info o firmie
 - Kolumny z linkami (Kategorie, Informacje, Obsługa klienta)
 - Informacje o prawach autorskich

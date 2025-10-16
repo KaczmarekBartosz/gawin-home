@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { getMockProducts } from '@/lib/data-adapters/mock';
+import Image from "next/image";
+import Link from "next/link";
+import { getMockProducts } from "@/lib/data-adapters/mock";
 
 export async function FeaturedProducts() {
   const products = (await getMockProducts()).slice(0, 6);
@@ -15,7 +15,10 @@ export async function FeaturedProducts() {
               Wybrane pozycje do szybkiego projektowania kart i gridów.
             </p>
           </div>
-          <Link href="/mock/products" className="text-sm underline hover:opacity-80">
+          <Link
+            href="/mock/products"
+            className="text-sm underline hover:opacity-80"
+          >
             Zobacz wszystkie
           </Link>
         </div>
@@ -36,10 +39,15 @@ export async function FeaturedProducts() {
                 />
               </div>
               <div className="p-4">
-                <h3 className="line-clamp-2 text-lg font-semibold">{p.title}</h3>
+                <h3 className="line-clamp-2 text-lg font-semibold">
+                  {p.title}
+                </h3>
                 <p className="mt-1 text-sm text-neutral-500">{p.category}</p>
                 <p className="mt-2 text-base font-medium">
-                  {new Intl.NumberFormat('pl-PL', { style: 'currency', currency: p.currency }).format(p.price)}
+                  {new Intl.NumberFormat("pl-PL", {
+                    style: "currency",
+                    currency: p.currency,
+                  }).format(p.price)}
                 </p>
               </div>
             </Link>
@@ -49,4 +57,3 @@ export async function FeaturedProducts() {
     </section>
   );
 }
-

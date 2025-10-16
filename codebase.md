@@ -74,7 +74,6 @@ next-env.d.ts
     }
   ]
 }
-
 ```
 
 # .vscode\settings.json
@@ -89,13 +88,12 @@ next-env.d.ts
     "source.sortMembers": "explicit"
   }
 }
-
 ```
 
 # app\[page]\layout.tsx
 
 ```tsx
-import Footer from 'components/layout/footer';
+import Footer from "components/layout/footer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -107,14 +105,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </>
   );
 }
-
 ```
 
 # app\[page]\opengraph-image.tsx
 
 ```tsx
-import OpengraphImage from 'components/opengraph-image';
-import { getPage } from 'lib/shopify';
+import OpengraphImage from "components/opengraph-image";
+import { getPage } from "lib/shopify";
 
 export default async function Image({ params }: { params: { page: string } }) {
   const page = await getPage(params.page);
@@ -122,17 +119,16 @@ export default async function Image({ params }: { params: { page: string } }) {
 
   return await OpengraphImage({ title });
 }
-
 ```
 
 # app\[page]\page.tsx
 
 ```tsx
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import Prose from 'components/prose';
-import { getPage } from 'lib/shopify';
-import { notFound } from 'next/navigation';
+import Prose from "components/prose";
+import { getPage } from "lib/shopify";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: {
   params: Promise<{ page: string }>;
@@ -148,12 +144,14 @@ export async function generateMetadata(props: {
     openGraph: {
       publishedTime: page.createdAt,
       modifiedTime: page.updatedAt,
-      type: 'article'
-    }
+      type: "article",
+    },
   };
 }
 
-export default async function Page(props: { params: Promise<{ page: string }> }) {
+export default async function Page(props: {
+  params: Promise<{ page: string }>;
+}) {
   const params = await props.params;
   const page = await getPage(params.page);
 
@@ -164,42 +162,43 @@ export default async function Page(props: { params: Promise<{ page: string }> })
       <h1 className="mb-8 text-5xl font-bold">{page.title}</h1>
       <Prose className="mb-8" html={page.body} />
       <p className="text-sm italic">
-        {`This document was last updated on ${new Intl.DateTimeFormat(undefined, {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        }).format(new Date(page.updatedAt))}.`}
+        {`This document was last updated on ${new Intl.DateTimeFormat(
+          undefined,
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          },
+        ).format(new Date(page.updatedAt))}.`}
       </p>
     </>
   );
 }
-
 ```
 
 # app\api\revalidate\route.ts
 
 ```ts
-import { revalidate } from 'lib/shopify';
-import { NextRequest, NextResponse } from 'next/server';
+import { revalidate } from "lib/shopify";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   return revalidate(req);
 }
-
 ```
 
 # app\error.tsx
 
 ```tsx
-'use client';
+"use client";
 
 export default function Error({ reset }: { reset: () => void }) {
   return (
     <div className="mx-auto my-4 flex max-w-xl flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 dark:border-neutral-800 dark:bg-black">
       <h2 className="text-xl font-bold">Oh no!</h2>
       <p className="my-2">
-        There was an issue with our storefront. This could be a temporary issue, please try your
-        action again.
+        There was an issue with our storefront. This could be a temporary issue,
+        please try your action again.
       </p>
       <button
         className="mx-auto mt-4 flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white hover:opacity-90"
@@ -210,7 +209,6 @@ export default function Error({ reset }: { reset: () => void }) {
     </div>
   );
 }
-
 ```
 
 # app\favicon.ico
@@ -220,7 +218,7 @@ This is a binary file of the type: Binary
 # app\globals.css
 
 ```css
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -245,7 +243,7 @@ This is a binary file of the type: Binary
 }
 
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading='lazy'] {
+  img[loading="lazy"] {
     clip-path: inset(0.6px);
   }
 }
@@ -381,21 +379,20 @@ button {
     @apply bg-background text-foreground;
   }
 }
-
 ```
 
 # app\layout.tsx
 
 ```tsx
-import { CartProvider } from 'components/cart/cart-context';
-import { Navbar } from 'components/layout/navbar';
-import { WelcomeToast } from 'components/welcome-toast';
-import { GeistSans } from 'geist/font/sans';
-import { getCart } from 'lib/shopify';
-import { ReactNode } from 'react';
-import { Toaster } from 'sonner';
-import './globals.css';
-import { baseUrl } from 'lib/utils';
+import { CartProvider } from "components/cart/cart-context";
+import { Navbar } from "components/layout/navbar";
+import { WelcomeToast } from "components/welcome-toast";
+import { GeistSans } from "geist/font/sans";
+import { getCart } from "lib/shopify";
+import { ReactNode } from "react";
+import { Toaster } from "sonner";
+import "./globals.css";
+import { baseUrl } from "lib/utils";
 
 const { SITE_NAME } = process.env;
 
@@ -403,16 +400,16 @@ export const metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: SITE_NAME!,
-    template: `%s | ${SITE_NAME}`
+    template: `%s | ${SITE_NAME}`,
   },
   robots: {
     follow: true,
-    index: true
-  }
+    index: true,
+  },
 };
 
 export default async function RootLayout({
-  children
+  children,
 }: {
   children: ReactNode;
 }) {
@@ -434,39 +431,37 @@ export default async function RootLayout({
     </html>
   );
 }
-
 ```
 
 # app\opengraph-image.tsx
 
 ```tsx
-import OpengraphImage from 'components/opengraph-image';
+import OpengraphImage from "components/opengraph-image";
 
 export default async function Image() {
   return await OpengraphImage();
 }
-
 ```
 
 # app\page.tsx
 
 ```tsx
-import { HeroSection } from '@/components/sections/hero-section';
-import { FeaturedProducts } from '@/components/sections/featured-products';
-import { CategoriesShowcase } from '@/components/sections/categories-showcase';
-import { Newsletter } from '@/components/sections/newsletter';
-import Footer from 'components/layout/footer';
+import { HeroSection } from "@/components/sections/hero-section";
+import { FeaturedProducts } from "@/components/sections/featured-products";
+import { CategoriesShowcase } from "@/components/sections/categories-showcase";
+import { Newsletter } from "@/components/sections/newsletter";
+import Footer from "components/layout/footer";
 
 export const metadata = {
-  title: 'Gawin-Home - Premium Meble i Wyposażenie Wnętrz',
+  title: "Gawin-Home - Premium Meble i Wyposażenie Wnętrz",
   description:
-    'Odkryj kolekcję premium mebli, które łączą ponadczasową elegancję z nowoczesnym designem. Meble, które tworzą dom.',
+    "Odkryj kolekcję premium mebli, które łączą ponadczasową elegancję z nowoczesnym designem. Meble, które tworzą dom.",
   openGraph: {
-    type: 'website',
-    title: 'Gawin-Home - Premium Meble i Wyposażenie Wnętrz',
+    type: "website",
+    title: "Gawin-Home - Premium Meble i Wyposażenie Wnętrz",
     description:
-      'Odkryj kolekcję premium mebli, które łączą ponadczasową elegancję z nowoczesnym designem.'
-  }
+      "Odkryj kolekcję premium mebli, które łączą ponadczasową elegancję z nowoczesnym designem.",
+  },
 };
 
 export default function HomePage() {
@@ -480,25 +475,24 @@ export default function HomePage() {
     </div>
   );
 }
-
 ```
 
 # app\product\[handle]\page.tsx
 
 ```tsx
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-import { GridTileImage } from 'components/grid/tile';
-import Footer from 'components/layout/footer';
-import { Gallery } from 'components/product/gallery';
-import { ProductProvider } from 'components/product/product-context';
-import { ProductDescription } from 'components/product/product-description';
-import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct, getProductRecommendations } from 'lib/shopify';
-import { Image } from 'lib/shopify/types';
-import Link from 'next/link';
-import { Suspense } from 'react';
+import { GridTileImage } from "components/grid/tile";
+import Footer from "components/layout/footer";
+import { Gallery } from "components/product/gallery";
+import { ProductProvider } from "components/product/product-context";
+import { ProductDescription } from "components/product/product-description";
+import { HIDDEN_PRODUCT_TAG } from "lib/constants";
+import { getProduct, getProductRecommendations } from "lib/shopify";
+import { Image } from "lib/shopify/types";
+import Link from "next/link";
+import { Suspense } from "react";
 
 export async function generateMetadata(props: {
   params: Promise<{ handle: string }>;
@@ -519,8 +513,8 @@ export async function generateMetadata(props: {
       follow: indexable,
       googleBot: {
         index: indexable,
-        follow: indexable
-      }
+        follow: indexable,
+      },
     },
     openGraph: url
       ? {
@@ -529,35 +523,37 @@ export async function generateMetadata(props: {
               url,
               width,
               height,
-              alt
-            }
-          ]
+              alt,
+            },
+          ],
         }
-      : null
+      : null,
   };
 }
 
-export default async function ProductPage(props: { params: Promise<{ handle: string }> }) {
+export default async function ProductPage(props: {
+  params: Promise<{ handle: string }>;
+}) {
   const params = await props.params;
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
 
   const productJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+    "@context": "https://schema.org",
+    "@type": "Product",
     name: product.title,
     description: product.description,
     image: product.featuredImage.url,
     offers: {
-      '@type': 'AggregateOffer',
+      "@type": "AggregateOffer",
       availability: product.availableForSale
-        ? 'https://schema.org/InStock'
-        : 'https://schema.org/OutOfStock',
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
       priceCurrency: product.priceRange.minVariantPrice.currencyCode,
       highPrice: product.priceRange.maxVariantPrice.amount,
-      lowPrice: product.priceRange.minVariantPrice.amount
-    }
+      lowPrice: product.priceRange.minVariantPrice.amount,
+    },
   };
 
   return (
@@ -565,7 +561,7 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(productJsonLd)
+          __html: JSON.stringify(productJsonLd),
         }}
       />
       <div className="mx-auto max-w-(--breakpoint-2xl) px-4">
@@ -579,7 +575,7 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
               <Gallery
                 images={product.images.slice(0, 5).map((image: Image) => ({
                   src: image.url,
-                  altText: image.altText
+                  altText: image.altText,
                 }))}
               />
             </Suspense>
@@ -622,7 +618,7 @@ async function RelatedProducts({ id }: { id: string }) {
                 label={{
                   title: product.title,
                   amount: product.priceRange.maxVariantPrice.amount,
-                  currencyCode: product.priceRange.maxVariantPrice.currencyCode
+                  currencyCode: product.priceRange.maxVariantPrice.currencyCode,
                 }}
                 src={product.featuredImage?.url}
                 fill
@@ -635,36 +631,34 @@ async function RelatedProducts({ id }: { id: string }) {
     </div>
   );
 }
-
 ```
 
 # app\robots.ts
 
 ```ts
-import { baseUrl } from 'lib/utils';
+import { baseUrl } from "lib/utils";
 
 export default function robots() {
   return {
     rules: [
       {
-        userAgent: '*'
-      }
+        userAgent: "*",
+      },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl
+    host: baseUrl,
   };
 }
-
 ```
 
 # app\search\[collection]\opengraph-image.tsx
 
 ```tsx
-import OpengraphImage from 'components/opengraph-image';
-import { getCollection } from 'lib/shopify';
+import OpengraphImage from "components/opengraph-image";
+import { getCollection } from "lib/shopify";
 
 export default async function Image({
-  params
+  params,
 }: {
   params: { collection: string };
 }) {
@@ -673,19 +667,18 @@ export default async function Image({
 
   return await OpengraphImage({ title });
 }
-
 ```
 
 # app\search\[collection]\page.tsx
 
 ```tsx
-import { getCollection, getCollectionProducts } from 'lib/shopify';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { getCollection, getCollectionProducts } from "lib/shopify";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-import Grid from 'components/grid';
-import ProductGridItems from 'components/layout/product-grid-items';
-import { defaultSort, sorting } from 'lib/constants';
+import Grid from "components/grid";
+import ProductGridItems from "components/layout/product-grid-items";
+import { defaultSort, sorting } from "lib/constants";
 
 export async function generateMetadata(props: {
   params: Promise<{ collection: string }>;
@@ -698,7 +691,9 @@ export async function generateMetadata(props: {
   return {
     title: collection.seo?.title || collection.title,
     description:
-      collection.seo?.description || collection.description || `${collection.title} products`
+      collection.seo?.description ||
+      collection.description ||
+      `${collection.title} products`,
   };
 }
 
@@ -709,8 +704,13 @@ export default async function CategoryPage(props: {
   const searchParams = await props.searchParams;
   const params = await props.params;
   const { sort } = searchParams as { [key: string]: string };
-  const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
-  const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
+  const { sortKey, reverse } =
+    sorting.find((item) => item.slug === sort) || defaultSort;
+  const products = await getCollectionProducts({
+    collection: params.collection,
+    sortKey,
+    reverse,
+  });
 
   return (
     <section>
@@ -724,37 +724,39 @@ export default async function CategoryPage(props: {
     </section>
   );
 }
-
 ```
 
 # app\search\children-wrapper.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { useSearchParams } from 'next/navigation';
-import { Fragment } from 'react';
+import { useSearchParams } from "next/navigation";
+import { Fragment } from "react";
 
 // Ensure children are re-rendered when the search query changes
-export default function ChildrenWrapper({ children }: { children: React.ReactNode }) {
+export default function ChildrenWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const searchParams = useSearchParams();
-  return <Fragment key={searchParams.get('q')}>{children}</Fragment>;
+  return <Fragment key={searchParams.get("q")}>{children}</Fragment>;
 }
-
 ```
 
 # app\search\layout.tsx
 
 ```tsx
-import Footer from 'components/layout/footer';
-import Collections from 'components/layout/search/collections';
-import FilterList from 'components/layout/search/filter';
-import { sorting } from 'lib/constants';
-import ChildrenWrapper from './children-wrapper';
-import { Suspense } from 'react';
+import Footer from "components/layout/footer";
+import Collections from "components/layout/search/collections";
+import FilterList from "components/layout/search/filter";
+import { sorting } from "lib/constants";
+import ChildrenWrapper from "./children-wrapper";
+import { Suspense } from "react";
 
 export default function SearchLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {
@@ -777,13 +779,12 @@ export default function SearchLayout({
     </>
   );
 }
-
 ```
 
 # app\search\loading.tsx
 
 ```tsx
-import Grid from 'components/grid';
+import Grid from "components/grid";
 
 export default function Loading() {
   return (
@@ -794,27 +795,29 @@ export default function Loading() {
           .fill(0)
           .map((_, index) => {
             return (
-              <Grid.Item key={index} className="animate-pulse bg-neutral-100 dark:bg-neutral-800" />
+              <Grid.Item
+                key={index}
+                className="animate-pulse bg-neutral-100 dark:bg-neutral-800"
+              />
             );
           })}
       </Grid>
     </>
   );
 }
-
 ```
 
 # app\search\page.tsx
 
 ```tsx
-import Grid from 'components/grid';
-import ProductGridItems from 'components/layout/product-grid-items';
-import { defaultSort, sorting } from 'lib/constants';
-import { getProducts } from 'lib/shopify';
+import Grid from "components/grid";
+import ProductGridItems from "components/layout/product-grid-items";
+import { defaultSort, sorting } from "lib/constants";
+import { getProducts } from "lib/shopify";
 
 export const metadata = {
-  title: 'Search',
-  description: 'Search for products in the store.'
+  title: "Search",
+  description: "Search for products in the store.",
 };
 
 export default async function SearchPage(props: {
@@ -822,17 +825,18 @@ export default async function SearchPage(props: {
 }) {
   const searchParams = await props.searchParams;
   const { sort, q: searchValue } = searchParams as { [key: string]: string };
-  const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
+  const { sortKey, reverse } =
+    sorting.find((item) => item.slug === sort) || defaultSort;
 
   const products = await getProducts({ sortKey, reverse, query: searchValue });
-  const resultsText = products.length > 1 ? 'results' : 'result';
+  const resultsText = products.length > 1 ? "results" : "result";
 
   return (
     <>
       {searchValue ? (
         <p className="mb-4">
           {products.length === 0
-            ? 'There are no products that match '
+            ? "There are no products that match "
             : `Showing ${products.length} ${resultsText} for `}
           <span className="font-bold">&quot;{searchValue}&quot;</span>
         </p>
@@ -845,50 +849,49 @@ export default async function SearchPage(props: {
     </>
   );
 }
-
 ```
 
 # app\sitemap.ts
 
 ```ts
-import { getCollections, getPages, getProducts } from 'lib/shopify';
-import { baseUrl, validateEnvironmentVariables } from 'lib/utils';
-import { MetadataRoute } from 'next';
+import { getCollections, getPages, getProducts } from "lib/shopify";
+import { baseUrl, validateEnvironmentVariables } from "lib/utils";
+import { MetadataRoute } from "next";
 
 type Route = {
   url: string;
   lastModified: string;
 };
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   validateEnvironmentVariables();
 
-  const routesMap = [''].map((route) => ({
+  const routesMap = [""].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString()
+    lastModified: new Date().toISOString(),
   }));
 
   const collectionsPromise = getCollections().then((collections) =>
     collections.map((collection) => ({
       url: `${baseUrl}${collection.path}`,
-      lastModified: collection.updatedAt
-    }))
+      lastModified: collection.updatedAt,
+    })),
   );
 
   const productsPromise = getProducts({}).then((products) =>
     products.map((product) => ({
       url: `${baseUrl}/product/${product.handle}`,
-      lastModified: product.updatedAt
-    }))
+      lastModified: product.updatedAt,
+    })),
   );
 
   const pagesPromise = getPages().then((pages) =>
     pages.map((page) => ({
       url: `${baseUrl}/${page.handle}`,
-      lastModified: page.updatedAt
-    }))
+      lastModified: page.updatedAt,
+    })),
   );
 
   let fetchedRoutes: Route[] = [];
@@ -903,7 +906,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [...routesMap, ...fetchedRoutes];
 }
-
 ```
 
 # components.json
@@ -931,19 +933,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   },
   "registries": {}
 }
-
 ```
 
 # components\carousel.tsx
 
 ```tsx
-import { getCollectionProducts } from 'lib/shopify';
-import Link from 'next/link';
-import { GridTileImage } from './grid/tile';
+import { getCollectionProducts } from "lib/shopify";
+import Link from "next/link";
+import { GridTileImage } from "./grid/tile";
 
 export async function Carousel() {
   // Collections that start with `hidden-*` are hidden from the search page.
-  const products = await getCollectionProducts({ collection: 'hidden-homepage-carousel' });
+  const products = await getCollectionProducts({
+    collection: "hidden-homepage-carousel",
+  });
 
   if (!products?.length) return null;
 
@@ -958,13 +961,16 @@ export async function Carousel() {
             key={`${product.handle}${i}`}
             className="relative aspect-square h-[30vh] max-h-[275px] w-2/3 max-w-[475px] flex-none md:w-1/3"
           >
-            <Link href={`/product/${product.handle}`} className="relative h-full w-full">
+            <Link
+              href={`/product/${product.handle}`}
+              className="relative h-full w-full"
+            >
               <GridTileImage
                 alt={product.title}
                 label={{
                   title: product.title,
                   amount: product.priceRange.maxVariantPrice.amount,
-                  currencyCode: product.priceRange.maxVariantPrice.currencyCode
+                  currencyCode: product.priceRange.maxVariantPrice.currencyCode,
                 }}
                 src={product.featuredImage?.url}
                 fill
@@ -977,39 +983,38 @@ export async function Carousel() {
     </div>
   );
 }
-
 ```
 
 # components\cart\actions.ts
 
 ```ts
-'use server';
+"use server";
 
-import { TAGS } from 'lib/constants';
+import { TAGS } from "lib/constants";
 import {
   addToCart,
   createCart,
   getCart,
   removeFromCart,
-  updateCart
-} from 'lib/shopify';
-import { revalidateTag } from 'next/cache';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+  updateCart,
+} from "lib/shopify";
+import { revalidateTag } from "next/cache";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export async function addItem(
   prevState: any,
-  selectedVariantId: string | undefined
+  selectedVariantId: string | undefined,
 ) {
   if (!selectedVariantId) {
-    return 'Error adding item to cart';
+    return "Error adding item to cart";
   }
 
   try {
     await addToCart([{ merchandiseId: selectedVariantId, quantity: 1 }]);
     revalidateTag(TAGS.cart);
   } catch (e) {
-    return 'Error adding item to cart';
+    return "Error adding item to cart";
   }
 }
 
@@ -1018,21 +1023,21 @@ export async function removeItem(prevState: any, merchandiseId: string) {
     const cart = await getCart();
 
     if (!cart) {
-      return 'Error fetching cart';
+      return "Error fetching cart";
     }
 
     const lineItem = cart.lines.find(
-      (line) => line.merchandise.id === merchandiseId
+      (line) => line.merchandise.id === merchandiseId,
     );
 
     if (lineItem && lineItem.id) {
       await removeFromCart([lineItem.id]);
       revalidateTag(TAGS.cart);
     } else {
-      return 'Item not found in cart';
+      return "Item not found in cart";
     }
   } catch (e) {
-    return 'Error removing item from cart';
+    return "Error removing item from cart";
   }
 }
 
@@ -1041,7 +1046,7 @@ export async function updateItemQuantity(
   payload: {
     merchandiseId: string;
     quantity: number;
-  }
+  },
 ) {
   const { merchandiseId, quantity } = payload;
 
@@ -1049,11 +1054,11 @@ export async function updateItemQuantity(
     const cart = await getCart();
 
     if (!cart) {
-      return 'Error fetching cart';
+      return "Error fetching cart";
     }
 
     const lineItem = cart.lines.find(
-      (line) => line.merchandise.id === merchandiseId
+      (line) => line.merchandise.id === merchandiseId,
     );
 
     if (lineItem && lineItem.id) {
@@ -1064,8 +1069,8 @@ export async function updateItemQuantity(
           {
             id: lineItem.id,
             merchandiseId,
-            quantity
-          }
+            quantity,
+          },
         ]);
       }
     } else if (quantity > 0) {
@@ -1076,7 +1081,7 @@ export async function updateItemQuantity(
     revalidateTag(TAGS.cart);
   } catch (e) {
     console.error(e);
-    return 'Error updating item quantity';
+    return "Error updating item quantity";
   }
 }
 
@@ -1087,34 +1092,33 @@ export async function redirectToCheckout() {
 
 export async function createCartAndSetCookie() {
   let cart = await createCart();
-  (await cookies()).set('cartId', cart.id!);
+  (await cookies()).set("cartId", cart.id!);
 }
-
 ```
 
 # components\cart\add-to-cart.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { PlusIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
-import { addItem } from 'components/cart/actions';
-import { useProduct } from 'components/product/product-context';
-import { Product, ProductVariant } from 'lib/shopify/types';
-import { useActionState } from 'react';
-import { useCart } from './cart-context';
+import { PlusIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
+import { addItem } from "components/cart/actions";
+import { useProduct } from "components/product/product-context";
+import { Product, ProductVariant } from "lib/shopify/types";
+import { useActionState } from "react";
+import { useCart } from "./cart-context";
 
 function SubmitButton({
   availableForSale,
-  selectedVariantId
+  selectedVariantId,
 }: {
   availableForSale: boolean;
   selectedVariantId: string | undefined;
 }) {
   const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white';
-  const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
+    "relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white";
+  const disabledClasses = "cursor-not-allowed opacity-60 hover:opacity-60";
 
   if (!availableForSale) {
     return (
@@ -1143,7 +1147,7 @@ function SubmitButton({
     <button
       aria-label="Add to cart"
       className={clsx(buttonClasses, {
-        'hover:opacity-90': true
+        "hover:opacity-90": true,
       })}
     >
       <div className="absolute left-0 ml-4">
@@ -1162,14 +1166,14 @@ export function AddToCart({ product }: { product: Product }) {
 
   const variant = variants.find((variant: ProductVariant) =>
     variant.selectedOptions.every(
-      (option) => option.value === state[option.name.toLowerCase()]
-    )
+      (option) => option.value === state[option.name.toLowerCase()],
+    ),
   );
   const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
   const selectedVariantId = variant?.id || defaultVariantId;
   const addItemAction = formAction.bind(null, selectedVariantId);
   const finalVariant = variants.find(
-    (variant) => variant.id === selectedVariantId
+    (variant) => variant.id === selectedVariantId,
   )!;
 
   return (
@@ -1189,37 +1193,36 @@ export function AddToCart({ product }: { product: Product }) {
     </form>
   );
 }
-
 ```
 
 # components\cart\cart-context.tsx
 
 ```tsx
-'use client';
+"use client";
 
 import type {
   Cart,
   CartItem,
   Product,
-  ProductVariant
-} from 'lib/shopify/types';
+  ProductVariant,
+} from "lib/shopify/types";
 import React, {
   createContext,
   use,
   useContext,
   useMemo,
-  useOptimistic
-} from 'react';
+  useOptimistic,
+} from "react";
 
-type UpdateType = 'plus' | 'minus' | 'delete';
+type UpdateType = "plus" | "minus" | "delete";
 
 type CartAction =
   | {
-      type: 'UPDATE_ITEM';
+      type: "UPDATE_ITEM";
       payload: { merchandiseId: string; updateType: UpdateType };
     }
   | {
-      type: 'ADD_ITEM';
+      type: "ADD_ITEM";
       payload: { variant: ProductVariant; product: Product };
     };
 
@@ -1235,18 +1238,18 @@ function calculateItemCost(quantity: number, price: string): string {
 
 function updateCartItem(
   item: CartItem,
-  updateType: UpdateType
+  updateType: UpdateType,
 ): CartItem | null {
-  if (updateType === 'delete') return null;
+  if (updateType === "delete") return null;
 
   const newQuantity =
-    updateType === 'plus' ? item.quantity + 1 : item.quantity - 1;
+    updateType === "plus" ? item.quantity + 1 : item.quantity - 1;
   if (newQuantity === 0) return null;
 
   const singleItemAmount = Number(item.cost.totalAmount.amount) / item.quantity;
   const newTotalAmount = calculateItemCost(
     newQuantity,
-    singleItemAmount.toString()
+    singleItemAmount.toString(),
   );
 
   return {
@@ -1256,16 +1259,16 @@ function updateCartItem(
       ...item.cost,
       totalAmount: {
         ...item.cost.totalAmount,
-        amount: newTotalAmount
-      }
-    }
+        amount: newTotalAmount,
+      },
+    },
   };
 }
 
 function createOrUpdateCartItem(
   existingItem: CartItem | undefined,
   variant: ProductVariant,
-  product: Product
+  product: Product,
 ): CartItem {
   const quantity = existingItem ? existingItem.quantity + 1 : 1;
   const totalAmount = calculateItemCost(quantity, variant.price.amount);
@@ -1276,8 +1279,8 @@ function createOrUpdateCartItem(
     cost: {
       totalAmount: {
         amount: totalAmount,
-        currencyCode: variant.price.currencyCode
-      }
+        currencyCode: variant.price.currencyCode,
+      },
     },
     merchandise: {
       id: variant.id,
@@ -1287,43 +1290,43 @@ function createOrUpdateCartItem(
         id: product.id,
         handle: product.handle,
         title: product.title,
-        featuredImage: product.featuredImage
-      }
-    }
+        featuredImage: product.featuredImage,
+      },
+    },
   };
 }
 
 function updateCartTotals(
-  lines: CartItem[]
-): Pick<Cart, 'totalQuantity' | 'cost'> {
+  lines: CartItem[],
+): Pick<Cart, "totalQuantity" | "cost"> {
   const totalQuantity = lines.reduce((sum, item) => sum + item.quantity, 0);
   const totalAmount = lines.reduce(
     (sum, item) => sum + Number(item.cost.totalAmount.amount),
-    0
+    0,
   );
-  const currencyCode = lines[0]?.cost.totalAmount.currencyCode ?? 'USD';
+  const currencyCode = lines[0]?.cost.totalAmount.currencyCode ?? "USD";
 
   return {
     totalQuantity,
     cost: {
       subtotalAmount: { amount: totalAmount.toString(), currencyCode },
       totalAmount: { amount: totalAmount.toString(), currencyCode },
-      totalTaxAmount: { amount: '0', currencyCode }
-    }
+      totalTaxAmount: { amount: "0", currencyCode },
+    },
   };
 }
 
 function createEmptyCart(): Cart {
   return {
     id: undefined,
-    checkoutUrl: '',
+    checkoutUrl: "",
     totalQuantity: 0,
     lines: [],
     cost: {
-      subtotalAmount: { amount: '0', currencyCode: 'USD' },
-      totalAmount: { amount: '0', currencyCode: 'USD' },
-      totalTaxAmount: { amount: '0', currencyCode: 'USD' }
-    }
+      subtotalAmount: { amount: "0", currencyCode: "USD" },
+      totalAmount: { amount: "0", currencyCode: "USD" },
+      totalTaxAmount: { amount: "0", currencyCode: "USD" },
+    },
   };
 }
 
@@ -1331,13 +1334,13 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
   const currentCart = state || createEmptyCart();
 
   switch (action.type) {
-    case 'UPDATE_ITEM': {
+    case "UPDATE_ITEM": {
       const { merchandiseId, updateType } = action.payload;
       const updatedLines = currentCart.lines
         .map((item) =>
           item.merchandise.id === merchandiseId
             ? updateCartItem(item, updateType)
-            : item
+            : item,
         )
         .filter(Boolean) as CartItem[];
 
@@ -1348,38 +1351,38 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
           totalQuantity: 0,
           cost: {
             ...currentCart.cost,
-            totalAmount: { ...currentCart.cost.totalAmount, amount: '0' }
-          }
+            totalAmount: { ...currentCart.cost.totalAmount, amount: "0" },
+          },
         };
       }
 
       return {
         ...currentCart,
         ...updateCartTotals(updatedLines),
-        lines: updatedLines
+        lines: updatedLines,
       };
     }
-    case 'ADD_ITEM': {
+    case "ADD_ITEM": {
       const { variant, product } = action.payload;
       const existingItem = currentCart.lines.find(
-        (item) => item.merchandise.id === variant.id
+        (item) => item.merchandise.id === variant.id,
       );
       const updatedItem = createOrUpdateCartItem(
         existingItem,
         variant,
-        product
+        product,
       );
 
       const updatedLines = existingItem
         ? currentCart.lines.map((item) =>
-            item.merchandise.id === variant.id ? updatedItem : item
+            item.merchandise.id === variant.id ? updatedItem : item,
           )
         : [...currentCart.lines, updatedItem];
 
       return {
         ...currentCart,
         ...updateCartTotals(updatedLines),
-        lines: updatedLines
+        lines: updatedLines,
       };
     }
     default:
@@ -1389,7 +1392,7 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
 
 export function CartProvider({
   children,
-  cartPromise
+  cartPromise,
 }: {
   children: React.ReactNode;
   cartPromise: Promise<Cart | undefined>;
@@ -1404,51 +1407,50 @@ export function CartProvider({
 export function useCart() {
   const context = useContext(CartContext);
   if (context === undefined) {
-    throw new Error('useCart must be used within a CartProvider');
+    throw new Error("useCart must be used within a CartProvider");
   }
 
   const initialCart = use(context.cartPromise);
   const [optimisticCart, updateOptimisticCart] = useOptimistic(
     initialCart,
-    cartReducer
+    cartReducer,
   );
 
   const updateCartItem = (merchandiseId: string, updateType: UpdateType) => {
     updateOptimisticCart({
-      type: 'UPDATE_ITEM',
-      payload: { merchandiseId, updateType }
+      type: "UPDATE_ITEM",
+      payload: { merchandiseId, updateType },
     });
   };
 
   const addCartItem = (variant: ProductVariant, product: Product) => {
-    updateOptimisticCart({ type: 'ADD_ITEM', payload: { variant, product } });
+    updateOptimisticCart({ type: "ADD_ITEM", payload: { variant, product } });
   };
 
   return useMemo(
     () => ({
       cart: optimisticCart,
       updateCartItem,
-      addCartItem
+      addCartItem,
     }),
-    [optimisticCart]
+    [optimisticCart],
   );
 }
-
 ```
 
 # components\cart\delete-item-button.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { XMarkIcon } from '@heroicons/react/24/outline';
-import { removeItem } from 'components/cart/actions';
-import type { CartItem } from 'lib/shopify/types';
-import { useActionState } from 'react';
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { removeItem } from "components/cart/actions";
+import type { CartItem } from "lib/shopify/types";
+import { useActionState } from "react";
 
 export function DeleteItemButton({
   item,
-  optimisticUpdate
+  optimisticUpdate,
 }: {
   item: CartItem;
   optimisticUpdate: any;
@@ -1460,7 +1462,7 @@ export function DeleteItemButton({
   return (
     <form
       action={async () => {
-        optimisticUpdate(merchandiseId, 'delete');
+        optimisticUpdate(merchandiseId, "delete");
         removeItemAction();
       }}
     >
@@ -1477,35 +1479,34 @@ export function DeleteItemButton({
     </form>
   );
 }
-
 ```
 
 # components\cart\edit-item-quantity-button.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
-import { updateItemQuantity } from 'components/cart/actions';
-import type { CartItem } from 'lib/shopify/types';
-import { useActionState } from 'react';
+import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
+import { updateItemQuantity } from "components/cart/actions";
+import type { CartItem } from "lib/shopify/types";
+import { useActionState } from "react";
 
-function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
+function SubmitButton({ type }: { type: "plus" | "minus" }) {
   return (
     <button
       type="submit"
       aria-label={
-        type === 'plus' ? 'Increase item quantity' : 'Reduce item quantity'
+        type === "plus" ? "Increase item quantity" : "Reduce item quantity"
       }
       className={clsx(
-        'ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80',
+        "ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80",
         {
-          'ml-auto': type === 'minus'
-        }
+          "ml-auto": type === "minus",
+        },
       )}
     >
-      {type === 'plus' ? (
+      {type === "plus" ? (
         <PlusIcon className="h-4 w-4 dark:text-neutral-500" />
       ) : (
         <MinusIcon className="h-4 w-4 dark:text-neutral-500" />
@@ -1517,16 +1518,16 @@ function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
 export function EditItemQuantityButton({
   item,
   type,
-  optimisticUpdate
+  optimisticUpdate,
 }: {
   item: CartItem;
-  type: 'plus' | 'minus';
+  type: "plus" | "minus";
   optimisticUpdate: any;
 }) {
   const [message, formAction] = useActionState(updateItemQuantity, null);
   const payload = {
     merchandiseId: item.merchandise.id,
-    quantity: type === 'plus' ? item.quantity + 1 : item.quantity - 1
+    quantity: type === "plus" ? item.quantity + 1 : item.quantity - 1,
   };
   const updateItemQuantityAction = formAction.bind(null, payload);
 
@@ -1544,30 +1545,29 @@ export function EditItemQuantityButton({
     </form>
   );
 }
-
 ```
 
 # components\cart\modal.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import { Dialog, Transition } from '@headlessui/react';
-import { ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import LoadingDots from 'components/loading-dots';
-import Price from 'components/price';
-import { DEFAULT_OPTION } from 'lib/constants';
-import { createUrl } from 'lib/utils';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Fragment, useEffect, useRef, useState } from 'react';
-import { useFormStatus } from 'react-dom';
-import { createCartAndSetCookie, redirectToCheckout } from './actions';
-import { useCart } from './cart-context';
-import { DeleteItemButton } from './delete-item-button';
-import { EditItemQuantityButton } from './edit-item-quantity-button';
-import OpenCart from './open-cart';
+import clsx from "clsx";
+import { Dialog, Transition } from "@headlessui/react";
+import { ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import LoadingDots from "components/loading-dots";
+import Price from "components/price";
+import { DEFAULT_OPTION } from "lib/constants";
+import { createUrl } from "lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { useFormStatus } from "react-dom";
+import { createCartAndSetCookie, redirectToCheckout } from "./actions";
+import { useCart } from "./cart-context";
+import { DeleteItemButton } from "./delete-item-button";
+import { EditItemQuantityButton } from "./edit-item-quantity-button";
+import OpenCart from "./open-cart";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
@@ -1647,8 +1647,8 @@ export default function CartModal() {
                     {cart.lines
                       .sort((a, b) =>
                         a.merchandise.product.title.localeCompare(
-                          b.merchandise.product.title
-                        )
+                          b.merchandise.product.title,
+                        ),
                       )
                       .map((item, i) => {
                         const merchandiseSearchParams =
@@ -1660,12 +1660,12 @@ export default function CartModal() {
                               merchandiseSearchParams[name.toLowerCase()] =
                                 value;
                             }
-                          }
+                          },
                         );
 
                         const merchandiseUrl = createUrl(
                           `/product/${item.merchandise.product.handle}`,
-                          new URLSearchParams(merchandiseSearchParams)
+                          new URLSearchParams(merchandiseSearchParams),
                         );
 
                         return (
@@ -1785,8 +1785,8 @@ function CloseCart({ className }: { className?: string }) {
     <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white">
       <XMarkIcon
         className={clsx(
-          'h-6 transition-all ease-in-out hover:scale-110',
-          className
+          "h-6 transition-all ease-in-out hover:scale-110",
+          className,
         )}
       />
     </div>
@@ -1802,22 +1802,21 @@ function CheckoutButton() {
       type="submit"
       disabled={pending}
     >
-      {pending ? <LoadingDots className="bg-white" /> : 'Proceed to Checkout'}
+      {pending ? <LoadingDots className="bg-white" /> : "Proceed to Checkout"}
     </button>
   );
 }
-
 ```
 
 # components\cart\open-cart.tsx
 
 ```tsx
-import { ShoppingCartIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
 
 export default function OpenCart({
   className,
-  quantity
+  quantity,
 }: {
   className?: string;
   quantity?: number;
@@ -1825,7 +1824,10 @@ export default function OpenCart({
   return (
     <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white">
       <ShoppingCartIcon
-        className={clsx('h-4 transition-all ease-in-out hover:scale-110', className)}
+        className={clsx(
+          "h-4 transition-all ease-in-out hover:scale-110",
+          className,
+        )}
       />
 
       {quantity ? (
@@ -1836,25 +1838,30 @@ export default function OpenCart({
     </div>
   );
 }
-
 ```
 
 # components\grid\index.tsx
 
 ```tsx
-import clsx from 'clsx';
+import clsx from "clsx";
 
-function Grid(props: React.ComponentProps<'ul'>) {
+function Grid(props: React.ComponentProps<"ul">) {
   return (
-    <ul {...props} className={clsx('grid grid-flow-row gap-4', props.className)}>
+    <ul
+      {...props}
+      className={clsx("grid grid-flow-row gap-4", props.className)}
+    >
       {props.children}
     </ul>
   );
 }
 
-function GridItem(props: React.ComponentProps<'li'>) {
+function GridItem(props: React.ComponentProps<"li">) {
   return (
-    <li {...props} className={clsx('aspect-square transition-opacity', props.className)}>
+    <li
+      {...props}
+      className={clsx("aspect-square transition-opacity", props.className)}
+    >
       {props.children}
     </li>
   );
@@ -1863,29 +1870,32 @@ function GridItem(props: React.ComponentProps<'li'>) {
 Grid.Item = GridItem;
 
 export default Grid;
-
 ```
 
 # components\grid\three-items.tsx
 
 ```tsx
-import { GridTileImage } from 'components/grid/tile';
-import { getCollectionProducts } from 'lib/shopify';
-import type { Product } from 'lib/shopify/types';
-import Link from 'next/link';
+import { GridTileImage } from "components/grid/tile";
+import { getCollectionProducts } from "lib/shopify";
+import type { Product } from "lib/shopify/types";
+import Link from "next/link";
 
 function ThreeItemGridItem({
   item,
   size,
-  priority
+  priority,
 }: {
   item: Product;
-  size: 'full' | 'half';
+  size: "full" | "half";
   priority?: boolean;
 }) {
   return (
     <div
-      className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-2 md:row-span-1'}
+      className={
+        size === "full"
+          ? "md:col-span-4 md:row-span-2"
+          : "md:col-span-2 md:row-span-1"
+      }
     >
       <Link
         className="relative block aspect-square h-full w-full"
@@ -1896,15 +1906,17 @@ function ThreeItemGridItem({
           src={item.featuredImage.url}
           fill
           sizes={
-            size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'
+            size === "full"
+              ? "(min-width: 768px) 66vw, 100vw"
+              : "(min-width: 768px) 33vw, 100vw"
           }
           priority={priority}
           alt={item.title}
           label={{
-            position: size === 'full' ? 'center' : 'bottom',
+            position: size === "full" ? "center" : "bottom",
             title: item.title as string,
             amount: item.priceRange.maxVariantPrice.amount,
-            currencyCode: item.priceRange.maxVariantPrice.currencyCode
+            currencyCode: item.priceRange.maxVariantPrice.currencyCode,
           }}
         />
       </Link>
@@ -1915,7 +1927,7 @@ function ThreeItemGridItem({
 export async function ThreeItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
-    collection: 'hidden-homepage-featured-items'
+    collection: "hidden-homepage-featured-items",
   });
 
   if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
@@ -1930,15 +1942,14 @@ export async function ThreeItemGrid() {
     </section>
   );
 }
-
 ```
 
 # components\grid\tile.tsx
 
 ```tsx
-import clsx from 'clsx';
-import Image from 'next/image';
-import Label from '../label';
+import clsx from "clsx";
+import Image from "next/image";
+import Label from "../label";
 
 export function GridTileImage({
   isInteractive = true,
@@ -1952,24 +1963,25 @@ export function GridTileImage({
     title: string;
     amount: string;
     currencyCode: string;
-    position?: 'bottom' | 'center';
+    position?: "bottom" | "center";
   };
 } & React.ComponentProps<typeof Image>) {
   return (
     <div
       className={clsx(
-        'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black',
+        "group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black",
         {
           relative: label,
-          'border-2 border-blue-600': active,
-          'border-neutral-200 dark:border-neutral-800': !active
-        }
+          "border-2 border-blue-600": active,
+          "border-neutral-200 dark:border-neutral-800": !active,
+        },
       )}
     >
       {props.src ? (
         <Image
-          className={clsx('relative h-full w-full object-contain', {
-            'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
+          className={clsx("relative h-full w-full object-contain", {
+            "transition duration-300 ease-in-out group-hover:scale-105":
+              isInteractive,
           })}
           {...props}
         />
@@ -1985,56 +1997,59 @@ export function GridTileImage({
     </div>
   );
 }
-
 ```
 
 # components\icons\logo.tsx
 
 ```tsx
-import clsx from 'clsx';
+import clsx from "clsx";
 
-export default function LogoIcon(props: React.ComponentProps<'svg'>) {
+export default function LogoIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       aria-label={`${process.env.SITE_NAME} logo`}
       viewBox="0 0 32 28"
       {...props}
-      className={clsx('h-4 w-4 fill-black dark:fill-white', props.className)}
+      className={clsx("h-4 w-4 fill-black dark:fill-white", props.className)}
     >
       <path d="M21.5758 9.75769L16 0L0 28H11.6255L21.5758 9.75769Z" />
       <path d="M26.2381 17.9167L20.7382 28H32L26.2381 17.9167Z" />
     </svg>
   );
 }
-
 ```
 
 # components\label.tsx
 
 ```tsx
-import clsx from 'clsx';
-import Price from './price';
+import clsx from "clsx";
+import Price from "./price";
 
 const Label = ({
   title,
   amount,
   currencyCode,
-  position = 'bottom'
+  position = "bottom",
 }: {
   title: string;
   amount: string;
   currencyCode: string;
-  position?: 'bottom' | 'center';
+  position?: "bottom" | "center";
 }) => {
   return (
     <div
-      className={clsx('absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label', {
-        'lg:px-20 lg:pb-[35%]': position === 'center'
-      })}
+      className={clsx(
+        "absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label",
+        {
+          "lg:px-20 lg:pb-[35%]": position === "center",
+        },
+      )}
     >
       <div className="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-        <h3 className="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">{title}</h3>
+        <h3 className="mr-4 line-clamp-2 grow pl-2 leading-none tracking-tight">
+          {title}
+        </h3>
         <Price
           className="flex-none rounded-full bg-blue-600 p-2 text-white"
           amount={amount}
@@ -2047,19 +2062,18 @@ const Label = ({
 };
 
 export default Label;
-
 ```
 
 # components\layout\footer-menu.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import { Menu } from 'lib/shopify/types';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import clsx from "clsx";
+import { Menu } from "lib/shopify/types";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export function FooterMenuItem({ item }: { item: Menu }) {
   const pathname = usePathname();
@@ -2074,10 +2088,10 @@ export function FooterMenuItem({ item }: { item: Menu }) {
       <Link
         href={item.path}
         className={clsx(
-          'block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300',
+          "block p-2 text-lg underline-offset-4 hover:text-black hover:underline md:inline-block md:text-sm dark:hover:text-neutral-300",
           {
-            'text-black dark:text-neutral-300': active
-          }
+            "text-black dark:text-neutral-300": active,
+          },
         )}
       >
         {item.title}
@@ -2099,33 +2113,36 @@ export default function FooterMenu({ menu }: { menu: Menu[] }) {
     </nav>
   );
 }
-
 ```
 
 # components\layout\footer.tsx
 
 ```tsx
-import Link from 'next/link';
+import Link from "next/link";
 
-import FooterMenu from 'components/layout/footer-menu';
-import LogoSquare from 'components/logo-square';
-import { getMenu } from 'lib/shopify';
-import { Suspense } from 'react';
+import FooterMenu from "components/layout/footer-menu";
+import LogoSquare from "components/logo-square";
+import { getMenu } from "lib/shopify";
+import { Suspense } from "react";
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
 export default async function Footer() {
   const currentYear = new Date().getFullYear();
-  const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
-  const skeleton = 'w-full h-6 animate-pulse rounded-sm bg-neutral-200 dark:bg-neutral-700';
-  const menu = await getMenu('next-js-frontend-footer-menu');
-  const copyrightName = COMPANY_NAME || SITE_NAME || '';
+  const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : "");
+  const skeleton =
+    "w-full h-6 animate-pulse rounded-sm bg-neutral-200 dark:bg-neutral-700";
+  const menu = await getMenu("next-js-frontend-footer-menu");
+  const copyrightName = COMPANY_NAME || SITE_NAME || "";
 
   return (
     <footer className="text-sm text-neutral-500 dark:text-neutral-400">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 border-t border-neutral-200 px-6 py-12 text-sm md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0 dark:border-neutral-700">
         <div>
-          <Link className="flex items-center gap-2 text-black md:pt-1 dark:text-white" href="/">
+          <Link
+            className="flex items-center gap-2 text-black md:pt-1 dark:text-white"
+            href="/"
+          >
             <LogoSquare size="sm" />
             <span className="uppercase">{SITE_NAME}</span>
           </Link>
@@ -2160,7 +2177,10 @@ export default async function Footer() {
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1 px-4 md:flex-row md:gap-0 md:px-4 min-[1320px]:px-0">
           <p>
             &copy; {copyrightDate} {copyrightName}
-            {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
+            {copyrightName.length && !copyrightName.endsWith(".")
+              ? "."
+              : ""}{" "}
+            All rights reserved.
           </p>
           <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
           <p>
@@ -2176,25 +2196,24 @@ export default async function Footer() {
     </footer>
   );
 }
-
 ```
 
 # components\layout\navbar\index.tsx
 
 ```tsx
-import CartModal from 'components/cart/modal';
-import LogoSquare from 'components/logo-square';
-import { getMenu } from 'lib/shopify';
-import { Menu } from 'lib/shopify/types';
-import Link from 'next/link';
-import { Suspense } from 'react';
-import MobileMenu from './mobile-menu';
-import Search, { SearchSkeleton } from './search';
+import CartModal from "components/cart/modal";
+import LogoSquare from "components/logo-square";
+import { getMenu } from "lib/shopify";
+import { Menu } from "lib/shopify/types";
+import Link from "next/link";
+import { Suspense } from "react";
+import MobileMenu from "./mobile-menu";
+import Search, { SearchSkeleton } from "./search";
 
 const { SITE_NAME } = process.env;
 
 export async function Navbar() {
-  const menu = await getMenu('next-js-frontend-header-menu');
+  const menu = await getMenu("next-js-frontend-header-menu");
 
   return (
     <nav className="relative flex items-center justify-between p-4 lg:px-6">
@@ -2243,22 +2262,21 @@ export async function Navbar() {
     </nav>
   );
 }
-
 ```
 
 # components\layout\navbar\mobile-menu.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { Dialog, Transition } from '@headlessui/react';
-import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { Fragment, Suspense, useEffect, useState } from 'react';
+import { Dialog, Transition } from "@headlessui/react";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Fragment, Suspense, useEffect, useState } from "react";
 
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Menu } from 'lib/shopify/types';
-import Search, { SearchSkeleton } from './search';
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Menu } from "lib/shopify/types";
+import Search, { SearchSkeleton } from "./search";
 
 export default function MobileMenu({ menu }: { menu: Menu[] }) {
   const pathname = usePathname();
@@ -2273,8 +2291,8 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
         setIsOpen(false);
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [isOpen]);
 
   useEffect(() => {
@@ -2334,7 +2352,11 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                         className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white"
                         key={item.title}
                       >
-                        <Link href={item.path} prefetch={true} onClick={closeMobileMenu}>
+                        <Link
+                          href={item.path}
+                          prefetch={true}
+                          onClick={closeMobileMenu}
+                        >
                           {item.title}
                         </Link>
                       </li>
@@ -2349,30 +2371,32 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
     </>
   );
 }
-
 ```
 
 # components\layout\navbar\search.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import Form from 'next/form';
-import { useSearchParams } from 'next/navigation';
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import Form from "next/form";
+import { useSearchParams } from "next/navigation";
 
 export default function Search() {
   const searchParams = useSearchParams();
 
   return (
-    <Form action="/search" className="w-max-[550px] relative w-full lg:w-80 xl:w-full">
+    <Form
+      action="/search"
+      className="w-max-[550px] relative w-full lg:w-80 xl:w-full"
+    >
       <input
-        key={searchParams?.get('q')}
+        key={searchParams?.get("q")}
         type="text"
         name="q"
         placeholder="Search for products..."
         autoComplete="off"
-        defaultValue={searchParams?.get('q') || ''}
+        defaultValue={searchParams?.get("q") || ""}
         className="text-md w-full rounded-lg border bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
@@ -2395,18 +2419,21 @@ export function SearchSkeleton() {
     </form>
   );
 }
-
 ```
 
 # components\layout\product-grid-items.tsx
 
 ```tsx
-import Grid from 'components/grid';
-import { GridTileImage } from 'components/grid/tile';
-import { Product } from 'lib/shopify/types';
-import Link from 'next/link';
+import Grid from "components/grid";
+import { GridTileImage } from "components/grid/tile";
+import { Product } from "lib/shopify/types";
+import Link from "next/link";
 
-export default function ProductGridItems({ products }: { products: Product[] }) {
+export default function ProductGridItems({
+  products,
+}: {
+  products: Product[];
+}) {
   return (
     <>
       {products.map((product) => (
@@ -2421,7 +2448,7 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
               label={{
                 title: product.title,
                 amount: product.priceRange.maxVariantPrice.amount,
-                currencyCode: product.priceRange.maxVariantPrice.currencyCode
+                currencyCode: product.priceRange.maxVariantPrice.currencyCode,
               }}
               src={product.featuredImage?.url}
               fill
@@ -2433,26 +2460,25 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
     </>
   );
 }
-
 ```
 
 # components\layout\search\collections.tsx
 
 ```tsx
-import clsx from 'clsx';
-import { Suspense } from 'react';
+import clsx from "clsx";
+import { Suspense } from "react";
 
-import { getCollections } from 'lib/shopify';
-import FilterList from './filter';
+import { getCollections } from "lib/shopify";
+import FilterList from "./filter";
 
 async function CollectionList() {
   const collections = await getCollections();
   return <FilterList list={collections} title="Collections" />;
 }
 
-const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded-sm';
-const activeAndTitles = 'bg-neutral-800 dark:bg-neutral-300';
-const items = 'bg-neutral-400 dark:bg-neutral-700';
+const skeleton = "mb-3 h-4 w-5/6 animate-pulse rounded-sm";
+const activeAndTitles = "bg-neutral-800 dark:bg-neutral-300";
+const items = "bg-neutral-400 dark:bg-neutral-700";
 
 export default function Collections() {
   return (
@@ -2476,25 +2502,24 @@ export default function Collections() {
     </Suspense>
   );
 }
-
 ```
 
 # components\layout\search\filter\dropdown.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import type { ListItem } from '.';
-import { FilterItem } from './item';
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import type { ListItem } from ".";
+import { FilterItem } from "./item";
 
 export default function FilterItemDropdown({ list }: { list: ListItem[] }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState("");
   const [openSelect, setOpenSelect] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -2505,15 +2530,15 @@ export default function FilterItemDropdown({ list }: { list: ListItem[] }) {
       }
     };
 
-    window.addEventListener('click', handleClickOutside);
-    return () => window.removeEventListener('click', handleClickOutside);
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
   }, []);
 
   useEffect(() => {
     list.forEach((listItem: ListItem) => {
       if (
-        ('path' in listItem && pathname === listItem.path) ||
-        ('slug' in listItem && searchParams.get('sort') === listItem.slug)
+        ("path" in listItem && pathname === listItem.path) ||
+        ("slug" in listItem && searchParams.get("sort") === listItem.slug)
       ) {
         setActive(listItem.title);
       }
@@ -2546,16 +2571,15 @@ export default function FilterItemDropdown({ list }: { list: ListItem[] }) {
     </div>
   );
 }
-
 ```
 
 # components\layout\search\filter\index.tsx
 
 ```tsx
-import { SortFilterItem } from 'lib/constants';
-import { Suspense } from 'react';
-import FilterItemDropdown from './dropdown';
-import { FilterItem } from './item';
+import { SortFilterItem } from "lib/constants";
+import { Suspense } from "react";
+import FilterItemDropdown from "./dropdown";
+import { FilterItem } from "./item";
 
 export type ListItem = SortFilterItem | PathFilterItem;
 export type PathFilterItem = { title: string; path: string };
@@ -2570,7 +2594,13 @@ function FilterItemList({ list }: { list: ListItem[] }) {
   );
 }
 
-export default function FilterList({ list, title }: { list: ListItem[]; title?: string }) {
+export default function FilterList({
+  list,
+  title,
+}: {
+  list: ListItem[];
+  title?: string;
+}) {
   return (
     <>
       <nav>
@@ -2593,39 +2623,38 @@ export default function FilterList({ list, title }: { list: ListItem[]; title?: 
     </>
   );
 }
-
 ```
 
 # components\layout\search\filter\item.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import type { SortFilterItem } from 'lib/constants';
-import { createUrl } from 'lib/utils';
-import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
-import type { ListItem, PathFilterItem } from '.';
+import clsx from "clsx";
+import type { SortFilterItem } from "lib/constants";
+import { createUrl } from "lib/utils";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
+import type { ListItem, PathFilterItem } from ".";
 
 function PathFilterItem({ item }: { item: PathFilterItem }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const active = pathname === item.path;
   const newParams = new URLSearchParams(searchParams.toString());
-  const DynamicTag = active ? 'p' : Link;
+  const DynamicTag = active ? "p" : Link;
 
-  newParams.delete('q');
+  newParams.delete("q");
 
   return (
     <li className="mt-2 flex text-black dark:text-white" key={item.title}>
       <DynamicTag
         href={createUrl(item.path, newParams)}
         className={clsx(
-          'w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100',
+          "w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100",
           {
-            'underline underline-offset-4': active
-          }
+            "underline underline-offset-4": active,
+          },
         )}
       >
         {item.title}
@@ -2637,24 +2666,27 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
 function SortFilterItem({ item }: { item: SortFilterItem }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const active = searchParams.get('sort') === item.slug;
-  const q = searchParams.get('q');
+  const active = searchParams.get("sort") === item.slug;
+  const q = searchParams.get("q");
   const href = createUrl(
     pathname,
     new URLSearchParams({
       ...(q && { q }),
-      ...(item.slug && item.slug.length && { sort: item.slug })
-    })
+      ...(item.slug && item.slug.length && { sort: item.slug }),
+    }),
   );
-  const DynamicTag = active ? 'p' : Link;
+  const DynamicTag = active ? "p" : Link;
 
   return (
-    <li className="mt-2 flex text-sm text-black dark:text-white" key={item.title}>
+    <li
+      className="mt-2 flex text-sm text-black dark:text-white"
+      key={item.title}
+    >
       <DynamicTag
         prefetch={!active ? false : undefined}
         href={href}
-        className={clsx('w-full hover:underline hover:underline-offset-4', {
-          'underline underline-offset-4': active
+        className={clsx("w-full hover:underline hover:underline-offset-4", {
+          "underline underline-offset-4": active,
         })}
       >
         {item.title}
@@ -2664,84 +2696,85 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
 }
 
 export function FilterItem({ item }: { item: ListItem }) {
-  return 'path' in item ? <PathFilterItem item={item} /> : <SortFilterItem item={item} />;
+  return "path" in item ? (
+    <PathFilterItem item={item} />
+  ) : (
+    <SortFilterItem item={item} />
+  );
 }
-
 ```
 
 # components\loading-dots.tsx
 
 ```tsx
-import clsx from 'clsx';
+import clsx from "clsx";
 
-const dots = 'mx-[1px] inline-block h-1 w-1 animate-blink rounded-md';
+const dots = "mx-[1px] inline-block h-1 w-1 animate-blink rounded-md";
 
 const LoadingDots = ({ className }: { className: string }) => {
   return (
     <span className="mx-2 inline-flex items-center">
       <span className={clsx(dots, className)} />
-      <span className={clsx(dots, 'animation-delay-[200ms]', className)} />
-      <span className={clsx(dots, 'animation-delay-[400ms]', className)} />
+      <span className={clsx(dots, "animation-delay-[200ms]", className)} />
+      <span className={clsx(dots, "animation-delay-[400ms]", className)} />
     </span>
   );
 };
 
 export default LoadingDots;
-
 ```
 
 # components\logo-square.tsx
 
 ```tsx
-import clsx from 'clsx';
-import LogoIcon from './icons/logo';
+import clsx from "clsx";
+import LogoIcon from "./icons/logo";
 
-export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
+export default function LogoSquare({ size }: { size?: "sm" | undefined }) {
   return (
     <div
       className={clsx(
-        'flex flex-none items-center justify-center border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-black',
+        "flex flex-none items-center justify-center border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-black",
         {
-          'h-[40px] w-[40px] rounded-xl': !size,
-          'h-[30px] w-[30px] rounded-lg': size === 'sm'
-        }
+          "h-[40px] w-[40px] rounded-xl": !size,
+          "h-[30px] w-[30px] rounded-lg": size === "sm",
+        },
       )}
     >
       <LogoIcon
         className={clsx({
-          'h-[16px] w-[16px]': !size,
-          'h-[10px] w-[10px]': size === 'sm'
+          "h-[16px] w-[16px]": !size,
+          "h-[10px] w-[10px]": size === "sm",
         })}
       />
     </div>
   );
 }
-
 ```
 
 # components\opengraph-image.tsx
 
 ```tsx
-import { ImageResponse } from 'next/og';
-import LogoIcon from './icons/logo';
-import { join } from 'path';
-import { readFile } from 'fs/promises';
+import { ImageResponse } from "next/og";
+import LogoIcon from "./icons/logo";
+import { join } from "path";
+import { readFile } from "fs/promises";
 
 export type Props = {
   title?: string;
 };
 
 export default async function OpengraphImage(
-  props?: Props
+  props?: Props,
 ): Promise<ImageResponse> {
   const { title } = {
     ...{
-      title: process.env.SITE_NAME
+      title: process.env.SITE_NAME,
     },
-    ...props
+    ...props,
   };
 
-  const file = await readFile(join(process.cwd(), './fonts/Inter-Bold.ttf'));
+  const file = await readFile(join(process.cwd(), "./fonts/Inter-Bold.ttf"));
   const font = Uint8Array.from(file).buffer;
 
   return new ImageResponse(
@@ -2758,68 +2791,73 @@ export default async function OpengraphImage(
       height: 630,
       fonts: [
         {
-          name: 'Inter',
+          name: "Inter",
           data: font,
-          style: 'normal',
-          weight: 700
-        }
-      ]
-    }
+          style: "normal",
+          weight: 700,
+        },
+      ],
+    },
   );
 }
-
 ```
 
 # components\price.tsx
 
 ```tsx
-import clsx from 'clsx';
+import clsx from "clsx";
 
 const Price = ({
   amount,
   className,
-  currencyCode = 'USD',
-  currencyCodeClassName
+  currencyCode = "USD",
+  currencyCodeClassName,
 }: {
   amount: string;
   className?: string;
   currencyCode: string;
   currencyCodeClassName?: string;
-} & React.ComponentProps<'p'>) => (
+} & React.ComponentProps<"p">) => (
   <p suppressHydrationWarning={true} className={className}>
     {`${new Intl.NumberFormat(undefined, {
-      style: 'currency',
+      style: "currency",
       currency: currencyCode,
-      currencyDisplay: 'narrowSymbol'
+      currencyDisplay: "narrowSymbol",
     }).format(parseFloat(amount))}`}
-    <span className={clsx('ml-1 inline', currencyCodeClassName)}>{`${currencyCode}`}</span>
+    <span
+      className={clsx("ml-1 inline", currencyCodeClassName)}
+    >{`${currencyCode}`}</span>
   </p>
 );
 
 export default Price;
-
 ```
 
 # components\product\gallery.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
-import { GridTileImage } from 'components/grid/tile';
-import { useProduct, useUpdateURL } from 'components/product/product-context';
-import Image from 'next/image';
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { GridTileImage } from "components/grid/tile";
+import { useProduct, useUpdateURL } from "components/product/product-context";
+import Image from "next/image";
 
-export function Gallery({ images }: { images: { src: string; altText: string }[] }) {
+export function Gallery({
+  images,
+}: {
+  images: { src: string; altText: string }[];
+}) {
   const { state, updateImage } = useProduct();
   const updateURL = useUpdateURL();
   const imageIndex = state.image ? parseInt(state.image) : 0;
 
   const nextImageIndex = imageIndex + 1 < images.length ? imageIndex + 1 : 0;
-  const previousImageIndex = imageIndex === 0 ? images.length - 1 : imageIndex - 1;
+  const previousImageIndex =
+    imageIndex === 0 ? images.length - 1 : imageIndex - 1;
 
   const buttonClassName =
-    'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black dark:hover:text-white flex items-center justify-center';
+    "h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black dark:hover:text-white flex items-center justify-center";
 
   return (
     <form>
@@ -2895,16 +2933,20 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
     </form>
   );
 }
-
 ```
 
 # components\product\product-context.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import React, { createContext, useContext, useMemo, useOptimistic } from 'react';
+import { useRouter, useSearchParams } from "next/navigation";
+import React, {
+  createContext,
+  useContext,
+  useMemo,
+  useOptimistic,
+} from "react";
 
 type ProductState = {
   [key: string]: string;
@@ -2935,8 +2977,8 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     getInitialState(),
     (prevState: ProductState, update: ProductState) => ({
       ...prevState,
-      ...update
-    })
+      ...update,
+    }),
   );
 
   const updateOption = (name: string, value: string) => {
@@ -2955,18 +2997,20 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
     () => ({
       state,
       updateOption,
-      updateImage
+      updateImage,
     }),
-    [state]
+    [state],
   );
 
-  return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>;
+  return (
+    <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
+  );
 }
 
 export function useProduct() {
   const context = useContext(ProductContext);
   if (context === undefined) {
-    throw new Error('useProduct must be used within a ProductProvider');
+    throw new Error("useProduct must be used within a ProductProvider");
   }
   return context;
 }
@@ -2982,17 +3026,16 @@ export function useUpdateURL() {
     router.push(`?${newParams.toString()}`, { scroll: false });
   };
 }
-
 ```
 
 # components\product\product-description.tsx
 
 ```tsx
-import { AddToCart } from 'components/cart/add-to-cart';
-import Price from 'components/price';
-import Prose from 'components/prose';
-import { Product } from 'lib/shopify/types';
-import { VariantSelector } from './variant-selector';
+import { AddToCart } from "components/cart/add-to-cart";
+import Price from "components/price";
+import Prose from "components/prose";
+import { Product } from "lib/shopify/types";
+import { VariantSelector } from "./variant-selector";
 
 export function ProductDescription({ product }: { product: Product }) {
   return (
@@ -3017,17 +3060,16 @@ export function ProductDescription({ product }: { product: Product }) {
     </>
   );
 }
-
 ```
 
 # components\product\variant-selector.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import { useProduct, useUpdateURL } from 'components/product/product-context';
-import { ProductOption, ProductVariant } from 'lib/shopify/types';
+import clsx from "clsx";
+import { useProduct, useUpdateURL } from "components/product/product-context";
+import { ProductOption, ProductVariant } from "lib/shopify/types";
 
 type Combination = {
   id: string;
@@ -3037,7 +3079,7 @@ type Combination = {
 
 export function VariantSelector({
   options,
-  variants
+  variants,
 }: {
   options: ProductOption[];
   variants: ProductVariant[];
@@ -3045,7 +3087,8 @@ export function VariantSelector({
   const { state, updateOption } = useProduct();
   const updateURL = useUpdateURL();
   const hasNoOptionsOrJustOneOption =
-    !options.length || (options.length === 1 && options[0]?.values.length === 1);
+    !options.length ||
+    (options.length === 1 && options[0]?.values.length === 1);
 
   if (hasNoOptionsOrJustOneOption) {
     return null;
@@ -3055,9 +3098,12 @@ export function VariantSelector({
     id: variant.id,
     availableForSale: variant.availableForSale,
     ...variant.selectedOptions.reduce(
-      (accumulator, option) => ({ ...accumulator, [option.name.toLowerCase()]: option.value }),
-      {}
-    )
+      (accumulator, option) => ({
+        ...accumulator,
+        [option.name.toLowerCase()]: option.value,
+      }),
+      {},
+    ),
   }));
 
   return options.map((option) => (
@@ -3072,15 +3118,19 @@ export function VariantSelector({
             const optionParams = { ...state, [optionNameLowerCase]: value };
 
             // Filter out invalid options and check if the option combination is available for sale.
-            const filtered = Object.entries(optionParams).filter(([key, value]) =>
-              options.find(
-                (option) => option.name.toLowerCase() === key && option.values.includes(value)
-              )
+            const filtered = Object.entries(optionParams).filter(
+              ([key, value]) =>
+                options.find(
+                  (option) =>
+                    option.name.toLowerCase() === key &&
+                    option.values.includes(value),
+                ),
             );
             const isAvailableForSale = combinations.find((combination) =>
               filtered.every(
-                ([key, value]) => combination[key] === value && combination.availableForSale
-              )
+                ([key, value]) =>
+                  combination[key] === value && combination.availableForSale,
+              ),
             );
 
             // The option is active if it's in the selected options.
@@ -3095,16 +3145,16 @@ export function VariantSelector({
                 key={value}
                 aria-disabled={!isAvailableForSale}
                 disabled={!isAvailableForSale}
-                title={`${option.name} ${value}${!isAvailableForSale ? ' (Out of Stock)' : ''}`}
+                title={`${option.name} ${value}${!isAvailableForSale ? " (Out of Stock)" : ""}`}
                 className={clsx(
-                  'flex min-w-[48px] items-center justify-center rounded-full border bg-neutral-100 px-2 py-1 text-sm dark:border-neutral-800 dark:bg-neutral-900',
+                  "flex min-w-[48px] items-center justify-center rounded-full border bg-neutral-100 px-2 py-1 text-sm dark:border-neutral-800 dark:bg-neutral-900",
                   {
-                    'cursor-default ring-2 ring-blue-600': isActive,
-                    'ring-1 ring-transparent transition duration-300 ease-in-out hover:ring-blue-600':
+                    "cursor-default ring-2 ring-blue-600": isActive,
+                    "ring-1 ring-transparent transition duration-300 ease-in-out hover:ring-blue-600":
                       !isActive && isAvailableForSale,
-                    'relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 dark:before:bg-neutral-700':
-                      !isAvailableForSale
-                  }
+                    "relative z-10 cursor-not-allowed overflow-hidden bg-neutral-100 text-neutral-500 ring-1 ring-neutral-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-neutral-300 before:transition-transform dark:bg-neutral-900 dark:text-neutral-400 dark:ring-neutral-700 dark:before:bg-neutral-700":
+                      !isAvailableForSale,
+                  },
                 )}
               >
                 {value}
@@ -3116,20 +3166,19 @@ export function VariantSelector({
     </form>
   ));
 }
-
 ```
 
 # components\prose.tsx
 
 ```tsx
-import clsx from 'clsx';
+import clsx from "clsx";
 
 const Prose = ({ html, className }: { html: string; className?: string }) => {
   return (
     <div
       className={clsx(
-        'prose mx-auto max-w-6xl text-base leading-7 text-black prose-headings:mt-8 prose-headings:font-semibold prose-headings:tracking-wide prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-a:text-black prose-a:underline prose-a:hover:text-neutral-300 prose-strong:text-black prose-ol:mt-8 prose-ol:list-decimal prose-ol:pl-6 prose-ul:mt-8 prose-ul:list-disc prose-ul:pl-6 dark:text-white dark:prose-headings:text-white dark:prose-a:text-white dark:prose-strong:text-white',
-        className
+        "prose mx-auto max-w-6xl text-base leading-7 text-black prose-headings:mt-8 prose-headings:font-semibold prose-headings:tracking-wide prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-a:text-black prose-a:underline prose-a:hover:text-neutral-300 prose-strong:text-black prose-ol:mt-8 prose-ol:list-decimal prose-ol:pl-6 prose-ul:mt-8 prose-ul:list-disc prose-ul:pl-6 dark:text-white dark:prose-headings:text-white dark:prose-a:text-white dark:prose-strong:text-white",
+        className,
       )}
       dangerouslySetInnerHTML={{ __html: html }}
     />
@@ -3137,60 +3186,65 @@ const Prose = ({ html, className }: { html: string; className?: string }) => {
 };
 
 export default Prose;
-
 ```
 
 # components\sections\categories-showcase.tsx
 
 ```tsx
-import { Card } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Card } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
   {
     id: 1,
-    name: 'Sofy i Fotele',
+    name: "Sofy i Fotele",
     count: 120,
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80',
-    slug: 'sofy-fotele'
+    image:
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
+    slug: "sofy-fotele",
   },
   {
     id: 2,
-    name: 'Stoły i Krzesła',
+    name: "Stoły i Krzesła",
     count: 85,
-    image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80',
-    slug: 'stoly-krzesla'
+    image:
+      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&q=80",
+    slug: "stoly-krzesla",
   },
   {
     id: 3,
-    name: 'Sypialnia',
+    name: "Sypialnia",
     count: 65,
-    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&q=80',
-    slug: 'sypialnia'
+    image:
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&q=80",
+    slug: "sypialnia",
   },
   {
     id: 4,
-    name: 'Szafy i Komody',
+    name: "Szafy i Komody",
     count: 95,
-    image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&q=80',
-    slug: 'szafy-komody'
+    image:
+      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&q=80",
+    slug: "szafy-komody",
   },
   {
     id: 5,
-    name: 'Oświetlenie',
+    name: "Oświetlenie",
     count: 45,
-    image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&q=80',
-    slug: 'oswietlenie'
+    image:
+      "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&q=80",
+    slug: "oswietlenie",
   },
   {
     id: 6,
-    name: 'Dekoracje',
+    name: "Dekoracje",
     count: 150,
-    image: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?w=600&q=80',
-    slug: 'dekoracje'
-  }
+    image:
+      "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=600&q=80",
+    slug: "dekoracje",
+  },
 ];
 
 export function CategoriesShowcase() {
@@ -3201,12 +3255,14 @@ export function CategoriesShowcase() {
         <div className="mb-16 flex flex-col items-center justify-between gap-6 sm:flex-row">
           <div>
             <h2 className="mb-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Przeglądaj{' '}
+              Przeglądaj{" "}
               <span className="bg-gradient-to-r from-primary to-yellow-400 bg-clip-text text-transparent">
                 Kategorie
               </span>
             </h2>
-            <p className="text-lg text-neutral-400">Znajdź idealne meble dla każdego pomieszczenia</p>
+            <p className="text-lg text-neutral-400">
+              Znajdź idealne meble dla każdego pomieszczenia
+            </p>
           </div>
           <Link
             href="/categories"
@@ -3255,58 +3311,61 @@ export function CategoriesShowcase() {
     </section>
   );
 }
-
 ```
 
 # components\sections\featured-products.tsx
 
 ```tsx
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, Heart, Eye } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ShoppingCart, Heart, Eye } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 // Mock data - will be replaced with real data later
 const featuredProducts = [
   {
     id: 1,
-    name: 'Skandynawska Sofa Nordic',
-    category: 'Sofy',
+    name: "Skandynawska Sofa Nordic",
+    category: "Sofy",
     price: 4999,
     originalPrice: 5999,
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
-    badge: 'Bestseller',
-    isNew: false
+    image:
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    badge: "Bestseller",
+    isNew: false,
   },
   {
     id: 2,
-    name: 'Stół Dębowy Elegance',
-    category: 'Stoły',
+    name: "Stół Dębowy Elegance",
+    category: "Stoły",
     price: 3499,
-    image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80',
-    badge: 'Nowy',
-    isNew: true
+    image:
+      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80",
+    badge: "Nowy",
+    isNew: true,
   },
   {
     id: 3,
-    name: 'Fotel Skórzany Premium',
-    category: 'Fotele',
+    name: "Fotel Skórzany Premium",
+    category: "Fotele",
     price: 2799,
     originalPrice: 3299,
-    image: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80',
-    badge: '-15%',
-    isNew: false
+    image:
+      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&q=80",
+    badge: "-15%",
+    isNew: false,
   },
   {
     id: 4,
-    name: 'Komoda Industrialna Loft',
-    category: 'Komody',
+    name: "Komoda Industrialna Loft",
+    category: "Komody",
     price: 1999,
-    image: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80',
-    isNew: false
-  }
+    image:
+      "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80",
+    isNew: false,
+  },
 ];
 
 export function FeaturedProducts() {
@@ -3316,13 +3375,14 @@ export function FeaturedProducts() {
         {/* Section header */}
         <div className="mb-16 text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Wyróżnione{' '}
+            Wyróżnione{" "}
             <span className="bg-gradient-to-r from-primary to-yellow-400 bg-clip-text text-transparent">
               Produkty
             </span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-neutral-400">
-            Starannie wyselekcjonowane meble, które zachwycają designem i jakością wykonania
+            Starannie wyselekcjonowane meble, które zachwycają designem i
+            jakością wykonania
           </p>
         </div>
 
@@ -3338,8 +3398,8 @@ export function FeaturedProducts() {
                 <Badge
                   className={`absolute left-4 top-4 z-10 ${
                     product.isNew
-                      ? 'bg-primary text-neutral-900'
-                      : 'bg-neutral-900/80 text-primary backdrop-blur-sm'
+                      ? "bg-primary text-neutral-900"
+                      : "bg-neutral-900/80 text-primary backdrop-blur-sm"
                   }`}
                 >
                   {product.badge}
@@ -3357,7 +3417,10 @@ export function FeaturedProducts() {
               </div>
 
               {/* Image */}
-              <Link href={`/product/${product.id}`} className="relative block aspect-square overflow-hidden">
+              <Link
+                href={`/product/${product.id}`}
+                className="relative block aspect-square overflow-hidden"
+              >
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -3369,7 +3432,9 @@ export function FeaturedProducts() {
 
               {/* Content */}
               <div className="p-6">
-                <p className="mb-1 text-sm text-neutral-500">{product.category}</p>
+                <p className="mb-1 text-sm text-neutral-500">
+                  {product.category}
+                </p>
                 <Link href={`/product/${product.id}`}>
                   <h3 className="mb-3 text-lg font-semibold text-white transition-colors hover:text-primary">
                     {product.name}
@@ -3379,17 +3444,20 @@ export function FeaturedProducts() {
                 {/* Price */}
                 <div className="mb-4 flex items-baseline gap-2">
                   <span className="text-2xl font-bold text-primary">
-                    {product.price.toLocaleString('pl-PL')} zł
+                    {product.price.toLocaleString("pl-PL")} zł
                   </span>
                   {product.originalPrice && (
                     <span className="text-sm text-neutral-500 line-through">
-                      {product.originalPrice.toLocaleString('pl-PL')} zł
+                      {product.originalPrice.toLocaleString("pl-PL")} zł
                     </span>
                   )}
                 </div>
 
                 {/* Add to cart button */}
-                <Button className="w-full bg-primary text-neutral-900 hover:bg-primary/90" size="sm">
+                <Button
+                  className="w-full bg-primary text-neutral-900 hover:bg-primary/90"
+                  size="sm"
+                >
                   <ShoppingCart className="mr-2 h-4 w-4" />
                   Do koszyka
                 </Button>
@@ -3413,15 +3481,14 @@ export function FeaturedProducts() {
     </section>
   );
 }
-
 ```
 
 # components\sections\hero-section.tsx
 
 ```tsx
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -3445,7 +3512,7 @@ export function HeroSection() {
 
         {/* Main heading */}
         <h1 className="mb-6 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
-          Meble, które{' '}
+          Meble, które{" "}
           <span className="bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent">
             tworzą dom
           </span>
@@ -3453,8 +3520,9 @@ export function HeroSection() {
 
         {/* Subheading */}
         <p className="mx-auto mb-10 max-w-2xl text-lg leading-8 text-neutral-300 sm:text-xl">
-          Odkryj kolekcję premium mebli, które łączą ponadczasową elegancję z nowoczesnym designem.
-          Każdy mebel to historia, każde wnętrze to dzieło sztuki.
+          Odkryj kolekcję premium mebli, które łączą ponadczasową elegancję z
+          nowoczesnym designem. Każdy mebel to historia, każde wnętrze to dzieło
+          sztuki.
         </p>
 
         {/* CTA Buttons */}
@@ -3483,13 +3551,15 @@ export function HeroSection() {
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 gap-8 sm:mt-20 sm:grid-cols-4">
           {[
-            { value: '500+', label: 'Produktów' },
-            { value: '50+', label: 'Marek' },
-            { value: '10k+', label: 'Klientów' },
-            { value: '4.9', label: 'Ocena' }
+            { value: "500+", label: "Produktów" },
+            { value: "50+", label: "Marek" },
+            { value: "10k+", label: "Klientów" },
+            { value: "4.9", label: "Ocena" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col items-center">
-              <div className="text-3xl font-bold text-primary sm:text-4xl">{stat.value}</div>
+              <div className="text-3xl font-bold text-primary sm:text-4xl">
+                {stat.value}
+              </div>
               <div className="mt-1 text-sm text-neutral-400">{stat.label}</div>
             </div>
           ))}
@@ -3505,21 +3575,20 @@ export function HeroSection() {
     </section>
   );
 }
-
 ```
 
 # components\sections\newsletter.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Mail, Check } from 'lucide-react';
-import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Mail, Check } from "lucide-react";
+import { useState } from "react";
 
 export function Newsletter() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -3528,7 +3597,7 @@ export function Newsletter() {
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
-      setEmail('');
+      setEmail("");
     }, 3000);
   };
 
@@ -3553,12 +3622,16 @@ export function Newsletter() {
               Dołącz do naszej społeczności
             </h2>
             <p className="mb-8 text-lg text-neutral-400">
-              Otrzymuj ekskluzywne oferty, inspiracje designerskie i pierwszeństwo dostępu do nowych
-              kolekcji. Bez spamu, tylko wartościowe treści.
+              Otrzymuj ekskluzywne oferty, inspiracje designerskie i
+              pierwszeństwo dostępu do nowych kolekcji. Bez spamu, tylko
+              wartościowe treści.
             </p>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:flex-row">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-4 sm:flex-row"
+            >
               <div className="relative flex-1">
                 <Input
                   type="email"
@@ -3580,13 +3653,13 @@ export function Newsletter() {
                 className="h-12 bg-primary text-neutral-900 hover:bg-primary/90"
                 disabled={isSubmitted}
               >
-                {isSubmitted ? 'Zapisano!' : 'Zapisz się'}
+                {isSubmitted ? "Zapisano!" : "Zapisz się"}
               </Button>
             </form>
 
             {/* Privacy note */}
             <p className="mt-4 text-xs text-neutral-500">
-              Zapisując się, akceptujesz naszą{' '}
+              Zapisując się, akceptujesz naszą{" "}
               <a href="/privacy" className="underline hover:text-primary">
                 Politykę Prywatności
               </a>
@@ -3614,24 +3687,23 @@ export function Newsletter() {
     </section>
   );
 }
-
 ```
 
 # components\ui\accordion.tsx
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDownIcon } from "lucide-react"
+import * as React from "react";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { ChevronDownIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Accordion({
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
-  return <AccordionPrimitive.Root data-slot="accordion" {...props} />
+  return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
 }
 
 function AccordionItem({
@@ -3644,7 +3716,7 @@ function AccordionItem({
       className={cn("border-b last:border-b-0", className)}
       {...props}
     />
-  )
+  );
 }
 
 function AccordionTrigger({
@@ -3658,7 +3730,7 @@ function AccordionTrigger({
         data-slot="accordion-trigger"
         className={cn(
           "focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between gap-4 rounded-md py-4 text-left text-sm font-medium transition-all outline-none hover:underline focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180",
-          className
+          className,
         )}
         {...props}
       >
@@ -3666,7 +3738,7 @@ function AccordionTrigger({
         <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
-  )
+  );
 }
 
 function AccordionContent({
@@ -3682,21 +3754,20 @@ function AccordionContent({
     >
       <div className={cn("pt-0 pb-4", className)}>{children}</div>
     </AccordionPrimitive.Content>
-  )
+  );
 }
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
-
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
 ```
 
 # components\ui\badge.tsx
 
 ```tsx
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
   "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
@@ -3716,8 +3787,8 @@ const badgeVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
-)
+  },
+);
 
 function Badge({
   className,
@@ -3726,7 +3797,7 @@ function Badge({
   ...props
 }: React.ComponentProps<"span"> &
   VariantProps<typeof badgeVariants> & { asChild?: boolean }) {
-  const Comp = asChild ? Slot : "span"
+  const Comp = asChild ? Slot : "span";
 
   return (
     <Comp
@@ -3734,21 +3805,20 @@ function Badge({
       className={cn(badgeVariants({ variant }), className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Badge, badgeVariants }
-
+export { Badge, badgeVariants };
 ```
 
 # components\ui\button.tsx
 
 ```tsx
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
@@ -3779,8 +3849,8 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 function Button({
   className,
@@ -3790,9 +3860,9 @@ function Button({
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
+    asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot : "button"
+  const Comp = asChild ? Slot : "button";
 
   return (
     <Comp
@@ -3800,19 +3870,18 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-  )
+  );
 }
 
-export { Button, buttonVariants }
-
+export { Button, buttonVariants };
 ```
 
 # components\ui\card.tsx
 
 ```tsx
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -3820,11 +3889,11 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card"
       className={cn(
         "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
@@ -3833,11 +3902,11 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card-header"
       className={cn(
         "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
@@ -3847,7 +3916,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("leading-none font-semibold", className)}
       {...props}
     />
-  )
+  );
 }
 
 function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
@@ -3857,7 +3926,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
-  )
+  );
 }
 
 function CardAction({ className, ...props }: React.ComponentProps<"div">) {
@@ -3866,11 +3935,11 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card-action"
       className={cn(
         "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function CardContent({ className, ...props }: React.ComponentProps<"div">) {
@@ -3880,7 +3949,7 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("px-6", className)}
       {...props}
     />
-  )
+  );
 }
 
 function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
@@ -3890,7 +3959,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -3901,20 +3970,19 @@ export {
   CardAction,
   CardDescription,
   CardContent,
-}
-
+};
 ```
 
 # components\ui\checkbox.tsx
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { CheckIcon } from "lucide-react"
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { CheckIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Checkbox({
   className,
@@ -3925,7 +3993,7 @@ function Checkbox({
       data-slot="checkbox"
       className={cn(
         "peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
-        className
+        className,
       )}
       {...props}
     >
@@ -3936,46 +4004,45 @@ function Checkbox({
         <CheckIcon className="size-3.5" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
-  )
+  );
 }
 
-export { Checkbox }
-
+export { Checkbox };
 ```
 
 # components\ui\dialog.tsx
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as DialogPrimitive from "@radix-ui/react-dialog"
-import { XIcon } from "lucide-react"
+import * as React from "react";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+import { XIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Dialog({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root>) {
-  return <DialogPrimitive.Root data-slot="dialog" {...props} />
+  return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
 
 function DialogTrigger({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />
+  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
 }
 
 function DialogPortal({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Portal>) {
-  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />
+  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
 }
 
 function DialogClose({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Close>) {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />
+  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
 }
 
 function DialogOverlay({
@@ -3987,11 +4054,11 @@ function DialogOverlay({
       data-slot="dialog-overlay"
       className={cn(
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function DialogContent({
@@ -4000,7 +4067,7 @@ function DialogContent({
   showCloseButton = true,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
-  showCloseButton?: boolean
+  showCloseButton?: boolean;
 }) {
   return (
     <DialogPortal data-slot="dialog-portal">
@@ -4009,7 +4076,7 @@ function DialogContent({
         data-slot="dialog-content"
         className={cn(
           "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg",
-          className
+          className,
         )}
         {...props}
       >
@@ -4025,7 +4092,7 @@ function DialogContent({
         )}
       </DialogPrimitive.Content>
     </DialogPortal>
-  )
+  );
 }
 
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
@@ -4035,7 +4102,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex flex-col gap-2 text-center sm:text-left", className)}
       {...props}
     />
-  )
+  );
 }
 
 function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
@@ -4044,11 +4111,11 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="dialog-footer"
       className={cn(
         "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function DialogTitle({
@@ -4061,7 +4128,7 @@ function DialogTitle({
       className={cn("text-lg leading-none font-semibold", className)}
       {...props}
     />
-  )
+  );
 }
 
 function DialogDescription({
@@ -4074,7 +4141,7 @@ function DialogDescription({
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -4088,18 +4155,17 @@ export {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
-}
-
+};
 ```
 
 # components\ui\form.tsx
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as LabelPrimitive from "@radix-ui/react-label"
-import { Slot } from "@radix-ui/react-slot"
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
+import { Slot } from "@radix-ui/react-slot";
 import {
   Controller,
   FormProvider,
@@ -4108,23 +4174,23 @@ import {
   type ControllerProps,
   type FieldPath,
   type FieldValues,
-} from "react-hook-form"
+} from "react-hook-form";
 
-import { cn } from "@/lib/utils"
-import { Label } from "@/components/ui/label"
+import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
 
-const Form = FormProvider
+const Form = FormProvider;
 
 type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
-  name: TName
-}
+  name: TName;
+};
 
 const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue
-)
+  {} as FormFieldContextValue,
+);
 
 const FormField = <
   TFieldValues extends FieldValues = FieldValues,
@@ -4136,21 +4202,21 @@ const FormField = <
     <FormFieldContext.Provider value={{ name: props.name }}>
       <Controller {...props} />
     </FormFieldContext.Provider>
-  )
-}
+  );
+};
 
 const useFormField = () => {
-  const fieldContext = React.useContext(FormFieldContext)
-  const itemContext = React.useContext(FormItemContext)
-  const { getFieldState } = useFormContext()
-  const formState = useFormState({ name: fieldContext.name })
-  const fieldState = getFieldState(fieldContext.name, formState)
+  const fieldContext = React.useContext(FormFieldContext);
+  const itemContext = React.useContext(FormItemContext);
+  const { getFieldState } = useFormContext();
+  const formState = useFormState({ name: fieldContext.name });
+  const fieldState = getFieldState(fieldContext.name, formState);
 
   if (!fieldContext) {
-    throw new Error("useFormField should be used within <FormField>")
+    throw new Error("useFormField should be used within <FormField>");
   }
 
-  const { id } = itemContext
+  const { id } = itemContext;
 
   return {
     id,
@@ -4159,19 +4225,19 @@ const useFormField = () => {
     formDescriptionId: `${id}-form-item-description`,
     formMessageId: `${id}-form-item-message`,
     ...fieldState,
-  }
-}
+  };
+};
 
 type FormItemContextValue = {
-  id: string
-}
+  id: string;
+};
 
 const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue
-)
+  {} as FormItemContextValue,
+);
 
 function FormItem({ className, ...props }: React.ComponentProps<"div">) {
-  const id = React.useId()
+  const id = React.useId();
 
   return (
     <FormItemContext.Provider value={{ id }}>
@@ -4181,14 +4247,14 @@ function FormItem({ className, ...props }: React.ComponentProps<"div">) {
         {...props}
       />
     </FormItemContext.Provider>
-  )
+  );
 }
 
 function FormLabel({
   className,
   ...props
 }: React.ComponentProps<typeof LabelPrimitive.Root>) {
-  const { error, formItemId } = useFormField()
+  const { error, formItemId } = useFormField();
 
   return (
     <Label
@@ -4198,11 +4264,12 @@ function FormLabel({
       htmlFor={formItemId}
       {...props}
     />
-  )
+  );
 }
 
 function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
-  const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
+  const { error, formItemId, formDescriptionId, formMessageId } =
+    useFormField();
 
   return (
     <Slot
@@ -4216,11 +4283,11 @@ function FormControl({ ...props }: React.ComponentProps<typeof Slot>) {
       aria-invalid={!!error}
       {...props}
     />
-  )
+  );
 }
 
 function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
-  const { formDescriptionId } = useFormField()
+  const { formDescriptionId } = useFormField();
 
   return (
     <p
@@ -4229,15 +4296,15 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
-  )
+  );
 }
 
 function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
-  const { error, formMessageId } = useFormField()
-  const body = error ? String(error?.message ?? "") : props.children
+  const { error, formMessageId } = useFormField();
+  const body = error ? String(error?.message ?? "") : props.children;
 
   if (!body) {
-    return null
+    return null;
   }
 
   return (
@@ -4249,7 +4316,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
     >
       {body}
     </p>
-  )
+  );
 }
 
 export {
@@ -4261,16 +4328,15 @@ export {
   FormDescription,
   FormMessage,
   FormField,
-}
-
+};
 ```
 
 # components\ui\input.tsx
 
 ```tsx
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
@@ -4281,26 +4347,25 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
         "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
         "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Input }
-
+export { Input };
 ```
 
 # components\ui\label.tsx
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as LabelPrimitive from "@radix-ui/react-label"
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Label({
   className,
@@ -4311,27 +4376,26 @@ function Label({
       data-slot="label"
       className={cn(
         "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Label }
-
+export { Label };
 ```
 
 # components\ui\radio-group.tsx
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
-import { CircleIcon } from "lucide-react"
+import * as React from "react";
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { CircleIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function RadioGroup({
   className,
@@ -4343,7 +4407,7 @@ function RadioGroup({
       className={cn("grid gap-3", className)}
       {...props}
     />
-  )
+  );
 }
 
 function RadioGroupItem({
@@ -4355,7 +4419,7 @@ function RadioGroupItem({
       data-slot="radio-group-item"
       className={cn(
         "border-input text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 aspect-square size-4 shrink-0 rounded-full border shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
-        className
+        className,
       )}
       {...props}
     >
@@ -4366,40 +4430,39 @@ function RadioGroupItem({
         <CircleIcon className="fill-primary absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2" />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
-  )
+  );
 }
 
-export { RadioGroup, RadioGroupItem }
-
+export { RadioGroup, RadioGroupItem };
 ```
 
 # components\ui\select.tsx
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as SelectPrimitive from "@radix-ui/react-select"
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+import * as React from "react";
+import * as SelectPrimitive from "@radix-ui/react-select";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Select({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Root>) {
-  return <SelectPrimitive.Root data-slot="select" {...props} />
+  return <SelectPrimitive.Root data-slot="select" {...props} />;
 }
 
 function SelectGroup({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Group>) {
-  return <SelectPrimitive.Group data-slot="select-group" {...props} />
+  return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 }
 
 function SelectValue({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Value>) {
-  return <SelectPrimitive.Value data-slot="select-value" {...props} />
+  return <SelectPrimitive.Value data-slot="select-value" {...props} />;
 }
 
 function SelectTrigger({
@@ -4408,7 +4471,7 @@ function SelectTrigger({
   children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
-  size?: "sm" | "default"
+  size?: "sm" | "default";
 }) {
   return (
     <SelectPrimitive.Trigger
@@ -4416,7 +4479,7 @@ function SelectTrigger({
       data-size={size}
       className={cn(
         "border-input data-[placeholder]:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        className
+        className,
       )}
       {...props}
     >
@@ -4425,7 +4488,7 @@ function SelectTrigger({
         <ChevronDownIcon className="size-4 opacity-50" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
-  )
+  );
 }
 
 function SelectContent({
@@ -4443,7 +4506,7 @@ function SelectContent({
           "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border shadow-md",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
-          className
+          className,
         )}
         position={position}
         align={align}
@@ -4454,7 +4517,7 @@ function SelectContent({
           className={cn(
             "p-1",
             position === "popper" &&
-              "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1"
+              "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1",
           )}
         >
           {children}
@@ -4462,7 +4525,7 @@ function SelectContent({
         <SelectScrollDownButton />
       </SelectPrimitive.Content>
     </SelectPrimitive.Portal>
-  )
+  );
 }
 
 function SelectLabel({
@@ -4475,7 +4538,7 @@ function SelectLabel({
       className={cn("text-muted-foreground px-2 py-1.5 text-xs", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SelectItem({
@@ -4488,7 +4551,7 @@ function SelectItem({
       data-slot="select-item"
       className={cn(
         "focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
-        className
+        className,
       )}
       {...props}
     >
@@ -4499,7 +4562,7 @@ function SelectItem({
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
-  )
+  );
 }
 
 function SelectSeparator({
@@ -4512,7 +4575,7 @@ function SelectSeparator({
       className={cn("bg-border pointer-events-none -mx-1 my-1 h-px", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SelectScrollUpButton({
@@ -4524,13 +4587,13 @@ function SelectScrollUpButton({
       data-slot="select-scroll-up-button"
       className={cn(
         "flex cursor-default items-center justify-center py-1",
-        className
+        className,
       )}
       {...props}
     >
       <ChevronUpIcon className="size-4" />
     </SelectPrimitive.ScrollUpButton>
-  )
+  );
 }
 
 function SelectScrollDownButton({
@@ -4542,13 +4605,13 @@ function SelectScrollDownButton({
       data-slot="select-scroll-down-button"
       className={cn(
         "flex cursor-default items-center justify-center py-1",
-        className
+        className,
       )}
       {...props}
     >
       <ChevronDownIcon className="size-4" />
     </SelectPrimitive.ScrollDownButton>
-  )
+  );
 }
 
 export {
@@ -4562,41 +4625,40 @@ export {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-}
-
+};
 ```
 
 # components\ui\sheet.tsx
 
 ```tsx
-"use client"
+"use client";
 
-import * as React from "react"
-import * as SheetPrimitive from "@radix-ui/react-dialog"
-import { XIcon } from "lucide-react"
+import * as React from "react";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
+import { XIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
-  return <SheetPrimitive.Root data-slot="sheet" {...props} />
+  return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 }
 
 function SheetTrigger({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
-  return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />
+  return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
 function SheetClose({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Close>) {
-  return <SheetPrimitive.Close data-slot="sheet-close" {...props} />
+  return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
 function SheetPortal({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Portal>) {
-  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />
+  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
 }
 
 function SheetOverlay({
@@ -4608,11 +4670,11 @@ function SheetOverlay({
       data-slot="sheet-overlay"
       className={cn(
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
-        className
+        className,
       )}
       {...props}
     />
-  )
+  );
 }
 
 function SheetContent({
@@ -4621,7 +4683,7 @@ function SheetContent({
   side = "right",
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Content> & {
-  side?: "top" | "right" | "bottom" | "left"
+  side?: "top" | "right" | "bottom" | "left";
 }) {
   return (
     <SheetPortal>
@@ -4638,7 +4700,7 @@ function SheetContent({
             "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
           side === "bottom" &&
             "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t",
-          className
+          className,
         )}
         {...props}
       >
@@ -4649,7 +4711,7 @@ function SheetContent({
         </SheetPrimitive.Close>
       </SheetPrimitive.Content>
     </SheetPortal>
-  )
+  );
 }
 
 function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
@@ -4659,7 +4721,7 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("flex flex-col gap-1.5 p-4", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
@@ -4669,7 +4731,7 @@ function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("mt-auto flex flex-col gap-2 p-4", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SheetTitle({
@@ -4682,7 +4744,7 @@ function SheetTitle({
       className={cn("text-foreground font-semibold", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SheetDescription({
@@ -4695,7 +4757,7 @@ function SheetDescription({
       className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -4707,14 +4769,13 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
-}
-
+};
 ```
 
 # components\ui\skeleton.tsx
 
 ```tsx
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -4723,35 +4784,35 @@ function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("bg-accent animate-pulse rounded-md", className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Skeleton }
-
+export { Skeleton };
 ```
 
 # components\welcome-toast.tsx
 
 ```tsx
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { toast } from 'sonner';
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 export function WelcomeToast() {
   useEffect(() => {
     // ignore if screen height is too small
     if (window.innerHeight < 650) return;
-    if (!document.cookie.includes('welcome-toast=2')) {
-      toast('🛍️ Welcome to Next.js Commerce!', {
-        id: 'welcome-toast',
+    if (!document.cookie.includes("welcome-toast=2")) {
+      toast("🛍️ Welcome to Next.js Commerce!", {
+        id: "welcome-toast",
         duration: Infinity,
         onDismiss: () => {
-          document.cookie = 'welcome-toast=2; max-age=31536000; path=/';
+          document.cookie = "welcome-toast=2; max-age=31536000; path=/";
         },
         description: (
           <>
-            This is a high-performance, SSR storefront powered by Shopify, Next.js, and Vercel.{' '}
+            This is a high-performance, SSR storefront powered by Shopify,
+            Next.js, and Vercel.{" "}
             <a
               href="https://vercel.com/templates/next.js/nextjs-commerce"
               className="text-blue-600 hover:underline"
@@ -4761,14 +4822,13 @@ export function WelcomeToast() {
             </a>
             .
           </>
-        )
+        ),
       });
     }
   }, []);
 
   return null;
 }
-
 ```
 
 # docs\CLAUDE.md
@@ -4799,23 +4859,27 @@ export function WelcomeToast() {
 ## 🎯 Wizja i Założenia
 
 ### Misja Główna
+
 Stworzenie **nowoczesnego, premium sklepu e-commerce** z meblami wysokiej jakości, który wyróżnia się eleganckim designem hybrydowym i doskonałym UX.
 
 ### Filozofia "Hybrydowego Designu"
 
 #### 🌙 Dark Entry (Strona Główna)
+
 - **Paleta:** Ciemna (grafit #1a1a1a, złoto #d4af37)
 - **Cel:** Budowanie prestiżu, luksusowe pierwsze wrażenie
 - **Elementy:** Hero z tłem wideo/obrazem, elegancka typografia, złote akcenty
 - **Vibe:** Premium boutique, ekskluzywność
 
 #### ☀️ Light Showroom (Produkty)
+
 - **Paleta:** Jasna (biel #ffffff, krem #f5f5f0, szary #e5e5e5)
 - **Cel:** Czyste tło, które wyeksponuje meble
 - **Elementy:** Duże zdjęcia produktów, minimalistyczny layout, subtelne cienie
 - **Vibe:** Galeria sztuki, przestronny showroom
 
 #### 🎨 Spójne Premium UI
+
 - **Przyciski:** `rounded-xl` (nie `rounded-md` ani `rounded-full`)
 - **Typografia:** Elegancka, czytelna (Geist lub Space Grotesk)
 - **Ikony:** Lucide Icons, spójny styl (stroke-width: 1.5)
@@ -4825,12 +4889,14 @@ Stworzenie **nowoczesnego, premium sklepu e-commerce** z meblami wysokiej jakoś
 ### Kluczowe Cele Projektu
 
 1. **Clean Code**
+
    - Nieskazitelnie czysty kod
    - Dobrze zorganizowany
    - Łatwy do zrozumienia i utrzymania
    - Pełne typowanie TypeScript
 
 2. **Top-Level Class Design**
+
    - "Śliczny" frontend
    - Użyteczność na pierwszym miejscu
    - Premium look & feel
@@ -4847,56 +4913,61 @@ Stworzenie **nowoczesnego, premium sklepu e-commerce** z meblami wysokiej jakoś
 ## 🎨 Stack Technologiczny
 
 ### Core Framework
+
 \`\`\`json
 {
-  "next": "^15.4.6",
-  "react": "^19.1.0",
-  "typescript": "^5"
+"next": "^15.4.6",
+"react": "^19.1.0",
+"typescript": "^5"
 }
 \`\`\`
 
 ### Styling & UI
+
 \`\`\`json
 {
-  "tailwindcss": "^4",
-  "@tailwindcss/postcss": "^4",
-  "shadcn/ui": "latest",
-  "@radix-ui/react-*": "latest",
-  "lucide-react": "^0.539.0",
-  "class-variance-authority": "^0.7.1",
-  "clsx": "^2.1.1",
-  "tailwind-merge": "^3.3.1"
+"tailwindcss": "^4",
+"@tailwindcss/postcss": "^4",
+"shadcn/ui": "latest",
+"@radix-ui/react-\*": "latest",
+"lucide-react": "^0.539.0",
+"class-variance-authority": "^0.7.1",
+"clsx": "^2.1.1",
+"tailwind-merge": "^3.3.1"
 }
 \`\`\`
 
 ### Vercel Commerce Foundation
+
 \`\`\`json
 {
-  "@vercel/commerce": "latest",
-  // Commerce utilities, types, hooks
+"@vercel/commerce": "latest",
+// Commerce utilities, types, hooks
 }
 \`\`\`
 
 ### Additional Features
+
 \`\`\`json
 {
-  "framer-motion": "^11", // Animacje
-  "next-themes": "^0.4.6", // Dark/Light toggle (opcjonalnie)
-  "sonner": "^1", // Toast notifications
-  "react-hook-form": "^7.60.0",
-  "@hookform/resolvers": "^5.1.1",
-  "zod": "^4"
+"framer-motion": "^11", // Animacje
+"next-themes": "^0.4.6", // Dark/Light toggle (opcjonalnie)
+"sonner": "^1", // Toast notifications
+"react-hook-form": "^7.60.0",
+"@hookform/resolvers": "^5.1.1",
+"zod": "^4"
 }
 \`\`\`
 
 ### Development Tools
+
 \`\`\`json
 {
-  "@eslint/eslintrc": "^3",
-  "eslint": "^9",
-  "eslint-config-next": "15.x",
-  "prettier": "^3",
-  "prettier-plugin-tailwindcss": "^0.6"
+"@eslint/eslintrc": "^3",
+"eslint": "^9",
+"eslint-config-next": "15.x",
+"prettier": "^3",
+"prettier-plugin-tailwindcss": "^0.6"
 }
 \`\`\`
 
@@ -4909,117 +4980,117 @@ Stworzenie **nowoczesnego, premium sklepu e-commerce** z meblami wysokiej jakoś
 \`\`\`
 gawin-home/
 ├── src/
-│   ├── app/                          # Next.js 15 App Router
-│   │   ├── (auth)/                   # Route group: Auth pages
-│   │   │   ├── login/
-│   │   │   └── register/
-│   │   ├── (shop)/                   # Route group: Shop pages
-│   │   │   ├── products/
-│   │   │   │   └── [slug]/
-│   │   │   ├── category/
-│   │   │   │   └── [slug]/
-│   │   │   ├── cart/
-│   │   │   └── checkout/
-│   │   ├── api/                      # API Routes
-│   │   │   ├── products/
-│   │   │   ├── cart/
-│   │   │   └── checkout/
-│   │   ├── layout.tsx                # Root layout
-│   │   ├── page.tsx                  # Homepage (Dark)
-│   │   └── globals.css               # Global styles
-│   │
-│   ├── components/
-│   │   ├── ui/                       # shadcn/ui components
-│   │   │   ├── button.tsx
-│   │   │   ├── card.tsx
-│   │   │   ├── input.tsx
-│   │   │   ├── sheet.tsx
-│   │   │   ├── dialog.tsx
-│   │   │   └── ...
-│   │   ├── layout/                   # Layout components
-│   │   │   ├── header/
-│   │   │   │   ├── Header.tsx
-│   │   │   │   ├── MobileNav.tsx
-│   │   │   │   ├── CartButton.tsx
-│   │   │   │   └── SearchBar.tsx
-│   │   │   ├── footer/
-│   │   │   │   ├── Footer.tsx
-│   │   │   │   └── FooterLinks.tsx
-│   │   │   └── sidebar/
-│   │   │       └── FilterSidebar.tsx
-│   │   ├── commerce/                 # E-commerce specific
-│   │   │   ├── product/
-│   │   │   │   ├── ProductCard.tsx
-│   │   │   │   ├── ProductGrid.tsx
-│   │   │   │   ├── ProductDetails.tsx
-│   │   │   │   ├── ProductGallery.tsx
-│   │   │   │   └── ProductVariants.tsx
-│   │   │   ├── cart/
-│   │   │   │   ├── Cart.tsx
-│   │   │   │   ├── CartItem.tsx
-│   │   │   │   └── CartSummary.tsx
-│   │   │   └── checkout/
-│   │   │       ├── CheckoutForm.tsx
-│   │   │       └── PaymentSection.tsx
-│   │   ├── sections/                 # Page sections
-│   │   │   ├── home/
-│   │   │   │   ├── HeroSection.tsx   # Dark, elegant
-│   │   │   │   ├── FeaturedProducts.tsx
-│   │   │   │   ├── CategoriesShowcase.tsx
-│   │   │   │   └── TrustedBrands.tsx
-│   │   │   └── shared/
-│   │   │       ├── Newsletter.tsx
-│   │   │       └── Testimonials.tsx
-│   │   └── shared/                   # Shared utilities
-│   │       ├── LoadingSpinner.tsx
-│   │       ├── ErrorBoundary.tsx
-│   │       └── ImageWithFallback.tsx
-│   │
-│   ├── lib/
-│   │   ├── utils.ts                  # cn() + utilities
-│   │   ├── commerce/                 # Commerce logic
-│   │   │   ├── products.ts
-│   │   │   ├── cart.ts
-│   │   │   └── checkout.ts
-│   │   ├── hooks/                    # Custom hooks
-│   │   │   ├── useCart.ts
-│   │   │   ├── useProducts.ts
-│   │   │   └── useCheckout.ts
-│   │   └── validations/              # Zod schemas
-│   │       ├── product.ts
-│   │       ├── cart.ts
-│   │       └── checkout.ts
-│   │
-│   ├── data/                         # Local test data
-│   │   ├── products.json             # Product catalog
-│   │   ├── categories.json           # Categories
-│   │   ├── collections.json          # Featured collections
-│   │   └── testimonials.json         # Customer reviews
-│   │
-│   ├── config/
-│   │   ├── site.ts                   # Site config
-│   │   ├── navigation.ts             # Nav structure
-│   │   └── constants.ts              # App constants
-│   │
-│   └── types/
-│       ├── product.ts                # Product types
-│       ├── cart.ts                   # Cart types
-│       ├── commerce.ts               # Commerce types
-│       └── index.ts                  # Exports
+│ ├── app/ # Next.js 15 App Router
+│ │ ├── (auth)/ # Route group: Auth pages
+│ │ │ ├── login/
+│ │ │ └── register/
+│ │ ├── (shop)/ # Route group: Shop pages
+│ │ │ ├── products/
+│ │ │ │ └── [slug]/
+│ │ │ ├── category/
+│ │ │ │ └── [slug]/
+│ │ │ ├── cart/
+│ │ │ └── checkout/
+│ │ ├── api/ # API Routes
+│ │ │ ├── products/
+│ │ │ ├── cart/
+│ │ │ └── checkout/
+│ │ ├── layout.tsx # Root layout
+│ │ ├── page.tsx # Homepage (Dark)
+│ │ └── globals.css # Global styles
+│ │
+│ ├── components/
+│ │ ├── ui/ # shadcn/ui components
+│ │ │ ├── button.tsx
+│ │ │ ├── card.tsx
+│ │ │ ├── input.tsx
+│ │ │ ├── sheet.tsx
+│ │ │ ├── dialog.tsx
+│ │ │ └── ...
+│ │ ├── layout/ # Layout components
+│ │ │ ├── header/
+│ │ │ │ ├── Header.tsx
+│ │ │ │ ├── MobileNav.tsx
+│ │ │ │ ├── CartButton.tsx
+│ │ │ │ └── SearchBar.tsx
+│ │ │ ├── footer/
+│ │ │ │ ├── Footer.tsx
+│ │ │ │ └── FooterLinks.tsx
+│ │ │ └── sidebar/
+│ │ │ └── FilterSidebar.tsx
+│ │ ├── commerce/ # E-commerce specific
+│ │ │ ├── product/
+│ │ │ │ ├── ProductCard.tsx
+│ │ │ │ ├── ProductGrid.tsx
+│ │ │ │ ├── ProductDetails.tsx
+│ │ │ │ ├── ProductGallery.tsx
+│ │ │ │ └── ProductVariants.tsx
+│ │ │ ├── cart/
+│ │ │ │ ├── Cart.tsx
+│ │ │ │ ├── CartItem.tsx
+│ │ │ │ └── CartSummary.tsx
+│ │ │ └── checkout/
+│ │ │ ├── CheckoutForm.tsx
+│ │ │ └── PaymentSection.tsx
+│ │ ├── sections/ # Page sections
+│ │ │ ├── home/
+│ │ │ │ ├── HeroSection.tsx # Dark, elegant
+│ │ │ │ ├── FeaturedProducts.tsx
+│ │ │ │ ├── CategoriesShowcase.tsx
+│ │ │ │ └── TrustedBrands.tsx
+│ │ │ └── shared/
+│ │ │ ├── Newsletter.tsx
+│ │ │ └── Testimonials.tsx
+│ │ └── shared/ # Shared utilities
+│ │ ├── LoadingSpinner.tsx
+│ │ ├── ErrorBoundary.tsx
+│ │ └── ImageWithFallback.tsx
+│ │
+│ ├── lib/
+│ │ ├── utils.ts # cn() + utilities
+│ │ ├── commerce/ # Commerce logic
+│ │ │ ├── products.ts
+│ │ │ ├── cart.ts
+│ │ │ └── checkout.ts
+│ │ ├── hooks/ # Custom hooks
+│ │ │ ├── useCart.ts
+│ │ │ ├── useProducts.ts
+│ │ │ └── useCheckout.ts
+│ │ └── validations/ # Zod schemas
+│ │ ├── product.ts
+│ │ ├── cart.ts
+│ │ └── checkout.ts
+│ │
+│ ├── data/ # Local test data
+│ │ ├── products.json # Product catalog
+│ │ ├── categories.json # Categories
+│ │ ├── collections.json # Featured collections
+│ │ └── testimonials.json # Customer reviews
+│ │
+│ ├── config/
+│ │ ├── site.ts # Site config
+│ │ ├── navigation.ts # Nav structure
+│ │ └── constants.ts # App constants
+│ │
+│ └── types/
+│ ├── product.ts # Product types
+│ ├── cart.ts # Cart types
+│ ├── commerce.ts # Commerce types
+│ └── index.ts # Exports
 │
 ├── public/
-│   ├── images/
-│   │   ├── products/                 # Product images
-│   │   ├── categories/               # Category banners
-│   │   ├── hero/                     # Hero backgrounds
-│   │   └── logos/                    # Brand logos
-│   ├── fonts/                        # Custom fonts
-│   └── icons/                        # Favicons
+│ ├── images/
+│ │ ├── products/ # Product images
+│ │ ├── categories/ # Category banners
+│ │ ├── hero/ # Hero backgrounds
+│ │ └── logos/ # Brand logos
+│ ├── fonts/ # Custom fonts
+│ └── icons/ # Favicons
 │
-├── .env.local                        # Environment variables
-├── next.config.ts                    # Next.js config
-├── tailwind.config.ts                # Tailwind config
-├── tsconfig.json                     # TypeScript config
+├── .env.local # Environment variables
+├── next.config.ts # Next.js config
+├── tailwind.config.ts # Tailwind config
+├── tsconfig.json # TypeScript config
 ├── package.json
 └── README.md
 \`\`\`
@@ -5027,14 +5098,17 @@ gawin-home/
 ### Route Groups Strategy
 
 **`(auth)` Group:**
+
 - `/login`, `/register`, `/forgot-password`
 - Shared auth layout (centered card)
 
 **`(shop)` Group:**
+
 - `/products`, `/category`, `/cart`, `/checkout`
 - Shared shop layout (header + footer)
 
 **Root `/`:**
+
 - Homepage (unique dark design)
 
 ---
@@ -5044,96 +5118,101 @@ gawin-home/
 ### Color Palette
 
 #### Primary Colors (Dark Entry)
+
 \`\`\`css
---dark-bg: #1a1a1a;           /* Main dark background */
---dark-surface: #252525;       /* Cards, sections */
---gold-primary: #d4af37;       /* Primary gold accent */
---gold-hover: #c19b2b;         /* Gold hover state */
---text-light: #f5f5f5;         /* Primary text on dark */
---text-muted: #a0a0a0;         /* Muted text on dark */
+--dark-bg: #1a1a1a; /_ Main dark background _/
+--dark-surface: #252525; /_ Cards, sections _/
+--gold-primary: #d4af37; /_ Primary gold accent _/
+--gold-hover: #c19b2b; /_ Gold hover state _/
+--text-light: #f5f5f5; /_ Primary text on dark _/
+--text-muted: #a0a0a0; /_ Muted text on dark _/
 \`\`\`
 
 #### Secondary Colors (Light Showroom)
+
 \`\`\`css
---light-bg: #ffffff;           /* Main light background */
---cream-bg: #f5f5f0;           /* Warm cream alternative */
---light-surface: #fafafa;      /* Cards, sections */
---border-light: #e5e5e5;       /* Borders, dividers */
---text-dark: #1a1a1a;          /* Primary text on light */
---text-gray: #666666;          /* Muted text on light */
+--light-bg: #ffffff; /_ Main light background _/
+--cream-bg: #f5f5f0; /_ Warm cream alternative _/
+--light-surface: #fafafa; /_ Cards, sections _/
+--border-light: #e5e5e5; /_ Borders, dividers _/
+--text-dark: #1a1a1a; /_ Primary text on light _/
+--text-gray: #666666; /_ Muted text on light _/
 \`\`\`
 
 #### Accent Colors
+
 \`\`\`css
---accent-blue: #3b82f6;        /* Info, links */
---accent-green: #10b981;       /* Success */
---accent-red: #ef4444;         /* Error, sale */
---accent-orange: #f59e0b;      /* Warning, featured */
+--accent-blue: #3b82f6; /_ Info, links _/
+--accent-green: #10b981; /_ Success _/
+--accent-red: #ef4444; /_ Error, sale _/
+--accent-orange: #f59e0b; /_ Warning, featured _/
 \`\`\`
 
 ### Typography
 
 #### Font Families
+
 \`\`\`css
 --font-primary: 'Geist', system-ui, sans-serif;
---font-display: 'Space Grotesk', sans-serif; /* Headings */
+--font-display: 'Space Grotesk', sans-serif; /_ Headings _/
 --font-mono: 'Geist Mono', monospace;
 \`\`\`
 
 #### Font Scales
+
 \`\`\`css
-/* Display (Hero) */
---text-display-2xl: 4.5rem;    /* 72px - H1 Hero */
---text-display-xl: 3.75rem;    /* 60px */
---text-display-lg: 3rem;       /* 48px */
+/_ Display (Hero) _/
+--text-display-2xl: 4.5rem; /_ 72px - H1 Hero _/
+--text-display-xl: 3.75rem; /_ 60px _/
+--text-display-lg: 3rem; /_ 48px _/
 
-/* Headings */
---text-h1: 2.25rem;            /* 36px */
---text-h2: 1.875rem;           /* 30px */
---text-h3: 1.5rem;             /* 24px */
---text-h4: 1.25rem;            /* 20px */
+/_ Headings _/
+--text-h1: 2.25rem; /_ 36px _/
+--text-h2: 1.875rem; /_ 30px _/
+--text-h3: 1.5rem; /_ 24px _/
+--text-h4: 1.25rem; /_ 20px _/
 
-/* Body */
---text-lg: 1.125rem;           /* 18px - Product descriptions */
---text-base: 1rem;             /* 16px - Default */
---text-sm: 0.875rem;           /* 14px - Captions */
---text-xs: 0.75rem;            /* 12px - Labels */
+/_ Body _/
+--text-lg: 1.125rem; /_ 18px - Product descriptions _/
+--text-base: 1rem; /_ 16px - Default _/
+--text-sm: 0.875rem; /_ 14px - Captions _/
+--text-xs: 0.75rem; /_ 12px - Labels _/
 \`\`\`
 
 ### Spacing Scale (8px Grid)
 
 \`\`\`css
---space-1: 0.5rem;   /* 8px */
---space-2: 1rem;     /* 16px */
---space-3: 1.5rem;   /* 24px */
---space-4: 2rem;     /* 32px */
---space-5: 2.5rem;   /* 40px */
---space-6: 3rem;     /* 48px */
---space-8: 4rem;     /* 64px */
---space-10: 5rem;    /* 80px */
---space-12: 6rem;    /* 96px */
+--space-1: 0.5rem; /_ 8px _/
+--space-2: 1rem; /_ 16px _/
+--space-3: 1.5rem; /_ 24px _/
+--space-4: 2rem; /_ 32px _/
+--space-5: 2.5rem; /_ 40px _/
+--space-6: 3rem; /_ 48px _/
+--space-8: 4rem; /_ 64px _/
+--space-10: 5rem; /_ 80px _/
+--space-12: 6rem; /_ 96px _/
 \`\`\`
 
 ### Border Radius
 
 \`\`\`css
---radius-sm: 0.5rem;   /* 8px - Small elements */
---radius-md: 0.75rem;  /* 12px - Cards */
---radius-lg: 1rem;     /* 16px - Large cards */
---radius-xl: 1.5rem;   /* 24px - 🎯 BUTTONS (KEY!) */
---radius-2xl: 2rem;    /* 32px - Hero sections */
+--radius-sm: 0.5rem; /_ 8px - Small elements _/
+--radius-md: 0.75rem; /_ 12px - Cards _/
+--radius-lg: 1rem; /_ 16px - Large cards _/
+--radius-xl: 1.5rem; /_ 24px - 🎯 BUTTONS (KEY!) _/
+--radius-2xl: 2rem; /_ 32px - Hero sections _/
 \`\`\`
 
 ### Shadows
 
 \`\`\`css
-/* Light theme */
+/_ Light theme _/
 --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
 --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
 --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
 
-/* Dark theme */
+/_ Dark theme _/
 --shadow-dark-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
 --shadow-dark-md: 0 4px 6px rgba(0, 0, 0, 0.4);
 --shadow-dark-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
@@ -5142,6 +5221,7 @@ gawin-home/
 ### Component Variants
 
 #### Button
+
 \`\`\`typescript
 // Primary Gold (Dark background)
 "bg-gold-primary text-dark-bg hover:bg-gold-hover rounded-xl"
@@ -5157,6 +5237,7 @@ gawin-home/
 \`\`\`
 
 #### Card
+
 \`\`\`typescript
 // Dark variant (Homepage)
 "bg-dark-surface border border-gold-primary/20 rounded-lg"
@@ -5173,70 +5254,70 @@ gawin-home/
 
 \`\`\`typescript
 interface Product {
-  id: string;
-  slug: string;
-  name: string;
-  description: string;
-  category: string;
-  subcategory?: string;
-  collection?: string;
+id: string;
+slug: string;
+name: string;
+description: string;
+category: string;
+subcategory?: string;
+collection?: string;
 
-  // Pricing
-  price: {
-    amount: number;
-    currency: string;
-    compareAtAmount?: number; // Original price for sales
-  };
+// Pricing
+price: {
+amount: number;
+currency: string;
+compareAtAmount?: number; // Original price for sales
+};
 
-  // Images
-  images: {
-    url: string;
-    alt: string;
-    width: number;
-    height: number;
-  }[];
+// Images
+images: {
+url: string;
+alt: string;
+width: number;
+height: number;
+}[];
 
-  // Variants (np. kolor, rozmiar)
-  variants: {
-    id: string;
-    name: string;
-    options: {
-      name: string;
-      value: string;
-      priceModifier?: number;
-      inStock: boolean;
-    }[];
-  }[];
+// Variants (np. kolor, rozmiar)
+variants: {
+id: string;
+name: string;
+options: {
+name: string;
+value: string;
+priceModifier?: number;
+inStock: boolean;
+}[];
+}[];
 
-  // Details
-  details: {
-    dimensions: {
-      width: number;
-      height: number;
-      depth: number;
-      unit: "cm" | "in";
-    };
-    weight?: number;
-    materials: string[];
-    colors: string[];
-    manufacturer?: string;
-  };
+// Details
+details: {
+dimensions: {
+width: number;
+height: number;
+depth: number;
+unit: "cm" | "in";
+};
+weight?: number;
+materials: string[];
+colors: string[];
+manufacturer?: string;
+};
 
-  // Metadata
-  seo: {
-    title: string;
-    description: string;
-    keywords: string[];
-  };
+// Metadata
+seo: {
+title: string;
+description: string;
+keywords: string[];
+};
 
-  // Status
-  inStock: boolean;
-  isFeatured: boolean;
-  isNew: boolean;
-  onSale: boolean;
+// Status
+inStock: boolean;
+isFeatured: boolean;
+isNew: boolean;
+onSale: boolean;
 
-  createdAt: string;
-  updatedAt: string;
+createdAt: string;
+updatedAt: string;
 }
 \`\`\`
 
@@ -5244,17 +5325,17 @@ interface Product {
 
 \`\`\`typescript
 interface Category {
-  id: string;
-  slug: string;
-  name: string;
-  description: string;
-  image: string;
-  subcategories?: {
-    id: string;
-    slug: string;
-    name: string;
-  }[];
-  productCount: number;
+id: string;
+slug: string;
+name: string;
+description: string;
+image: string;
+subcategories?: {
+id: string;
+slug: string;
+name: string;
+}[];
+productCount: number;
 }
 \`\`\`
 
@@ -5262,22 +5343,22 @@ interface Category {
 
 \`\`\`typescript
 interface Cart {
-  id: string;
-  items: CartItem[];
-  subtotal: number;
-  tax: number;
-  shipping: number;
-  total: number;
-  currency: string;
+id: string;
+items: CartItem[];
+subtotal: number;
+tax: number;
+shipping: number;
+total: number;
+currency: string;
 }
 
 interface CartItem {
-  id: string;
-  productId: string;
-  variantId?: string;
-  quantity: number;
-  price: number;
-  product: Pick<Product, "name" | "images" | "slug">;
+id: string;
+productId: string;
+variantId?: string;
+quantity: number;
+price: number;
+product: Pick<Product, "name" | "images" | "slug">;
 }
 \`\`\`
 
@@ -5288,6 +5369,7 @@ interface CartItem {
 ### Phase 1: Foundation (Day 1-2) ✅ W TRAKCIE
 
 **Setup:**
+
 - [x] Struktura projektu
 - [ ] Next.js 15 + TypeScript
 - [ ] Tailwind CSS v4
@@ -5295,12 +5377,14 @@ interface CartItem {
 - [ ] ESLint + Prettier
 
 **Design System:**
+
 - [ ] Konfiguracja kolorów w Tailwind
 - [ ] Typografia (Geist fonts)
 - [ ] Komponenty UI podstawowe (Button, Card, Input)
 - [ ] CVA variants setup
 
 **Data Layer:**
+
 - [ ] TypeScript types (Product, Category, Cart)
 - [ ] Mock data (10 produktów mebli)
 - [ ] Utilities (formatters, validators)
@@ -5308,6 +5392,7 @@ interface CartItem {
 ### Phase 2: Homepage (Day 3-4)
 
 **Dark Entry:**
+
 - [ ] Hero Section (video/image background)
 - [ ] Featured Products (karuzela)
 - [ ] Categories Showcase (4-6 kategorii)
@@ -5315,6 +5400,7 @@ interface CartItem {
 - [ ] Footer (ciemny)
 
 **Komponenty:**
+
 - [ ] Header z transparent→solid transition
 - [ ] Mobile navigation (Sheet)
 - [ ] Search bar (elegancki)
@@ -5323,6 +5409,7 @@ interface CartItem {
 ### Phase 3: Product Listing (Day 5-6)
 
 **Light Showroom:**
+
 - [ ] Product Grid (responsive)
 - [ ] Filter Sidebar (kategorie, cena, materiały)
 - [ ] Sort options (cena, nowość, popularność)
@@ -5330,6 +5417,7 @@ interface CartItem {
 - [ ] "No results" state
 
 **Komponenty:**
+
 - [ ] ProductCard (hover effects)
 - [ ] FilterPanel (Accordion)
 - [ ] PriceRange slider
@@ -5338,6 +5426,7 @@ interface CartItem {
 ### Phase 4: Product Details (Day 7-8)
 
 **Product Page:**
+
 - [ ] Image Gallery (zoom, thumbnails)
 - [ ] Product Info (nazwa, cena, opis)
 - [ ] Variant Selector (kolor, rozmiar)
@@ -5346,6 +5435,7 @@ interface CartItem {
 - [ ] Related Products (4-6 items)
 
 **Komponenty:**
+
 - [ ] ImageGallery (lightbox)
 - [ ] VariantSelector (radio groups)
 - [ ] QuantitySelector
@@ -5355,18 +5445,21 @@ interface CartItem {
 ### Phase 5: Cart & Checkout (Day 9-10)
 
 **Cart:**
+
 - [ ] Cart Drawer (Sheet)
 - [ ] Cart Items (editable quantity)
 - [ ] Cart Summary (subtotal, tax, total)
 - [ ] Empty cart state
 
 **Checkout:**
+
 - [ ] Multi-step form (shipping, payment, review)
 - [ ] Form validation (Zod)
 - [ ] Payment integration (placeholder)
 - [ ] Order confirmation
 
 **Komponenty:**
+
 - [ ] CheckoutStepper
 - [ ] ShippingForm
 - [ ] PaymentForm
@@ -5375,24 +5468,28 @@ interface CartItem {
 ### Phase 6: Polish & Optimization (Day 11-12)
 
 **Performance:**
+
 - [ ] Image optimization (WebP, blur placeholders)
 - [ ] Code splitting
 - [ ] Lazy loading
 - [ ] Bundle analysis
 
 **UX Enhancements:**
+
 - [ ] Loading states (Suspense)
 - [ ] Error boundaries
 - [ ] Toast notifications (Sonner)
 - [ ] Smooth animations (Framer Motion)
 
 **SEO:**
+
 - [ ] Metadata API (wszystkie strony)
 - [ ] Sitemap
 - [ ] robots.txt
 - [ ] OG images
 
 **Testing:**
+
 - [ ] Manual testing (wszystkie flow)
 - [ ] Responsywność (mobile, tablet, desktop)
 - [ ] Accessibility audit
@@ -5403,7 +5500,9 @@ interface CartItem {
 ## 🎯 Kluczowe Decyzje
 
 ### 1. Dlaczego Vercel Commerce?
+
 ✅ **PROS:**
+
 - Nowoczesny, aktywnie utrzymywany
 - Next.js 15 App Router
 - Gotowe patterns dla e-commerce
@@ -5411,23 +5510,27 @@ interface CartItem {
 - Świetna dokumentacja
 
 ❌ **Odrzucone alternatywy:**
+
 - `next-merce` - przestarzały (Pages Router)
 - `shopify-nextjs` - zbyt mocno związany z Shopify
 - Od zera - za długo by trwało
 
 ### 2. Dlaczego "Hybrydowy Design"?
+
 - **Differentiation:** Większość sklepów używa jednego theme
 - **Storytelling:** Dark entry = prestiż, Light showroom = focus na produkt
 - **Flexibility:** Można łatwo dostosować do różnych sekcji
 - **Premium Feel:** Pokazuje attention to detail
 
 ### 3. Dlaczego Lokalne Dane?
+
 - Szybki development (nie czekamy na backend)
 - Kontrola nad strukturą danych
 - Łatwe testowanie edge cases
 - Przygotowanie na przyszłe API integration
 
 ### 4. Dlaczego rounded-xl dla Przycisków?
+
 - `rounded-md` - za kanciasty
 - `rounded-full` - za "zabawkowy"
 - `rounded-xl` - **PERFECT** balance, premium look
@@ -5437,6 +5540,7 @@ interface CartItem {
 ## ✅ Checklisty
 
 ### Pre-Development Checklist
+
 - [x] ✅ Zdefiniowano wymagania projektu
 - [x] ✅ Wybrano fundament (Vercel Commerce)
 - [x] ✅ Opracowano design philosophy
@@ -5445,6 +5549,7 @@ interface CartItem {
 - [ ] Zainicjowano Git repo
 
 ### Setup Checklist (Day 1)
+
 - [ ] `npx create-next-app@latest` z Turbopack
 - [ ] Instalacja Tailwind CSS v4
 - [ ] `npx shadcn@latest init` (New York style)
@@ -5456,6 +5561,7 @@ interface CartItem {
 - [ ] Test build: `npm run build`
 
 ### Design System Checklist
+
 - [ ] Zdefiniowano palety kolorów (dark + light)
 - [ ] Skonfigurowano typografię
 - [ ] Utworzono CVA variants dla Button
@@ -5465,6 +5571,7 @@ interface CartItem {
 - [ ] Test dark/light theme switching
 
 ### Data Preparation Checklist
+
 - [ ] Utworzono TypeScript types
 - [ ] Przygotowano 10 produktów (JSON)
 - [ ] Przygotowano 4-6 kategorii
@@ -5473,6 +5580,7 @@ interface CartItem {
 - [ ] Test data loading
 
 ### Quality Checklist (Final)
+
 - [ ] ✅ Wszystkie strony responsywne
 - [ ] ✅ Accessibility (ARIA labels)
 - [ ] ✅ SEO metadata kompletne
@@ -5487,6 +5595,7 @@ interface CartItem {
 ## 📝 Notatki Developerskie
 
 ### Konwencje Kodowania
+
 - **Komponenty:** PascalCase.tsx
 - **Utilities:** camelCase.ts
 - **Routes:** kebab-case
@@ -5495,9 +5604,10 @@ interface CartItem {
 - **Stałe:** UPPER_CASE
 
 ### Import Order
+
 \`\`\`typescript
 // 1. React & Next.js
-import * as React from "react"
+import \* as React from "react"
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -5522,6 +5632,7 @@ import products from "@/data/products.json"
 \`\`\`
 
 ### Git Commit Messages
+
 \`\`\`bash
 feat: add Hero section with video background
 fix: resolve mobile navigation z-index issue
@@ -5551,7 +5662,6 @@ e-commerce, furniture, premium, next.js-15, vercel-commerce, typescript, tailwin
 > 🎯 **Cel:** Stworzyć najpiękniejszy, najbardziej premium sklep e-commerce z meblami, jaki można sobie wyobrazić. Clean code, top-level design, realistyczne dane.
 
 > 🔥 **Motto:** "If it's not beautiful, it's not done."
-
 ```
 
 # docs\IMPLEMENTATION_PLAN.md
@@ -5579,6 +5689,7 @@ e-commerce, furniture, premium, next.js-15, vercel-commerce, typescript, tailwin
 ## Phase 1: Foundation Setup
 
 ### 🎯 Cel
+
 Utworzenie solidnego fundamentu projektu z Next.js 15, TypeScript i Tailwind v4.
 
 ### ⏱️ Czas: 2-3 godziny
@@ -5588,69 +5699,90 @@ Utworzenie solidnego fundamentu projektu z Next.js 15, TypeScript i Tailwind v4.
 #### 1.1 Inicjalizacja Projektu
 
 \`\`\`bash
+
 # Krok 1: Przejdź do folderu roboczego
+
 cd C:\Users\NicoN\Desktop\Claude
 
 # Krok 2: Utwórz nowy projekt Next.js
+
 npx create-next-app@latest gawin-home \
-  --typescript \
-  --tailwind \
-  --app \
-  --src-dir \
-  --import-alias "@/*" \
-  --turbopack
+ --typescript \
+ --tailwind \
+ --app \
+ --src-dir \
+ --import-alias "@/\*" \
+ --turbopack
 
 # Krok 3: Przejdź do projektu
+
 cd gawin-home
 
 # Krok 4: Otwórz w VS Code
+
 code .
 \`\`\`
 
 **Odpowiedzi na pytania setup:**
+
 - TypeScript: ✅ Yes
 - ESLint: ✅ Yes
 - Tailwind CSS: ✅ Yes
 - `src/` directory: ✅ Yes
 - App Router: ✅ Yes
-- Customize import alias: ✅ Yes (@/*)
+- Customize import alias: ✅ Yes (@/\*)
 - Turbopack: ✅ Yes
 
 #### 1.2 Instalacja shadcn/ui
 
 \`\`\`bash
+
 # Inicjalizacja shadcn/ui
+
 npx shadcn@latest init
 
 # Odpowiedzi:
+
 # - Style: New York
+
 # - Base color: Neutral
+
 # - CSS variables: Yes
+
 \`\`\`
 
 #### 1.3 Instalacja Dependencies
 
 \`\`\`bash
+
 # UI & Styling
+
 npm install lucide-react class-variance-authority clsx tailwind-merge
 
 # Animations & UX
+
 npm install framer-motion sonner next-themes
 
 # Forms
+
 npm install react-hook-form @hookform/resolvers zod
 
 # Dev Tools
+
 npm install -D prettier prettier-plugin-tailwindcss eslint-config-prettier
 
 # Fonts (Geist)
+
 # Already included in Next.js 15
+
 \`\`\`
 
 #### 1.4 Struktura Folderów
 
 \`\`\`bash
+
 # Utwórz strukturę
+
 mkdir -p src/components/{ui,layout,commerce,sections,shared}
 mkdir -p src/components/layout/{header,footer,sidebar}
 mkdir -p src/components/commerce/{product,cart,checkout}
@@ -5665,13 +5797,17 @@ mkdir -p public/images/{products,categories,hero,logos}
 #### 1.5 Konfiguracja Git
 
 \`\`\`bash
+
 # Inicjalizacja repo
+
 git init
 git add .
 git commit -m "chore: initial project setup with Next.js 15 and shadcn/ui"
 
 # Utwórz .gitignore (już jest)
+
 # Dodaj .env.local do .gitignore
+
 \`\`\`
 
 #### 1.6 Prettier Configuration
@@ -5679,12 +5815,12 @@ git commit -m "chore: initial project setup with Next.js 15 and shadcn/ui"
 **Utwórz `.prettierrc.json`:**
 \`\`\`json
 {
-  "semi": true,
-  "trailingComma": "es5",
-  "singleQuote": false,
-  "tabWidth": 2,
-  "useTabs": false,
-  "plugins": ["prettier-plugin-tailwindcss"]
+"semi": true,
+"trailingComma": "es5",
+"singleQuote": false,
+"tabWidth": 2,
+"useTabs": false,
+"plugins": ["prettier-plugin-tailwindcss"]
 }
 \`\`\`
 
@@ -5693,6 +5829,7 @@ git commit -m "chore: initial project setup with Next.js 15 and shadcn/ui"
 ## Phase 2: Design System
 
 ### 🎯 Cel
+
 Konfiguracja design systemu: kolory, typografia, komponenty.
 
 ### ⏱️ Czas: 3-4 godziny
@@ -5706,82 +5843,83 @@ Konfiguracja design systemu: kolory, typografia, komponenty.
 @import "tailwindcss";
 
 @theme {
-  /* === SPACING (8px grid) === */
-  --spacing-1: 0.5rem;
-  --spacing-2: 1rem;
-  --spacing-3: 1.5rem;
-  --spacing-4: 2rem;
-  --spacing-5: 2.5rem;
-  --spacing-6: 3rem;
-  --spacing-8: 4rem;
-  --spacing-10: 5rem;
-  --spacing-12: 6rem;
+/_ === SPACING (8px grid) === _/
+--spacing-1: 0.5rem;
+--spacing-2: 1rem;
+--spacing-3: 1.5rem;
+--spacing-4: 2rem;
+--spacing-5: 2.5rem;
+--spacing-6: 3rem;
+--spacing-8: 4rem;
+--spacing-10: 5rem;
+--spacing-12: 6rem;
 
-  /* === RADIUS === */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;    /* 🎯 PRIMARY for buttons */
-  --radius-2xl: 2rem;
+/_ === RADIUS === _/
+--radius-sm: 0.5rem;
+--radius-md: 0.75rem;
+--radius-lg: 1rem;
+--radius-xl: 1.5rem; /_ 🎯 PRIMARY for buttons _/
+--radius-2xl: 2rem;
 
-  /* === DARK ENTRY COLORS === */
-  --color-dark-bg: oklch(0.11 0 0);           /* #1a1a1a */
-  --color-dark-surface: oklch(0.15 0 0);      /* #252525 */
-  --color-gold-primary: oklch(0.75 0.12 85);  /* #d4af37 */
-  --color-gold-hover: oklch(0.68 0.12 85);    /* #c19b2b */
-  --color-text-light: oklch(0.96 0 0);        /* #f5f5f5 */
-  --color-text-muted: oklch(0.63 0 0);        /* #a0a0a0 */
+/_ === DARK ENTRY COLORS === _/
+--color-dark-bg: oklch(0.11 0 0); /_ #1a1a1a _/
+--color-dark-surface: oklch(0.15 0 0); /_ #252525 _/
+--color-gold-primary: oklch(0.75 0.12 85); /_ #d4af37 _/
+--color-gold-hover: oklch(0.68 0.12 85); /_ #c19b2b _/
+--color-text-light: oklch(0.96 0 0); /_ #f5f5f5 _/
+--color-text-muted: oklch(0.63 0 0); /_ #a0a0a0 _/
 
-  /* === LIGHT SHOWROOM COLORS === */
-  --color-light-bg: oklch(1 0 0);             /* #ffffff */
-  --color-cream-bg: oklch(0.97 0.005 85);     /* #f5f5f0 */
-  --color-light-surface: oklch(0.98 0 0);     /* #fafafa */
-  --color-border-light: oklch(0.90 0 0);      /* #e5e5e5 */
-  --color-text-dark: oklch(0.11 0 0);         /* #1a1a1a */
-  --color-text-gray: oklch(0.40 0 0);         /* #666666 */
+/_ === LIGHT SHOWROOM COLORS === _/
+--color-light-bg: oklch(1 0 0); /_ #ffffff _/
+--color-cream-bg: oklch(0.97 0.005 85); /_ #f5f5f0 _/
+--color-light-surface: oklch(0.98 0 0); /_ #fafafa _/
+--color-border-light: oklch(0.90 0 0); /_ #e5e5e5 _/
+--color-text-dark: oklch(0.11 0 0); /_ #1a1a1a _/
+--color-text-gray: oklch(0.40 0 0); /_ #666666 _/
 
-  /* === ACCENT COLORS === */
-  --color-accent-blue: oklch(0.60 0.25 250);  /* #3b82f6 */
-  --color-accent-green: oklch(0.60 0.25 155); /* #10b981 */
-  --color-accent-red: oklch(0.60 0.25 25);    /* #ef4444 */
-  --color-accent-orange: oklch(0.70 0.20 60); /* #f59e0b */
+/_ === ACCENT COLORS === _/
+--color-accent-blue: oklch(0.60 0.25 250); /_ #3b82f6 _/
+--color-accent-green: oklch(0.60 0.25 155); /_ #10b981 _/
+--color-accent-red: oklch(0.60 0.25 25); /_ #ef4444 _/
+--color-accent-orange: oklch(0.70 0.20 60); /_ #f59e0b _/
 
-  /* === SEMANTIC MAPPING === */
-  --color-background: var(--color-light-bg);
-  --color-foreground: var(--color-text-dark);
-  --color-primary: var(--color-gold-primary);
-  --color-primary-foreground: var(--color-dark-bg);
+/_ === SEMANTIC MAPPING === _/
+--color-background: var(--color-light-bg);
+--color-foreground: var(--color-text-dark);
+--color-primary: var(--color-gold-primary);
+--color-primary-foreground: var(--color-dark-bg);
 }
 
-/* === DARK MODE (Optional - dla toggles) === */
+/_ === DARK MODE (Optional - dla toggles) === _/
 @media (prefers-color-scheme: dark) {
-  @theme {
-    --color-background: var(--color-dark-bg);
-    --color-foreground: var(--color-text-light);
-  }
+@theme {
+--color-background: var(--color-dark-bg);
+--color-foreground: var(--color-text-light);
+}
 }
 
-/* === BASE STYLES === */
+/_ === BASE STYLES === _/
 @layer base {
-  * {
-    @apply border-border-light;
+
+- {
+  @apply border-border-light;
   }
 
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
-  }
+body {
+@apply bg-background text-foreground antialiased;
+font-feature-settings: "rlig" 1, "calt" 1;
 }
 
-/* === UTILITIES === */
+h1, h2, h3, h4, h5, h6 {
+@apply font-display tracking-tight;
+}
+}
+
+/_ === UTILITIES === _/
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.text-balance {
+text-wrap: balance;
+}
 }
 \`\`\`
 
@@ -5794,36 +5932,39 @@ import { GeistMono } from "geist/font/mono";
 import { Space_Grotesk } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
+subsets: ["latin"],
+variable: "--font-display",
 });
 
 export default function RootLayout({
-  children,
+children,
 }: {
-  children: React.ReactNode;
+children: React.ReactNode;
 }) {
-  return (
-    <html lang="pl" className={`${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable}`}>
-      <body>{children}</body>
-    </html>
-  );
+return (
+
+<html lang="pl" className={`${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable}`}>
+<body>{children}</body>
+</html>
+);
 }
 \`\`\`
 
 **Dodaj do `tailwind.config.ts`:**
 \`\`\`typescript
 fontFamily: {
-  sans: ["var(--font-geist-sans)", "sans-serif"],
-  mono: ["var(--font-geist-mono)", "monospace"],
-  display: ["var(--font-display)", "sans-serif"],
+sans: ["var(--font-geist-sans)", "sans-serif"],
+mono: ["var(--font-geist-mono)", "monospace"],
+display: ["var(--font-display)", "sans-serif"],
 }
 \`\`\`
 
 #### 2.3 Komponenty UI (shadcn/ui)
 
 \`\`\`bash
+
 # Dodaj podstawowe komponenty
+
 npx shadcn@latest add button
 npx shadcn@latest add card
 npx shadcn@latest add input
@@ -5847,30 +5988,30 @@ npx shadcn@latest add form
 Zmień `defaultVariants` radius:
 \`\`\`typescript
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-xl ...", // 🎯 rounded-xl
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        gold: "bg-gold-primary text-dark-bg hover:bg-gold-hover", // NEW
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-lg px-3", // rounded-lg dla small
-        lg: "h-11 rounded-2xl px-8", // rounded-2xl dla large
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
+"inline-flex items-center justify-center rounded-xl ...", // 🎯 rounded-xl
+{
+variants: {
+variant: {
+default: "bg-primary text-primary-foreground hover:bg-primary/90",
+gold: "bg-gold-primary text-dark-bg hover:bg-gold-hover", // NEW
+destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+ghost: "hover:bg-accent hover:text-accent-foreground",
+link: "text-primary underline-offset-4 hover:underline",
+},
+size: {
+default: "h-10 px-4 py-2",
+sm: "h-9 rounded-lg px-3", // rounded-lg dla small
+lg: "h-11 rounded-2xl px-8", // rounded-2xl dla large
+icon: "h-10 w-10",
+},
+},
+defaultVariants: {
+variant: "default",
+size: "default",
+},
+}
 );
 \`\`\`
 
@@ -5882,22 +6023,22 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+return twMerge(clsx(inputs));
 }
 
 export function formatPrice(amount: number, currency: string = "PLN"): string {
-  return new Intl.NumberFormat("pl-PL", {
-    style: "currency",
-    currency,
-  }).format(amount);
+return new Intl.NumberFormat("pl-PL", {
+style: "currency",
+currency,
+}).format(amount);
 }
 
 export function formatDate(date: string | Date): string {
-  return new Intl.DateTimeFormat("pl-PL", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(new Date(date));
+return new Intl.DateTimeFormat("pl-PL", {
+day: "numeric",
+month: "long",
+year: "numeric",
+}).format(new Date(date));
 }
 \`\`\`
 
@@ -5906,6 +6047,7 @@ export function formatDate(date: string | Date): string {
 ## Phase 3: Data Layer
 
 ### 🎯 Cel
+
 Utworzenie TypeScript types i mock data dla produktów.
 
 ### ⏱️ Czas: 2-3 godziny
@@ -5917,90 +6059,90 @@ Utworzenie TypeScript types i mock data dla produktów.
 **Utwórz `src/types/product.ts`:**
 \`\`\`typescript
 export interface Product {
-  id: string;
-  slug: string;
-  name: string;
-  description: string;
-  category: string;
-  subcategory?: string;
-  collection?: string;
+id: string;
+slug: string;
+name: string;
+description: string;
+category: string;
+subcategory?: string;
+collection?: string;
 
-  price: {
-    amount: number;
-    currency: string;
-    compareAtAmount?: number;
-  };
+price: {
+amount: number;
+currency: string;
+compareAtAmount?: number;
+};
 
-  images: ProductImage[];
-  variants: ProductVariant[];
-  details: ProductDetails;
-  seo: ProductSEO;
+images: ProductImage[];
+variants: ProductVariant[];
+details: ProductDetails;
+seo: ProductSEO;
 
-  inStock: boolean;
-  isFeatured: boolean;
-  isNew: boolean;
-  onSale: boolean;
+inStock: boolean;
+isFeatured: boolean;
+isNew: boolean;
+onSale: boolean;
 
-  createdAt: string;
-  updatedAt: string;
+createdAt: string;
+updatedAt: string;
 }
 
 export interface ProductImage {
-  url: string;
-  alt: string;
-  width: number;
-  height: number;
+url: string;
+alt: string;
+width: number;
+height: number;
 }
 
 export interface ProductVariant {
-  id: string;
-  name: string;
-  options: VariantOption[];
+id: string;
+name: string;
+options: VariantOption[];
 }
 
 export interface VariantOption {
-  name: string;
-  value: string;
-  priceModifier?: number;
-  inStock: boolean;
+name: string;
+value: string;
+priceModifier?: number;
+inStock: boolean;
 }
 
 export interface ProductDetails {
-  dimensions: {
-    width: number;
-    height: number;
-    depth: number;
-    unit: "cm" | "in";
-  };
-  weight?: number;
-  materials: string[];
-  colors: string[];
-  manufacturer?: string;
+dimensions: {
+width: number;
+height: number;
+depth: number;
+unit: "cm" | "in";
+};
+weight?: number;
+materials: string[];
+colors: string[];
+manufacturer?: string;
 }
 
 export interface ProductSEO {
-  title: string;
-  description: string;
-  keywords: string[];
+title: string;
+description: string;
+keywords: string[];
 }
 \`\`\`
 
 **Utwórz `src/types/category.ts`:**
 \`\`\`typescript
 export interface Category {
-  id: string;
-  slug: string;
-  name: string;
-  description: string;
-  image: string;
-  subcategories?: Subcategory[];
-  productCount: number;
+id: string;
+slug: string;
+name: string;
+description: string;
+image: string;
+subcategories?: Subcategory[];
+productCount: number;
 }
 
 export interface Subcategory {
-  id: string;
-  slug: string;
-  name: string;
+id: string;
+slug: string;
+name: string;
 }
 \`\`\`
 
@@ -6009,30 +6151,30 @@ export interface Subcategory {
 import type { Product } from "./product";
 
 export interface Cart {
-  id: string;
-  items: CartItem[];
-  subtotal: number;
-  tax: number;
-  shipping: number;
-  total: number;
-  currency: string;
+id: string;
+items: CartItem[];
+subtotal: number;
+tax: number;
+shipping: number;
+total: number;
+currency: string;
 }
 
 export interface CartItem {
-  id: string;
-  productId: string;
-  variantId?: string;
-  quantity: number;
-  price: number;
-  product: Pick<Product, "name" | "images" | "slug">;
+id: string;
+productId: string;
+variantId?: string;
+quantity: number;
+price: number;
+product: Pick<Product, "name" | "images" | "slug">;
 }
 \`\`\`
 
 **Utwórz `src/types/index.ts`:**
 \`\`\`typescript
-export * from "./product";
-export * from "./category";
-export * from "./cart";
+export _ from "./product";
+export _ from "./category";
+export \* from "./cart";
 \`\`\`
 
 #### 3.2 Mock Data - Products
@@ -6040,173 +6182,173 @@ export * from "./cart";
 **Utwórz `src/data/products.json`:**
 \`\`\`json
 [
-  {
-    "id": "sofa-skandynawska-beige",
-    "slug": "sofa-skandynawska-beige",
-    "name": "Sofa Skandynawska Bergen",
-    "description": "Elegancka sofa w stylu skandynawskim, wykonana z wysokiej jakości tkaniny. Idealna do nowoczesnych wnętrz. Wygodne, miękkie siedzisko zapewnia maksymalny komfort.",
-    "category": "sofas",
-    "subcategory": "scandinavian",
-    "collection": "bergen",
-    "price": {
-      "amount": 3499,
-      "currency": "PLN",
-      "compareAtAmount": 4299
-    },
-    "images": [
-      {
-        "url": "/images/products/sofa-bergen-beige-1.jpg",
-        "alt": "Sofa Bergen - widok z przodu",
-        "width": 1200,
-        "height": 800
-      },
-      {
-        "url": "/images/products/sofa-bergen-beige-2.jpg",
-        "alt": "Sofa Bergen - widok z boku",
-        "width": 1200,
-        "height": 800
-      }
-    ],
-    "variants": [
-      {
-        "id": "color",
-        "name": "Kolor",
-        "options": [
-          { "name": "Beżowy", "value": "beige", "inStock": true },
-          { "name": "Szary", "value": "gray", "priceModifier": 200, "inStock": true },
-          { "name": "Ciemny Niebieski", "value": "navy", "priceModifier": 300, "inStock": false }
-        ]
-      }
-    ],
-    "details": {
-      "dimensions": {
-        "width": 220,
-        "height": 85,
-        "depth": 95,
-        "unit": "cm"
-      },
-      "weight": 85,
-      "materials": ["Tkanina premium", "Drewno brzozowe", "Pianka wysokoelastyczna"],
-      "colors": ["Beżowy", "Szary", "Ciemny Niebieski"],
-      "manufacturer": "Gawin Furniture Co."
-    },
-    "seo": {
-      "title": "Sofa Skandynawska Bergen - Beżowa | Gawin Home",
-      "description": "Elegancka sofa skandynawska Bergen w kolorze beżowym. Wysoka jakość, skandynawski design, komfort na lata.",
-      "keywords": ["sofa skandynawska", "sofa beżowa", "meble bergen", "sofa nowoczesna"]
-    },
-    "inStock": true,
-    "isFeatured": true,
-    "isNew": false,
-    "onSale": true,
-    "createdAt": "2024-10-01T10:00:00Z",
-    "updatedAt": "2025-01-10T14:30:00Z"
-  },
-  {
-    "id": "fotel-loftowy-skora",
-    "slug": "fotel-loftowy-skora",
-    "name": "Fotel Loftowy Manhattan",
-    "description": "Ekskluzywny fotel w stylu industrialnym, wykonany z naturalnej skóry. Metalowa rama dodaje charakteru. Idealny do loftów i nowoczesnych wnętrz.",
-    "category": "armchairs",
-    "subcategory": "industrial",
-    "collection": "manhattan",
-    "price": {
-      "amount": 2899,
-      "currency": "PLN"
-    },
-    "images": [
-      {
-        "url": "/images/products/fotel-manhattan-1.jpg",
-        "alt": "Fotel Manhattan - widok z przodu",
-        "width": 1200,
-        "height": 800
-      }
-    ],
-    "variants": [
-      {
-        "id": "leather-color",
-        "name": "Kolor Skóry",
-        "options": [
-          { "name": "Brązowy Vintage", "value": "brown-vintage", "inStock": true },
-          { "name": "Czarny Mat", "value": "black-matte", "priceModifier": 400, "inStock": true }
-        ]
-      }
-    ],
-    "details": {
-      "dimensions": {
-        "width": 80,
-        "height": 95,
-        "depth": 85,
-        "unit": "cm"
-      },
-      "weight": 32,
-      "materials": ["Naturalna skóra", "Stal szczotkowana", "Pianka poliuretanowa"],
-      "colors": ["Brązowy Vintage", "Czarny Mat"],
-      "manufacturer": "Gawin Furniture Co."
-    },
-    "seo": {
-      "title": "Fotel Loftowy Manhattan - Skórzany | Gawin Home",
-      "description": "Ekskluzywny fotel loftowy Manhattan ze skóry naturalnej. Industrialny design, najwyższa jakość wykonania.",
-      "keywords": ["fotel loftowy", "fotel skórzany", "meble industrialne", "fotel manhattan"]
-    },
-    "inStock": true,
-    "isFeatured": true,
-    "isNew": true,
-    "onSale": false,
-    "createdAt": "2025-01-05T09:00:00Z",
-    "updatedAt": "2025-01-15T11:20:00Z"
-  }
+{
+"id": "sofa-skandynawska-beige",
+"slug": "sofa-skandynawska-beige",
+"name": "Sofa Skandynawska Bergen",
+"description": "Elegancka sofa w stylu skandynawskim, wykonana z wysokiej jakości tkaniny. Idealna do nowoczesnych wnętrz. Wygodne, miękkie siedzisko zapewnia maksymalny komfort.",
+"category": "sofas",
+"subcategory": "scandinavian",
+"collection": "bergen",
+"price": {
+"amount": 3499,
+"currency": "PLN",
+"compareAtAmount": 4299
+},
+"images": [
+{
+"url": "/images/products/sofa-bergen-beige-1.jpg",
+"alt": "Sofa Bergen - widok z przodu",
+"width": 1200,
+"height": 800
+},
+{
+"url": "/images/products/sofa-bergen-beige-2.jpg",
+"alt": "Sofa Bergen - widok z boku",
+"width": 1200,
+"height": 800
+}
+],
+"variants": [
+{
+"id": "color",
+"name": "Kolor",
+"options": [
+{ "name": "Beżowy", "value": "beige", "inStock": true },
+{ "name": "Szary", "value": "gray", "priceModifier": 200, "inStock": true },
+{ "name": "Ciemny Niebieski", "value": "navy", "priceModifier": 300, "inStock": false }
+]
+}
+],
+"details": {
+"dimensions": {
+"width": 220,
+"height": 85,
+"depth": 95,
+"unit": "cm"
+},
+"weight": 85,
+"materials": ["Tkanina premium", "Drewno brzozowe", "Pianka wysokoelastyczna"],
+"colors": ["Beżowy", "Szary", "Ciemny Niebieski"],
+"manufacturer": "Gawin Furniture Co."
+},
+"seo": {
+"title": "Sofa Skandynawska Bergen - Beżowa | Gawin Home",
+"description": "Elegancka sofa skandynawska Bergen w kolorze beżowym. Wysoka jakość, skandynawski design, komfort na lata.",
+"keywords": ["sofa skandynawska", "sofa beżowa", "meble bergen", "sofa nowoczesna"]
+},
+"inStock": true,
+"isFeatured": true,
+"isNew": false,
+"onSale": true,
+"createdAt": "2024-10-01T10:00:00Z",
+"updatedAt": "2025-01-10T14:30:00Z"
+},
+{
+"id": "fotel-loftowy-skora",
+"slug": "fotel-loftowy-skora",
+"name": "Fotel Loftowy Manhattan",
+"description": "Ekskluzywny fotel w stylu industrialnym, wykonany z naturalnej skóry. Metalowa rama dodaje charakteru. Idealny do loftów i nowoczesnych wnętrz.",
+"category": "armchairs",
+"subcategory": "industrial",
+"collection": "manhattan",
+"price": {
+"amount": 2899,
+"currency": "PLN"
+},
+"images": [
+{
+"url": "/images/products/fotel-manhattan-1.jpg",
+"alt": "Fotel Manhattan - widok z przodu",
+"width": 1200,
+"height": 800
+}
+],
+"variants": [
+{
+"id": "leather-color",
+"name": "Kolor Skóry",
+"options": [
+{ "name": "Brązowy Vintage", "value": "brown-vintage", "inStock": true },
+{ "name": "Czarny Mat", "value": "black-matte", "priceModifier": 400, "inStock": true }
+]
+}
+],
+"details": {
+"dimensions": {
+"width": 80,
+"height": 95,
+"depth": 85,
+"unit": "cm"
+},
+"weight": 32,
+"materials": ["Naturalna skóra", "Stal szczotkowana", "Pianka poliuretanowa"],
+"colors": ["Brązowy Vintage", "Czarny Mat"],
+"manufacturer": "Gawin Furniture Co."
+},
+"seo": {
+"title": "Fotel Loftowy Manhattan - Skórzany | Gawin Home",
+"description": "Ekskluzywny fotel loftowy Manhattan ze skóry naturalnej. Industrialny design, najwyższa jakość wykonania.",
+"keywords": ["fotel loftowy", "fotel skórzany", "meble industrialne", "fotel manhattan"]
+},
+"inStock": true,
+"isFeatured": true,
+"isNew": true,
+"onSale": false,
+"createdAt": "2025-01-05T09:00:00Z",
+"updatedAt": "2025-01-15T11:20:00Z"
+}
 ]
 \`\`\`
 
-*(Dodaj więcej produktów - docelowo 10-12)*
+_(Dodaj więcej produktów - docelowo 10-12)_
 
 #### 3.3 Mock Data - Categories
 
 **Utwórz `src/data/categories.json`:**
 \`\`\`json
 [
-  {
-    "id": "sofas",
-    "slug": "sofas",
-    "name": "Sofy",
-    "description": "Wygodne i eleganckie sofy do Twojego salonu",
-    "image": "/images/categories/sofas.jpg",
-    "subcategories": [
-      { "id": "scandinavian", "slug": "scandinavian", "name": "Skandynawskie" },
-      { "id": "modern", "slug": "modern", "name": "Nowoczesne" },
-      { "id": "classic", "slug": "classic", "name": "Klasyczne" }
-    ],
-    "productCount": 24
-  },
-  {
-    "id": "armchairs",
-    "slug": "armchairs",
-    "name": "Fotele",
-    "description": "Komfortowe fotele do relaksu",
-    "image": "/images/categories/armchairs.jpg",
-    "subcategories": [
-      { "id": "industrial", "slug": "industrial", "name": "Industrialne" },
-      { "id": "scandinavian", "slug": "scandinavian", "name": "Skandynawskie" }
-    ],
-    "productCount": 16
-  },
-  {
-    "id": "tables",
-    "slug": "tables",
-    "name": "Stoły",
-    "description": "Stylowe stoły jadalne i kawowe",
-    "image": "/images/categories/tables.jpg",
-    "productCount": 18
-  },
-  {
-    "id": "chairs",
-    "slug": "chairs",
-    "name": "Krzesła",
-    "description": "Krzesła do jadalni, biura i nie tylko",
-    "image": "/images/categories/chairs.jpg",
-    "productCount": 32
-  }
+{
+"id": "sofas",
+"slug": "sofas",
+"name": "Sofy",
+"description": "Wygodne i eleganckie sofy do Twojego salonu",
+"image": "/images/categories/sofas.jpg",
+"subcategories": [
+{ "id": "scandinavian", "slug": "scandinavian", "name": "Skandynawskie" },
+{ "id": "modern", "slug": "modern", "name": "Nowoczesne" },
+{ "id": "classic", "slug": "classic", "name": "Klasyczne" }
+],
+"productCount": 24
+},
+{
+"id": "armchairs",
+"slug": "armchairs",
+"name": "Fotele",
+"description": "Komfortowe fotele do relaksu",
+"image": "/images/categories/armchairs.jpg",
+"subcategories": [
+{ "id": "industrial", "slug": "industrial", "name": "Industrialne" },
+{ "id": "scandinavian", "slug": "scandinavian", "name": "Skandynawskie" }
+],
+"productCount": 16
+},
+{
+"id": "tables",
+"slug": "tables",
+"name": "Stoły",
+"description": "Stylowe stoły jadalne i kawowe",
+"image": "/images/categories/tables.jpg",
+"productCount": 18
+},
+{
+"id": "chairs",
+"slug": "chairs",
+"name": "Krzesła",
+"description": "Krzesła do jadalni, biura i nie tylko",
+"image": "/images/categories/chairs.jpg",
+"productCount": 32
+}
 ]
 \`\`\`
 
@@ -6215,64 +6357,64 @@ export * from "./cart";
 **Utwórz `src/config/site.ts`:**
 \`\`\`typescript
 export const siteConfig = {
-  name: "Gawin Home",
-  description: "Premium meble dla wymagających. Elegancja w każdym detalu.",
-  url: "https://gawin-home.vercel.app",
-  ogImage: "/images/og-image.jpg",
-  links: {
-    facebook: "https://facebook.com/gawinhome",
-    instagram: "https://instagram.com/gawinhome",
-    pinterest: "https://pinterest.com/gawinhome",
-  },
+name: "Gawin Home",
+description: "Premium meble dla wymagających. Elegancja w każdym detalu.",
+url: "https://gawin-home.vercel.app",
+ogImage: "/images/og-image.jpg",
+links: {
+facebook: "https://facebook.com/gawinhome",
+instagram: "https://instagram.com/gawinhome",
+pinterest: "https://pinterest.com/gawinhome",
+},
 };
 
 export const navigationConfig = {
-  mainNav: [
-    {
-      title: "Kategorie",
-      items: [
-        { title: "Sofy", href: "/category/sofas" },
-        { title: "Fotele", href: "/category/armchairs" },
-        { title: "Stoły", href: "/category/tables" },
-        { title: "Krzesła", href: "/category/chairs" },
-      ],
-    },
-    {
-      title: "Kolekcje",
-      items: [
-        { title: "Bergen", href: "/collection/bergen" },
-        { title: "Manhattan", href: "/collection/manhattan" },
-        { title: "Tokyo", href: "/collection/tokyo" },
-      ],
-    },
-  ],
-  footerNav: [
-    {
-      title: "Sklep",
-      items: [
-        { title: "Wszystkie Produkty", href: "/products" },
-        { title: "Nowości", href: "/new" },
-        { title: "Promocje", href: "/sale" },
-      ],
-    },
-    {
-      title: "Pomoc",
-      items: [
-        { title: "Kontakt", href: "/contact" },
-        { title: "FAQ", href: "/faq" },
-        { title: "Dostawa", href: "/shipping" },
-        { title: "Zwroty", href: "/returns" },
-      ],
-    },
-    {
-      title: "Firma",
-      items: [
-        { title: "O Nas", href: "/about" },
-        { title: "Blog", href: "/blog" },
-        { title: "Kariera", href: "/careers" },
-      ],
-    },
-  ],
+mainNav: [
+{
+title: "Kategorie",
+items: [
+{ title: "Sofy", href: "/category/sofas" },
+{ title: "Fotele", href: "/category/armchairs" },
+{ title: "Stoły", href: "/category/tables" },
+{ title: "Krzesła", href: "/category/chairs" },
+],
+},
+{
+title: "Kolekcje",
+items: [
+{ title: "Bergen", href: "/collection/bergen" },
+{ title: "Manhattan", href: "/collection/manhattan" },
+{ title: "Tokyo", href: "/collection/tokyo" },
+],
+},
+],
+footerNav: [
+{
+title: "Sklep",
+items: [
+{ title: "Wszystkie Produkty", href: "/products" },
+{ title: "Nowości", href: "/new" },
+{ title: "Promocje", href: "/sale" },
+],
+},
+{
+title: "Pomoc",
+items: [
+{ title: "Kontakt", href: "/contact" },
+{ title: "FAQ", href: "/faq" },
+{ title: "Dostawa", href: "/shipping" },
+{ title: "Zwroty", href: "/returns" },
+],
+},
+{
+title: "Firma",
+items: [
+{ title: "O Nas", href: "/about" },
+{ title: "Blog", href: "/blog" },
+{ title: "Kariera", href: "/careers" },
+],
+},
+],
 };
 \`\`\`
 
@@ -6281,6 +6423,7 @@ export const navigationConfig = {
 ## Phase 4: Homepage Implementation
 
 ### 🎯 Cel
+
 Implementacja ciemnej, eleganciej strony głównej.
 
 ### ⏱️ Czas: 6-8 godzin
@@ -6293,7 +6436,7 @@ Implementacja ciemnej, eleganciej strony głównej.
 \`\`\`typescript
 "use client";
 
-import * as React from "react";
+import \* as React from "react";
 import Link from "next/link";
 import { Menu, Search, ShoppingBag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6301,37 +6444,38 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = React.useState(false);
+const [isScrolled, setIsScrolled] = React.useState(false);
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+React.useEffect(() => {
+const handleScroll = () => {
+setIsScrolled(window.scrollY > 50);
+};
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  return (
-    <header
-      className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
-        isScrolled
-          ? "bg-dark-bg/95 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
-      )}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-display font-bold text-gold-primary">
-              GAWIN
-            </span>
-            <span className="text-2xl font-display font-light text-text-light">
-              HOME
-            </span>
-          </Link>
+}, []);
+
+return (
+
+<header
+className={cn(
+"fixed top-0 z-50 w-full transition-all duration-300",
+isScrolled
+? "bg-dark-bg/95 backdrop-blur-md shadow-lg"
+: "bg-transparent"
+)} >
+<div className="container mx-auto px-4">
+<div className="flex h-20 items-center justify-between">
+{/_ Logo _/}
+<Link href="/" className="flex items-center space-x-2">
+<span className="text-2xl font-display font-bold text-gold-primary">
+GAWIN
+</span>
+<span className="text-2xl font-display font-light text-text-light">
+HOME
+</span>
+</Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -6397,7 +6541,8 @@ export function Header() {
         </div>
       </div>
     </header>
-  );
+
+);
 }
 \`\`\`
 
@@ -6411,19 +6556,20 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
 export function HeroSection() {
-  return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-dark-bg">
-      {/* Background Image/Video */}
-      <div className="absolute inset-0 -z-10">
-        <Image
+return (
+
+<section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-dark-bg">
+{/_ Background Image/Video _/}
+<div className="absolute inset-0 -z-10">
+<Image
           src="/images/hero/hero-bg.jpg"
           alt="Premium furniture"
           fill
           className="object-cover opacity-40"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-bg/50 via-dark-bg/70 to-dark-bg" />
-      </div>
+<div className="absolute inset-0 bg-gradient-to-b from-dark-bg/50 via-dark-bg/70 to-dark-bg" />
+</div>
 
       {/* Content */}
       <div className="container px-4 py-32 md:py-40">
@@ -6487,23 +6633,25 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  );
+
+);
 }
 \`\`\`
 
-*(Więcej komponentów sekcji w kolejnych krokach)*
+_(Więcej komponentów sekcji w kolejnych krokach)_
 
 ---
 
 ## Phase 5-7: Detailed Implementation
 
-*(Kontynuacja szczegółowych kroków dla Product Pages, Cart & Checkout, Polish & Deploy w kolejnych sekcjach dokumentu)*
+_(Kontynuacja szczegółowych kroków dla Product Pages, Cart & Checkout, Polish & Deploy w kolejnych sekcjach dokumentu)_
 
 ---
 
 ## ✅ Checklisty Kontrolne
 
 ### Pre-Implementation Checklist
+
 - [ ] Folder `C:\Users\NicoN\Desktop\Claude\gawin-home` utworzony
 - [ ] Git zainicjalizowany
 - [ ] Dependencies zainstalowane
@@ -6511,6 +6659,7 @@ export function HeroSection() {
 - [ ] Struktura folderów utworzona
 
 ### Phase 1 Done Checklist
+
 - [ ] `npm run dev` działa bez błędów
 - [ ] `npm run build` kończy się sukcesem
 - [ ] Tailwind CSS v4 skonfigurowany
@@ -6518,6 +6667,7 @@ export function HeroSection() {
 - [ ] ESLint + Prettier działa
 
 ### Phase 2 Done Checklist
+
 - [ ] Design system (kolory) w `globals.css`
 - [ ] Button component z `rounded-xl`
 - [ ] Wszystkie komponenty shadcn/ui dodane
@@ -6525,6 +6675,7 @@ export function HeroSection() {
 - [ ] Preview Button variants w przeglądarce
 
 ### Phase 3 Done Checklist
+
 - [ ] TypeScript types utworzone
 - [ ] Mock data (products.json) gotowe
 - [ ] Categories.json gotowe
@@ -6536,6 +6687,7 @@ export function HeroSection() {
 ## 🚀 Następne Kroki
 
 Po ukończeniu Phase 1-3, przejdź do implementacji:
+
 1. Header + Footer
 2. Homepage sections (Hero, Featured, Categories)
 3. Product listing page
@@ -6552,7 +6704,6 @@ Po ukończeniu Phase 1-3, przejdź do implementacji:
 ---
 
 > 💡 **Tip:** Commituj często! Po każdej ukończonej sekcji zrób commit z opisowym message.
-
 ```
 
 # docs\PROGRESS_LOG.md
@@ -6567,23 +6718,24 @@ Po ukończeniu Phase 1-3, przejdź do implementacji:
 
 ## 📊 Status Postępu
 
-| Phase | Task | Status | Data | Czas | Notatki |
-|-------|------|--------|------|------|---------|
-| **Planning** | Utworzenie dokumentacji projektu | ✅ DONE | 2025-10-15 | 45 min | CLAUDE.md, IMPLEMENTATION_PLAN.md, QUICKSTART.md |
-| **Phase 1** | Inicjalizacja projektu Next.js | ✅ DONE | 2025-10-15 | 10 min | Vercel Commerce + stable versions |
-| **Phase 1** | Instalacja dependencies | ✅ DONE | 2025-10-15 | 5 min | zustand, RHF, zod, framer-motion, lucide, embla |
-| **Phase 1** | Setup shadcn/ui | ✅ DONE | 2025-10-15 | 20 min | 13 components + custom rounded-xl |
-| **Phase 1** | Git init + pierwszy commit | ✅ DONE | 2025-10-15 | 5 min | Commit 4bf0e1b + 80ca885 + 1e91ac9 |
-| **Phase 2** | Homepage Dark Entry design | ✅ DONE | 2025-10-15 | 25 min | Hero + Featured + Categories + Newsletter |
-| **Phase 2** | Fix 'use cache' dla stable Next.js | ✅ DONE | 2025-10-15 | 5 min | 7 funkcji w lib/shopify |
-| **Phase 2** | Mock Mode dla production build | ✅ DONE | 2025-10-15 | 20 min | 9 funkcji w try-catch, build SUCCESS |
-| **Phase 3** | TypeScript types | ⏳ PENDING | - | - | - |
-| **Phase 3** | Mock data (products) | ⏳ PENDING | - | - | - |
-| **Phase 5** | Product listing | ⏳ PENDING | - | - | - |
-| **Phase 6** | Cart & Checkout | ⏳ PENDING | - | - | - |
-| **Phase 7** | Polish & Deploy | ⏳ PENDING | - | - | - |
+| Phase        | Task                               | Status     | Data       | Czas   | Notatki                                          |
+| ------------ | ---------------------------------- | ---------- | ---------- | ------ | ------------------------------------------------ |
+| **Planning** | Utworzenie dokumentacji projektu   | ✅ DONE    | 2025-10-15 | 45 min | CLAUDE.md, IMPLEMENTATION_PLAN.md, QUICKSTART.md |
+| **Phase 1**  | Inicjalizacja projektu Next.js     | ✅ DONE    | 2025-10-15 | 10 min | Vercel Commerce + stable versions                |
+| **Phase 1**  | Instalacja dependencies            | ✅ DONE    | 2025-10-15 | 5 min  | zustand, RHF, zod, framer-motion, lucide, embla  |
+| **Phase 1**  | Setup shadcn/ui                    | ✅ DONE    | 2025-10-15 | 20 min | 13 components + custom rounded-xl                |
+| **Phase 1**  | Git init + pierwszy commit         | ✅ DONE    | 2025-10-15 | 5 min  | Commit 4bf0e1b + 80ca885 + 1e91ac9               |
+| **Phase 2**  | Homepage Dark Entry design         | ✅ DONE    | 2025-10-15 | 25 min | Hero + Featured + Categories + Newsletter        |
+| **Phase 2**  | Fix 'use cache' dla stable Next.js | ✅ DONE    | 2025-10-15 | 5 min  | 7 funkcji w lib/shopify                          |
+| **Phase 2**  | Mock Mode dla production build     | ✅ DONE    | 2025-10-15 | 20 min | 9 funkcji w try-catch, build SUCCESS             |
+| **Phase 3**  | TypeScript types                   | ⏳ PENDING | -          | -      | -                                                |
+| **Phase 3**  | Mock data (products)               | ⏳ PENDING | -          | -      | -                                                |
+| **Phase 5**  | Product listing                    | ⏳ PENDING | -          | -      | -                                                |
+| **Phase 6**  | Cart & Checkout                    | ⏳ PENDING | -          | -      | -                                                |
+| **Phase 7**  | Polish & Deploy                    | ⏳ PENDING | -          | -      | -                                                |
 
 **Legend:**
+
 - ✅ DONE - Ukończone
 - 🟡 IN PROGRESS - W trakcie
 - ⏳ PENDING - Zaplanowane
@@ -6597,11 +6749,14 @@ Po ukończeniu Phase 1-3, przejdź do implementacji:
 ### 2025-10-15 - Planning & Documentation
 
 #### ✅ Task: Utworzenie Dokumentacji Projektu
+
 **Czas:** 14:00 - 14:45 (45 minut)
 **Status:** COMPLETED
 
 **Co zostało zrobione:**
+
 1. ✅ Utworzono `CLAUDE.md` - główna dokumentacja projektu
+
    - Wizja i założenia (hybrydowy design)
    - Stack technologiczny
    - Architektura projektu (struktura folderów)
@@ -6612,6 +6767,7 @@ Po ukończeniu Phase 1-3, przejdź do implementacji:
    - Checklisty kontrolne
 
 2. ✅ Utworzono `IMPLEMENTATION_PLAN.md` - szczegółowy plan krok po kroku
+
    - Phase 1: Foundation Setup (inicjalizacja, dependencies)
    - Phase 2: Design System (Tailwind, fonts, komponenty)
    - Phase 3: Data Layer (types, mock data)
@@ -6620,6 +6776,7 @@ Po ukończeniu Phase 1-3, przejdź do implementacji:
    - Checklisty weryfikacyjne dla każdej fazy
 
 3. ✅ Utworzono `QUICKSTART.md` - przewodnik szybkiego startu
+
    - Krok po kroku setup (7 kroków, ~30 minut)
    - Clone Vercel Commerce
    - Instalacja dependencies (zustand, RHF, zod, framer-motion, lucide, embla)
@@ -6632,6 +6789,7 @@ Po ukończeniu Phase 1-3, przejdź do implementacji:
 4. ✅ Utworzono `PROGRESS_LOG.md` - ten plik
 
 **Kluczowe Decyzje:**
+
 - ✅ Bazujemy na **Vercel Commerce** (nowoczesny, Next.js 15, aktywnie utrzymywany)
 - ✅ **Hybrydowy Design:** Dark Entry (homepage) + Light Showroom (products)
 - ✅ **rounded-xl** dla przycisków (perfect balance)
@@ -6646,12 +6804,14 @@ Przejście do Phase 1 - Inicjalizacja projektu Next.js z Vercel Commerce.
 ### 2025-10-15 - Phase 1: Foundation Setup
 
 #### ✅ Task: Inicjalizacja Projektu Next.js (COMPLETED)
+
 **Rozpoczęto:** 14:45
 **Zakończono:** 14:55
 **Czas:** 10 minut
 **Status:** ✅ COMPLETED
 
 **Co zostało zrobione:**
+
 1. ✅ Zainstalowano pnpm globalnie (`npm install -g pnpm`)
 2. ✅ Template Vercel Commerce został pobrany (poprzednia próba z npm)
 3. ✅ Dependencies zainstalowane z `pnpm install` (77 pakietów)
@@ -6665,6 +6825,7 @@ Przejście do Phase 1 - Inicjalizacja projektu Next.js z Vercel Commerce.
    - embla-carousel-react 8.6.0 (carousels)
 
 **Stack:**
+
 - Next.js 15.3.0-canary.13 (Turbopack)
 - React 19.0.0
 - TypeScript 5.8.2
@@ -6672,6 +6833,7 @@ Przejście do Phase 1 - Inicjalizacja projektu Next.js z Vercel Commerce.
 - Prettier 3.5.3 + tailwindcss plugin
 
 **Notatki:**
+
 - Używamy `pnpm` zamiast npm (szybszy, oszczędniejszy)
 - Turbopack enabled (szybszy HMR)
 - Ready in ~1.1s (bardzo szybki dev server)
@@ -6682,6 +6844,7 @@ shadcn/ui setup + komponenty
 ---
 
 #### ✅ Task: CRITICAL FIX - Upgrade do Stable Versions (COMPLETED)
+
 **Rozpoczęto:** 14:55
 **Zakończono:** 15:00
 **Czas:** 5 minut
@@ -6690,28 +6853,32 @@ shadcn/ui setup + komponenty
 
 **Problem:**
 Template Vercel Commerce używał **CANARY/UNSTABLE** wersji:
+
 - Next.js: 15.3.0-canary.13 ❌
 - Experimental features w next.config.ts wymagające canary (ppr, useCache)
 
 **Rozwiązanie:**
+
 1. ✅ Upgrade do najnowszych **STABLE** versions:
    \`\`\`bash
    pnpm update next@latest react@latest react-dom@latest
    \`\`\`
 
    **Zainstalowano:**
+
    - **Next.js: 15.5.5** (latest stable) ✅
    - **React: 19.2.0** (latest stable) ✅
    - **React-DOM: 19.2.0** (latest stable) ✅
 
 2. ✅ Fix next.config.ts - usunięto canary-only features:
+
    - Usunięto: `experimental.ppr` (canary-only)
    - Usunięto: `experimental.useCache` (canary-only)
    - Zostawiono: `experimental.inlineCss` (safe dla stable)
 
 3. ✅ Dodano import alias do tsconfig.json:
    \`\`\`json
-   "paths": { "@/*": ["./*"] }
+   "paths": { "@/_": ["./_"] }
    \`\`\`
 
 4. ✅ Test dev server: **SUCCESS**
@@ -6728,13 +6895,16 @@ Git initialization + pierwszy commit (ze wszystkimi plikami md dokumentacji)
 ---
 
 #### ✅ Task: Git Initialization + Pierwszy Commit (COMPLETED)
+
 **Rozpoczęto:** 15:00
 **Zakończono:** 15:05
 **Czas:** 5 minut
 **Status:** ✅ COMPLETED
 
 **Co zostało zrobione:**
+
 1. ✅ Skopiowano wszystkie pliki md dokumentacji do projektu:
+
    - Utworzono folder `docs/`
    - Skopiowano: CLAUDE.md, IMPLEMENTATION_PLAN.md, QUICKSTART.md, PROGRESS_LOG.md
    - Wszystkie pliki dostępne zarówno w projekcie jak i w głównym folderze Claude
@@ -6754,6 +6924,7 @@ Git initialization + pierwszy commit (ze wszystkimi plikami md dokumentacji)
    - Working tree: **clean** ✅
 
 **Zawartość commit:**
+
 - ✅ Całe Vercel Commerce template
 - ✅ Zaktualizowane package.json (stable versions)
 - ✅ Fixed next.config.ts (bez canary features)
@@ -6766,6 +6937,7 @@ shadcn/ui configuration + custom design system
 ---
 
 #### ✅ Task: shadcn/ui Configuration + Design System (COMPLETED)
+
 **Rozpoczęto:** 15:10
 **Zakończono:** 15:30
 **Czas:** 20 minut
@@ -6777,6 +6949,7 @@ shadcn/ui configuration + custom design system
    \`\`\`bash
    npx shadcn@latest init -d
    \`\`\`
+
    - Używamy defaults (New York style, Neutral colors, CSS variables)
    - Automatyczna konfiguracja components.json
    - Auto-update globals.css z CSS variables
@@ -6786,6 +6959,7 @@ shadcn/ui configuration + custom design system
    \`\`\`bash
    npx shadcn@latest add button card input sheet dialog badge form select radio-group checkbox accordion skeleton
    \`\`\`
+
    - **Zainstalowano komponenty**:
      - button.tsx, card.tsx, input.tsx, label.tsx
      - sheet.tsx, dialog.tsx, badge.tsx
@@ -6798,6 +6972,7 @@ shadcn/ui configuration + custom design system
      - @radix-ui/react-slot
 
 3. ✅ **Button Component - Customization**:
+
    - **Zmiana: `rounded-md` → `rounded-xl`** (zgodnie z designem premium)
    - Base class: `rounded-xl` (linia 8)
    - Size variants: sm/lg również `rounded-xl` (linie 25, 26)
@@ -6805,14 +6980,15 @@ shadcn/ui configuration + custom design system
 
 4. ✅ **Utworzono Strukturę Folderów**:
    \`\`\`bash
-   lib/stores/     # Zustand stores (cart, wishlist)
-   lib/data/       # Mock data (products, categories)
-   lib/config/     # Site config, constants
-   types/          # TypeScript types
-   components/layout/    # Header, Footer
-   components/commerce/  # ProductCard, Cart
-   components/sections/  # Page sections
+   lib/stores/ # Zustand stores (cart, wishlist)
+   lib/data/ # Mock data (products, categories)
+   lib/config/ # Site config, constants
+   types/ # TypeScript types
+   components/layout/ # Header, Footer
+   components/commerce/ # ProductCard, Cart
+   components/sections/ # Page sections
    \`\`\`
+
    - Niektóre foldery już istniały w Vercel Commerce template
    - Dodano brakujące foldery zgodnie z planem
 
@@ -6820,31 +6996,32 @@ shadcn/ui configuration + custom design system
 
    **a) Zmiana --radius na 1.5rem (rounded-xl):**
    \`\`\`css
-   --radius: 1.5rem; /* 24px - rounded-xl */
+   --radius: 1.5rem; /_ 24px - rounded-xl _/
    \`\`\`
 
    **b) Light Showroom Theme (:root) - Product Pages:**
    \`\`\`css
-   --background: oklch(1 0 0);         /* #ffffff - White */
-   --foreground: oklch(0.145 0 0);     /* #1a1a1a - Dark graphite */
-   --primary: oklch(0.75 0.12 85);     /* #d4af37 - Gold */
-   --primary-foreground: oklch(0.145 0 0); /* Dark text on gold */
-   --border: oklch(0.922 0 0);         /* #e5e5e5 - Light gray */
-   --ring: oklch(0.75 0.12 85);        /* Gold focus ring */
+   --background: oklch(1 0 0); /_ #ffffff - White _/
+   --foreground: oklch(0.145 0 0); /_ #1a1a1a - Dark graphite _/
+   --primary: oklch(0.75 0.12 85); /_ #d4af37 - Gold _/
+   --primary-foreground: oklch(0.145 0 0); /_ Dark text on gold _/
+   --border: oklch(0.922 0 0); /_ #e5e5e5 - Light gray _/
+   --ring: oklch(0.75 0.12 85); /_ Gold focus ring _/
    \`\`\`
 
    **c) Dark Entry Theme (.dark) - Homepage:**
    \`\`\`css
-   --background: oklch(0.145 0 0);     /* #1a1a1a - Dark graphite */
-   --foreground: oklch(0.985 0 0);     /* #f5f5f5 - Light text */
-   --card: oklch(0.205 0 0);           /* #252525 - Dark surface */
-   --primary: oklch(0.75 0.12 85);     /* #d4af37 - Gold */
-   --muted-foreground: oklch(0.708 0 0); /* #a0a0a0 - Muted text */
-   --border: oklch(1 0 0 / 10%);       /* Subtle border */
-   --ring: oklch(0.75 0.12 85);        /* Gold focus ring */
+   --background: oklch(0.145 0 0); /_ #1a1a1a - Dark graphite _/
+   --foreground: oklch(0.985 0 0); /_ #f5f5f5 - Light text _/
+   --card: oklch(0.205 0 0); /_ #252525 - Dark surface _/
+   --primary: oklch(0.75 0.12 85); /_ #d4af37 - Gold _/
+   --muted-foreground: oklch(0.708 0 0); /_ #a0a0a0 - Muted text _/
+   --border: oklch(1 0 0 / 10%); /_ Subtle border _/
+   --ring: oklch(0.75 0.12 85); /_ Gold focus ring _/
    \`\`\`
 
 **Kluczowe Decyzje:**
+
 - ✅ **Gold (#d4af37)** jako primary color dla obu theme (premium accent)
 - ✅ **rounded-xl (1.5rem)** globalnie dla wszystkich przycisków
 - ✅ **Hybrid Design System**: Light default + Dark class dla homepage
@@ -6853,20 +7030,20 @@ shadcn/ui configuration + custom design system
 **Stack Update:**
 \`\`\`json
 {
-  "dependencies": {
-    "@radix-ui/react-accordion": "^1.2.12",
-    "@radix-ui/react-checkbox": "^1.3.3",
-    "@radix-ui/react-dialog": "^1.1.15",
-    "@radix-ui/react-label": "^2.1.7",
-    "@radix-ui/react-radio-group": "^1.3.8",
-    "@radix-ui/react-select": "^2.2.6",
-    "@radix-ui/react-slot": "^1.2.3",
-    "class-variance-authority": "^0.7.1",
-    "tailwind-merge": "^3.3.1"
-  },
-  "devDependencies": {
-    "tw-animate-css": "^1.4.0"
-  }
+"dependencies": {
+"@radix-ui/react-accordion": "^1.2.12",
+"@radix-ui/react-checkbox": "^1.3.3",
+"@radix-ui/react-dialog": "^1.1.15",
+"@radix-ui/react-label": "^2.1.7",
+"@radix-ui/react-radio-group": "^1.3.8",
+"@radix-ui/react-select": "^2.2.6",
+"@radix-ui/react-slot": "^1.2.3",
+"class-variance-authority": "^0.7.1",
+"tailwind-merge": "^3.3.1"
+},
+"devDependencies": {
+"tw-animate-css": "^1.4.0"
+}
 }
 \`\`\`
 
@@ -6878,6 +7055,7 @@ Homepage implementation z Dark Entry designem
 ### 2025-10-15 - Phase 2: Homepage Implementation (Dark Entry)
 
 #### ✅ Task: Implementacja Homepage z Hybrydowym Designem (COMPLETED)
+
 **Rozpoczęto:** 15:35
 **Zakończono:** 16:00
 **Czas:** 25 minut
@@ -6886,6 +7064,7 @@ Homepage implementation z Dark Entry designem
 **Co zostało zrobione:**
 
 1. ✅ **Hero Section** (`components/sections/hero-section.tsx`):
+
    - Dark gradient background (neutral-900 → neutral-800 → neutral-900)
    - Animated badge z pulsującym punktem ("Nowa Kolekcja 2025")
    - Główny nagłówek z gradient gold text
@@ -6896,6 +7075,7 @@ Homepage implementation z Dark Entry designem
    - **Design:** Projekt 3 (Elegancki i Dramatyczny) + minimalizm
 
 2. ✅ **Featured Products Section** (`components/sections/featured-products.tsx`):
+
    - 4 produkty w grid (responsive: 1 col mobile → 4 col desktop)
    - Product cards z:
      - Badge system (Bestseller, Nowy, -15%)
@@ -6908,6 +7088,7 @@ Homepage implementation z Dark Entry designem
    - **Mock data**: Realistyczne produkty mebli z Unsplash images
 
 3. ✅ **Categories Showcase Section** (`components/sections/categories-showcase.tsx`):
+
    - 6 kategorii w grid (1 col → 2 col → 3 col responsive)
    - Category cards z:
      - Background image z overlay
@@ -6919,6 +7100,7 @@ Homepage implementation z Dark Entry designem
    - **Kategorie**: Sofy i Fotele, Stoły i Krzesła, Sypialnia, Szafy i Komody, Oświetlenie, Dekoracje
 
 4. ✅ **Newsletter Section** (`components/sections/newsletter.tsx`):
+
    - Dark gradient card z decorative background blurs
    - Mail icon w circle z rings
    - Newsletter form (email + button)
@@ -6928,6 +7110,7 @@ Homepage implementation z Dark Entry designem
    - Client component z React state
 
 5. ✅ **Zaktualizowano app/page.tsx**:
+
    - Import wszystkich nowych sekcji
    - Wrapper div z `className="dark"` (Dark Entry theme)
    - Zaktualizowano metadata (title, description, OG)
@@ -6940,6 +7123,7 @@ Homepage implementation z Dark Entry designem
    - **7 funkcji poprawionych**: getCollection, getCollectionProducts, getCollections, getMenu, getProduct, getProductRecommendations, getProducts
 
 **Tech Stack używany:**
+
 - Next.js Image component z Unsplash CDN
 - Lucide React icons (ArrowRight, ShoppingCart, Heart, Eye, Mail, Check)
 - shadcn/ui components (Button, Card, Badge, Input)
@@ -6948,12 +7132,14 @@ Homepage implementation z Dark Entry designem
 
 **Design Philosophy:**
 ✅ **Hybrid Design** - dokładnie jak planowaliśmy:
+
 - **Dark Entry**: Homepage z ciemnym tłem (neutral-900/950) + złote akcenty
 - **Premium Feel**: Gradienty, blur effects, subtelne animacje
 - **Minimalizm**: Dużo white space, clean typography
 - **Focus na produkcie**: Duże obrazy, czytelne ceny, hover effects
 
 **Dev Server:**
+
 - URL: http://localhost:3001 (port 3000 zajęty)
 - Status: ✅ RUNNING
 - Ready in: 1.25s (Turbopack)
@@ -6964,6 +7150,7 @@ Git commit + test w przeglądarce
 ---
 
 #### ✅ Task: FIX - Mock Mode dla Production Build (COMPLETED)
+
 **Rozpoczęto:** 16:05
 **Zakończono:** 16:25
 **Czas:** 20 minut
@@ -6971,6 +7158,7 @@ Git commit + test w przeglądarce
 **Priorytet:** 🔥 CRITICAL
 
 **Problem:**
+
 - Production build (`pnpm build`) failował z błędami Shopify API "Not Found"
 - Next.js próbował statycznie generować strony używając mock credentials
 - Wszystkie funkcje w `lib/shopify/index.ts` rzucały błędy podczas SSG
@@ -6979,6 +7167,7 @@ Git commit + test w przeglądarce
 ✅ **Implementowano Mock Mode** - wszystkie Shopify fetch functions z graceful fallback:
 
 1. ✅ **Wrapped 8 functions w try-catch**:
+
    - `getMenu()` - return `[]` on error
    - `getCollection()` - return `undefined` on error
    - `getCollectionProducts()` - return `[]` on error
@@ -6993,6 +7182,7 @@ Git commit + test w przeglądarce
    \`\`\`typescript
    console.warn(`[Mock Mode] getMenu failed for handle: ${handle}, returning empty array`);
    \`\`\`
+
    - Pozwala na debugowanie w build logs
    - Wyraźnie oznacza mock mode działanie
 
@@ -7007,18 +7197,19 @@ Git commit + test w przeglądarce
 
 **Build Output:**
 \`\`\`
-Route (app)                                  Size  First Load JS
-┌ ƒ /                                     4.06 kB         121 kB
-├ ƒ /_not-found                             985 B         102 kB
-├ ƒ /[page]                                 142 B         101 kB
-├ ƒ /product/[handle]                     4.88 kB         114 kB
-├ ƒ /search                                 175 B         110 kB
-├ ƒ /search/[collection]                    175 B         110 kB
-└ ƒ /sitemap.xml                            142 B         101 kB
+Route (app) Size First Load JS
+┌ ƒ / 4.06 kB 121 kB
+├ ƒ /\_not-found 985 B 102 kB
+├ ƒ /[page] 142 B 101 kB
+├ ƒ /product/[handle] 4.88 kB 114 kB
+├ ƒ /search 175 B 110 kB
+├ ƒ /search/[collection] 175 B 110 kB
+└ ƒ /sitemap.xml 142 B 101 kB
 \`\`\`
 
 **Kluczowa Decyzja:**
 🎯 **Mock Mode Strategy**: Zamiast blokować build, gracefully failujemy Shopify API calls i zwracamy puste/default dane. To pozwala:
+
 - ✅ Deploy do Netlify bez backend
 - ✅ Skupienie 100% na designie i UI
 - ✅ Łatwa wymiana na prawdziwe API później
@@ -7032,6 +7223,7 @@ Git commit + przygotowanie do deploy na Netlify
 ## 📋 Checklisty
 
 ### ✅ Planning Checklist
+
 - [x] CLAUDE.md utworzony
 - [x] IMPLEMENTATION_PLAN.md utworzony
 - [x] QUICKSTART.md utworzony
@@ -7040,6 +7232,7 @@ Git commit + przygotowanie do deploy na Netlify
 - [ ] **NEXT:** Inicjalizacja projektu
 
 ### ⏳ Phase 1 Checklist (Foundation)
+
 - [x] ✅ Vercel Commerce template cloned
 - [x] ✅ Dependencies zainstalowane (zustand, RHF, zod, framer-motion, lucide, embla)
 - [x] ✅ shadcn/ui zainicjalizowany
@@ -7054,6 +7247,7 @@ Git commit + przygotowanie do deploy na Netlify
 - [ ] `pnpm build` sukces (test pending)
 
 ### ⏳ Phase 2 Checklist (Design System)
+
 - [ ] Tailwind colors skonfigurowane
 - [ ] Fonts setup (Geist + Space Grotesk)
 - [ ] Button variants (gold, outline, ghost)
@@ -7062,6 +7256,7 @@ Git commit + przygotowanie do deploy na Netlify
 - [ ] Test preview w przeglądarce
 
 ### ⏳ Phase 3 Checklist (Data Layer)
+
 - [ ] TypeScript types (Product, Category, Cart)
 - [ ] Mock data: products.json (10+ produktów)
 - [ ] Mock data: categories.json (4-6 kategorii)
@@ -7092,6 +7287,7 @@ Git commit + przygotowanie do deploy na Netlify
 **Szacowany Pozostały Czas:** 25-35 godzin
 
 **Breakdown:**
+
 - Planning: 45 min
 - Phase 1 (Foundation): 40 min
 - Phase 2 (Homepage + Mock Mode): 50 min
@@ -7102,16 +7298,19 @@ Git commit + przygotowanie do deploy na Netlify
 ## 💭 Notatki i Insights
 
 ### Dobre Decyzje
+
 - ✅ Szczegółowa dokumentacja na początku oszczędzi czas później
 - ✅ Vercel Commerce jako fundament - sprawdzony template
 - ✅ Hybrydowy design - unique approach, differentiation
 
 ### Potencjalne Wyzwania
+
 - ⚠️ Integracja z Vercel Commerce API (custom data layer)
 - ⚠️ Performance optimization (duże obrazy produktów)
 - ⚠️ Dark/Light theme switching (planujesz?)
 
 ### Do Przemyślenia
+
 - 🤔 Czy dodać dark mode toggle? (opcjonalnie)
 - 🤔 Strategia cache'owania obrazów
 - 🤔 SEO optimization strategy
@@ -7129,7 +7328,6 @@ Git commit + przygotowanie do deploy na Netlify
 > 💡 **Tip:** Commituj często! Minimum jeden commit po każdej zakończonej fazie.
 
 > 🎯 **Motto:** "Progress over perfection. Ship iteratively."
-
 ```
 
 # docs\QUICKSTART.md
@@ -7145,10 +7343,12 @@ Git commit + przygotowanie do deploy na Netlify
 ## 📋 Wymagania Wstępne
 
 \`\`\`bash
+
 # Sprawdź wersje
-node --version   # v18+ wymagane
-pnpm --version   # v8+ zalecane (lub npm/yarn)
-git --version    # Git zainstalowany
+
+node --version # v18+ wymagane
+pnpm --version # v8+ zalecane (lub npm/yarn)
+git --version # Git zainstalowany
 \`\`\`
 
 ---
@@ -7158,15 +7358,19 @@ git --version    # Git zainstalowany
 ### Opcja A: Użyj Vercel CLI (ZALECANE)
 
 \`\`\`bash
+
 # Przejdź do folderu roboczego
+
 cd C:\Users\NicoN\Desktop\Claude
 
 # Clone szablon Vercel Commerce
+
 npx create-next-app@latest gawin-home \
-  --example https://github.com/vercel/commerce \
-  --use-pnpm
+ --example https://github.com/vercel/commerce \
+ --use-pnpm
 
 # Przejdź do projektu
+
 cd gawin-home
 \`\`\`
 
@@ -7179,10 +7383,12 @@ git clone https://github.com/vercel/commerce.git gawin-home
 cd gawin-home
 
 # Zainstaluj dependencies
+
 pnpm install
 \`\`\`
 
 ### ✅ Weryfikacja
+
 \`\`\`bash
 pnpm dev
 \`\`\`
@@ -7199,6 +7405,7 @@ pnpm add zustand react-hook-form zod @hookform/resolvers
 \`\`\`
 
 **Co to daje:**
+
 - `zustand` - globalny state (koszyk, wishlist)
 - `react-hook-form` - professional forms
 - `zod` - schema validation
@@ -7211,6 +7418,7 @@ pnpm add lucide-react framer-motion embla-carousel-react
 \`\`\`
 
 **Co to daje:**
+
 - `lucide-react` - modern icon library
 - `framer-motion` - smooth animations
 - `embla-carousel-react` - efficient carousels
@@ -7220,23 +7428,36 @@ pnpm add lucide-react framer-motion embla-carousel-react
 **shadcn/ui instalujemy INACZEJ - nie przez pnpm install!**
 
 \`\`\`bash
+
 # Inicjalizacja shadcn/ui
+
 npx shadcn@latest init
 
 # Odpowiedzi na pytania:
+
 # ✅ Would you like to use TypeScript? Yes
+
 # ✅ Which style would you like to use? New York
+
 # ✅ Which color would you like to use as base color? Neutral
+
 # ✅ Where is your global CSS file? src/app/globals.css (sprawdź ścieżkę!)
+
 # ✅ Would you like to use CSS variables for colors? Yes
+
 # ✅ Where is your tailwind.config.js located? tailwind.config.ts
+
 # ✅ Configure the import alias for components? @/components
+
 # ✅ Configure the import alias for utils? @/lib/utils
+
 \`\`\`
 
 **Dodaj komponenty UI:**
 \`\`\`bash
+
 # Core components (Must have)
+
 npx shadcn@latest add button
 npx shadcn@latest add card
 npx shadcn@latest add input
@@ -7247,21 +7468,26 @@ npx shadcn@latest add badge
 npx shadcn@latest add separator
 
 # Form components
+
 npx shadcn@latest add form
 npx shadcn@latest add select
 npx shadcn@latest add radio-group
 npx shadcn@latest add checkbox
 
 # Layout components
+
 npx shadcn@latest add accordion
 npx shadcn@latest add skeleton
 \`\`\`
 
 ### ✅ Weryfikacja
+
 \`\`\`bash
+
 # Sprawdź czy powstały foldery:
-ls src/components/ui          # powinny być komponenty
-ls src/lib/utils.ts           # powinien być utils.ts z cn()
+
+ls src/components/ui # powinny być komponenty
+ls src/lib/utils.ts # powinien być utils.ts z cn()
 \`\`\`
 
 ---
@@ -7276,14 +7502,14 @@ Dodaj na początku pliku (ZARAZ PO `@tailwind` directives):
 
 \`\`\`css
 @layer base {
-  :root {
-    /* === DARK ENTRY COLORS === */
-    --dark-bg: 26 26 26;           /* #1a1a1a */
-    --dark-surface: 37 37 37;       /* #252525 */
-    --gold-primary: 212 175 55;     /* #d4af37 */
-    --gold-hover: 193 155 43;       /* #c19b2b */
-    --text-light: 245 245 245;      /* #f5f5f5 */
-    --text-muted: 160 160 160;      /* #a0a0a0 */
+:root {
+/_ === DARK ENTRY COLORS === _/
+--dark-bg: 26 26 26; /_ #1a1a1a _/
+--dark-surface: 37 37 37; /_ #252525 _/
+--gold-primary: 212 175 55; /_ #d4af37 _/
+--gold-hover: 193 155 43; /_ #c19b2b _/
+--text-light: 245 245 245; /_ #f5f5f5 _/
+--text-muted: 160 160 160; /_ #a0a0a0 _/
 
     /* === LIGHT SHOWROOM COLORS === */
     --light-bg: 255 255 255;        /* #ffffff */
@@ -7295,28 +7521,29 @@ Dodaj na początku pliku (ZARAZ PO `@tailwind` directives):
 
     /* === SEMANTIC COLORS (Already in Commerce) === */
     /* Użyj istniejących z Vercel Commerce i dodaj nasze custom */
-  }
+
+}
 }
 
-/* === CUSTOM UTILITY CLASSES === */
+/_ === CUSTOM UTILITY CLASSES === _/
 @layer utilities {
-  .bg-dark-entry {
-    background-color: rgb(var(--dark-bg));
-  }
+.bg-dark-entry {
+background-color: rgb(var(--dark-bg));
+}
 
-  .bg-light-showroom {
-    background-color: rgb(var(--light-bg));
-  }
+.bg-light-showroom {
+background-color: rgb(var(--light-bg));
+}
 
-  .text-gold {
-    color: rgb(var(--gold-primary));
-  }
+.text-gold {
+color: rgb(var(--gold-primary));
+}
 
-  .border-gold {
-    border-color: rgb(var(--gold-primary));
-  }
+.border-gold {
+border-color: rgb(var(--gold-primary));
+}
 
-  /* Add more as needed */
+/_ Add more as needed _/
 }
 \`\`\`
 
@@ -7328,17 +7555,17 @@ Zmień `rounded-md` na `rounded-xl` w base classes:
 
 \`\`\`typescript
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-xl ...", // 🎯 ZMIANA: rounded-xl
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        gold: "bg-[rgb(var(--gold-primary))] text-[rgb(var(--dark-bg))] hover:bg-[rgb(var(--gold-hover))]", // NEW
-        // ... reszta wariantów
-      },
-      // ...
-    }
-  }
+"inline-flex items-center justify-center rounded-xl ...", // 🎯 ZMIANA: rounded-xl
+{
+variants: {
+variant: {
+default: "bg-primary text-primary-foreground hover:bg-primary/90",
+gold: "bg-[rgb(var(--gold-primary))] text-[rgb(var(--dark-bg))] hover:bg-[rgb(var(--gold-hover))]", // NEW
+// ... reszta wariantów
+},
+// ...
+}
+}
 );
 \`\`\`
 
@@ -7352,19 +7579,19 @@ import { GeistSans } from "geist/font/sans";
 import { Space_Grotesk } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
+subsets: ["latin"],
+variable: "--font-display",
 });
 
 export default function RootLayout({ children }) {
-  return (
-    <html
-      lang="pl"
-      className={`${GeistSans.variable} ${spaceGrotesk.variable}`}
-    >
-      <body>{children}</body>
-    </html>
-  );
+return (
+
+<html
+lang="pl"
+className={`${GeistSans.variable} ${spaceGrotesk.variable}`} >
+<body>{children}</body>
+</html>
+);
 }
 \`\`\`
 
@@ -7375,7 +7602,9 @@ export default function RootLayout({ children }) {
 ### 4.1 Dodaj Brakujące Foldery
 
 \`\`\`bash
+
 # Utwórz strukturę dla Gawin-Home
+
 mkdir -p src/components/commerce/{product,cart,checkout}
 mkdir -p src/components/sections/{home,shop}
 mkdir -p src/lib/{commerce,hooks,validations}
@@ -7389,9 +7618,9 @@ mkdir -p public/images/{products,categories,hero,logos}
 **Utwórz `src/config/site.ts`:**
 \`\`\`typescript
 export const siteConfig = {
-  name: "Gawin Home",
-  description: "Premium meble dla wymagających",
-  url: "https://gawin-home.vercel.app",
+name: "Gawin Home",
+description: "Premium meble dla wymagających",
+url: "https://gawin-home.vercel.app",
 };
 \`\`\`
 
@@ -7401,14 +7630,14 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+return twMerge(clsx(inputs));
 }
 
 export function formatPrice(amount: number, currency: string = "PLN"): string {
-  return new Intl.NumberFormat("pl-PL", {
-    style: "currency",
-    currency,
-  }).format(amount);
+return new Intl.NumberFormat("pl-PL", {
+style: "currency",
+currency,
+}).format(amount);
 }
 \`\`\`
 
@@ -7424,27 +7653,27 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
+id: string;
+name: string;
+price: number;
+quantity: number;
+image: string;
 }
 
 interface CartStore {
-  items: CartItem[];
-  addItem: (item: CartItem) => void;
-  removeItem: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
-  clearCart: () => void;
-  getTotalItems: () => number;
-  getTotalPrice: () => number;
+items: CartItem[];
+addItem: (item: CartItem) => void;
+removeItem: (id: string) => void;
+updateQuantity: (id: string, quantity: number) => void;
+clearCart: () => void;
+getTotalItems: () => number;
+getTotalPrice: () => number;
 }
 
 export const useCartStore = create<CartStore>()(
-  persist(
-    (set, get) => ({
-      items: [],
+persist(
+(set, get) => ({
+items: [],
 
       addItem: (item) => {
         set((state) => {
@@ -7496,7 +7725,8 @@ export const useCartStore = create<CartStore>()(
     {
       name: "gawin-cart-storage",
     }
-  )
+
+)
 );
 \`\`\`
 
@@ -7518,6 +7748,7 @@ pnpm build
 \`\`\`
 
 **Sprawdź output:**
+
 - ✅ Build success
 - ✅ No TypeScript errors
 - ✅ No ESLint errors
@@ -7527,13 +7758,17 @@ pnpm build
 ## 🎯 Krok 7: Git Setup (3 min)
 
 \`\`\`bash
+
 # Jeśli jeszcze nie zainicjalizowano
+
 git init
 
 # Dodaj wszystkie pliki
+
 git add .
 
 # Pierwszy commit
+
 git commit -m "chore: initial setup with Vercel Commerce + custom packages
 
 - Added zustand for state management
@@ -7544,8 +7779,11 @@ git commit -m "chore: initial setup with Vercel Commerce + custom packages
 - Set up cart store with zustand"
 
 # Utwórz repo na GitHub i połącz (opcjonalnie)
+
 # git remote add origin https://github.com/your-username/gawin-home.git
+
 # git push -u origin main
+
 \`\`\`
 
 ---
@@ -7571,11 +7809,13 @@ Po ukończeniu Quick Start, sprawdź:
 **Po ukończeniu Quick Start, przejdź do:**
 
 1. **Data Layer Setup** (`IMPLEMENTATION_PLAN.md` → Phase 3)
+
    - Utwórz TypeScript types
    - Dodaj mock data (products.json)
    - Test data loading
 
 2. **Homepage Implementation** (`IMPLEMENTATION_PLAN.md` → Phase 4)
+
    - Header component
    - Hero section (dark entry)
    - Featured products
@@ -7591,19 +7831,24 @@ Po ukończeniu Quick Start, sprawdź:
 ## 📚 Przydatne Komendy
 
 \`\`\`bash
+
 # Development
-pnpm dev              # Start dev server
-pnpm build            # Production build
-pnpm start            # Start production server
-pnpm lint             # Run ESLint
-pnpm type-check       # TypeScript check
+
+pnpm dev # Start dev server
+pnpm build # Production build
+pnpm start # Start production server
+pnpm lint # Run ESLint
+pnpm type-check # TypeScript check
 
 # shadcn/ui
-npx shadcn@latest add [component]   # Dodaj komponent
-npx shadcn@latest add --help        # Lista komponentów
+
+npx shadcn@latest add [component] # Dodaj komponent
+npx shadcn@latest add --help # Lista komponentów
 
 # Zustand DevTools (opcjonalnie)
+
 # Install: pnpm add -D @redux-devtools/extension
+
 \`\`\`
 
 ---
@@ -7614,13 +7859,17 @@ npx shadcn@latest add --help        # Lista komponentów
 
 **Rozwiązanie:**
 \`\`\`bash
+
 # Usuń node_modules i lockfile
+
 rm -rf node_modules pnpm-lock.yaml
 
 # Reinstall
+
 pnpm install
 
 # Spróbuj ponownie
+
 pnpm dev
 \`\`\`
 
@@ -7629,19 +7878,26 @@ pnpm dev
 **Rozwiązanie:**
 Sprawdź dokładną ścieżkę:
 \`\`\`bash
+
 # Może być:
+
 # - src/app/globals.css
+
 # - app/globals.css
+
 # - styles/globals.css
 
 # Podaj prawidłową ścieżkę podczas `npx shadcn@latest init`
+
 \`\`\`
 
 ### Problem: TypeScript errors w `button.tsx`
 
 **Rozwiązanie:**
 \`\`\`bash
+
 # Update types
+
 pnpm add -D @types/react@latest @types/node@latest
 \`\`\`
 
@@ -7669,7 +7925,6 @@ pnpm add -D @types/react@latest @types/node@latest
 > 🎯 **Goal:** Clean setup, wszystko działa, gotowy do implementacji features.
 
 > 💡 **Pro Tip:** Po setup zrób snapshot projektu (commit lub backup), żeby móc wrócić do czystego stanu jeśli coś pójdzie nie tak.
-
 ```
 
 # fonts\Inter-Bold.ttf
@@ -7682,41 +7937,60 @@ This is a binary file of the type: Binary
 export type SortFilterItem = {
   title: string;
   slug: string | null;
-  sortKey: 'RELEVANCE' | 'BEST_SELLING' | 'CREATED_AT' | 'PRICE';
+  sortKey: "RELEVANCE" | "BEST_SELLING" | "CREATED_AT" | "PRICE";
   reverse: boolean;
 };
 
 export const defaultSort: SortFilterItem = {
-  title: 'Relevance',
+  title: "Relevance",
   slug: null,
-  sortKey: 'RELEVANCE',
-  reverse: false
+  sortKey: "RELEVANCE",
+  reverse: false,
 };
 
 export const sorting: SortFilterItem[] = [
   defaultSort,
-  { title: 'Trending', slug: 'trending-desc', sortKey: 'BEST_SELLING', reverse: false }, // asc
-  { title: 'Latest arrivals', slug: 'latest-desc', sortKey: 'CREATED_AT', reverse: true },
-  { title: 'Price: Low to high', slug: 'price-asc', sortKey: 'PRICE', reverse: false }, // asc
-  { title: 'Price: High to low', slug: 'price-desc', sortKey: 'PRICE', reverse: true }
+  {
+    title: "Trending",
+    slug: "trending-desc",
+    sortKey: "BEST_SELLING",
+    reverse: false,
+  }, // asc
+  {
+    title: "Latest arrivals",
+    slug: "latest-desc",
+    sortKey: "CREATED_AT",
+    reverse: true,
+  },
+  {
+    title: "Price: Low to high",
+    slug: "price-asc",
+    sortKey: "PRICE",
+    reverse: false,
+  }, // asc
+  {
+    title: "Price: High to low",
+    slug: "price-desc",
+    sortKey: "PRICE",
+    reverse: true,
+  },
 ];
 
 export const TAGS = {
-  collections: 'collections',
-  products: 'products',
-  cart: 'cart'
+  collections: "collections",
+  products: "products",
+  cart: "cart",
 };
 
-export const HIDDEN_PRODUCT_TAG = 'nextjs-frontend-hidden';
-export const DEFAULT_OPTION = 'Default Title';
-export const SHOPIFY_GRAPHQL_API_ENDPOINT = '/api/2023-01/graphql.json';
-
+export const HIDDEN_PRODUCT_TAG = "nextjs-frontend-hidden";
+export const DEFAULT_OPTION = "Default Title";
+export const SHOPIFY_GRAPHQL_API_ENDPOINT = "/api/2023-01/graphql.json";
 ```
 
 # lib\shopify\fragments\cart.ts
 
 ```ts
-import productFragment from './product';
+import productFragment from "./product";
 
 const cartFragment = /* GraphQL */ `
   fragment cart on Cart {
@@ -7769,7 +8043,6 @@ const cartFragment = /* GraphQL */ `
 `;
 
 export default cartFragment;
-
 ```
 
 # lib\shopify\fragments\image.ts
@@ -7785,14 +8058,13 @@ const imageFragment = /* GraphQL */ `
 `;
 
 export default imageFragment;
-
 ```
 
 # lib\shopify\fragments\product.ts
 
 ```ts
-import imageFragment from './image';
-import seoFragment from './seo';
+import imageFragment from "./image";
+import seoFragment from "./seo";
 
 const productFragment = /* GraphQL */ `
   fragment product on Product {
@@ -7855,7 +8127,6 @@ const productFragment = /* GraphQL */ `
 `;
 
 export default productFragment;
-
 ```
 
 # lib\shopify\fragments\seo.ts
@@ -7869,7 +8140,6 @@ const seoFragment = /* GraphQL */ `
 `;
 
 export default seoFragment;
-
 ```
 
 # lib\shopify\index.ts
@@ -7878,36 +8148,36 @@ export default seoFragment;
 import {
   HIDDEN_PRODUCT_TAG,
   SHOPIFY_GRAPHQL_API_ENDPOINT,
-  TAGS
-} from 'lib/constants';
-import { isShopifyError } from 'lib/type-guards';
-import { ensureStartsWith } from 'lib/utils';
+  TAGS,
+} from "lib/constants";
+import { isShopifyError } from "lib/type-guards";
+import { ensureStartsWith } from "lib/utils";
 import {
   revalidateTag,
   unstable_cacheTag as cacheTag,
-  unstable_cacheLife as cacheLife
-} from 'next/cache';
-import { cookies, headers } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
+  unstable_cacheLife as cacheLife,
+} from "next/cache";
+import { cookies, headers } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
 import {
   addToCartMutation,
   createCartMutation,
   editCartItemsMutation,
-  removeFromCartMutation
-} from './mutations/cart';
-import { getCartQuery } from './queries/cart';
+  removeFromCartMutation,
+} from "./mutations/cart";
+import { getCartQuery } from "./queries/cart";
 import {
   getCollectionProductsQuery,
   getCollectionQuery,
-  getCollectionsQuery
-} from './queries/collection';
-import { getMenuQuery } from './queries/menu';
-import { getPageQuery, getPagesQuery } from './queries/page';
+  getCollectionsQuery,
+} from "./queries/collection";
+import { getMenuQuery } from "./queries/menu";
+import { getPageQuery, getPagesQuery } from "./queries/page";
 import {
   getProductQuery,
   getProductRecommendationsQuery,
-  getProductsQuery
-} from './queries/product';
+  getProductsQuery,
+} from "./queries/product";
 import {
   Cart,
   Collection,
@@ -7932,23 +8202,23 @@ import {
   ShopifyProductRecommendationsOperation,
   ShopifyProductsOperation,
   ShopifyRemoveFromCartOperation,
-  ShopifyUpdateCartOperation
-} from './types';
+  ShopifyUpdateCartOperation,
+} from "./types";
 
 const domain = process.env.SHOPIFY_STORE_DOMAIN
-  ? ensureStartsWith(process.env.SHOPIFY_STORE_DOMAIN, 'https://')
-  : '';
+  ? ensureStartsWith(process.env.SHOPIFY_STORE_DOMAIN, "https://")
+  : "";
 const endpoint = `${domain}${SHOPIFY_GRAPHQL_API_ENDPOINT}`;
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
 type ExtractVariables<T> = T extends { variables: object }
-  ? T['variables']
+  ? T["variables"]
   : never;
 
 export async function shopifyFetch<T>({
   headers,
   query,
-  variables
+  variables,
 }: {
   headers?: HeadersInit;
   query: string;
@@ -7956,16 +8226,16 @@ export async function shopifyFetch<T>({
 }): Promise<{ status: number; body: T } | never> {
   try {
     const result = await fetch(endpoint, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': key,
-        ...headers
+        "Content-Type": "application/json",
+        "X-Shopify-Storefront-Access-Token": key,
+        ...headers,
       },
       body: JSON.stringify({
         ...(query && { query }),
-        ...(variables && { variables })
-      })
+        ...(variables && { variables }),
+      }),
     });
 
     const body = await result.json();
@@ -7976,21 +8246,21 @@ export async function shopifyFetch<T>({
 
     return {
       status: result.status,
-      body
+      body,
     };
   } catch (e) {
     if (isShopifyError(e)) {
       throw {
-        cause: e.cause?.toString() || 'unknown',
+        cause: e.cause?.toString() || "unknown",
         status: e.status || 500,
         message: e.message,
-        query
+        query,
       };
     }
 
     throw {
       error: e,
-      query
+      query,
     };
   }
 }
@@ -8002,19 +8272,19 @@ const removeEdgesAndNodes = <T>(array: Connection<T>): T[] => {
 const reshapeCart = (cart: ShopifyCart): Cart => {
   if (!cart.cost?.totalTaxAmount) {
     cart.cost.totalTaxAmount = {
-      amount: '0.0',
-      currencyCode: cart.cost.totalAmount.currencyCode
+      amount: "0.0",
+      currencyCode: cart.cost.totalAmount.currencyCode,
     };
   }
 
   return {
     ...cart,
-    lines: removeEdgesAndNodes(cart.lines)
+    lines: removeEdgesAndNodes(cart.lines),
   };
 };
 
 const reshapeCollection = (
-  collection: ShopifyCollection
+  collection: ShopifyCollection,
 ): Collection | undefined => {
   if (!collection) {
     return undefined;
@@ -8022,7 +8292,7 @@ const reshapeCollection = (
 
   return {
     ...collection,
-    path: `/search/${collection.handle}`
+    path: `/search/${collection.handle}`,
   };
 };
 
@@ -8049,14 +8319,14 @@ const reshapeImages = (images: Connection<Image>, productTitle: string) => {
     const filename = image.url.match(/.*\/(.*)\..*/)?.[1];
     return {
       ...image,
-      altText: image.altText || `${productTitle} - ${filename}`
+      altText: image.altText || `${productTitle} - ${filename}`,
     };
   });
 };
 
 const reshapeProduct = (
   product: ShopifyProduct,
-  filterHiddenProducts: boolean = true
+  filterHiddenProducts: boolean = true,
 ) => {
   if (
     !product ||
@@ -8070,7 +8340,7 @@ const reshapeProduct = (
   return {
     ...rest,
     images: reshapeImages(images, product.title),
-    variants: removeEdgesAndNodes(variants)
+    variants: removeEdgesAndNodes(variants),
   };
 };
 
@@ -8092,56 +8362,56 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
 
 export async function createCart(): Promise<Cart> {
   const res = await shopifyFetch<ShopifyCreateCartOperation>({
-    query: createCartMutation
+    query: createCartMutation,
   });
 
   return reshapeCart(res.body.data.cartCreate.cart);
 }
 
 export async function addToCart(
-  lines: { merchandiseId: string; quantity: number }[]
+  lines: { merchandiseId: string; quantity: number }[],
 ): Promise<Cart> {
-  const cartId = (await cookies()).get('cartId')?.value!;
+  const cartId = (await cookies()).get("cartId")?.value!;
   const res = await shopifyFetch<ShopifyAddToCartOperation>({
     query: addToCartMutation,
     variables: {
       cartId,
-      lines
-    }
+      lines,
+    },
   });
   return reshapeCart(res.body.data.cartLinesAdd.cart);
 }
 
 export async function removeFromCart(lineIds: string[]): Promise<Cart> {
-  const cartId = (await cookies()).get('cartId')?.value!;
+  const cartId = (await cookies()).get("cartId")?.value!;
   const res = await shopifyFetch<ShopifyRemoveFromCartOperation>({
     query: removeFromCartMutation,
     variables: {
       cartId,
-      lineIds
-    }
+      lineIds,
+    },
   });
 
   return reshapeCart(res.body.data.cartLinesRemove.cart);
 }
 
 export async function updateCart(
-  lines: { id: string; merchandiseId: string; quantity: number }[]
+  lines: { id: string; merchandiseId: string; quantity: number }[],
 ): Promise<Cart> {
-  const cartId = (await cookies()).get('cartId')?.value!;
+  const cartId = (await cookies()).get("cartId")?.value!;
   const res = await shopifyFetch<ShopifyUpdateCartOperation>({
     query: editCartItemsMutation,
     variables: {
       cartId,
-      lines
-    }
+      lines,
+    },
   });
 
   return reshapeCart(res.body.data.cartLinesUpdate.cart);
 }
 
 export async function getCart(): Promise<Cart | undefined> {
-  const cartId = (await cookies()).get('cartId')?.value;
+  const cartId = (await cookies()).get("cartId")?.value;
 
   if (!cartId) {
     return undefined;
@@ -8149,7 +8419,7 @@ export async function getCart(): Promise<Cart | undefined> {
 
   const res = await shopifyFetch<ShopifyCartOperation>({
     query: getCartQuery,
-    variables: { cartId }
+    variables: { cartId },
   });
 
   // Old carts becomes `null` when you checkout.
@@ -8161,7 +8431,7 @@ export async function getCart(): Promise<Cart | undefined> {
 }
 
 export async function getCollection(
-  handle: string
+  handle: string,
 ): Promise<Collection | undefined> {
   // 'use cache'; // Disabled for stable Next.js
   // cacheTag(TAGS.collections);
@@ -8171,13 +8441,15 @@ export async function getCollection(
     const res = await shopifyFetch<ShopifyCollectionOperation>({
       query: getCollectionQuery,
       variables: {
-        handle
-      }
+        handle,
+      },
     });
 
     return reshapeCollection(res.body.data.collection);
   } catch (error) {
-    console.warn(`[Mock Mode] getCollection failed for handle: ${handle}, returning undefined`);
+    console.warn(
+      `[Mock Mode] getCollection failed for handle: ${handle}, returning undefined`,
+    );
     return undefined;
   }
 }
@@ -8185,7 +8457,7 @@ export async function getCollection(
 export async function getCollectionProducts({
   collection,
   reverse,
-  sortKey
+  sortKey,
 }: {
   collection: string;
   reverse?: boolean;
@@ -8201,8 +8473,8 @@ export async function getCollectionProducts({
       variables: {
         handle: collection,
         reverse,
-        sortKey: sortKey === 'CREATED_AT' ? 'CREATED' : sortKey
-      }
+        sortKey: sortKey === "CREATED_AT" ? "CREATED" : sortKey,
+      },
     });
 
     if (!res.body.data.collection) {
@@ -8211,10 +8483,12 @@ export async function getCollectionProducts({
     }
 
     return reshapeProducts(
-      removeEdgesAndNodes(res.body.data.collection.products)
+      removeEdgesAndNodes(res.body.data.collection.products),
     );
   } catch (error) {
-    console.warn(`[Mock Mode] getCollectionProducts failed for collection: ${collection}, returning empty array`);
+    console.warn(
+      `[Mock Mode] getCollectionProducts failed for collection: ${collection}, returning empty array`,
+    );
     return [];
   }
 }
@@ -8226,43 +8500,45 @@ export async function getCollections(): Promise<Collection[]> {
 
   try {
     const res = await shopifyFetch<ShopifyCollectionsOperation>({
-      query: getCollectionsQuery
+      query: getCollectionsQuery,
     });
     const shopifyCollections = removeEdgesAndNodes(res.body?.data?.collections);
     const collections = [
       {
-        handle: '',
-        title: 'All',
-        description: 'All products',
+        handle: "",
+        title: "All",
+        description: "All products",
         seo: {
-          title: 'All',
-          description: 'All products'
+          title: "All",
+          description: "All products",
         },
-        path: '/search',
-        updatedAt: new Date().toISOString()
+        path: "/search",
+        updatedAt: new Date().toISOString(),
       },
       // Filter out the `hidden` collections.
       // Collections that start with `hidden-*` need to be hidden on the search page.
       ...reshapeCollections(shopifyCollections).filter(
-        (collection) => !collection.handle.startsWith('hidden')
-      )
+        (collection) => !collection.handle.startsWith("hidden"),
+      ),
     ];
 
     return collections;
   } catch (error) {
-    console.warn('[Mock Mode] getCollections failed, returning default "All" collection');
+    console.warn(
+      '[Mock Mode] getCollections failed, returning default "All" collection',
+    );
     return [
       {
-        handle: '',
-        title: 'All',
-        description: 'All products',
+        handle: "",
+        title: "All",
+        description: "All products",
         seo: {
-          title: 'All',
-          description: 'All products'
+          title: "All",
+          description: "All products",
         },
-        path: '/search',
-        updatedAt: new Date().toISOString()
-      }
+        path: "/search",
+        updatedAt: new Date().toISOString(),
+      },
     ];
   }
 }
@@ -8276,21 +8552,25 @@ export async function getMenu(handle: string): Promise<Menu[]> {
     const res = await shopifyFetch<ShopifyMenuOperation>({
       query: getMenuQuery,
       variables: {
-        handle
-      }
+        handle,
+      },
     });
 
     return (
-      res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
-        title: item.title,
-        path: item.url
-          .replace(domain, '')
-          .replace('/collections', '/search')
-          .replace('/pages', '')
-      })) || []
+      res.body?.data?.menu?.items.map(
+        (item: { title: string; url: string }) => ({
+          title: item.title,
+          path: item.url
+            .replace(domain, "")
+            .replace("/collections", "/search")
+            .replace("/pages", ""),
+        }),
+      ) || []
     );
   } catch (error) {
-    console.warn(`[Mock Mode] getMenu failed for handle: ${handle}, returning empty array`);
+    console.warn(
+      `[Mock Mode] getMenu failed for handle: ${handle}, returning empty array`,
+    );
     return [];
   }
 }
@@ -8299,24 +8579,26 @@ export async function getPage(handle: string): Promise<Page> {
   try {
     const res = await shopifyFetch<ShopifyPageOperation>({
       query: getPageQuery,
-      variables: { handle }
+      variables: { handle },
     });
 
     return res.body.data.pageByHandle;
   } catch (error) {
-    console.warn(`[Mock Mode] getPage failed for handle: ${handle}, returning mock page`);
+    console.warn(
+      `[Mock Mode] getPage failed for handle: ${handle}, returning mock page`,
+    );
     return {
       id: `mock-${handle}`,
       title: handle,
       handle,
-      body: '',
-      bodySummary: '',
+      body: "",
+      bodySummary: "",
       seo: {
         title: handle,
-        description: ''
+        description: "",
       },
       createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      updatedAt: new Date().toISOString(),
     };
   }
 }
@@ -8324,12 +8606,12 @@ export async function getPage(handle: string): Promise<Page> {
 export async function getPages(): Promise<Page[]> {
   try {
     const res = await shopifyFetch<ShopifyPagesOperation>({
-      query: getPagesQuery
+      query: getPagesQuery,
     });
 
     return removeEdgesAndNodes(res.body.data.pages);
   } catch (error) {
-    console.warn('[Mock Mode] getPages failed, returning empty array');
+    console.warn("[Mock Mode] getPages failed, returning empty array");
     return [];
   }
 }
@@ -8343,19 +8625,21 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
     const res = await shopifyFetch<ShopifyProductOperation>({
       query: getProductQuery,
       variables: {
-        handle
-      }
+        handle,
+      },
     });
 
     return reshapeProduct(res.body.data.product, false);
   } catch (error) {
-    console.warn(`[Mock Mode] getProduct failed for handle: ${handle}, returning undefined`);
+    console.warn(
+      `[Mock Mode] getProduct failed for handle: ${handle}, returning undefined`,
+    );
     return undefined;
   }
 }
 
 export async function getProductRecommendations(
-  productId: string
+  productId: string,
 ): Promise<Product[]> {
   // 'use cache'; // Disabled for stable Next.js
   // cacheTag(TAGS.products);
@@ -8365,13 +8649,15 @@ export async function getProductRecommendations(
     const res = await shopifyFetch<ShopifyProductRecommendationsOperation>({
       query: getProductRecommendationsQuery,
       variables: {
-        productId
-      }
+        productId,
+      },
     });
 
     return reshapeProducts(res.body.data.productRecommendations);
   } catch (error) {
-    console.warn(`[Mock Mode] getProductRecommendations failed for productId: ${productId}, returning empty array`);
+    console.warn(
+      `[Mock Mode] getProductRecommendations failed for productId: ${productId}, returning empty array`,
+    );
     return [];
   }
 }
@@ -8379,7 +8665,7 @@ export async function getProductRecommendations(
 export async function getProducts({
   query,
   reverse,
-  sortKey
+  sortKey,
 }: {
   query?: string;
   reverse?: boolean;
@@ -8395,8 +8681,8 @@ export async function getProducts({
       variables: {
         query,
         reverse,
-        sortKey
-      }
+        sortKey,
+      },
     });
 
     return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
@@ -8411,22 +8697,22 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
   // We always need to respond with a 200 status code to Shopify,
   // otherwise it will continue to retry the request.
   const collectionWebhooks = [
-    'collections/create',
-    'collections/delete',
-    'collections/update'
+    "collections/create",
+    "collections/delete",
+    "collections/update",
   ];
   const productWebhooks = [
-    'products/create',
-    'products/delete',
-    'products/update'
+    "products/create",
+    "products/delete",
+    "products/update",
   ];
-  const topic = (await headers()).get('x-shopify-topic') || 'unknown';
-  const secret = req.nextUrl.searchParams.get('secret');
+  const topic = (await headers()).get("x-shopify-topic") || "unknown";
+  const secret = req.nextUrl.searchParams.get("secret");
   const isCollectionUpdate = collectionWebhooks.includes(topic);
   const isProductUpdate = productWebhooks.includes(topic);
 
   if (!secret || secret !== process.env.SHOPIFY_REVALIDATION_SECRET) {
-    console.error('Invalid revalidation secret.');
+    console.error("Invalid revalidation secret.");
     return NextResponse.json({ status: 401 });
   }
 
@@ -8445,13 +8731,12 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
 
   return NextResponse.json({ status: 200, revalidated: true, now: Date.now() });
 }
-
 ```
 
 # lib\shopify\mutations\cart.ts
 
 ```ts
-import cartFragment from '../fragments/cart';
+import cartFragment from "../fragments/cart";
 
 export const addToCartMutation = /* GraphQL */ `
   mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
@@ -8496,13 +8781,12 @@ export const removeFromCartMutation = /* GraphQL */ `
   }
   ${cartFragment}
 `;
-
 ```
 
 # lib\shopify\queries\cart.ts
 
 ```ts
-import cartFragment from '../fragments/cart';
+import cartFragment from "../fragments/cart";
 
 export const getCartQuery = /* GraphQL */ `
   query getCart($cartId: ID!) {
@@ -8512,14 +8796,13 @@ export const getCartQuery = /* GraphQL */ `
   }
   ${cartFragment}
 `;
-
 ```
 
 # lib\shopify\queries\collection.ts
 
 ```ts
-import productFragment from '../fragments/product';
-import seoFragment from '../fragments/seo';
+import productFragment from "../fragments/product";
+import seoFragment from "../fragments/seo";
 
 const collectionFragment = /* GraphQL */ `
   fragment collection on Collection {
@@ -8574,7 +8857,6 @@ export const getCollectionProductsQuery = /* GraphQL */ `
   }
   ${productFragment}
 `;
-
 ```
 
 # lib\shopify\queries\menu.ts
@@ -8590,13 +8872,12 @@ export const getMenuQuery = /* GraphQL */ `
     }
   }
 `;
-
 ```
 
 # lib\shopify\queries\page.ts
 
 ```ts
-import seoFragment from '../fragments/seo';
+import seoFragment from "../fragments/seo";
 
 const pageFragment = /* GraphQL */ `
   fragment page on Page {
@@ -8637,13 +8918,12 @@ export const getPagesQuery = /* GraphQL */ `
   }
   ${pageFragment}
 `;
-
 ```
 
 # lib\shopify\queries\product.ts
 
 ```ts
-import productFragment from '../fragments/product';
+import productFragment from "../fragments/product";
 
 export const getProductQuery = /* GraphQL */ `
   query getProduct($handle: String!) {
@@ -8655,7 +8935,11 @@ export const getProductQuery = /* GraphQL */ `
 `;
 
 export const getProductsQuery = /* GraphQL */ `
-  query getProducts($sortKey: ProductSortKeys, $reverse: Boolean, $query: String) {
+  query getProducts(
+    $sortKey: ProductSortKeys
+    $reverse: Boolean
+    $query: String
+  ) {
     products(sortKey: $sortKey, reverse: $reverse, query: $query, first: 100) {
       edges {
         node {
@@ -8675,7 +8959,6 @@ export const getProductRecommendationsQuery = /* GraphQL */ `
   }
   ${productFragment}
 `;
-
 ```
 
 # lib\shopify\types.ts
@@ -8691,7 +8974,7 @@ export type Edge<T> = {
   node: T;
 };
 
-export type Cart = Omit<ShopifyCart, 'lines'> & {
+export type Cart = Omit<ShopifyCart, "lines"> & {
   lines: CartItem[];
 };
 
@@ -8751,7 +9034,7 @@ export type Page = {
   updatedAt: string;
 };
 
-export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
+export type Product = Omit<ShopifyProduct, "variants" | "images"> & {
   variants: ProductVariant[];
   images: Image[];
 };
@@ -8953,7 +9236,6 @@ export type ShopifyProductsOperation = {
     sortKey?: string;
   };
 };
-
 ```
 
 # lib\type-guards.ts
@@ -8965,8 +9247,12 @@ export interface ShopifyErrorLike {
   cause?: Error;
 }
 
-export const isObject = (object: unknown): object is Record<string, unknown> => {
-  return typeof object === 'object' && object !== null && !Array.isArray(object);
+export const isObject = (
+  object: unknown,
+): object is Record<string, unknown> => {
+  return (
+    typeof object === "object" && object !== null && !Array.isArray(object)
+  );
 };
 
 export const isShopifyError = (error: unknown): error is ShopifyErrorLike => {
@@ -8978,7 +9264,7 @@ export const isShopifyError = (error: unknown): error is ShopifyErrorLike => {
 };
 
 function findError<T extends object>(error: T): boolean {
-  if (Object.prototype.toString.call(error) === '[object Error]') {
+  if (Object.prototype.toString.call(error) === "[object Error]") {
     return true;
   }
 
@@ -8986,37 +9272,44 @@ function findError<T extends object>(error: T): boolean {
 
   return prototype === null ? false : findError(prototype);
 }
-
 ```
 
 # lib\utils.ts
 
 ```ts
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-import { ReadonlyURLSearchParams } from 'next/navigation'
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+import { ReadonlyURLSearchParams } from "next/navigation";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : 'http://localhost:3000'
+  : "http://localhost:3000";
 
 export function ensureStartsWith(stringToCheck: string, startsWith: string) {
-  return stringToCheck.startsWith(startsWith) ? stringToCheck : `${startsWith}${stringToCheck}`
+  return stringToCheck.startsWith(startsWith)
+    ? stringToCheck
+    : `${startsWith}${stringToCheck}`;
 }
 
-export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyURLSearchParams) => {
+export const createUrl = (
+  pathname: string,
+  params: URLSearchParams | ReadonlyURLSearchParams,
+) => {
   const paramsString = params.toString();
-  const queryString = `${paramsString.length ? '?' : ''}${paramsString}`;
+  const queryString = `${paramsString.length ? "?" : ""}${paramsString}`;
 
   return `${pathname}${queryString}`;
 };
 
 export const validateEnvironmentVariables = () => {
-  const requiredEnvironmentVariables = ['SHOPIFY_STORE_DOMAIN', 'SHOPIFY_STOREFRONT_ACCESS_TOKEN'];
+  const requiredEnvironmentVariables = [
+    "SHOPIFY_STORE_DOMAIN",
+    "SHOPIFY_STOREFRONT_ACCESS_TOKEN",
+  ];
   const missingEnvironmentVariables = [] as string[];
 
   requiredEnvironmentVariables.forEach((envVar) => {
@@ -9028,21 +9321,20 @@ export const validateEnvironmentVariables = () => {
   if (missingEnvironmentVariables.length) {
     throw new Error(
       `The following environment variables are missing. Your site will not work without them. Read more: https://vercel.com/docs/integrations/shopify#configure-environment-variables\n\n${missingEnvironmentVariables.join(
-        '\n'
-      )}\n`
+        "\n",
+      )}\n`,
     );
   }
 
   if (
-    process.env.SHOPIFY_STORE_DOMAIN?.includes('[') ||
-    process.env.SHOPIFY_STORE_DOMAIN?.includes(']')
+    process.env.SHOPIFY_STORE_DOMAIN?.includes("[") ||
+    process.env.SHOPIFY_STORE_DOMAIN?.includes("]")
   ) {
     throw new Error(
-      'Your `SHOPIFY_STORE_DOMAIN` environment variable includes brackets (ie. `[` and / or `]`). Your site will not work with them there. Please remove them.'
+      "Your `SHOPIFY_STORE_DOMAIN` environment variable includes brackets (ie. `[` and / or `]`). Your site will not work with them there. Please remove them.",
     );
   }
 };
-
 ```
 
 # license.md
@@ -9069,7 +9361,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 ```
 
 # next-env.d.ts
@@ -9081,7 +9372,6 @@ SOFTWARE.
 
 // NOTE: This file should not be edited
 // see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
-
 ```
 
 # next.config.ts
@@ -9094,17 +9384,16 @@ export default {
     inlineCss: true, // Safe for stable
   },
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.shopify.com',
-        pathname: '/s/files/**'
-      }
-    ]
-  }
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/s/files/**",
+      },
+    ],
+  },
 };
-
 ```
 
 # package.json
@@ -9161,7 +9450,6 @@ export default {
     "typescript": "5.8.2"
   }
 }
-
 ```
 
 # postcss.config.mjs
@@ -9170,10 +9458,9 @@ export default {
 /** @type {import('postcss-load-config').Config} */
 export default {
   plugins: {
-    '@tailwindcss/postcss': {},
-  }
+    "@tailwindcss/postcss": {},
+  },
 };
-
 ```
 
 # README.md
@@ -9254,7 +9541,6 @@ Your app should now be running on [localhost:3000](http://localhost:3000/).
 ## Vercel, Next.js Commerce, and Shopify Integration Guide
 
 You can use this comprehensive [integration guide](https://vercel.com/docs/integrations/ecommerce/shopify) with step-by-step instructions on how to configure Shopify as a headless CMS using Next.js Commerce as your headless Shopify storefront on Vercel.
-
 ```
 
 # tsconfig.json
@@ -9291,6 +9577,4 @@ You can use this comprehensive [integration guide](https://vercel.com/docs/integ
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
-
 ```
-

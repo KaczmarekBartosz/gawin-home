@@ -112,7 +112,8 @@ function Gallery({ product }: GalleryProps) {
     {
       id: "leg",
       label: "Stelaż stalowy",
-      description: "Proszkowo malowana stal, wysokość 14 cm dla robotów sprzątających.",
+      description:
+        "Proszkowo malowana stal, wysokość 14 cm dla robotów sprzątających.",
       position: { top: "70%", left: "62%" },
     },
   ];

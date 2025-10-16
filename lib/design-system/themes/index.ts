@@ -1,13 +1,13 @@
-import type { DesignTokens } from '../tokens/types';
-import { hybridLuxuryTheme } from './hybrid-luxury';
-import { wellnessTechTheme } from './wellness-tech';
+import type { DesignTokens } from "../tokens/types";
+import { hybridLuxuryTheme } from "./hybrid-luxury";
+import { wellnessTechTheme } from "./wellness-tech";
 
 /**
  * Available themes registry
  */
 export const themes = {
-  'hybrid-luxury': hybridLuxuryTheme,
-  'wellness-tech': wellnessTechTheme,
+  "hybrid-luxury": hybridLuxuryTheme,
+  "wellness-tech": wellnessTechTheme,
   // Add more themes here as they're created
   // 'dark-luxury': darkLuxuryTheme,
   // 'minimal-elegant': minimalElegantTheme,
