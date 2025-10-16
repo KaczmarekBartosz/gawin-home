@@ -1,6 +1,11 @@
 import { HeroSection } from '@/components/sections/home/HeroSection';
+import { TrustedBrandsSection } from '@/components/sections/home/TrustedBrandsSection';
 import { CollectionsSection } from '@/components/sections/home/CollectionsSection';
 import { BestsellersSection } from '@/components/sections/home/BestsellersSection';
+import { FeaturesSection } from '@/components/sections/home/FeaturesSection';
+import { TestimonialsSection } from '@/components/sections/home/TestimonialsSection';
+import { InstagramSection } from '@/components/sections/home/InstagramSection';
+import { CTASection } from '@/components/sections/home/CTASection';
 import { NewsletterSection } from '@/components/sections/home/NewsletterSection';
 
 export const metadata = {
@@ -12,16 +17,31 @@ export const metadata = {
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Tryb "Elegancki" (Ciemny) */}
+      {/* 1. Hero Section - Dark Entry (Elegant) */}
       <HeroSection />
 
-      {/* Collections Section - Tryb "Showroom" (Jasny) */}
+      {/* 2. Trusted Brands - Light (Trust Building) */}
+      <TrustedBrandsSection />
+
+      {/* 3. Collections Section - Light Showroom */}
       <CollectionsSection />
 
-      {/* Bestsellers Section - Tryb "Showroom" (Jasny) */}
+      {/* 4. Bestsellers Section - Light Showroom */}
       <BestsellersSection />
 
-      {/* Newsletter Section - Tryb "Showroom" (Jasny) */}
+      {/* 5. Features Section - Dark (Premium USPs) */}
+      <FeaturesSection />
+
+      {/* 6. Testimonials Section - Light (Social Proof) */}
+      <TestimonialsSection />
+
+      {/* 7. Instagram Section - Light (Social Engagement) */}
+      <InstagramSection />
+
+      {/* 8. CTA Section - Dark (Conversion Focus) */}
+      <CTASection />
+
+      {/* 9. Newsletter Section - Light (Final Engagement) */}
       <NewsletterSection />
     </div>
   );
