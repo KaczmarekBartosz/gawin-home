@@ -1,14 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export function PremiumNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,14 @@ export function PremiumNavbar() {
     { href: "/cart", label: "Koszyk" },
     { href: "/checkout", label: "Checkout" },
   ];
+
+  const isActive = (href: string) => {
+    if (!pathname) return false;
+    if (href === "/home") {
+      return pathname === "/" || pathname === "/home";
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <>
@@ -54,16 +64,30 @@ export function PremiumNavbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-brand-cream opacity-80 hover:text-brand-gold transition-colors relative group"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold group-hover:w-full transition-all duration-300" />
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "group relative text-sm font-medium transition-colors duration-200",
+                      active
+                        ? "text-brand-gold"
+                        : "text-brand-cream opacity-80 hover:text-brand-gold",
+                    )}
+                  >
+                    {link.label}
+                    <span
+                      className={cn(
+                        "absolute -bottom-1 left-0 h-0.5 bg-brand-gold transition-all duration-300",
+                        active ? "w-full" : "w-0 group-hover:w-full",
+                      )}
+                    />
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Actions */}
@@ -144,22 +168,31 @@ export function PremiumNavbar() {
             >
               <div className="p-6 pt-24">
                 <nav className="space-y-6">
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.href}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <Link
-                        href={link.href}
-                        className="block text-2xl font-bold text-brand-cream hover:text-brand-gold transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
+                  {navLinks.map((link, index) => {
+                    const active = isActive(link.href);
+                    return (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
                       >
-                        {link.label}
-                      </Link>
-                    </motion.div>
-                  ))}
+                        <Link
+                          href={link.href}
+                          aria-current={active ? "page" : undefined}
+                          className={cn(
+                            "block text-2xl font-bold transition-colors",
+                            active
+                              ? "text-brand-gold"
+                              : "text-brand-cream hover:text-brand-gold",
+                          )}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
                 </nav>
               </div>
             </motion.div>

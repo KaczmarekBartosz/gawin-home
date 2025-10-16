@@ -39,7 +39,17 @@ export default function HomePage() {
       <Section tone="dark" className="relative overflow-hidden pb-16">
         <Container className="relative z-10 flex min-h-[70vh] flex-col justify-center py-24">
           <motion.div {...fadeInUp} className="max-w-3xl">
-            <p className="text-label text-brand-cream opacity-70">Gawin-Home</p>
+            <motion.span
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.75_0.12_85_/_0.18)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand-cream"
+            >
+              Sprint 1 · Design-only mock
+            </motion.span>
+            <p className="mt-6 text-label text-brand-cream opacity-70">
+              Gawin-Home
+            </p>
             <h1 className="mt-6 text-display-hero text-brand-cream text-glow-gold">
               {heroData.title}
             </h1>
@@ -54,7 +64,10 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link href="/pdp">Zobacz szczegóły produktu</Link>
+                <Link href="/pdp" className="group">
+                  Zobacz szczegóły produktu
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
             </div>
           </motion.div>
@@ -93,8 +106,10 @@ export default function HomePage() {
           sizes="100vw"
           className="absolute inset-0 -z-10 object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[oklch(0.11_0_0_/_0.85)] via-[oklch(0.11_0_0_/_0.6)] to-[oklch(0.11_0_0_/_0.85)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[oklch(0.11_0_0_/_0.85)] via-[oklch(0.11_0_0_/_0.6)] to-[oklch(0.11_0_0_/_0.9)]" />
         <div className="absolute inset-0 -z-10 noise-dark opacity-70" />
+        <div className="pointer-events-none absolute -top-32 right-[-12%] h-[420px] w-[420px] rounded-full bg-[oklch(0.75_0.12_85_/_0.18)] blur-[160px]" />
+        <div className="pointer-events-none absolute bottom-8 left-[-10%] h-[360px] w-[360px] rounded-full bg-[oklch(0.64_0.09_70_/_0.18)] blur-[160px]" />
       </Section>
 
       <Section tone="cream">

@@ -65,6 +65,18 @@ Status: COMPLETED
 - Po ewentualnym dodaniu kolejnych makiet (np. koszyk mini) kontynuować log w tym pliku.
 - 🛠️ Hotfix: przeniesiono `motion/presets.ts` poza katalog `app`, by import `@/motion/presets` działał w dev serwerze.
 
+### 2025-10-17 - Refinement Pass (Codex)
+
+#### ✅ Task: Polish nawigacji i sekcji Hero
+Status: COMPLETED
+
+**Co zrobiono:**
+- W `components/layout/PremiumNavbar.tsx` dodano wykrywanie aktywnej ścieżki (`usePathname`) z wyróżnieniem bieżącej sekcji (desktop + mobile) i poprawionymi stanami `aria-current`.
+- W `app/home/page.tsx` wzbogacono Hero o badge sprintu, dodatkowe akcenty świetlne (blurred glows) oraz spójne CTA z ikoną.
+
+**Uwagi:**
+- Kolejne sekcje wyglądają spójnie z Biblią; dalsze poprawki będą wynikały z feedbacku po przeglądzie wizualnym.
+
 ### 2025-10-15 - Design Unblock (Mock)
 
 #### ✅ Task: Przygotowanie mocków i pełnej strony głównej do projektowania
