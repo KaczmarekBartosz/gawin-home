@@ -329,4 +329,36 @@
 ### 2025-10-18 18:45
 
 - ✅ Karuzela bestsellerów przeniesiona na Embla: pełna szerokość tylko z prawej strony, brak zaznaczania podczas drag, spójne cienie i rozmiary kart.
-- ✅ Finalny „save game” – stan repo zgodny z `nowy_styl.md`, wszystko udokumentowane i gotowe na kolejne iteracje (wydajność / Lighthouse).
+- ✅ Finalny „save game" – stan repo zgodny z `nowy_styl.md`, wszystko udokumentowane i gotowe na kolejne iteracje (wydajność / Lighthouse).
+
+### 2025-10-18 20:15 - Fix: Karuzela bestsellerów - kompletna naprawa
+
+**Problem:**
+1. ❌ Gradient z prawej strony był zbędny i przeszkadzał
+2. ❌ Karuzela nie zaczynała się w linii z innymi sekcjami
+3. ❌ Cienie ProductCard były obcinane przez następną sekcję
+4. ❌ Pierwsza i ostatnia karta wyświetlały się jako rozciągnięte zdjęcia zamiast pełnych ProductCard
+5. ❌ Padding był źle zastosowany na wrapperze zamiast na kontenerze
+
+**Rozwiązanie:**
+
+**BestsellersCarousel.tsx:**
+- ✅ Usunięto gradient fade z prawej strony (było `<div className="...bg-gradient-to-l from-[#f5f5f5]"/>`)
+- ✅ Przeniesiono `gap-6`, `pl-4`, `first:pl-6` z dzieci `motion.div` NA kontener flex
+- ✅ Struktura przed: `<motion.div className="...pl-4 first:pl-6 last:pr-6">` - padding psował szerokość kart
+- ✅ Struktura po: `<div className="flex...gap-6 pl-4 first:pl-6">` + `<motion.div className="basis-[80%]">` - karty mają spójną szerokość
+- ✅ Każda karta: `basis-[80%]` (mobile) → `basis-[45%]` (tablet) → `basis-[360px]` (desktop)
+
+**ProductCard.tsx:**
+- ✅ Usunięto duże cienie: `shadow-[0_26px_60px_rgba(26,26,26,0.08)]` → brak shadow (tylko hover `-translate-y-1`)
+- ✅ Zachowano transition dla hover effects bez przesadnych cieni
+
+**app/home/page.tsx:**
+- ✅ Sekcja bestsellerów: `overflow-visible` → `pb-20 md:pb-28` (lepszy balans, cienie nie są obcinane)
+
+**Rezultat:**
+- ✅ Wszystkie 6 kart wyświetlają się prawidłowo jako pełne ProductCard
+- ✅ Karuzela zaczyna się w linii z Container (first:pl-6 → first:pl-8 → responsive)
+- ✅ Brak zbędnego gradientu
+- ✅ Na desktop widoczne ~3-4 karty jednocześnie (reszta schowana po prawej)
+- ✅ Smooth drag & scroll experience

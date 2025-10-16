@@ -743,3 +743,53 @@ Git commit + przygotowanie do deploy na Netlify
 > 💡 **Tip:** Commituj często! Minimum jeden commit po każdej zakończonej fazie.
 
 > 🎯 **Motto:** "Progress over perfection. Ship iteratively."
+
+
+### 2025-10-18 20:30 - Hotfix: Karuzela bestsellerów - naprawa struktury padding
+
+#### ✅ Task: Naprawa wyświetlania pierwszej i ostatniej karty w karuzeli
+
+Status: COMPLETED
+
+**Zgłoszony problem:**
+
+Użytkownik zgłosił, że:
+1. Gradient z prawej strony jest zbędny
+2. Karuzela nie zaczyna się prawidłowo (nie w linii z innymi sekcjami)
+3. Cienie są obcinane przez następną sekcję
+4. Pierwsza i ostatnia karta wyświetlają się jako rozciągnięte zdjęcia zamiast normalnych ProductCard
+
+**Analiza problemu:**
+
+Problem leżał w strukturze paddingu - padding był na wrapperze motion.div, co powodowało że ProductCard z h-full w-full rozciągał się na cały basis-[80%] WŁĄCZNIE z paddingiem.
+
+**Rozwiązanie:**
+
+Przeniesienie paddingu z dzieci na kontener flex.
+
+**Co zrobiono:**
+
+1. BestsellersCarousel.tsx:
+   - Usunięto gradient fade
+   - Przeniesiono gap-6, pl-4, first:pl-6 z motion.div NA kontener .flex
+   - Każde motion.div ma czysty basis-[80%] bez paddingu
+
+2. ProductCard.tsx:
+   - Usunięto duże cienie shadow-[0_26px_60px...]
+   - Zachowano hover effect -translate-y-1
+
+3. app/home/page.tsx:
+   - Zmieniono overflow-visible pb-32 → pb-20 md:pb-28
+
+**Rezultat:**
+- ✅ Wszystkie 6 kart wyświetlają się identycznie jako pełne ProductCard
+- ✅ Karuzela zaczyna się w linii z Container
+- ✅ Brak zbędnego gradientu
+- ✅ Na desktop widoczne ~3-4 karty naraz
+
+**Pliki zmienione:**
+- components/sections/home/BestsellersCarousel.tsx
+- components/cards/product-card.tsx
+- app/home/page.tsx
+- docs/IMPLEMENTATION_PROGRESS.md
+- docs/PROGRESS_LOG.md

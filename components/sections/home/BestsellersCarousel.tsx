@@ -25,13 +25,12 @@ export function BestsellersCarousel({
 
   return (
     <div className={cn("relative select-none", className)}>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#f5f5f5] via-[#f5f5f5]/85 to-transparent" />
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex -ml-6 gap-8 pb-6 pl-6 pr-[clamp(128px,18vw,220px)] touch-pan-x cursor-grab active:cursor-grabbing sm:-ml-10 sm:gap-10 sm:pl-10 md:-ml-16 md:pl-16">
+        <div className="flex touch-pan-x cursor-grab active:cursor-grabbing gap-6 pl-4 first:pl-6 sm:gap-8 sm:pl-4 sm:first:pl-8 lg:gap-10 lg:pl-4 lg:first:pl-[max(2rem,calc((100vw-1280px)/2+2rem))]">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
-              className="flex-shrink-0 basis-[min(78vw,360px)] pr-6 last:pr-[clamp(96px,16vw,180px)] sm:basis-[320px] md:basis-[360px]"
+              className="min-w-0 flex-shrink-0 basis-[80%] sm:basis-[45%] lg:basis-[360px]"
               {...fadeInUp}
               transition={{
                 ...fadeInUp.transition,

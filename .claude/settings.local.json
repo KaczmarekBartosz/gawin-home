@@ -13,7 +13,10 @@
       "Bash(if [ -f \"data/products.json\" ])",
       "Bash(then head -30 data/products.json)",
       "Bash(else echo \"File not found\")",
-      "Bash(fi)"
+      "Bash(fi)",
+      "Read(//c/Users/NicoN/Desktop/NewCoding/DebowyPark/jaworowa-ostrzeszow/**)",
+      "Bash(curl:*)",
+      "Bash(echo:*)"
     ],
     "deny": [],
     "ask": []

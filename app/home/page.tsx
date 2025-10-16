@@ -127,8 +127,8 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section tone="cream" id="bestsellery" className="space-y-10">
-        <Container className="space-y-6">
+      <Section tone="cream" id="bestsellery" className="pb-20 md:pb-28">
+        <Container className="space-y-10">
           <motion.header
             {...fadeInUp}
             className="flex flex-col gap-4 text-center"
@@ -143,7 +143,7 @@ export default function HomePage() {
             </p>
           </motion.header>
         </Container>
-        <BestsellersCarousel products={featuredProducts} className="mt-2" />
+        <BestsellersCarousel products={featuredProducts} className="mt-12" />
       </Section>
 
       <Section tone="light">

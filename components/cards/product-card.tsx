@@ -37,7 +37,7 @@ export function ProductCard({
 
   return (
     <Link href={href} className={cn("group block", className)}>
-      <article className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-neutral-200/70 bg-white/90 shadow-[0_26px_60px_rgba(26,26,26,0.08)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_36px_90px_rgba(26,26,26,0.12)]">
+      <article className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-neutral-200/70 bg-white/90 transition-all duration-300 group-hover:-translate-y-1">
         <div className="relative aspect-square overflow-hidden bg-brand-sand">
           <Image
             src={primaryImage.src}
