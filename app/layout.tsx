@@ -1,7 +1,7 @@
 import { CartProvider } from 'components/cart/cart-context';
 import { PremiumNavbar } from 'components/layout/PremiumNavbar';
 import { Footer } from 'components/layout/footer/Footer';
-import { WelcomeToast } from 'components/welcome-toast';
+// import { WelcomeToast } from 'components/welcome-toast'; // Disabled - causes cart errors
 import { GeistSans } from 'geist/font/sans';
 import { ThemeProvider } from 'lib/design-system';
 import { getCart } from 'lib/shopify';
@@ -41,7 +41,7 @@ export default async function RootLayout({
             <main>
               {children}
               <Toaster closeButton />
-              <WelcomeToast />
+              {/* <WelcomeToast /> */}
             </main>
             <Footer />
           </CartProvider>
