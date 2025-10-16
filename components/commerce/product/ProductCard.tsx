@@ -51,26 +51,26 @@ export function ProductCard({ product, className }: ProductCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="rounded-2xl bg-white shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+      <div className="rounded-2xl bg-white shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:glow-gold">
         {/* Image Container */}
         <div className="relative aspect-square overflow-hidden bg-brand-sand">
           <Image
             src={currentImage.url}
             alt={currentImage.alt}
             fill
-            className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
 
           {/* Badges */}
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             {product.isNew && (
-              <span className="px-3 py-1 bg-brand-gold text-white text-xs font-semibold rounded-lg">
+              <span className="px-3 py-1 gradient-gold-premium text-white text-xs font-bold rounded-lg shadow-md">
                 NOWOŚĆ
               </span>
             )}
             {product.onSale && (
-              <span className="px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded-lg">
+              <span className="px-3 py-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold rounded-lg shadow-md">
                 PROMOCJA
               </span>
             )}
@@ -82,26 +82,26 @@ export function ProductCard({ product, className }: ProductCardProps) {
               e.preventDefault();
               setIsWishlisted(!isWishlisted);
             }}
-            className="absolute top-4 right-4 p-2 bg-white/90 rounded-full hover:bg-white transition-colors"
+            className="absolute top-4 right-4 p-2 glass-light rounded-full hover:glass-gold transition-all duration-300 hover:scale-110"
             aria-label="Dodaj do ulubionych"
           >
             <Heart
               className={cn(
-                'h-5 w-5 transition-colors',
-                isWishlisted ? 'fill-red-500 text-red-500' : 'text-brand-charcoal'
+                'h-5 w-5 transition-all duration-300',
+                isWishlisted ? 'fill-red-500 text-red-500 scale-110' : 'text-brand-charcoal'
               )}
               strokeWidth={1.5}
             />
           </button>
 
           {/* Quick Add Button */}
-          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
             <button
               onClick={(e) => {
                 e.preventDefault();
                 // TODO: Add to cart logic
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-brand-gold text-white rounded-xl font-semibold hover:bg-brand-copper transition-colors"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 gradient-gold-premium text-white rounded-xl font-bold shadow-lg hover:scale-105 transition-transform shimmer"
             >
               <ShoppingCart className="h-4 w-4" strokeWidth={1.5} />
               <span>Dodaj do koszyka</span>
@@ -122,13 +122,13 @@ export function ProductCard({ product, className }: ProductCardProps) {
               {product.colors.slice(0, 4).map((color) => (
                 <div
                   key={color.hex}
-                  className="w-6 h-6 rounded-full border-2 border-neutral-border hover:border-brand-gold transition-colors cursor-pointer"
+                  className="w-7 h-7 rounded-full border-2 border-neutral-border hover:border-brand-gold transition-all duration-300 cursor-pointer hover:scale-110 shadow-sm"
                   style={{ backgroundColor: color.hex }}
                   title={color.name}
                 />
               ))}
               {product.colors.length > 4 && (
-                <span className="text-xs text-muted-foreground">
+                <span className="text-xs font-medium text-brand-gold">
                   +{product.colors.length - 4}
                 </span>
               )}
@@ -167,14 +167,14 @@ export function ProductCard({ product, className }: ProductCardProps) {
           )}
 
           {/* Price */}
-          <div className="pt-2 border-t border-neutral-border">
+          <div className="pt-3 border-t border-neutral-border/50">
             <div className="flex items-baseline justify-between">
               <div>
-                <p className="text-2xl font-bold text-brand-gold">
+                <p className="text-2xl font-bold gradient-gold-premium bg-clip-text text-transparent">
                   {product.price.amount.toLocaleString('pl-PL')} {product.price.currency}
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  lub {product.price.installment} zł/mc
+                <p className="text-sm text-muted-foreground mt-1">
+                  lub <span className="font-semibold text-brand-charcoal">{product.price.installment} zł</span>/mc
                 </p>
               </div>
             </div>
