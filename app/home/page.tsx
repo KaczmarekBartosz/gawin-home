@@ -7,13 +7,13 @@ import { motion } from "framer-motion";
 import { ArrowRight, HandHeart, ShieldCheck, Truck } from "lucide-react";
 
 import { CategoryCard } from "@/components/cards/category-card";
-import { ProductCard } from "@/components/cards/product-card";
 import { SpecCard } from "@/components/cards/spec-card";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
+import { BestsellersCarousel } from "@/components/sections/home/BestsellersCarousel";
 import type { MockProduct } from "@/lib/data-adapters/mock";
 import { cn, formatCurrency } from "@/lib/utils";
 import { fadeInUp } from "@/motion/presets";
@@ -127,8 +127,8 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section tone="cream" id="bestsellery">
-        <Container className="space-y-12">
+      <Section tone="cream" id="bestsellery" className="space-y-10">
+        <Container className="space-y-6">
           <motion.header
             {...fadeInUp}
             className="flex flex-col gap-4 text-center"
@@ -138,32 +138,13 @@ export default function HomePage() {
               Najczęściej wybierane
             </h2>
             <p className="mx-auto max-w-2xl text-body-descriptive">
-              4–6 kart produktów z overflow-scroll. Karuzela bez JS — użyj
-              `snap-x` i CTA jako wzoru docelowego modułu.
+              4–6 kart produktów w układzie plakatu. Pełnoekranowy przejazd
+              podkreśla rytm kolekcji.
             </p>
           </motion.header>
-          <div className="overflow-x-auto pb-6">
-            <div className="flex min-w-max gap-10 pr-12">
-              {featuredProducts.map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  {...fadeInUp}
-                  transition={{
-                    ...fadeInUp.transition,
-                    delay: index * 0.08,
-                    duration: 0.45,
-                  }}
-                  className="snap-start"
-                >
-                  <ProductCard
-                    product={product}
-                    href="/pdp"
-                    className="w-[300px] md:w-[340px]"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        </Container>
+        <Container className="px-6 md:px-8 lg:px-12">
+          <BestsellersCarousel products={featuredProducts} />
         </Container>
       </Section>
 

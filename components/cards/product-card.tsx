@@ -37,7 +37,7 @@ export function ProductCard({
 
   return (
     <Link href={href} className={cn("group block", className)}>
-      <article className="overflow-hidden rounded-2xl bg-white shadow-soft transition-shadow duration-300 hover:shadow-elevated">
+      <article className="flex h-full flex-col overflow-hidden rounded-[2rem] border border-neutral-200/70 bg-white/90 shadow-[0_26px_60px_rgba(26,26,26,0.08)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_36px_90px_rgba(26,26,26,0.12)]">
         <div className="relative aspect-square overflow-hidden bg-brand-sand">
           <Image
             src={primaryImage.src}
@@ -47,6 +47,7 @@ export function ProductCard({
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
             priority={false}
           />
+          <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-black/20" />
           {secondaryImage && (
             <Image
               src={secondaryImage.src}
@@ -115,7 +116,7 @@ export function ProductCard({
           </div>
         </div>
 
-        <div className="space-y-6 px-8 py-10 md:px-10 md:py-12">
+        <div className="flex grow flex-col justify-between space-y-6 px-7 py-9 md:px-9 md:py-11">
           <div className="space-y-3">
             <p className="text-[11px] font-semibold uppercase tracking-[0.4em] text-brand-gold/80">
               {product.category}
