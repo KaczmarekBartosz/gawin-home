@@ -1,5 +1,6 @@
 import { CartProvider } from 'components/cart/cart-context';
 import { PremiumNavbar } from 'components/layout/PremiumNavbar';
+import { Footer } from 'components/layout/footer/Footer';
 import { WelcomeToast } from 'components/welcome-toast';
 import { GeistSans } from 'geist/font/sans';
 import { ThemeProvider } from 'lib/design-system';
@@ -42,6 +43,7 @@ export default async function RootLayout({
               <Toaster closeButton />
               <WelcomeToast />
             </main>
+            <Footer />
           </CartProvider>
         </ThemeProvider>
       </body>
