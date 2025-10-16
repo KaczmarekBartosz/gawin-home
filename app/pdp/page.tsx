@@ -10,8 +10,15 @@ import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { IconButton } from "@/components/ui/icon-button";
 import { Input } from "@/components/ui/input";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Textarea } from "@/components/ui/textarea";
 import type { MockProduct } from "@/lib/data-adapters/mock";
+import { formatCurrency } from "@/lib/utils";
 import { fadeInUp } from "@/motion/presets";
 
 import productsData from "@/mock/products.json";
@@ -20,8 +27,33 @@ const products = productsData as MockProduct[];
 const heroProduct = products[0];
 const recommended = products.slice(1, 4);
 
-const formatPrice = (value: number, currency: string) =>
-  new Intl.NumberFormat("pl-PL", { style: "currency", currency }).format(value);
+type HotspotPin = {
+  id: string;
+  label: string;
+  description: string;
+  position: {
+    top: string;
+    left: string;
+  };
+};
+
+const faqItems = [
+  {
+    question: "Jak działa konfiguracja modułowa?",
+    answer:
+      "Każdy element posiada szybkie złącza typu click-in. Możesz przełożyć moduły bez narzędzi w około 10 minut (makieta funkcjonalności).",
+  },
+  {
+    question: "Czy mogę zamówić próbki tkanin?",
+    answer:
+      "Tak — sekcja 'Zamów próbki' na PDP prezentuje przyszły formularz. Aktualnie to placeholder bez logiki.",
+  },
+  {
+    question: "Jak wygląda dostawa premium?",
+    answer:
+      "Mock danych logistycznych: dostawa z wniesieniem i montażem w ciągu 21–30 dni, termin ustalany przez concierge Gawin-Home.",
+  },
+];
 
 export default function PDPPage() {
   return (
@@ -34,9 +66,12 @@ export default function PDPPage() {
       </Section>
 
       <Section tone="cream">
-        <Container className="grid gap-8 lg:grid-cols-2">
-          <MaterialPassport product={heroProduct} />
-          <ConsultationForm />
+        <Container className="space-y-10">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <MaterialPassport product={heroProduct} />
+            <ConsultationForm />
+          </div>
+          <FAQSection />
         </Container>
       </Section>
 
@@ -67,10 +102,24 @@ type GalleryProps = {
 function Gallery({ product }: GalleryProps) {
   const images = product.images.slice(0, 4);
   const heroImage = images[0];
+  const hotspots: HotspotPin[] = [
+    {
+      id: "module",
+      label: "Moduł narożny",
+      description: "Łączy się z innymi modułami za pomocą złączy quick lock.",
+      position: { top: "30%", left: "28%" },
+    },
+    {
+      id: "leg",
+      label: "Stelaż stalowy",
+      description: "Proszkowo malowana stal, wysokość 14 cm dla robotów sprzątających.",
+      position: { top: "70%", left: "62%" },
+    },
+  ];
 
   return (
     <motion.div {...fadeInUp} className="space-y-4">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-brand-sand">
+      <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-neutral-200 bg-brand-sand">
         {heroImage && (
           <Image
             src={heroImage.src}
@@ -81,12 +130,15 @@ function Gallery({ product }: GalleryProps) {
             priority
           />
         )}
+        {hotspots.map((hotspot) => (
+          <ProductHotspot key={hotspot.id} {...hotspot} />
+        ))}
       </div>
       <div className="grid grid-cols-4 gap-3">
         {images.map((image) => (
           <div
             key={image.src}
-            className="relative aspect-square overflow-hidden rounded-2xl bg-brand-sand"
+            className="relative aspect-square overflow-hidden rounded-2xl border border-neutral-200 bg-brand-sand"
           >
             <Image
               src={image.src}
@@ -101,6 +153,26 @@ function Gallery({ product }: GalleryProps) {
   );
 }
 
+function ProductHotspot({ label, description, position }: HotspotPin) {
+  return (
+    <button
+      type="button"
+      className="group absolute flex items-center bg-transparent focus-visible:outline-none"
+      style={{ top: position.top, left: position.left }}
+      aria-label={`${label}: ${description}`}
+    >
+      <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full border border-neutral-200 bg-white/90 shadow-sm backdrop-blur transition-transform duration-300 group-hover:scale-110 group-focus-visible:scale-110">
+        <span className="h-2 w-2 rounded-full bg-brand-gold" />
+      </span>
+      <div className="pointer-events-none absolute left-8 top-1/2 hidden w-60 -translate-y-1/2 rounded-xl bg-white p-4 text-sm text-brand-charcoal shadow-elevated transition-opacity duration-300 group-hover:block group-focus-visible:block">
+        <p className="font-semibold">{label}</p>
+        <p className="mt-1 text-xs text-neutral-600">{description}</p>
+        <span className="absolute left-[-10px] top-1/2 h-4 w-4 -translate-y-1/2 rotate-45 bg-white" />
+      </div>
+    </button>
+  );
+}
+
 type ProductSummaryProps = {
   product: MockProduct;
 };
@@ -111,13 +183,13 @@ function ProductSummary({ product }: ProductSummaryProps) {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="rounded-3xl border border-[color:oklch(0.9_0_0)] bg-white p-8 shadow-soft"
+      className="rounded-3xl border border-neutral-200 bg-white/95 p-10 shadow-soft"
     >
       <div className="flex flex-wrap items-center gap-3 text-sm text-brand-gold">
         {product.badges.map((badge) => (
           <span
             key={badge}
-            className="rounded-full bg-[oklch(0.75_0.12_85_/_0.12)] px-3 py-1 font-semibold uppercase tracking-[0.25em]"
+            className="inline-flex items-center gap-2 rounded-full border border-brand-gold/30 bg-brand-gold/10 px-3 py-1 font-semibold uppercase tracking-[0.25em]"
           >
             {badge}
           </span>
@@ -126,16 +198,16 @@ function ProductSummary({ product }: ProductSummaryProps) {
       <h1 className="mt-4 text-h1 text-brand-charcoal">{product.name}</h1>
       <p className="mt-3 text-body-standard">{product.description}</p>
 
-      <div className="mt-6 flex flex-wrap items-baseline gap-3 border-y border-[color:oklch(0.9_0_0)] py-6">
+      <div className="mt-6 flex flex-wrap items-baseline gap-3 border-y border-neutral-200 py-6">
         <span className="text-3xl font-semibold text-brand-charcoal">
-          {formatPrice(product.price, product.currency)}
+          {formatCurrency(product.price, product.currency)}
         </span>
         {product.compareAtPrice && (
-          <span className="text-lg text-[color:oklch(0.45_0_0)] line-through">
-            {formatPrice(product.compareAtPrice, product.currency)}
+          <span className="text-lg text-neutral-600 line-through">
+            {formatCurrency(product.compareAtPrice, product.currency)}
           </span>
         )}
-        <span className="ml-auto text-sm text-[color:oklch(0.45_0_0)]">
+        <span className="ml-auto text-sm text-neutral-600">
           Dostawa 21-30 dni · Ocena {product.rating.toFixed(1)} (
           {product.reviewCount})
         </span>
@@ -150,11 +222,11 @@ function ProductSummary({ product }: ProductSummaryProps) {
             {product.fabrics.map((fabric) => (
               <button
                 key={fabric.id}
-                className="flex items-center gap-2 rounded-full border border-[color:oklch(0.9_0_0)] bg-white px-4 py-2 text-sm font-medium text-brand-charcoal transition-all duration-200 hover:border-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(0.75_0.12_85_/_0.45)]"
+                className="flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-brand-charcoal transition-all duration-200 hover:border-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
                 type="button"
               >
                 <span
-                  className="size-5 rounded-full border border-[color:oklch(0.9_0_0)]"
+                  className="size-5 rounded-full border border-neutral-200"
                   style={{ backgroundColor: fabric.swatch }}
                 />
                 {fabric.name}
@@ -163,7 +235,7 @@ function ProductSummary({ product }: ProductSummaryProps) {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-brand-sand p-5">
+        <div className="rounded-2xl border border-neutral-200 bg-brand-sand/80 p-5">
           <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold">
             Wymiary
           </h3>
@@ -210,7 +282,7 @@ function MaterialPassport({ product }: MaterialPassportProps) {
   return (
     <motion.div
       {...fadeInUp}
-      className="rounded-3xl border border-[color:oklch(0.9_0_0)] bg-white p-8 shadow-soft"
+      className="rounded-3xl border border-neutral-200 bg-white/95 p-8 shadow-soft"
     >
       <header>
         <p className="text-label text-brand-gold">Material Passport</p>
@@ -224,7 +296,7 @@ function MaterialPassport({ product }: MaterialPassportProps) {
       </header>
 
       <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl bg-brand-sand p-4">
+        <div className="rounded-2xl border border-neutral-200 bg-brand-sand/80 p-4">
           <dt className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
             Tkanina
           </dt>
@@ -232,7 +304,7 @@ function MaterialPassport({ product }: MaterialPassportProps) {
             {product.fabrics.map((fabric) => fabric.name).join(", ")}
           </dd>
         </div>
-        <div className="rounded-2xl bg-brand-sand p-4">
+        <div className="rounded-2xl border border-neutral-200 bg-brand-sand/80 p-4">
           <dt className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
             Certyfikaty
           </dt>
@@ -240,7 +312,7 @@ function MaterialPassport({ product }: MaterialPassportProps) {
             OEKO-TEX® · FSC® drewno · Emisja VOC A+
           </dd>
         </div>
-        <div className="rounded-2xl bg-brand-sand p-4">
+        <div className="rounded-2xl border border-neutral-200 bg-brand-sand/80 p-4">
           <dt className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
             Pielęgnacja
           </dt>
@@ -249,7 +321,7 @@ function MaterialPassport({ product }: MaterialPassportProps) {
             (mock)
           </dd>
         </div>
-        <div className="rounded-2xl bg-brand-sand p-4">
+        <div className="rounded-2xl border border-neutral-200 bg-brand-sand/80 p-4">
           <dt className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
             Ślad węglowy
           </dt>
@@ -266,7 +338,7 @@ function ConsultationForm() {
   return (
     <motion.div
       {...fadeInUp}
-      className="rounded-3xl border border-[color:oklch(0.9_0_0)] bg-white p-8 shadow-soft"
+      className="rounded-3xl border border-neutral-200 bg-white/95 p-8 shadow-soft"
     >
       <p className="text-label text-brand-gold">Konsultacja</p>
       <h2 className="mt-3 text-h3 text-brand-charcoal">
@@ -298,5 +370,42 @@ function ConsultationForm() {
         <Button className="w-full">Wyślij zgłoszenie (mock)</Button>
       </form>
     </motion.div>
+  );
+}
+
+function FAQSection() {
+  return (
+    <motion.section
+      {...fadeInUp}
+      className="rounded-3xl border border-neutral-200 bg-white/90 p-8 shadow-soft"
+    >
+      <header>
+        <p className="text-label text-brand-gold">FAQ (makieta)</p>
+        <h2 className="mt-3 text-h3 text-brand-charcoal">
+          Najczęstsze pytania klientów
+        </h2>
+        <p className="mt-3 text-body-standard">
+          Rozpiska docelowego komponentu akordeonu (Radix). Aktualnie mock — bez
+          zaplecza danych.
+        </p>
+      </header>
+      <Accordion
+        type="single"
+        collapsible
+        className="mt-6 space-y-4"
+        defaultValue={faqItems[0]?.question}
+      >
+        {faqItems.map((item) => (
+          <AccordionItem key={item.question} value={item.question}>
+            <AccordionTrigger className="text-left text-base font-semibold">
+              {item.question}
+            </AccordionTrigger>
+            <AccordionContent className="text-sm text-brand-charcoal/80">
+              {item.answer}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </motion.section>
   );
 }

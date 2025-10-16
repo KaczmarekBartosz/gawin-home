@@ -38,7 +38,7 @@ export default function ListingPage() {
         </motion.header>
 
         <div className="mt-16 grid gap-10 lg:grid-cols-[320px_1fr]">
-          <aside className="space-y-8 rounded-3xl border border-[color:oklch(0.9_0_0)] bg-brand-cream p-6 shadow-soft">
+          <aside className="space-y-8 rounded-3xl border border-neutral-200 bg-brand-cream p-6 shadow-soft">
             <div>
               <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold">
                 Wyszukaj
@@ -98,12 +98,15 @@ export default function ListingPage() {
           </aside>
 
           <div className="space-y-8">
-            <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-[color:oklch(0.9_0_0)] bg-white p-4 shadow-soft">
-              <p className="text-sm text-[color:oklch(0.45_0_0)]">
+            <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-neutral-200 bg-white p-4 shadow-soft">
+              <p className="text-sm text-neutral-600">
                 Wyświetlane produkty korzystają z mocków JSON i pokazują
                 docelowy layout kart.
               </p>
-              <Button variant="ghost" className="gap-2 text-sm font-semibold">
+              <Button
+                variant="ghost"
+                className="gap-2 text-sm font-semibold text-brand-charcoal"
+              >
                 Sortowanie: rekomendowane
                 <ChevronDown className="h-4 w-4" strokeWidth={1.5} />
               </Button>

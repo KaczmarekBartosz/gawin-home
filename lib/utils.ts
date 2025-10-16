@@ -48,3 +48,26 @@ export const validateEnvironmentVariables = () => {
     );
   }
 };
+
+const currencyFormatters = new Map<string, Intl.NumberFormat>();
+
+export function formatCurrency(
+  value: number,
+  currency: string = "PLN",
+  options: Intl.NumberFormatOptions = {},
+) {
+  const key = `${currency}:${JSON.stringify(options)}`;
+  if (!currencyFormatters.has(key)) {
+    currencyFormatters.set(
+      key,
+      new Intl.NumberFormat("pl-PL", {
+        style: "currency",
+        currency,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+        ...options,
+      }),
+    );
+  }
+  return currencyFormatters.get(key)!.format(value);
+}

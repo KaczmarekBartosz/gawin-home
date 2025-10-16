@@ -9,6 +9,7 @@ import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { MockProduct } from "@/lib/data-adapters/mock";
+import { formatCurrency } from "@/lib/utils";
 import { fadeInUp } from "@/motion/presets";
 
 import productsData from "@/mock/products.json";
@@ -32,9 +33,6 @@ const cartLines: CartLine[] = [
     variant: "Welur korzenny · Zestaw 4 szt.",
   },
 ];
-
-const formatPrice = (value: number, currency: string) =>
-  new Intl.NumberFormat("pl-PL", { style: "currency", currency }).format(value);
 
 export default function CartPage() {
   const subtotal = cartLines.reduce(
@@ -66,9 +64,9 @@ export default function CartPage() {
             {cartLines.map((line) => (
               <div
                 key={line.product.id}
-                className="grid gap-6 rounded-3xl border border-[color:oklch(0.9_0_0)] bg-white p-6 shadow-soft md:grid-cols-[160px_1fr]"
+                className="grid gap-6 rounded-3xl border border-neutral-200 bg-white/95 p-6 shadow-soft md:grid-cols-[160px_1fr]"
               >
-                <div className="relative aspect-square overflow-hidden rounded-2xl bg-brand-sand">
+                <div className="relative aspect-square overflow-hidden rounded-2xl border border-neutral-200 bg-brand-sand/80">
                   <Image
                     src={line.product.images[0]?.src ?? ""}
                     alt={line.product.images[0]?.alt ?? line.product.name}
@@ -82,12 +80,12 @@ export default function CartPage() {
                     <h2 className="text-lg font-semibold text-brand-charcoal">
                       {line.product.name}
                     </h2>
-                    <p className="text-sm text-[color:oklch(0.45_0_0)]">
+                    <p className="text-sm text-neutral-600">
                       {line.variant}
                     </p>
                   </div>
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="flex items-center gap-2 rounded-full border border-[color:oklch(0.9_0_0)] bg-white px-3 py-1.5 text-sm font-medium text-brand-charcoal">
+                    <div className="flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-sm font-medium text-brand-charcoal">
                       <Button
                         variant="ghost"
                         size="icon"
@@ -109,7 +107,7 @@ export default function CartPage() {
                       </Button>
                     </div>
                     <p className="text-lg font-semibold text-brand-charcoal">
-                      {formatPrice(
+                      {formatCurrency(
                         line.product.price * line.quantity,
                         line.product.currency,
                       )}
@@ -119,7 +117,7 @@ export default function CartPage() {
               </div>
             ))}
 
-            <div className="rounded-3xl border border-[color:oklch(0.9_0_0)] bg-brand-cream p-6 shadow-soft">
+            <div className="rounded-3xl border border-neutral-200 bg-brand-cream p-6 shadow-soft">
               <div className="flex items-center gap-3 text-sm text-brand-charcoal">
                 <Truck className="h-5 w-5 text-brand-gold" strokeWidth={1.5} />
                 Darmowa dostawa i wniesienie dla zamówień powyżej 5000 PLN. Czas
@@ -131,25 +129,25 @@ export default function CartPage() {
           <motion.aside
             {...fadeInUp}
             transition={{ ...fadeInUp.transition, duration: 0.6, delay: 0.1 }}
-            className="space-y-6 rounded-3xl border border-[color:oklch(0.9_0_0)] bg-white p-6 shadow-soft"
+            className="space-y-6 rounded-3xl border border-neutral-200 bg-white/95 p-6 shadow-soft"
           >
             <div className="space-y-4">
               <h2 className="text-h3 text-brand-charcoal">Podsumowanie</h2>
               <div className="flex items-center justify-between text-sm text-brand-charcoal">
                 <span>Suma</span>
-                <span>{formatPrice(subtotal, heroCurrency())}</span>
+                <span>{formatCurrency(subtotal, heroCurrency())}</span>
               </div>
               <div className="flex items-center justify-between text-sm text-brand-charcoal">
                 <span>Dostawa</span>
                 <span>
                   {shipping === 0
                     ? "0 PLN (mock)"
-                    : formatPrice(shipping, heroCurrency())}
+                    : formatCurrency(shipping, heroCurrency())}
                 </span>
               </div>
-              <div className="flex items-center justify-between border-t border-[color:oklch(0.9_0_0)] pt-4 text-base font-semibold text-brand-charcoal">
+              <div className="flex items-center justify-between border-t border-neutral-200 pt-4 text-base font-semibold text-brand-charcoal">
                 <span>Łącznie</span>
-                <span>{formatPrice(total, heroCurrency())}</span>
+                <span>{formatCurrency(total, heroCurrency())}</span>
               </div>
               <Button className="w-full" asChild>
                 <a href="/checkout">Przejdź do checkoutu</a>
@@ -178,7 +176,7 @@ export default function CartPage() {
               <Input placeholder="Uwagi do dostawy / montażu (mock)" />
             </div>
 
-            <div className="space-y-3 text-xs text-[color:oklch(0.45_0_0)]">
+            <div className="space-y-3 text-xs text-neutral-600">
               <p>
                 To widok makiety — brak realnych obliczeń i walidacji. Pokazuje
                 strukturę przyszłej implementacji.

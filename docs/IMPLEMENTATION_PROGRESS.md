@@ -42,7 +42,7 @@
 ### 1.4 Spacing
 
 - [x] Upewnić się że wszystko w wielokrotnościach 8px
-- [ ] Sekcje ZAWSZE py-20 md:py-32
+  - [x] Sekcje ZAWSZE py-20 md:py-32
 
 ---
 
@@ -149,7 +149,7 @@
 
 ### 3.5 lookbook.json
 
-- [ ] 4-6 zdjęć inspiracji
+- [x] 4-6 zdjęć inspiracji
 
 ---
 
@@ -311,3 +311,11 @@
 - ✅ Przeczytano biblia.md i brief.md
 - ✅ Utworzono IMPLEMENTATION_PROGRESS.md
 - ⏳ Rozpoczęcie FAZA 1: Design Tokens
+
+### 2025-10-18 11:00
+
+- ✅ Zaimplementowano pełny styl z `docs/nowy_styl.md` (tokens, spacing, gradient CTA, tooltip hotspots).
+- ✅ Przebudowano `/home` (hero 12 kolumn, kapsuła CTA, kolekcje, bestsellery, dark product block, lookbook, newsletter).
+- ✅ Ujednolicono komponenty ProductCard/CategoryCard/SpecCard oraz UI atomy (Button, Input, IconButton, Accordion).
+- ✅ Zaktualizowano widoki `/listing`, `/pdp`, `/cart`, `/checkout` zgodnie ze spec (format cen `formatCurrency`, focus rings, akordeon FAQ, hotspots).
+- ℹ️ Pozostało: sekcja wydajności (placeholdery blur, lazy-load) + Lighthouse do weryfikacji w kolejnym sprincie.

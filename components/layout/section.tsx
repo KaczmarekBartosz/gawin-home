@@ -29,7 +29,7 @@ function Section<T extends React.ElementType = "section">({
 
   return (
     <Component
-      className={cn("section-padding", toneClassMap[tone], className)}
+      className={cn("py-20 md:py-32", toneClassMap[tone], className)}
       {...props}
     >
       {children}

@@ -8,16 +8,13 @@ import { Eye, Heart, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { IconButton } from "@/components/ui/icon-button";
 import type { MockProduct } from "@/lib/data-adapters/mock";
-import { cn } from "@/lib/utils";
+import { cn, formatCurrency } from "@/lib/utils";
 
 type ProductCardProps = {
   product: MockProduct;
   href?: string;
   className?: string;
 };
-
-const formatPrice = (value: number, currency: string) =>
-  new Intl.NumberFormat("pl-PL", { style: "currency", currency }).format(value);
 
 export function ProductCard({
   product,
@@ -33,14 +30,14 @@ export function ProductCard({
     return null;
   }
 
-  const priceLabel = formatPrice(product.price, product.currency);
+  const priceLabel = formatCurrency(product.price, product.currency);
   const compareLabel = product.compareAtPrice
-    ? formatPrice(product.compareAtPrice, product.currency)
+    ? formatCurrency(product.compareAtPrice, product.currency)
     : null;
 
   return (
     <Link href={href} className={cn("group block", className)}>
-      <article className="overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:shadow-elevated">
+      <article className="overflow-hidden rounded-2xl bg-white shadow-soft transition-shadow duration-300 hover:shadow-elevated">
         <div className="relative aspect-square overflow-hidden bg-brand-sand">
           <Image
             src={primaryImage.src}
@@ -61,18 +58,18 @@ export function ProductCard({
             />
           )}
 
-          <div className="absolute top-4 left-4 flex flex-col gap-2">
+          <div className="absolute left-4 top-4 flex flex-col gap-2">
             {product.badges.map((badge) => (
               <span
                 key={badge}
-                className="rounded-full bg-[oklch(0.75_0.12_85_/_0.15)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-gold"
+                className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold backdrop-blur"
               >
                 {badge}
               </span>
             ))}
           </div>
 
-          <div className="absolute top-4 right-4 flex flex-col gap-3 opacity-0 transition-all duration-300 group-hover:opacity-100">
+          <div className="absolute right-3 top-3 flex gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             <IconButton
               aria-label={
                 isWishlisted ? "Usuń z ulubionych" : "Dodaj do ulubionych"
@@ -83,7 +80,7 @@ export function ProductCard({
               }}
               className={cn(
                 isWishlisted
-                  ? "bg-[oklch(0.75_0.12_85)] text-brand-charcoal hover:bg-[oklch(0.75_0.12_85_/_0.9)]"
+                  ? "bg-brand-gold text-white hover:bg-brand-gold/90"
                   : "bg-white/85",
               )}
             >
@@ -118,12 +115,12 @@ export function ProductCard({
           </div>
         </div>
 
-        <div className="space-y-4 p-5">
+        <div className="space-y-6 px-8 py-10 md:px-10 md:py-12">
           <div className="space-y-2">
-            <p className="text-sm font-medium text-brand-gold uppercase tracking-[0.2em]">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-gold">
               {product.category}
             </p>
-            <h3 className="text-lg font-semibold text-brand-charcoal line-clamp-2">
+            <h3 className="text-xl font-semibold text-brand-charcoal line-clamp-2">
               {product.name}
             </h3>
             <p className="text-sm text-[color:oklch(0.45_0_0)] line-clamp-2">
@@ -131,11 +128,11 @@ export function ProductCard({
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {product.fabrics.slice(0, 4).map((fabric) => (
               <span
                 key={fabric.id}
-                className="size-7 rounded-full border border-[color:oklch(0.9_0_0)] shadow-sm"
+                className="size-8 rounded-full border border-neutral-200 shadow-sm"
                 style={{ backgroundColor: fabric.swatch }}
                 title={fabric.name}
               />
@@ -149,7 +146,7 @@ export function ProductCard({
 
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xl font-semibold text-brand-charcoal">
+              <p className="text-lg font-semibold text-brand-charcoal">
                 {priceLabel}
               </p>
               {compareLabel && (

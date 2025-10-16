@@ -1,7 +1,7 @@
 # Gawin-Home - Progress Log
 
 **Data Rozpoczęcia:** 2025-10-15
-**Ostatnia Aktualizacja:** 2025-10-17
+**Ostatnia Aktualizacja:** 2025-10-18
 
 ---
 
@@ -24,7 +24,7 @@
 | **Phase 5**  | Motion presets & mikrointerakcje                              | ✅ DONE    | 2025-10-17 | 45 min  | `motion/presets.ts`, fadeInUp, scroll overflow, hover states |
 | **Phase 6**  | Koszyk + Checkout (makiety)                                   | ✅ DONE    | 2025-10-17 | 90 min  | Layout koszyka, checkout 3-krokowy, CTA mock                 |
 | **Phase 6**  | Dokumentacja postępu & QA checklist                           | ✅ DONE    | 2025-10-17 | 30 min  | Zaktualizowano IMPLEMENTATION_PROGRESS + log                 |
-| **Phase 7**  | Polish & Deploy                                               | ⏳ PENDING | -          | -       | -                                                            |
+| **Phase 7**  | Polish & Deploy (styl `nowy_styl.md`)                         | ✅ DONE    | 2025-10-18 | 150 min | Kompletny theming, sekcje home, update PDP/listing/cart/checkout |
 
 **Legend:**
 
@@ -76,6 +76,20 @@ Status: COMPLETED
 
 **Uwagi:**
 - Kolejne sekcje wyglądają spójnie z Biblią; dalsze poprawki będą wynikały z feedbacku po przeglądzie wizualnym.
+
+### 2025-10-18 - Styl „Technologiczny Luksus + Ciepły Minimalizm” (Codex)
+
+#### ✅ Task: Implementacja specyfikacji `docs/nowy_styl.md`
+Status: COMPLETED
+
+**Co zrobiono:**
+- Zaktualizowano `app/globals.css`, `Container`, `Section` oraz wszystkie atomy UI (Button, Input, Textarea, IconButton, Accordion) pod nowe tokeny OKLCH, radiusy i focus rings.
+- Całkowicie przebudowano `/home` zgodnie z sekcjami 5.1–5.8 specyfikacji (hero 12 kolumn z hotspotami, kolekcje, bestsellery z `snap-x`, value props, dark product block + `SpecCard`, lookbook, newsletter).
+- Ujednolicono karty i widoki `/listing`, `/pdp`, `/cart`, `/checkout` – format cen `3 499 zł`, hotspoty PDP, Material Passport, akordeon FAQ, makiety koszyka i checkoutu w nowej siatce.
+- Dodano `components/cards/spec-card.tsx`, funkcję `formatCurrency` w `lib/utils.ts`, aktualizacje logów w `docs/IMPLEMENTATION_PROGRESS.md`.
+
+**Pozostaje:**
+- Faza wydajnościowa (placeholder blur, lazy-loading, Lighthouse ≥ 90) do domknięcia w kolejnym sprincie funkcjonalnym.
 
 ### 2025-10-15 - Design Unblock (Mock)
 

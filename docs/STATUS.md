@@ -16,6 +16,7 @@ Ten plik zbiera aktualny stan projektu po wdrożeniu kompletnej makiety UI na mo
 - Komponenty shadcn/ui z premium stylingiem (`components/ui/*`).
 - Layout helpers: `components/layout/section.tsx`, `components/layout/container.tsx`.
 - Karty: `components/cards/product-card.tsx`, `components/cards/category-card.tsx`.
+- Styl typu „Technologiczny luksus + ciepły minimalizm” wdrożony według `docs/nowy_styl.md` (hero hotspots, capsule CTA, SpecCard, akordeon FAQ).
 
 ## 📦 Mocki danych
 - JSON: `mock/products.json`, `mock/categories.json`, `mock/value-props.json`, `mock/lookbook.json`, `mock/hero.json`.
