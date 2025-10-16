@@ -2,10 +2,11 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getMockProductBySlug } from '@/lib/data-adapters/mock';
 
-type Params = { slug: string };
+type Params = Promise<{ slug: string }>;
 
 export async function generateMetadata({ params }: { params: Params }) {
-  const product = await getMockProductBySlug(params.slug);
+  const { slug } = await params;
+  const product = await getMockProductBySlug(slug);
   if (!product) return {};
   return {
     title: `${product.title} — Gawin-Home (Mock)`,
@@ -14,7 +15,8 @@ export async function generateMetadata({ params }: { params: Params }) {
 }
 
 export default async function ProductMockPage({ params }: { params: Params }) {
-  const product = await getMockProductBySlug(params.slug);
+  const { slug } = await params;
+  const product = await getMockProductBySlug(slug);
   if (!product) return notFound();
 
   return (

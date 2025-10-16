@@ -44,6 +44,11 @@ export function ProductCard({ product, className }: ProductCardProps) {
 
   const currentImage = isHovered && product.images[1] ? product.images[1] : product.images[0];
 
+  // Fallback if no images
+  if (!currentImage) {
+    return null;
+  }
+
   return (
     <Link
       href={`/product/${product.slug}`}

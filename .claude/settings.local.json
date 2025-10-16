@@ -7,7 +7,13 @@
       "Bash(pnpm dev)",
       "Bash(pnpm install)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(if [ -f \"data/products.json\" ])",
+      "Bash(then head -30 data/products.json)",
+      "Bash(else echo \"File not found\")",
+      "Bash(fi)"
     ],
     "deny": [],
     "ask": []

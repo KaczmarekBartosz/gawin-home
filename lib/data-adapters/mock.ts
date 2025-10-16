@@ -12,6 +12,19 @@ export type MockProduct = {
   description?: string;
 };
 
+type RawProduct = {
+  slug: string;
+  name: string;
+  description?: string;
+  category: string;
+  price: {
+    amount: number;
+    currency: string;
+  };
+  images: Array<{ url: string; alt: string }>;
+  tags?: string[];
+};
+
 let cache: { products?: MockProduct[] } = {};
 
 async function readJson<T>(relativePath: string): Promise<T> {
@@ -22,7 +35,17 @@ async function readJson<T>(relativePath: string): Promise<T> {
 
 export async function getMockProducts(): Promise<MockProduct[]> {
   if (!cache.products) {
-    cache.products = await readJson<MockProduct[]>(`data/products.json`);
+    const raw = await readJson<RawProduct[]>(`data/products.json`);
+    cache.products = raw.map(p => ({
+      slug: p.slug,
+      title: p.name,
+      price: p.price.amount,
+      currency: p.price.currency,
+      image: p.images[0]?.url || '',
+      category: p.category,
+      tags: p.tags,
+      description: p.description
+    }));
   }
   return cache.products!;
 }

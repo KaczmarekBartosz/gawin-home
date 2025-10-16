@@ -7,7 +7,7 @@ import { ThemeProvider } from 'lib/design-system';
 import { getCart } from 'lib/shopify';
 import { baseUrl } from 'lib/utils';
 import { ReactNode } from 'react';
-import { Toaster } from 'sonner';
+// import { Toaster } from 'sonner'; // Disabled - causes build errors
 import './globals.css';
 
 const { SITE_NAME } = process.env;
@@ -40,7 +40,7 @@ export default async function RootLayout({
             <PremiumNavbar />
             <main>
               {children}
-              <Toaster closeButton />
+              {/* <Toaster closeButton /> */}
               {/* <WelcomeToast /> */}
             </main>
             <Footer />
