@@ -1,623 +1,403 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
-@plugin "@tailwindcss/container-queries";
-@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/container-queries';
+@plugin '@tailwindcss/typography';
 
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
+:root {
+  /* Typography */
+  --font-sans: var(--font-geist-sans, "Geist Sans", system-ui, sans-serif);
+  --font-display: var(--font-display, "Space Grotesk", var(--font-sans));
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+  /* Hybrid palette — OKLCH space (matches docs/biblia.md) */
+  --color-dark-bg: oklch(0.11 0 0);
+  --color-dark-surface: oklch(0.15 0 0);
+  --color-light-bg: oklch(1 0 0);
+  --color-light-surface: oklch(0.98 0 0);
+  --color-cream-bg: oklch(0.97 0.005 85);
+  --color-sand-bg: oklch(0.94 0.02 85);
+  --color-border-light: oklch(0.9 0 0);
 
-@supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading='lazy'] {
-    clip-path: inset(0.6px);
-  }
-}
+  --color-text-light: oklch(0.96 0 0);
+  --color-text-muted: oklch(0.63 0 0);
+  --color-text-dark: oklch(0.11 0 0);
+  --color-text-gray: oklch(0.4 0 0);
 
-a,
-input,
-button {
-  @apply focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+  --color-gold-primary: oklch(0.75 0.12 85);
+  --color-gold-hover: oklch(0.68 0.12 85);
+  --color-gold-muted: oklch(0.72 0.1 85);
+
+  /* Semantic aliases */
+  --brand-charcoal: var(--color-text-dark);
+  --brand-cream: var(--color-cream-bg);
+  --brand-sand: var(--color-sand-bg);
+  --brand-gold: var(--color-gold-primary);
+  --brand-copper: oklch(0.64 0.09 70);
+
+  /* Radii (8px grid) */
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  /* Shadows */
+  --shadow-soft: 0 20px 48px rgba(26, 26, 26, 0.08);
+  --shadow-elevated: 0 32px 64px rgba(26, 26, 26, 0.12);
+
+  /* Gradients */
+  --gradient-gold-primary: linear-gradient(
+    135deg,
+    oklch(0.75 0.12 85) 0%,
+    oklch(0.7 0.1 85) 45%,
+    oklch(0.64 0.09 70) 100%
+  );
+
+  /* Section rhythm */
+  --section-spacing-mobile: 5rem;
+  --section-spacing-desktop: 8rem;
 }
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
+  --radius: var(--radius-xl);
+  --radius-sm: calc(var(--radius-lg) - 8px);
+  --radius-md: var(--radius-lg);
+  --radius-lg: var(--radius-xl);
 
-/* ========================================
-   GAWIN-HOME HYBRYDOWY DESIGN SYSTEM (OKLCH)
-   "Perfekcja w prostocie" - Elegancja + Minimalizm
-   ======================================== */
-
-:root,
-:root[data-theme='hybrid-luxury'] {
-  /* ===== OKLCH Design Tokens (Foundation) ===== */
-
-  /* Tryb "Elegancki" (Ciemny) - Dark Entry */
-  --color-dark-bg: oklch(0.11 0 0); /* #1a1a1a */
-  --color-dark-surface: oklch(0.15 0 0); /* #252525 */
-  --color-text-light: oklch(0.96 0 0); /* #f5f5f5 */
-  --color-text-muted: oklch(0.63 0 0); /* #a0a0a0 */
-
-  /* Tryb "Showroom" (Jasny) - Light Products */
-  --color-light-bg: oklch(1 0 0); /* #ffffff */
-  --color-cream-bg: oklch(0.97 0.005 85); /* #f5f5f0 */
-  --color-text-dark: oklch(0.11 0 0); /* #1a1a1a */
-  --color-text-gray: oklch(0.40 0 0); /* #666666 */
-  --color-border-light: oklch(0.90 0 0); /* #e5e5e5 */
-
-  /* Złote Akcenty (KEY COLORS!) */
-  --color-gold-primary: oklch(0.75 0.12 85); /* #d4af37 */
-  --color-gold-hover: oklch(0.68 0.12 85); /* #c19b2b */
-
-  /* ===== Tailwind CSS Variables (mapped from OKLCH) ===== */
-  --radius: 1.5rem; /* 24px - rounded-xl dla PRZYCISKÓW (zgodnie z spec: --radius-xl) */
-
-  /* Light Showroom (Product pages) */
-  --background: 250 250 249; /* #FAFAF9 - brand-cream */
-  --foreground: 26 26 26; /* #1A1A1A - brand-charcoal */
-
-  --card: 255 255 255; /* Pure white cards */
-  --card-foreground: 26 26 26;
-  --popover: 255 255 255;
-  --popover-foreground: 26 26 26;
-
-  /* Primary - Dark (for Hero/Footer) */
-  --primary: 26 26 26; /* brand-charcoal */
-  --primary-foreground: 250 250 249;
-
-  /* Accent - Gold (KEY COLOR!) */
-  --accent: 212 165 116; /* #d4a574 - brand-gold */
-  --accent-foreground: 255 255 255;
-
-  /* Secondary gold (hover state) */
-  --accent-blue: 184 149 106; /* #b8956a - brand-copper */
-  --accent-blue-foreground: 255 255 255;
-
-  /* Keep green as gold too */
-  --accent-green: 212 165 116;
-  --accent-green-foreground: 255 255 255;
-
-  /* UI states */
-  --secondary: 245 245 245; /* #F5F5F5 - brand-sand */
-  --secondary-foreground: 26 26 26;
-  --muted: 245 245 245;
-  --muted-foreground: 102 102 102; /* #666666 */
-  --border: 229 229 229; /* #E5E5E5 */
-  --input: 255 255 255;
-  --ring: 212 165 116; /* Gold focus ring */
-
-  /* Status colors */
-  --destructive: 220 38 38;
-  --destructive-foreground: 255 255 255;
-  --warning: 245 158 11;
-  --warning-foreground: 255 255 255;
-  --success: 16 185 129;
-  --success-foreground: 255 255 255;
-  --info: 59 130 246;
-  --info-foreground: 255 255 255;
-
-  /* Charts */
-  --chart-1: 212 165 116; /* Gold */
-  --chart-2: 184 149 106; /* Copper */
-  --chart-3: 245 245 245; /* Sand */
-  --chart-4: 102 102 102; /* Gray */
-  --chart-5: 26 26 26; /* Charcoal */
-
-  /* Sidebar */
-  --sidebar: 255 255 255;
-  --sidebar-foreground: 26 26 26;
-  --sidebar-primary: 212 165 116;
-  --sidebar-primary-foreground: 255 255 255;
-  --sidebar-accent: 245 245 245;
-  --sidebar-accent-foreground: 26 26 26;
-  --sidebar-border: 229 229 229;
-  --sidebar-ring: 212 165 116;
-
-  /* Radius tokens - ZGODNE Z HYBRYDOWYM DESIGN SYSTEM */
-  --radius-sm: 0.5rem;   /* 8px - małe elementy */
-  --radius-md: 0.75rem;  /* 12px - pola formularzy, rounded-md */
-  --radius-lg: 1rem;     /* 16px - pola formularzy, rounded-lg */
-  --radius-xl: 1.5rem;   /* 24px - PRZYCISKI (rounded-xl) ⭐ */
-  --radius-2xl: 2rem;    /* 32px - DUŻE KARTY, BANERY (rounded-2xl) ⭐ */
-}
-
-:root[data-theme='wellness-tech'] {
-  /* Gawin-Home Custom Radius (rounded-xl for buttons) */
-  --radius: 1rem; /* 16px - Wellness Tech base radius */
-
-  /* Wellness Tech - Light, clean, health-app inspired */
-  --background: 248 248 248; /* #F8F8F8 - Light grey canvas */
-  --foreground: 51 51 51; /* #333333 - Dark grey text */
-
-  --card: 255 255 255; /* #FFFFFF - Pure white cards */
-  --card-foreground: 51 51 51;
-  --popover: 255 255 255;
-  --popover-foreground: 51 51 51;
-
-  /* Primary - Dark grey */
-  --primary: 51 51 51;
-  --primary-foreground: 255 255 255;
-
-  /* Accent - Energetic orange/gold (prices, CTA) */
-  --accent: 255 140 66; /* #FF8C42 */
-  --accent-foreground: 255 255 255;
-
-  /* Accent Blue - Info/availability */
-  --accent-blue: 91 141 239; /* #5B8DEF */
-  --accent-blue-foreground: 255 255 255;
-
-  /* Accent Green - Success/eco */
-  --accent-green: 76 175 80; /* #4CAF50 */
-  --accent-green-foreground: 255 255 255;
-
-  /* UI states */
-  --secondary: 232 232 232; /* #E8E8E8 */
-  --secondary-foreground: 51 51 51;
-  --muted: 232 232 232;
-  --muted-foreground: 117 117 117; /* #757575 */
-  --border: 224 224 224; /* #E0E0E0 */
-  --input: 232 232 232;
-  --ring: 255 140 66; /* Orange focus ring */
-
-  /* Status colors */
-  --destructive: 239 68 68; /* #EF4444 */
-  --destructive-foreground: 255 255 255;
-  --warning: 245 158 11; /* #F59E0B */
-  --warning-foreground: 255 255 255;
-  --success: 76 175 80;
-  --success-foreground: 255 255 255;
-  --info: 91 141 239;
-  --info-foreground: 255 255 255;
-
-  /* Charts (using accent colors) */
-  --chart-1: 255 140 66; /* Accent orange */
-  --chart-2: 91 141 239; /* Accent blue */
-  --chart-3: 76 175 80; /* Accent green */
-  --chart-4: 156 163 175; /* Neutral grey */
-  --chart-5: 51 51 51; /* Primary dark */
-
-  /* Sidebar */
-  --sidebar: 255 255 255;
-  --sidebar-foreground: 51 51 51;
-  --sidebar-primary: 255 140 66;
-  --sidebar-primary-foreground: 255 255 255;
-  --sidebar-accent: 232 232 232;
-  --sidebar-accent-foreground: 51 51 51;
-  --sidebar-border: 224 224 224;
-  --sidebar-ring: 255 140 66;
-
-  /* Radius tokens for this theme */
-  --radius-sm: 0.5rem; /* 8px */
-  --radius-base: 0.75rem; /* 12px */
-  --radius-md: 1rem; /* 16px */
-  --radius-lg: 1.5rem; /* 24px - characteristic of wellness tech */
-  --radius-xl: 2rem; /* 32px */
-  --radius-2xl: 2.5rem; /* 40px */
-}
-
-/* ========================================
-   THEME SYSTEM - Dark Luxury (Example)
-   ======================================== */
-
-:root[data-theme='dark-luxury'] {
-  /* Dark Luxury - Premium dark with gold accents */
-  --radius: 0.5rem; /* Less rounded for more elegant feel */
-
-  --background: 26 26 26; /* #1a1a1a - Dark graphite */
-  --foreground: 245 245 245; /* #f5f5f5 - Light text */
-
-  --card: 37 37 37; /* #252525 - Dark surface */
-  --card-foreground: 245 245 245;
-  --popover: 37 37 37;
-  --popover-foreground: 245 245 245;
-
-  /* Gold Primary (Premium accent) */
-  --primary: 212 175 55; /* Gold #d4af37 */
-  --primary-foreground: 26 26 26;
-
-  /* Accent - Gold */
-  --accent: 212 175 55;
-  --accent-foreground: 26 26 26;
-
-  --accent-blue: 100 149 237; /* Cornflower blue */
-  --accent-blue-foreground: 255 255 255;
-
-  --accent-green: 50 205 50; /* Lime green */
-  --accent-green-foreground: 255 255 255;
-
-  --secondary: 69 69 69;
-  --secondary-foreground: 245 245 245;
-  --muted: 69 69 69;
-  --muted-foreground: 160 160 160;
-  --border: 64 64 64;
-  --input: 64 64 64;
-  --ring: 212 175 55; /* Gold ring */
-
-  --destructive: 220 38 38;
-  --destructive-foreground: 255 255 255;
-  --warning: 245 158 11;
-  --warning-foreground: 255 255 255;
-  --success: 34 197 94;
-  --success-foreground: 255 255 255;
-  --info: 59 130 246;
-  --info-foreground: 255 255 255;
-
-  --chart-1: 212 175 55;
-  --chart-2: 100 149 237;
-  --chart-3: 50 205 50;
-  --chart-4: 160 160 160;
-  --chart-5: 245 245 245;
-
-  --sidebar: 37 37 37;
-  --sidebar-foreground: 245 245 245;
-  --sidebar-primary: 212 175 55;
-  --sidebar-primary-foreground: 26 26 26;
-  --sidebar-accent: 69 69 69;
-  --sidebar-accent-foreground: 245 245 245;
-  --sidebar-border: 64 64 64;
-  --sidebar-ring: 212 175 55;
-
-  --radius-sm: 0.25rem;
-  --radius-base: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2rem;
-}
-
-/* Legacy .dark class support (can be removed later) */
-.dark {
-  --background: 26 26 26;
-  --foreground: 245 245 245;
-  --card: 37 37 37;
-  --card-foreground: 245 245 245;
-  --popover: 37 37 37;
-  --popover-foreground: 245 245 245;
-  --primary: 212 175 55;
-  --primary-foreground: 26 26 26;
-  --secondary: 69 69 69;
-  --secondary-foreground: 245 245 245;
-  --muted: 69 69 69;
-  --muted-foreground: 160 160 160;
-  --accent: 69 69 69;
-  --accent-foreground: 245 245 245;
-  --destructive: 220 38 38;
-  --border: 64 64 64;
-  --input: 64 64 64;
-  --ring: 212 175 55;
-}
-
-/* ========================================
-   BRAND COLOR ALIASES (for easier usage)
-   ======================================== */
-
-:root,
-:root[data-theme='hybrid-luxury'] {
-  /* Brand Colors - Semantic Names */
-  --brand-cream: 250 250 249; /* #FAFAF9 - same as background */
-  --brand-sand: 245 245 245; /* #F5F5F5 - same as secondary */
-  --brand-charcoal: 26 26 26; /* #1A1A1A - same as foreground/primary */
-  --brand-gold: 212 165 116; /* #d4a574 - same as accent */
-  --brand-copper: 184 149 106; /* #b8956a - same as accent-blue (hover) */
-  --neutral-border: 229 231 235; /* #E5E7EB - ~E5E5E5 */
+  --color-background: var(--color-light-bg);
+  --color-foreground: var(--color-text-dark);
+  --color-card: var(--color-light-surface);
+  --color-card-foreground: var(--color-text-dark);
+  --color-popover: var(--color-light-surface);
+  --color-popover-foreground: var(--color-text-dark);
+  --color-primary: var(--color-gold-primary);
+  --color-primary-foreground: var(--color-dark-bg);
+  --color-secondary: var(--color-sand-bg);
+  --color-secondary-foreground: var(--color-text-dark);
+  --color-muted: var(--color-sand-bg);
+  --color-muted-foreground: var(--color-text-gray);
+  --color-accent: var(--color-gold-primary);
+  --color-accent-foreground: var(--color-dark-bg);
+  --color-destructive: oklch(0.6 0.2 30);
+  --color-destructive-foreground: var(--color-light-bg);
+  --color-border: var(--color-border-light);
+  --color-input: var(--color-light-surface);
+  --color-ring: var(--color-gold-primary);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  *,
+  ::before,
+  ::after,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border-light);
   }
+
   body {
-    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    background-color: var(--color-light-bg);
+    color: var(--color-text-dark);
+  }
+
+  :where(a, button, input, textarea, select) {
+    outline: none;
+    transition:
+      color 200ms ease,
+      background-color 200ms ease,
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      transform 200ms ease;
+  }
+
+  :where(a, button, input, textarea, select):focus-visible {
+    box-shadow: 0 0 0 2px var(--color-gold-primary);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  }
+
+  @supports (font: -apple-system-body) and (-webkit-appearance: none) {
+    img[loading="lazy"] {
+      clip-path: inset(0.6px);
+    }
+  }
+
+  .bg-dark-entry {
+    background-color: var(--color-dark-bg);
+    color: var(--color-text-light);
+  }
+
+  .bg-light-showroom {
+    background-color: var(--color-light-bg);
+    color: var(--color-text-dark);
+  }
+
+  .surface-dark {
+    background-color: var(--color-dark-surface);
+    color: var(--color-text-light);
+  }
+
+  .surface-light {
+    background-color: var(--color-light-surface);
+    color: var(--color-text-dark);
+  }
+
+  .text-on-dark {
+    color: var(--color-text-light);
+  }
+
+  .text-on-light {
+    color: var(--color-text-dark);
+  }
+
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  .text-muted-dark {
+    color: var(--color-text-gray);
+  }
+
+  .focus-ring-gold {
+    box-shadow: 0 0 0 2px var(--color-gold-primary);
+  }
+
+  .section-padding {
+    padding-block: var(--section-spacing-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-block: var(--section-spacing-desktop);
+    }
+  }
+
+  .noise-dark {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .noise-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    z-index: -1;
   }
 }
 
-/* ========================================
-   TYPOGRAPHY UTILITIES (Gawin-Home)
-   ======================================== */
-
 @layer utilities {
-  /* Display (Hero Headings) */
   .text-display-hero {
-    @apply text-5xl lg:text-7xl font-bold tracking-tighter;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    font-size: clamp(2.75rem, 6vw, 5.5rem);
   }
 
-  /* Heading Styles */
   .text-h1 {
-    @apply text-4xl lg:text-5xl font-bold tracking-tight;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
   }
 
   .text-h2 {
-    @apply text-3xl lg:text-4xl font-bold;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 3vw, 2.75rem);
   }
 
   .text-h3 {
-    @apply text-xl lg:text-2xl font-semibold;
-  }
-
-  /* Body Styles */
-  .text-body-descriptive {
-    @apply text-base lg:text-lg leading-relaxed text-neutral-600;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
   }
 
   .text-body-standard {
-    @apply text-base;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-gray);
   }
 
-  /* Label Styles */
+  .text-body-descriptive {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.75;
+    color: var(--color-text-muted);
+  }
+
   .text-label {
-    @apply text-sm font-medium uppercase tracking-wider;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
   }
 
-  /* Brand Color Utilities */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
   .bg-brand-cream {
-    background-color: rgb(var(--brand-cream));
+    background-color: var(--color-cream-bg);
   }
 
   .bg-brand-sand {
-    background-color: rgb(var(--brand-sand));
+    background-color: var(--color-sand-bg);
   }
 
   .bg-brand-charcoal {
-    background-color: rgb(var(--brand-charcoal));
-  }
-
-  .bg-brand-gold {
-    background-color: rgb(var(--brand-gold));
-  }
-
-  .bg-brand-copper {
-    background-color: rgb(var(--brand-copper));
-  }
-
-  .text-brand-cream {
-    color: rgb(var(--brand-cream));
-  }
-
-  .text-brand-sand {
-    color: rgb(var(--brand-sand));
+    background-color: var(--brand-charcoal);
   }
 
   .text-brand-charcoal {
-    color: rgb(var(--brand-charcoal));
+    color: var(--brand-charcoal);
   }
 
   .text-brand-gold {
-    color: rgb(var(--brand-gold));
+    color: var(--brand-gold);
   }
 
-  .text-brand-copper {
-    color: rgb(var(--brand-copper));
+  .text-brand-cream {
+    color: var(--brand-cream);
   }
 
   .border-brand-gold {
-    border-color: rgb(var(--brand-gold));
+    border-color: var(--brand-gold);
   }
 
-  .border-brand-copper {
-    border-color: rgb(var(--brand-copper));
-  }
-
-  .border-neutral-border {
-    border-color: rgb(var(--neutral-border));
-  }
-
-  /* Ring Utilities for Focus States */
   .ring-brand-gold {
-    --tw-ring-color: rgb(var(--brand-gold));
+    --tw-ring-color: var(--brand-gold);
   }
 
-  /* ========================================
-     PREMIUM DESIGN SYSTEM - Glassmorphism
-     ======================================== */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
 
-  /* Glass Light - for light backgrounds */
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .bg-gradient-gold {
+    background-image: var(--gradient-gold-primary);
+    color: var(--color-dark-bg);
+  }
+
+  .gradient-gold-premium,
+  .bg-gradient-gold-premium {
+    background-image: var(--gradient-gold-primary);
+    color: var(--color-dark-bg);
+  }
+
   .glass-light {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
   }
 
-  /* Glass Dark - for dark backgrounds */
   .glass-dark {
-    background: rgba(26, 26, 26, 0.4);
-    backdrop-filter: blur(16px) saturate(120%);
-    -webkit-backdrop-filter: blur(16px) saturate(120%);
-    border: 1px solid rgba(212, 165, 116, 0.2);
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  /* Glass Gold - premium glassmorphism with gold tint */
   .glass-gold {
-    background: rgba(212, 165, 116, 0.1);
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
-    border: 1px solid rgba(212, 165, 116, 0.3);
+    background: rgba(212, 165, 116, 0.12);
+    backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(212, 165, 116, 0.35);
   }
 
-  /* ========================================
-     MESH GRADIENTS - Modern Premium
-     ======================================== */
-
-  /* Mesh Gradient Gold - for hero/dark sections */
   .mesh-gradient-gold {
     background:
-      radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 90% 80%, rgba(184, 149, 106, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(212, 165, 116, 0.05) 0%, transparent 70%),
-      #1a1a1a;
+      radial-gradient(
+        circle at 10% 20%,
+        rgba(212, 175, 55, 0.18) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 80%,
+        rgba(184, 149, 106, 0.12) 0%,
+        transparent 55%
+      ),
+      var(--color-dark-bg);
   }
 
-  /* Mesh Gradient Light - for light sections with subtle gold */
   .mesh-gradient-light {
     background:
-      radial-gradient(circle at 30% 50%, rgba(212, 165, 116, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 70% 50%, rgba(184, 149, 106, 0.06) 0%, transparent 50%),
-      #FAFAF9;
+      radial-gradient(
+        circle at 30% 40%,
+        rgba(212, 165, 116, 0.12) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 70% 60%,
+        rgba(184, 149, 106, 0.08) 0%,
+        transparent 60%
+      ),
+      var(--color-cream-bg);
   }
 
-  /* ========================================
-     PREMIUM GRADIENTS - Animated
-     ======================================== */
-
-  /* Premium Gold Gradient - multi-stop with animation */
-  .gradient-gold-premium {
-    background: linear-gradient(
-      135deg,
-      #d4af37 0%,
-      #d4a574 25%,
-      #b8956a 50%,
-      #d4a574 75%,
-      #d4af37 100%
-    );
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
+  .border-gradient-gold {
+    position: relative;
+    border: 2px solid transparent;
+    background:
+      linear-gradient(var(--color-light-bg), var(--color-light-bg)) padding-box,
+      var(--gradient-gold-primary) border-box;
   }
 
-  /* Premium Gold Gradient Radial - for hero accents */
-  .gradient-gold-radial {
-    background: radial-gradient(
-      circle,
-      rgba(212, 175, 55, 1) 0%,
-      rgba(212, 165, 116, 1) 50%,
-      rgba(184, 149, 106, 1) 100%
-    );
-  }
-
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  /* ========================================
-     GLOW EFFECTS - Premium Polish
-     ======================================== */
-
-  /* Gold Glow - for cards/buttons on hover */
   .glow-gold {
     box-shadow:
-      0 0 40px rgba(212, 165, 116, 0.3),
-      0 8px 32px rgba(0, 0, 0, 0.1);
+      0 12px 32px rgba(26, 26, 26, 0.12),
+      0 0 40px rgba(212, 165, 116, 0.25);
   }
 
-  /* Intense Gold Glow - for hero CTAs */
   .glow-gold-intense {
     box-shadow:
-      0 0 60px rgba(212, 175, 55, 0.4),
-      0 0 100px rgba(212, 165, 116, 0.2),
-      0 12px 40px rgba(0, 0, 0, 0.15);
+      0 16px 40px rgba(26, 26, 26, 0.16),
+      0 0 60px rgba(212, 165, 116, 0.35);
   }
 
-  /* Text Glow Gold - for hero headings */
   .text-glow-gold {
     text-shadow:
-      0 0 40px rgba(212, 165, 116, 0.3),
-      0 0 80px rgba(212, 175, 55, 0.2),
-      0 0 120px rgba(212, 165, 116, 0.1);
+      0 0 30px rgba(212, 165, 116, 0.4),
+      0 0 60px rgba(212, 165, 116, 0.25);
   }
 
-  /* Soft Inner Glow - for inputs */
-  .glow-inner-soft {
-    box-shadow: inset 0 2px 8px rgba(212, 165, 116, 0.1);
-  }
-
-  /* ========================================
-     PREMIUM EFFECTS - Extra Polish
-     ======================================== */
-
-  /* Noise Texture - subtle grain overlay */
-  .noise-texture::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  /* Shimmer Effect - for premium buttons */
   .shimmer {
     position: relative;
     overflow: hidden;
   }
 
   .shimmer::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0;
-    left: -150%;
-    width: 150%;
-    height: 100%;
+    inset: 0;
+    transform: translateX(-120%);
     background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.3) 50%,
-      transparent 100%
+      120deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 75%
     );
-    animation: shimmer 3s infinite;
+    animation: shimmer 3s ease-in-out infinite;
   }
 
   @keyframes shimmer {
-    0% { left: -150%; }
-    100% { left: 150%; }
-  }
-
-  /* Premium Border Gradient - animated */
-  .border-gradient-gold {
-    position: relative;
-    border: 2px solid transparent;
-    background: linear-gradient(#1a1a1a, #1a1a1a) padding-box,
-                linear-gradient(135deg, #d4af37, #d4a574, #b8956a) border-box;
+    0% {
+      transform: translateX(-120%);
+    }
+    50% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(120%);
+    }
   }
 }

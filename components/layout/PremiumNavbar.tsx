@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Menu, Search, ShoppingBag, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export function PremiumNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,16 +15,16 @@ export function PremiumNavbar() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/products', label: 'Produkty' },
-    { href: '/collections', label: 'Kolekcje' },
-    { href: '/about', label: 'O Nas' },
-    { href: '/contact', label: 'Kontakt' },
+    { href: "/home", label: "Home" },
+    { href: "/listing", label: "Listing" },
+    { href: "/pdp", label: "PDP" },
+    { href: "/cart", label: "Koszyk" },
+    { href: "/checkout", label: "Checkout" },
   ];
 
   return (
@@ -32,12 +32,12 @@ export function PremiumNavbar() {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? 'glass-dark shadow-lg border-b border-brand-gold/10'
-            : 'bg-transparent'
+            ? "glass-dark shadow-lg border-b border-[color:oklch(0.75_0.12_85_/_0.12)]"
+            : "bg-transparent",
         )}
       >
         <div className="container mx-auto px-4 md:px-6">
@@ -58,7 +58,7 @@ export function PremiumNavbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-brand-cream/80 hover:text-brand-gold transition-colors relative group"
+                  className="text-sm font-medium text-brand-cream opacity-80 hover:text-brand-gold transition-colors relative group"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold group-hover:w-full transition-all duration-300" />
@@ -69,34 +69,45 @@ export function PremiumNavbar() {
             {/* Actions */}
             <div className="flex items-center gap-4">
               {/* Search */}
-              <button
-                className="p-2 rounded-xl hover:bg-brand-gold/10 transition-colors"
-                aria-label="Search"
+              <Link
+                href="/listing"
+                className="rounded-xl p-2 transition-colors hover:bg-[oklch(0.75_0.12_85_/_0.12)]"
+                aria-label="Przejdź do listingu"
               >
-                <Search className="h-5 w-5 text-brand-cream" strokeWidth={1.5} />
-              </button>
+                <Search
+                  className="h-5 w-5 text-brand-cream"
+                  strokeWidth={1.5}
+                />
+              </Link>
 
               {/* Cart */}
-              <button
-                className="p-2 rounded-xl hover:bg-brand-gold/10 transition-colors relative"
-                aria-label="Cart"
+              <Link
+                href="/cart"
+                className="relative rounded-xl p-2 transition-colors hover:bg-[oklch(0.75_0.12_85_/_0.12)]"
+                aria-label="Koszyk"
               >
-                <ShoppingBag className="h-5 w-5 text-brand-cream" strokeWidth={1.5} />
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-brand-gold rounded-full text-xs font-bold text-white flex items-center justify-center">
+                <ShoppingBag
+                  className="h-5 w-5 text-brand-cream"
+                  strokeWidth={1.5}
+                />
+                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-gold text-xs font-bold text-white">
                   0
                 </span>
-              </button>
+              </Link>
 
               {/* Mobile Menu Toggle */}
               <button
-                className="md:hidden p-2 rounded-xl hover:bg-brand-gold/10 transition-colors"
+                className="md:hidden p-2 rounded-xl transition-colors hover:bg-[oklch(0.75_0.12_85_/_0.12)]"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Menu"
               >
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6 text-brand-cream" strokeWidth={1.5} />
                 ) : (
-                  <Menu className="h-6 w-6 text-brand-cream" strokeWidth={1.5} />
+                  <Menu
+                    className="h-6 w-6 text-brand-cream"
+                    strokeWidth={1.5}
+                  />
                 )}
               </button>
             </div>
@@ -108,9 +119,9 @@ export function PremiumNavbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
+            initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
+            exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 md:hidden"
           >
@@ -119,17 +130,17 @@ export function PremiumNavbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-brand-charcoal/80 backdrop-blur-sm"
+              className="absolute inset-0 backdrop-blur-sm bg-[oklch(0.11_0_0_/_0.82)]"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
             {/* Menu Content */}
             <motion.div
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm glass-dark border-l border-brand-gold/20"
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm glass-dark border-l border-[color:oklch(0.75_0.12_85_/_0.2)]"
             >
               <div className="p-6 pt-24">
                 <nav className="space-y-6">

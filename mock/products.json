@@ -1,0 +1,350 @@
+[
+  {
+    "id": "prod_001",
+    "slug": "sofa-modulowa-luna",
+    "name": "Sofa modułowa Luna",
+    "description": "Modułowy układ z głębokim siedziskiem i miękkimi poduchami. Idealna do strefy relaksu.",
+    "category": "Sofy",
+    "price": 8499,
+    "compareAtPrice": 9999,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1616628182501-4bdb1d06b164?w=1600&q=80",
+        "alt": "Sofa modułowa Luna w salonie w odcieniach grafitu"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1616627565127-0465d74b8a5d?w=1600&q=80",
+        "alt": "Detal modułu narożnego sofy Luna"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_001", "name": "Welur obsydian", "swatch": "#2F3033" },
+      { "id": "fab_002", "name": "Bouclé piaskowe", "swatch": "#D9D2C5" },
+      { "id": "fab_003", "name": "Len popiel", "swatch": "#B8BABF" }
+    ],
+    "dimensions": { "w": 240, "h": 85, "d": 95, "unit": "cm" },
+    "rating": 4.8,
+    "reviewCount": 127,
+    "badges": ["new", "-15%"],
+    "tags": ["sofa", "modułowa", "premium"]
+  },
+  {
+    "id": "prod_002",
+    "slug": "sofa-narozna-aurora",
+    "name": "Sofa narożna Aurora",
+    "description": "Elegancka sofa narożna z opcją dopasowania modułów i regulacją zagłówków.",
+    "category": "Sofy",
+    "price": 9299,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80",
+        "alt": "Sofa narożna Aurora z geometrycznymi poduszkami"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80",
+        "alt": "Salon w stylu hybrydowym z sofą Aurora"
+      }
+    ],
+    "fabrics": [
+      {
+        "id": "fab_004",
+        "name": "Tkanina performance węgiel",
+        "swatch": "#3B3D3F"
+      },
+      { "id": "fab_005", "name": "Welur bursztyn", "swatch": "#C28B5B" }
+    ],
+    "dimensions": { "w": 270, "h": 82, "d": 105, "unit": "cm" },
+    "rating": 4.6,
+    "reviewCount": 94,
+    "badges": ["bestseller"],
+    "tags": ["sofa", "narożna", "luksus"]
+  },
+  {
+    "id": "prod_003",
+    "slug": "lozko-tapicerowane-aster",
+    "name": "Łóżko tapicerowane Aster",
+    "description": "Wysokie wezgłowie i miękka tapicerka. Idealne do sypialni master w trybie Eleganckim.",
+    "category": "Łóżka",
+    "price": 6799,
+    "compareAtPrice": 7199,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1600&q=80",
+        "alt": "Łóżko tapicerowane Aster z wysokim wezgłowiem"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1600&q=80",
+        "alt": "Detal wykończenia łóżka Aster"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_006", "name": "Welur księżycowy", "swatch": "#B6B6C0" },
+      { "id": "fab_007", "name": "Wełna nocna", "swatch": "#4A4B56" }
+    ],
+    "dimensions": { "w": 180, "h": 120, "d": 210, "unit": "cm" },
+    "rating": 4.9,
+    "reviewCount": 204,
+    "badges": ["nowość"],
+    "tags": ["łóżko", "tapicerowane", "premium"]
+  },
+  {
+    "id": "prod_004",
+    "slug": "lozko-debowe-horizon",
+    "name": "Łóżko dębowe Horizon",
+    "description": "Minimalistyczna rama z litego dębu olejowanego, z ukrytym pojemnikiem na pościel.",
+    "category": "Łóżka",
+    "price": 5999,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1608111287394-0b7f933b93f1?w=1600&q=80",
+        "alt": "Łóżko Horizon z dębową ramą w jasnej sypialni"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?w=1600&q=80",
+        "alt": "Detal drewnianej nogi łóżka Horizon"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_008", "name": "Len naturalny", "swatch": "#D6CEC2" }
+    ],
+    "dimensions": { "w": 200, "h": 95, "d": 214, "unit": "cm" },
+    "rating": 4.7,
+    "reviewCount": 112,
+    "badges": ["eko"],
+    "tags": ["łóżko", "drewno", "minimalizm"]
+  },
+  {
+    "id": "prod_005",
+    "slug": "stol-rozsuwany-orion",
+    "name": "Stół rozsuwany Orion",
+    "description": "Rozsuwany blat z naturalnego forniru orzechowego i stalowe nogi w kolorze grafitowym.",
+    "category": "Stoły",
+    "price": 5299,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1600&q=80",
+        "alt": "Stół rozsuwany Orion w jasnej jadalni"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1600&q=80",
+        "alt": "Detal blatu stołu Orion"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_009", "name": "Orzech satynowy", "swatch": "#6B4A2D" },
+      { "id": "fab_010", "name": "Matowy grafit", "swatch": "#3C3D40" }
+    ],
+    "dimensions": { "w": 200, "h": 76, "d": 95, "unit": "cm" },
+    "rating": 4.5,
+    "reviewCount": 88,
+    "badges": ["bestseller"],
+    "tags": ["stół", "rozsuwany", "jadalnia"]
+  },
+  {
+    "id": "prod_006",
+    "slug": "stol-marmurowy-stella",
+    "name": "Stół marmurowy Stella",
+    "description": "Okrągły stół z blatem z włoskiego marmuru Carrara i rzeźbioną podstawą.",
+    "category": "Stoły",
+    "price": 7499,
+    "compareAtPrice": 7999,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80",
+        "alt": "Stół marmurowy Stella z welurowymi krzesłami"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1522156373667-4c7234bbd804?w=1600&q=80",
+        "alt": "Detal blatu marmurowego Stella"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_011", "name": "Marmur Carrara", "swatch": "#E7E8ED" },
+      { "id": "fab_012", "name": "Mosiądz szczotkowany", "swatch": "#C8A467" }
+    ],
+    "dimensions": { "w": 140, "h": 75, "d": 140, "unit": "cm" },
+    "rating": 4.4,
+    "reviewCount": 56,
+    "badges": ["limitowana"],
+    "tags": ["stół", "marmur", "okrągły"]
+  },
+  {
+    "id": "prod_007",
+    "slug": "krzeslo-welurowe-sienna",
+    "name": "Krzesło welurowe Sienna",
+    "description": "Miękkie shell-krzesło na delikatnej, złotej podstawie. Idealne do stołów Stella i Orion.",
+    "category": "Krzesła",
+    "price": 1299,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1503602642458-232111445657?w=1600&q=80",
+        "alt": "Krzesło welurowe Sienna w kolorze miodowym"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1598300042247-7855488ddb7d?w=1600&q=80",
+        "alt": "Detal tapicerki krzesła Sienna"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_013", "name": "Welur korzenny", "swatch": "#A6693B" },
+      { "id": "fab_014", "name": "Welur szampański", "swatch": "#D8C5A8" }
+    ],
+    "dimensions": { "w": 54, "h": 82, "d": 58, "unit": "cm" },
+    "rating": 4.7,
+    "reviewCount": 143,
+    "badges": ["bestseller"],
+    "tags": ["krzesło", "welur", "jadalnia"]
+  },
+  {
+    "id": "prod_008",
+    "slug": "krzeslo-skorzane-nova",
+    "name": "Krzesło skórzane Nova",
+    "description": "Minimalistyczna sylwetka z ręcznie szytej skóry licowej oraz stalowej konstrukcji.",
+    "category": "Krzesła",
+    "price": 1549,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80",
+        "alt": "Krzesło skórzane Nova przy stole"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1549187774-b4e9b0445b08?w=1600&q=80",
+        "alt": "Detal przeszyć krzesła Nova"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_015", "name": "Skóra karmelowa", "swatch": "#B97745" },
+      { "id": "fab_016", "name": "Skóra onyx", "swatch": "#1F1E20" }
+    ],
+    "dimensions": { "w": 50, "h": 84, "d": 60, "unit": "cm" },
+    "rating": 4.5,
+    "reviewCount": 72,
+    "badges": ["ręcznie szyte"],
+    "tags": ["krzesło", "skóra", "nowoczesne"]
+  },
+  {
+    "id": "prod_009",
+    "slug": "lampa-wiszaca-halo",
+    "name": "Lampa wisząca Halo",
+    "description": "Lekka owalna forma z matowego szkła i detali w kolorze szampana. Dla strefy Eleganckiej.",
+    "category": "Oświetlenie",
+    "price": 2199,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1600&q=80",
+        "alt": "Lampa wisząca Halo nad stołem"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1600&q=80&crop=entropy&cs=tinysrgb",
+        "alt": "Detal klosza lampy Halo"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_017", "name": "Szkło matowe", "swatch": "#F4F1EB" },
+      { "id": "fab_018", "name": "Mosiądz satynowy", "swatch": "#C1A46C" }
+    ],
+    "dimensions": { "w": 90, "h": 35, "d": 90, "unit": "cm" },
+    "rating": 4.6,
+    "reviewCount": 59,
+    "badges": ["nowość"],
+    "tags": ["lampa", "wisząca", "salon"]
+  },
+  {
+    "id": "prod_010",
+    "slug": "lampa-podlogowa-arc",
+    "name": "Lampa podłogowa Arc",
+    "description": "Łukowa konstrukcja z przeciwwagą z kamienia. Zapewnia miękkie światło strefowe.",
+    "category": "Oświetlenie",
+    "price": 1899,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1505693314120-0d443867891c?w=1600&q=80",
+        "alt": "Lampa podłogowa Arc przy sofie"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1600&q=80",
+        "alt": "Detal podstawy lampy Arc"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_019", "name": "Stal grafitowa", "swatch": "#2C2D31" },
+      { "id": "fab_020", "name": "Marmur biały", "swatch": "#E3E2DD" }
+    ],
+    "dimensions": { "w": 130, "h": 195, "d": 50, "unit": "cm" },
+    "rating": 4.4,
+    "reviewCount": 48,
+    "badges": ["bestseller"],
+    "tags": ["lampa", "podłogowa", "strefa relaksu"]
+  },
+  {
+    "id": "prod_011",
+    "slug": "szafa-garderobiana-plano",
+    "name": "Szafa garderobiana Plano",
+    "description": "System modułowy z frontami lakierowanymi na mat i wstawkami z forniru orzechowego.",
+    "category": "Szafy",
+    "price": 10299,
+    "compareAtPrice": 10899,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1599206497262-0a008db3f5a1?w=1600&q=80",
+        "alt": "Szafa Plano w garderobie z oświetleniem LED"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1595511313061-f6042a24363a?w=1600&q=80",
+        "alt": "Wnętrze szafy Plano z wysuwanymi półkami"
+      }
+    ],
+    "fabrics": [
+      {
+        "id": "fab_021",
+        "name": "Lakier matowy kość słoniowa",
+        "swatch": "#E9E5DC"
+      },
+      { "id": "fab_022", "name": "Orzech ciemny", "swatch": "#4E3621" }
+    ],
+    "dimensions": { "w": 260, "h": 240, "d": 65, "unit": "cm" },
+    "rating": 4.9,
+    "reviewCount": 86,
+    "badges": ["premium"],
+    "tags": ["szafa", "garderoba", "modułowa"]
+  },
+  {
+    "id": "prod_012",
+    "slug": "szafa-modulowa-axis",
+    "name": "Szafa modułowa Axis",
+    "description": "Elastyczny system modułów z drzwiami przesuwnymi i panelem lustrzanym.",
+    "category": "Szafy",
+    "price": 8899,
+    "currency": "PLN",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1600585154340-0ef3c08a9ecd?w=1600&q=80",
+        "alt": "Szafa Axis z drzwiami przesuwnymi"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1616627459381-23c1fb5facf4?w=1600&q=80",
+        "alt": "Modułowa konstrukcja szafy Axis"
+      }
+    ],
+    "fabrics": [
+      { "id": "fab_023", "name": "Grafit mat", "swatch": "#40424A" },
+      { "id": "fab_024", "name": "Lustro grafitowe", "swatch": "#ADB0B8" }
+    ],
+    "dimensions": { "w": 240, "h": 238, "d": 68, "unit": "cm" },
+    "rating": 4.6,
+    "reviewCount": 73,
+    "badges": ["bestseller"],
+    "tags": ["szafa", "modułowa", "nowoczesna"]
+  }
+]

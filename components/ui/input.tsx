@@ -1,21 +1,26 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
-  return (
+const inputBaseStyles =
+  "flex h-12 w-full rounded-lg border border-[color:oklch(0.9_0_0)] bg-white/90 px-4 text-base text-brand-charcoal transition-all duration-200";
+const inputFocusStyles =
+  "focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-[oklch(0.75_0.12_85_/_0.45)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:oklch(1_0_0)] focus-visible:shadow-[0_18px_42px_rgba(26,26,26,0.08)]";
+const inputMisc =
+  "placeholder:text-[color:oklch(0.45_0_0)] selection:bg-[oklch(0.75_0.12_85_/_0.2)] disabled:cursor-not-allowed disabled:opacity-60";
+
+const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+  ({ className, type = "text", ...props }, ref) => (
     <input
+      ref={ref}
       type={type}
       data-slot="input"
-      className={cn(
-        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-        className
-      )}
+      className={cn(inputBaseStyles, inputFocusStyles, inputMisc, className)}
       {...props}
     />
-  )
-}
+  ),
+);
 
-export { Input }
+Input.displayName = "Input";
+
+export { Input };
