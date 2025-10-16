@@ -29,7 +29,7 @@ const collections = [
 
 export function CollectionsSection() {
   return (
-    <section className="py-20 md:py-32 bg-brand-sand">
+    <section className="py-20 md:py-32 mesh-gradient-light relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         {/* Heading */}
         <motion.div
@@ -57,7 +57,7 @@ export function CollectionsSection() {
             >
               <Link
                 href={`/category/${collection.slug}`}
-                className="group block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="group block rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:glow-gold transition-all duration-300"
               >
                 <div className="relative aspect-[4/5] overflow-hidden bg-white">
                   <Image

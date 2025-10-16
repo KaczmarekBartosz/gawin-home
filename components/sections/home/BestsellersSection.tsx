@@ -9,7 +9,7 @@ export function BestsellersSection() {
   const bestsellers = productsData.slice(0, 4);
 
   return (
-    <section className="py-20 md:py-32 bg-brand-cream">
+    <section className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         {/* Heading */}
         <motion.div
