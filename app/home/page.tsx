@@ -143,9 +143,7 @@ export default function HomePage() {
             </p>
           </motion.header>
         </Container>
-        <Container className="px-6 md:px-8 lg:px-12">
-          <BestsellersCarousel products={featuredProducts} />
-        </Container>
+        <BestsellersCarousel products={featuredProducts} className="mt-2" />
       </Section>
 
       <Section tone="light">

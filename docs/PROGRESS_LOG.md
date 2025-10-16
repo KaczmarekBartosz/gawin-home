@@ -109,6 +109,18 @@ Status: COMPLETED
 - Kolekcje zamieniono w plakaty, bestsellery zyskały większy oddech i uproszczone ProductCardy, value props mają outline’owe ikony premium, lookbook uzyskał asymetrię i storytelling, newsletter stał się aspiracyjną sceną „Dołącz do świata GAWIN”.
 - Ujednolicono ikonografię, tonalność kolorów i zaktualizowano logi (`docs/IMPLEMENTATION_PROGRESS.md`).
 
+### 2025-10-18 - Save Game: Embla Carousel Polishing (Codex)
+
+#### ✅ Task: Premium bestsellers carousel
+
+Status: COMPLETED
+
+**Co zrobiono:**
+
+- Wydzielono komponent `components/sections/home/BestsellersCarousel.tsx` oparty na Embla (drag mysz/palec, select-none, maska gradientowa tylko po prawej, spójne cienie kart).
+- Sekcja „Bestsellery” w `app/home/page.tsx` korzysta z nowej karuzeli bez dodatkowego kontenera – zachowuje margines po lewej, a karty wychodzą poza ekran wyłącznie z prawej.
+- Zaktualizowano logi (`docs/IMPLEMENTATION_PROGRESS.md`) i potwierdzono stan repo jako „save game” przed kolejnym sprintem (wydajność / Lighthouse).
+
 ### 2025-10-15 - Design Unblock (Mock)
 
 #### ✅ Task: Przygotowanie mocków i pełnej strony głównej do projektowania

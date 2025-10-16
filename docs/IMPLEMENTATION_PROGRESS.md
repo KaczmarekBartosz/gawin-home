@@ -325,3 +325,8 @@
 - ✅ Hero i sekcje ciemne przeprojektowane na studyjny klimat (nowy render, monumentalna typografia, kapsuła CTA, glassowy dark block, footer z typograficznym tłem).
 - ✅ Sekcje jasne zyskały układ „plakatowy”: kolekcje z plakatowymi kartami, bestsellery z większym oddechem, value props w stylu kart Apple, lookbook asymetryczny, newsletter storytellingowy.
 - ✅ Karty produktów uproszczone do premium meta (bez zbędnych opisów), spójne gradienty i ikonografia outline.
+
+### 2025-10-18 18:45
+
+- ✅ Karuzela bestsellerów przeniesiona na Embla: pełna szerokość tylko z prawej strony, brak zaznaczania podczas drag, spójne cienie i rozmiary kart.
+- ✅ Finalny „save game” – stan repo zgodny z `nowy_styl.md`, wszystko udokumentowane i gotowe na kolejne iteracje (wydajność / Lighthouse).
