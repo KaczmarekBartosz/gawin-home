@@ -1,5 +1,5 @@
 import { CartProvider } from 'components/cart/cart-context';
-import { Navbar } from 'components/layout/navbar';
+import { PremiumNavbar } from 'components/layout/PremiumNavbar';
 import { WelcomeToast } from 'components/welcome-toast';
 import { GeistSans } from 'geist/font/sans';
 import { ThemeProvider } from 'lib/design-system';
@@ -36,7 +36,7 @@ export default async function RootLayout({
       <body className="bg-background text-foreground selection:bg-accent/20">
         <ThemeProvider defaultTheme="hybrid-luxury">
           <CartProvider cartPromise={cart}>
-            <Navbar />
+            <PremiumNavbar />
             <main>
               {children}
               <Toaster closeButton />
