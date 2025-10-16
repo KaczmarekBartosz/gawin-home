@@ -63,6 +63,7 @@ Status: COMPLETED
 
 - Uruchomić `pnpm prettier --write` dla zachowania spójności formatowania przed finalnym merge.
 - Po ewentualnym dodaniu kolejnych makiet (np. koszyk mini) kontynuować log w tym pliku.
+- 🛠️ Hotfix: przeniesiono `motion/presets.ts` poza katalog `app`, by import `@/motion/presets` działał w dev serwerze.
 
 ### 2025-10-15 - Design Unblock (Mock)
 
