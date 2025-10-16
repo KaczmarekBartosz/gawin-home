@@ -1,34 +1,44 @@
-# Gawin-Home — STATUS (Checkpoint 2025-10-15)
+# Gawin-Home — STATUS (Sprint Design-Only, 2025-10-17)
 
-Ten plik podsumowuje aktualny stan prac, aby łatwo wznowić po przerwie.
+Ten plik zbiera aktualny stan projektu po wdrożeniu kompletnej makiety UI na mockach. Służy jako punkt startowy przed rozpoczęciem Sprintu 2 (funkcjonalności, integracje).
 
-## Gdzie skończyliśmy
-- Przygotowany pełny „design-unblock” na mocku (bez backendu):
-  - Strona mock: `/mock` z sekcjami (Hero, Trusted Brands, Featured, Categories, Newsletter).
-  - Listing i produkt: `/mock/products`, `/mock/product/[slug]`.
-  - Dane: `data/products.json`; adapter: `lib/data-adapters/mock.ts`.
-  - Obrazy z domen: Unsplash/Pexels/Picsum (konfiguracja w `next.config.ts`).
-- Dokumenty wsparcia:
-  - `docs/DESIGN_START.md` — jak uruchomić i gdzie projektować.
-  - `docs/TROUBLESHOOTING.md` — znane problemy i naprawy.
-  - `docs/PROGRESS_LOG.md` — wpis “Design Unblock (Mock)”.
+## 🔀 Trasy (widoki)
+- `/home` – strona główna, tryb Dark Entry + sekcje Showroom.
+- `/listing` – listing produktów (mock filtrowania + scrollowana lista kart).
+- `/pdp` – strona produktu z Material Passport, wariantami i rekomendacjami.
+- `/cart` – koszyk mockowy, podsumowanie, kod rabatowy, upsell.
+- `/checkout` – checkout trzyetapowy (dostawa, płatność, podsumowanie).
+- `/mock/*` – pozostałość po poprzednim mocku (do rozważenia archiwizacja/usunięcie).
 
-## Znane problemy
-- PNPM virtual store: konieczna reinstalacja zależności w TTY (`pnpm install`).
-- Brak transitive `@alloc/quick-lru` w ścieżce builda: w razie potrzeby `pnpm add -D @alloc/quick-lru`.
+## 🧱 Design System / komponenty
+- Tokeny OKLCH, gradienty, spacing 8 px w `app/globals.css`.
+- Fonty: Geist Sans + Space Grotesk (`app/fonts.ts`, `app/layout.tsx`).
+- Komponenty shadcn/ui z premium stylingiem (`components/ui/*`).
+- Layout helpers: `components/layout/section.tsx`, `components/layout/container.tsx`.
+- Karty: `components/cards/product-card.tsx`, `components/cards/category-card.tsx`.
 
-## Jak wznowić
+## 📦 Mocki danych
+- JSON: `mock/products.json`, `mock/categories.json`, `mock/value-props.json`, `mock/lookbook.json`, `mock/hero.json`.
+- Adapter: `lib/data-adapters/mock.ts` (spójny interfejs `MockProduct`).
+
+## 📑 Dokumentacja operacyjna
+- `docs/IMPLEMENTATION_PROGRESS.md` – checklisty faz (1–6 odhaczone).
+- `docs/PROGRESS_LOG.md` – log sprintu (wpis 2025-10-17 + hotfix motion presets).
+- `docs/biblia.md` + `docs/brief.md` – aktywne źródła wymagań.
+- `docs/archive/` – archiwum wcześniejszych planów i instrukcji.
+
+## ⚠️ Uwagi / znane kwestie
+- Dev serwer: jeśli Next nie ma dostępu do cache SWC → `XDG_CACHE_HOME=$PWD/.cache pnpm dev` albo załóż `/home/nicon/.cache/next-swc`.
+- Legacy `/mock/*` – potwierdzić, czy nadal potrzebne; w przeciwnym razie przenieść do archiwum.
+
+## ▶️ Jak wznowić prace
 ```bash
-cd "..\\Nowe Projekty 2025\\gawin-home"
 pnpm install
-pnpm dev
-# Otwórz: http://localhost:3000/mock
+XDG_CACHE_HOME=$PWD/.cache pnpm dev
+# Odwiedź http://localhost:3000/home
 ```
 
-## Najbliższe kroki (Design)
-- Dopracować copy/układ sekcji w `components/sections/*` zgodnie z wizją (Dark Entry + Light Showroom, akcent gold, rounded-xl).
-- Rozszerzyć mock o Testimonials/Editorial (opcjonalnie) i dopracować karty produktów.
-
-## Commit referencyjny
-- `5917447` — feat(mock): add design-ready mock homepage, sections and product flows
-
+## ✔️ Najbliższe kroki
+1. Plan sprintu funkcjonalnego (integracje, stan, płatności) w oparciu o aktualne UI.
+2. Uporządkować pozostałe mockowe trasy `/mock/*` (usunąć lub zarchiwizować).
+3. Kontynuować logowanie postępu w `docs/PROGRESS_LOG.md` i checklisty w `docs/IMPLEMENTATION_PROGRESS.md`.
