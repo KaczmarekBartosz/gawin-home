@@ -1,21 +1,21 @@
 [
   {
     "id": "prod_001",
-    "slug": "sofa-modulowa-luna",
-    "name": "Sofa modułowa Luna",
-    "description": "Modułowy układ z głębokim siedziskiem i miękkimi poduchami. Idealna do strefy relaksu.",
+    "slug": "sofa-ibiza",
+    "name": "Sofa Ibiza",
+    "description": "Elegancka sofa z głębokim siedziskiem i miękkimi poduchami. Idealna do strefy relaksu.",
     "category": "Sofy",
     "price": 8499,
     "compareAtPrice": 9999,
     "currency": "PLN",
     "images": [
       {
-        "src": "https://images.unsplash.com/photo-1616628182501-4bdb1d06b164?w=1600&q=80",
-        "alt": "Sofa modułowa Luna w salonie w odcieniach grafitu"
+        "src": "https://gawin24.pl/public/upload/catalog/product/207/minigallery/original_1760611773Kaczmarek_Render_15-jpg.webp",
+        "alt": "Sofa Ibiza w nowoczesnym salonie"
       },
       {
-        "src": "https://images.unsplash.com/photo-1616627565127-0465d74b8a5d?w=1600&q=80",
-        "alt": "Detal modułu narożnego sofy Luna"
+        "src": "https://gawin24.pl/public/upload/catalog/product/207/minigallery/original_1760611773Kaczmarek_Render_15-jpg.webp",
+        "alt": "Detal tapicerki sofy Ibiza"
       }
     ],
     "fabrics": [

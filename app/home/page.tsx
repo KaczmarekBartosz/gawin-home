@@ -43,10 +43,10 @@ const heroMetrics = [
 ];
 
 const lookbookLayout = [
-  "md:col-span-2 md:row-span-2 aspect-[5/3]",
-  "md:col-span-1 aspect-[4/5]",
-  "md:col-span-1 aspect-square",
-  "md:col-span-2 aspect-[16/7]",
+  "md:col-span-2 md:row-span-2",
+  "md:col-span-1",
+  "md:col-span-1",
+  "md:col-span-2",
 ];
 
 const products = productsData as MockProduct[];
@@ -200,9 +200,9 @@ export default function HomePage() {
             </p>
           </motion.header>
 
-          <div className="grid gap-6 md:auto-rows-[260px] md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:auto-rows-[280px] md:grid-cols-3">
             {lookbookData.map((item, index) => {
-              const layoutClass = lookbookLayout[index] ?? "aspect-[4/3]";
+              const layoutClass = lookbookLayout[index] ?? "";
               return (
                 <motion.div
                   key={item.id}
@@ -213,7 +213,7 @@ export default function HomePage() {
                     duration: 0.45,
                   }}
                   className={cn(
-                    "group relative overflow-hidden rounded-[2.25rem] shadow-[0_30px_80px_rgba(26,26,26,0.12)]",
+                    "group relative aspect-[4/3] overflow-hidden rounded-[2.25rem] shadow-[0_20px_60px_rgba(26,26,26,0.10)] md:aspect-auto",
                     layoutClass,
                   )}
                 >
@@ -222,7 +222,7 @@ export default function HomePage() {
                     alt={item.image.alt}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/25 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 space-y-2 text-brand-cream">
@@ -312,13 +312,26 @@ function HeroSection({ product, hotspots }: HeroSectionProps) {
   return (
     <Section tone="dark" className="relative isolate overflow-hidden pb-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-20">
-        <Image
-          src={heroData.media.src}
-          alt={heroData.media.alt}
-          fill
-          priority
-          className="object-cover"
-        />
+        {heroData.media.type === "video" ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={heroData.media.poster}
+            className="h-full w-full object-cover"
+          >
+            <source src={heroData.media.src} type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={heroData.media.src}
+            alt={heroData.media.alt}
+            fill
+            priority
+            className="object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,165,116,0.25),transparent_55%),radial-gradient(circle_at_80%_60%,rgba(184,149,106,0.2),transparent_65%),linear-gradient(to_bottom,rgba(0,0,0,0.82),rgba(0,0,0,0.9))]" />
         <div className="absolute inset-0 noise-dark opacity-60" />
       </div>

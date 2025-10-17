@@ -2,9 +2,10 @@
   "title": "Perfekcja w prostocie",
   "subtitle": "Każdy detal ma znaczenie. Odkryj kolekcję mebli, które łączą ponadczasowy design z najwyższą jakością rzemiosła.",
   "media": {
-    "type": "image",
-    "src": "https://images.unsplash.com/photo-1616628182501-cb6c03c9281e?auto=format&fit=crop&w=2400&q=80",
-    "alt": "Renderowane wnętrze z miękkim, studyjnym światłem"
+    "type": "video",
+    "src": "https://gawin.pl/gawin-meble-lozko-paris.mp4",
+    "poster": "https://gawin24.pl/public/upload/catalog/product/207/minigallery/original_1760611773Kaczmarek_Render_15-jpg.webp",
+    "alt": "Video prezentujące luksusowe meble GAWIN"
   },
   "cta": {
     "primary": {

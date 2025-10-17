@@ -27,6 +27,16 @@ export default {
         hostname: "picsum.photos",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "gawin.pl",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "gawin24.pl",
+        pathname: "/public/upload/**",
+      },
     ],
   },
 };
