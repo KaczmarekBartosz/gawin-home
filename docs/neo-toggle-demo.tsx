@@ -41,7 +41,9 @@ export function NeoToggleDemosection() {
             />
           </div>
           <div>
-            <p className="text-body-small mb-2 text-gray-600">Medium (default)</p>
+            <p className="text-body-small mb-2 text-gray-600">
+              Medium (default)
+            </p>
             <NeoToggle
               checked={primaryOn}
               onChange={setPrimaryOn}
@@ -226,9 +228,7 @@ export function NeoToggleDemosection() {
         <h2 className="text-h2 mb-4">Disabled State</h2>
         <div className="flex flex-wrap gap-8 p-4 bg-gray-50 rounded-lg">
           <div>
-            <p className="text-body-small mb-2 text-gray-600">
-              Disabled (OFF)
-            </p>
+            <p className="text-body-small mb-2 text-gray-600">Disabled (OFF)</p>
             <NeoToggle
               checked={false}
               onChange={() => {}}

@@ -12,32 +12,32 @@
 
 /* ABC Diatype - Premium Custom Font */
 @font-face {
-  font-family: 'ABC Diatype';
-  src: url('/fonts/abc-diatype/ABCDiatype-Light.woff2') format('woff2');
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'ABC Diatype';
-  src: url('/fonts/abc-diatype/ABCDiatype-Regular.woff2') format('woff2');
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'ABC Diatype';
-  src: url('/fonts/abc-diatype/ABCDiatype-Medium.woff2') format('woff2');
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'ABC Diatype';
-  src: url('/fonts/abc-diatype/ABCDiatype-Bold.woff2') format('woff2');
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -53,8 +53,9 @@
 
 :root {
   /* Typography - ABC Diatype with strong system fallbacks */
-  --font-sans: 'ABC Diatype', -apple-system, 'Segoe UI', system-ui, sans-serif;
-  --font-display: 'ABC Diatype', -apple-system, 'Segoe UI', system-ui, sans-serif;
+  --font-sans: "ABC Diatype", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-display:
+    "ABC Diatype", -apple-system, "Segoe UI", system-ui, sans-serif;
 
   /* Palette — dokładnie według nowy_styl.md */
   --color-dark-bg: oklch(0.11 0 0); /* #1A1A1A */
@@ -113,56 +114,61 @@
   --radius-pill: 9999px;
 
   /* Primary Brand Colors */
-  --color-charcoal: #1A1A1A;
-  --color-cream: #FAFAF9;
-  --color-sand: #F5F5F5;
-  --color-gold: #D4A574;
-  --color-copper: #B8956A;
+  --color-charcoal: #1a1a1a;
+  --color-cream: #fafaf9;
+  --color-sand: #f5f5f5;
+  --color-gold: #d4a574;
+  --color-copper: #b8956a;
 
   /* Neomorphic Accent Colors */
-  --color-neo-mint: #A8F5D0;
-  --color-neo-green: #6EE7B7;
-  --color-neo-green-dark: #22C55E;
-  --color-neo-orange: #FDBA74;
-  --color-neo-orange-light: #FED7AA;
+  --color-neo-mint: #a8f5d0;
+  --color-neo-green: #6ee7b7;
+  --color-neo-green-dark: #22c55e;
+  --color-neo-orange: #fdba74;
+  --color-neo-orange-light: #fed7aa;
 
   /* Neutrals (Grayscale) */
-  --color-gray-50: #F9F9F9;
-  --color-gray-100: #F3F3F3;
-  --color-gray-200: #E5E5E5;
-  --color-gray-300: #D0D0D0;
+  --color-gray-50: #f9f9f9;
+  --color-gray-100: #f3f3f3;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d0d0d0;
   --color-gray-400: #999999;
   --color-gray-500: #666666;
   --color-gray-600: #404040;
 
   /* Semantic Colors */
-  --color-success: #6EE7B7;
-  --color-warning: #FDBA74;
-  --color-error: #E74C3C;
+  --color-success: #6ee7b7;
+  --color-warning: #fdba74;
+  --color-error: #e74c3c;
 
   /* Neomorphic Shadow System */
   --shadow-neo-subtle: 0 4px 12px rgba(0, 0, 0, 0.04);
   --shadow-neo-light: 0 8px 16px rgba(0, 0, 0, 0.08);
   --shadow-neo-medium: 0 12px 24px rgba(0, 0, 0, 0.12);
-  --shadow-neo-pressed: inset 0 2px 4px rgba(0, 0, 0, 0.08), inset 0 -2px 4px rgba(255, 255, 255, 0.8);
+  --shadow-neo-pressed:
+    inset 0 2px 4px rgba(0, 0, 0, 0.08),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.8);
   --shadow-neo-inset: inset 0 2px 4px rgba(0, 0, 0, 0.05);
   --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
   --shadow-card-active: 0 4px 8px rgba(0, 0, 0, 0.06);
-  --shadow-glow-gold: 0 0 20px rgba(212, 165, 116, 0.4), 0 0 40px rgba(212, 165, 116, 0.2);
-  --shadow-glow-green: 0 0 20px rgba(110, 231, 183, 0.3), 0 0 40px rgba(110, 231, 183, 0.15);
-  --shadow-glow-orange: 0 0 20px rgba(253, 186, 116, 0.3), 0 0 40px rgba(253, 186, 116, 0.15);
+  --shadow-glow-gold:
+    0 0 20px rgba(212, 165, 116, 0.4), 0 0 40px rgba(212, 165, 116, 0.2);
+  --shadow-glow-green:
+    0 0 20px rgba(110, 231, 183, 0.3), 0 0 40px rgba(110, 231, 183, 0.15);
+  --shadow-glow-orange:
+    0 0 20px rgba(253, 186, 116, 0.3), 0 0 40px rgba(253, 186, 116, 0.15);
 
   /* Spacing (8px grid system) */
-  --spacing-xs: 0.5rem;  /* 8px */
+  --spacing-xs: 0.5rem; /* 8px */
   --spacing-sm: 0.75rem; /* 12px */
-  --spacing-md: 1.5rem;  /* 24px */
-  --spacing-lg: 2rem;    /* 32px */
-  --spacing-xl: 3rem;    /* 48px */
-  --spacing-2xl: 4rem;   /* 64px */
-  --spacing-compact: 0.75rem;  /* 12px */
-  --spacing-cozy: 1.5rem;      /* 24px */
-  --spacing-spacious: 2.5rem;  /* 40px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
+  --spacing-2xl: 4rem; /* 64px */
+  --spacing-compact: 0.75rem; /* 12px */
+  --spacing-cozy: 1.5rem; /* 24px */
+  --spacing-spacious: 2.5rem; /* 40px */
 
   /* shadcn/ui Component Colors */
   --color-background: var(--color-light-bg);
@@ -713,5 +719,640 @@
   .my-spacious {
     margin-top: var(--spacing-spacious);
     margin-bottom: var(--spacing-spacious);
+  }
+
+  /* ============================================
+   * RESPONSIVE TYPOGRAPHY UTILITIES
+   * Mobile-first typography with breakpoint variants
+   * ============================================ */
+
+  /* Hero Headlines - Mobile to Desktop */
+  .text-display-hero-mobile {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: 1.875rem; /* 30px */
+  }
+
+  @media (min-width: 640px) {
+    .text-display-hero-tablet {
+      font-size: 3rem; /* 48px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-display-hero-desktop {
+      font-size: 4.5rem; /* 72px */
+    }
+  }
+
+  /* H1 Headlines - Mobile to Desktop */
+  .text-h1-mobile {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.1;
+  }
+
+  @media (min-width: 640px) {
+    .text-h1-tablet {
+      font-size: 2rem; /* 32px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-h1-desktop {
+      font-size: 3rem; /* 48px */
+    }
+  }
+
+  /* H2 Headlines - Mobile to Desktop */
+  .text-h2-mobile {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.2;
+  }
+
+  @media (min-width: 640px) {
+    .text-h2-tablet {
+      font-size: 1.75rem; /* 28px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-h2-desktop {
+      font-size: 2.25rem; /* 36px */
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE SPACING UTILITIES
+   * Breakpoint-specific padding and gaps
+   * ============================================ */
+
+  /* Mobile Padding - 1rem (16px) */
+  .px-mobile {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .py-mobile {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .p-mobile {
+    padding: 1rem;
+  }
+
+  /* Tablet Padding - 1.5rem (24px) */
+  @media (min-width: 640px) {
+    .px-tablet {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .py-tablet {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .p-tablet {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Desktop Padding - 2rem (32px) */
+  @media (min-width: 1024px) {
+    .px-desktop {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .py-desktop {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .p-desktop {
+      padding: 2rem;
+    }
+  }
+
+  /* Gap Utilities for Mobile Grids */
+  .gap-mobile {
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .gap-tablet {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gap-desktop {
+      gap: 2rem;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE CONTAINER UTILITIES
+   * Viewport-aware container widths
+   * ============================================ */
+
+  .container-mobile {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 640px) {
+    .container-tablet {
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-desktop {
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-xl {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE FLEX/GRID UTILITIES
+   * Mobile-first layout primitives
+   * ============================================ */
+
+  /* Mobile Column Layout (vertical stacking) */
+  .flex-mobile-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 640px) {
+    .flex-tablet-row {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  /* Grid Auto-Sizing (1 column on mobile, responsive on larger screens) */
+  .grid-auto-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-auto-tablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-auto-desktop {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  /* 2-Column Grid (mobile: 1, tablet: 2) */
+  .grid-cols-mobile-1-tablet-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-cols-mobile-1-tablet-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  /* 3-Column Grid (mobile: 1, tablet: 2, desktop: 3) */
+  .grid-cols-responsive {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-cols-responsive {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-cols-responsive {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  /* ============================================
+   * TOUCH-FRIENDLY INTERACTIVE ELEMENTS
+   * Minimum touch targets (48x48px WCAG AAA)
+   * ============================================ */
+
+  /* Minimum Touch Target Size */
+  .touch-target {
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile Button (large touch-friendly padding) */
+  .btn-mobile {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* Tablet Button */
+  @media (min-width: 640px) {
+    .btn-tablet {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+      min-height: 44px;
+    }
+  }
+
+  /* Desktop Button */
+  @media (min-width: 1024px) {
+    .btn-desktop {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      min-height: 40px;
+    }
+  }
+
+  /* Mobile Link (with touch padding) */
+  .link-mobile {
+    padding: 0.5rem 0.75rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Tap Target Area (invisible expanded hit area) */
+  .tap-target {
+    position: relative;
+  }
+
+  .tap-target::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 48px;
+    min-height: 48px;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+  }
+
+  /* ============================================
+   * RESPONSIVE IMAGE UTILITIES
+   * Image sizing and aspect ratios
+   * ============================================ */
+
+  /* Full-Width Mobile Images */
+  .img-mobile-full {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Responsive Image (fluid width, constrained max) */
+  .img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Image Aspect Ratios */
+  .aspect-video-mobile {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+  }
+
+  .aspect-square-mobile {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+  }
+
+  .aspect-portrait-mobile {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    height: auto;
+  }
+
+  .aspect-landscape-mobile {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ============================================
+   * RESPONSIVE VISIBILITY UTILITIES
+   * Show/hide based on breakpoints
+   * ============================================ */
+
+  /* Hide on Mobile, Show on Tablet+ */
+  .hidden-mobile {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .hidden-mobile {
+      display: block;
+    }
+  }
+
+  /* Show on Mobile Only, Hide on Tablet+ */
+  .visible-mobile-only {
+    display: block;
+  }
+
+  @media (min-width: 640px) {
+    .visible-mobile-only {
+      display: none;
+    }
+  }
+
+  /* Hide on Tablet, Show on Mobile and Desktop */
+  .hidden-tablet {
+    display: block;
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .hidden-tablet {
+      display: none;
+    }
+  }
+
+  /* Show on Desktop Only */
+  .visible-desktop-only {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .visible-desktop-only {
+      display: block;
+    }
+  }
+
+  /* ============================================
+   * SAFE AREA / NOTCH SUPPORT (iOS)
+   * Support for devices with notches and safe areas
+   * ============================================ */
+
+  /* Full Safe Area Padding */
+  .safe-area-inset {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Safe Area Padding (Horizontal Only) */
+  .safe-padding-x {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  /* Safe Area Padding (Vertical Only) */
+  .safe-padding-y {
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Safe Area Top Only (for status bar) */
+  .safe-padding-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  /* Safe Area Bottom Only (for home indicator) */
+  .safe-padding-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* ============================================
+   * RESPONSIVE TEXT SCALING UTILITIES
+   * Fine-grained text size control per breakpoint
+   * ============================================ */
+
+  /* Body Text - Mobile to Desktop */
+  .text-body-mobile {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  @media (min-width: 640px) {
+    .text-body-tablet {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+  }
+
+  /* Caption Text - Mobile First */
+  .text-caption-mobile {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  @media (min-width: 640px) {
+    .text-caption-tablet {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE MARGIN UTILITIES
+   * Semantic margin for mobile/tablet/desktop
+   * ============================================ */
+
+  /* Mobile Margin */
+  .m-mobile {
+    margin: 1rem;
+  }
+
+  .mx-mobile {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .my-mobile {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Tablet Margin */
+  @media (min-width: 640px) {
+    .m-tablet {
+      margin: 1.5rem;
+    }
+
+    .mx-tablet {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+
+    .my-tablet {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  /* Desktop Margin */
+  @media (min-width: 1024px) {
+    .m-desktop {
+      margin: 2rem;
+    }
+
+    .mx-desktop {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    .my-desktop {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* ============================================
+   * SECTION SPACING UTILITIES
+   * Large section padding for hero and feature areas
+   * ============================================ */
+
+  /* Mobile Section Padding (compact) */
+  .section-padding-mobile {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Tablet Section Padding (medium) */
+  @media (min-width: 640px) {
+    .section-padding-tablet {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  /* Desktop Section Padding (spacious) */
+  @media (min-width: 1024px) {
+    .section-padding-desktop {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE FORM UTILITIES
+   * Mobile-optimized form elements
+   * ============================================ */
+
+  /* Mobile Input (large, touch-friendly) */
+  .input-mobile {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    min-height: 44px;
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--color-border-light);
+  }
+
+  /* Full-Width Mobile Form Fields */
+  .form-field-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .form-field-tablet {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .form-field-desktop {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE SCROLL UTILITIES
+   * Mobile-friendly scrolling behavior
+   * ============================================ */
+
+  /* Smooth Scrolling */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide Scrollbar (iOS) */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Vertical Snap Scrolling */
+  .snap-y-mobile {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+
+  .snap-item {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 }

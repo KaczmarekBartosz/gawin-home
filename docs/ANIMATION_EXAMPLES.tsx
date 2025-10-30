@@ -5,7 +5,7 @@
  * This file is for reference only - copy patterns to your components
  */
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import {
   fadeIn,
   slideUpFadeIn,
@@ -15,12 +15,12 @@ import {
   scrollSlideUp,
   floatAnimation,
   bounceUp,
-} from "@/lib/animation-presets"
+} from "@/lib/animation-presets";
 import {
   useScrollAnimation,
   useScrollStaggerAnimation,
   useHoverAnimation,
-} from "@/lib/animation-hooks"
+} from "@/lib/animation-hooks";
 
 // ============================================================================
 // EXAMPLE 1: Simple Hero Section with Fade-In
@@ -36,7 +36,7 @@ export function SimpleHeroExample() {
         Discover exceptional quality
       </motion.p>
     </section>
-  )
+  );
 }
 
 // ============================================================================
@@ -44,10 +44,10 @@ export function SimpleHeroExample() {
 // ============================================================================
 
 interface Feature {
-  id: string
-  icon: React.ReactNode
-  title: string
-  description: string
+  id: string;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
 }
 
 export function FeatureListExample({ features }: { features: Feature[] }) {
@@ -71,7 +71,7 @@ export function FeatureListExample({ features }: { features: Feature[] }) {
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
 
 // ============================================================================
@@ -79,17 +79,17 @@ export function FeatureListExample({ features }: { features: Feature[] }) {
 // ============================================================================
 
 interface Product {
-  id: string
-  name: string
-  image: string
-  price: string
+  id: string;
+  name: string;
+  image: string;
+  price: string;
 }
 
 export function ProductGridExample({ products }: { products: Product[] }) {
   const { containerRef, controls, getDelay } = useScrollStaggerAnimation(
     products.length,
     0.08, // 80ms stagger
-  )
+  );
 
   return (
     <motion.div
@@ -97,14 +97,24 @@ export function ProductGridExample({ products }: { products: Product[] }) {
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
     >
       {products.map((product, index) => (
-        <ProductCardWithAnimation key={product.id} product={product} delay={getDelay(index)} />
+        <ProductCardWithAnimation
+          key={product.id}
+          product={product}
+          delay={getDelay(index)}
+        />
       ))}
     </motion.div>
-  )
+  );
 }
 
-function ProductCardWithAnimation({ product, delay }: { product: Product; delay: number }) {
-  const { whileHover, whileTap } = useHoverAnimation()
+function ProductCardWithAnimation({
+  product,
+  delay,
+}: {
+  product: Product;
+  delay: number;
+}) {
+  const { whileHover, whileTap } = useHoverAnimation();
 
   return (
     <motion.div
@@ -130,7 +140,7 @@ function ProductCardWithAnimation({ product, delay }: { product: Product; delay:
         <p className="text-xl font-bold text-blue-600">{product.price}</p>
       </div>
     </motion.div>
-  )
+  );
 }
 
 // ============================================================================
@@ -138,7 +148,7 @@ function ProductCardWithAnimation({ product, delay }: { product: Product; delay:
 // ============================================================================
 
 export function ScrollRevealSectionExample() {
-  const { ref, controls } = useScrollAnimation({ threshold: 0.3 })
+  const { ref, controls } = useScrollAnimation({ threshold: 0.3 });
 
   return (
     <motion.section
@@ -151,12 +161,13 @@ export function ScrollRevealSectionExample() {
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold mb-6">Why Choose Us</h2>
         <p className="text-gray-700 text-lg leading-relaxed">
-          Our products are carefully curated to bring the best quality and style to your home. We
-          believe in sustainable practices and exceptional customer service.
+          Our products are carefully curated to bring the best quality and style
+          to your home. We believe in sustainable practices and exceptional
+          customer service.
         </p>
       </div>
     </motion.section>
-  )
+  );
 }
 
 // ============================================================================
@@ -180,12 +191,18 @@ export function SequentialHeroExample() {
         className="relative z-10 text-center"
       >
         {/* Heading */}
-        <motion.h1 variants={staggerItemSlideUp} className="text-6xl font-bold mb-4">
+        <motion.h1
+          variants={staggerItemSlideUp}
+          className="text-6xl font-bold mb-4"
+        >
           Transform Your Space
         </motion.h1>
 
         {/* Subheading */}
-        <motion.p variants={staggerItemSlideUp} className="text-2xl text-gray-300 mb-8">
+        <motion.p
+          variants={staggerItemSlideUp}
+          className="text-2xl text-gray-300 mb-8"
+        >
           Discover curated collections for every room
         </motion.p>
 
@@ -201,7 +218,7 @@ export function SequentialHeroExample() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
 
 // ============================================================================
@@ -209,17 +226,23 @@ export function SequentialHeroExample() {
 // ============================================================================
 
 interface Testimonial {
-  id: string
-  name: string
-  role: string
-  text: string
-  avatar: string
+  id: string;
+  name: string;
+  role: string;
+  text: string;
+  avatar: string;
 }
 
-export function TestimonialsExample({ testimonials }: { testimonials: Testimonial[] }) {
+export function TestimonialsExample({
+  testimonials,
+}: {
+  testimonials: Testimonial[];
+}) {
   return (
     <section className="py-20 bg-gray-50">
-      <h2 className="text-4xl font-bold text-center mb-16">What Customers Say</h2>
+      <h2 className="text-4xl font-bold text-center mb-16">
+        What Customers Say
+      </h2>
 
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
@@ -248,7 +271,11 @@ export function TestimonialsExample({ testimonials }: { testimonials: Testimonia
 
             {/* Author */}
             <div className="flex items-center gap-4">
-              <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full" />
+              <img
+                src={testimonial.avatar}
+                alt={testimonial.name}
+                className="w-12 h-12 rounded-full"
+              />
               <div>
                 <p className="font-semibold">{testimonial.name}</p>
                 <p className="text-gray-600 text-sm">{testimonial.role}</p>
@@ -258,7 +285,7 @@ export function TestimonialsExample({ testimonials }: { testimonials: Testimonia
         ))}
       </motion.div>
     </section>
-  )
+  );
 }
 
 // ============================================================================
@@ -266,11 +293,11 @@ export function TestimonialsExample({ testimonials }: { testimonials: Testimonia
 // ============================================================================
 
 interface PricingPlan {
-  id: string
-  name: string
-  price: string
-  features: string[]
-  highlighted?: boolean
+  id: string;
+  name: string;
+  price: string;
+  features: string[];
+  highlighted?: boolean;
 }
 
 export function PricingTableExample({ plans }: { plans: PricingPlan[] }) {
@@ -294,7 +321,9 @@ export function PricingTableExample({ plans }: { plans: PricingPlan[] }) {
             }`}
           >
             <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-            <p className={`text-4xl font-bold mb-6 ${plan.highlighted ? "text-white" : "text-blue-600"}`}>
+            <p
+              className={`text-4xl font-bold mb-6 ${plan.highlighted ? "text-white" : "text-blue-600"}`}
+            >
               {plan.price}
             </p>
 
@@ -329,7 +358,7 @@ export function PricingTableExample({ plans }: { plans: PricingPlan[] }) {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 // ============================================================================
@@ -346,12 +375,16 @@ export function NewsletterSignupExample() {
         viewport={{ once: true, amount: 0.5 }}
         className="max-w-2xl mx-auto text-center"
       >
-        <motion.h2 variants={staggerItemSlideUp} className="text-4xl font-bold mb-4">
+        <motion.h2
+          variants={staggerItemSlideUp}
+          className="text-4xl font-bold mb-4"
+        >
           Stay Updated
         </motion.h2>
 
         <motion.p variants={staggerItemSlideUp} className="text-gray-400 mb-8">
-          Subscribe to our newsletter for exclusive offers and design inspiration.
+          Subscribe to our newsletter for exclusive offers and design
+          inspiration.
         </motion.p>
 
         <motion.form variants={staggerItemSlideUp} className="flex gap-3">
@@ -371,7 +404,7 @@ export function NewsletterSignupExample() {
         </motion.form>
       </motion.div>
     </section>
-  )
+  );
 }
 
 // ============================================================================
@@ -379,13 +412,19 @@ export function NewsletterSignupExample() {
 // ============================================================================
 
 export function ImageGalleryExample({ images }: { images: string[] }) {
-  const { containerRef, controls, getDelay } = useScrollStaggerAnimation(images.length, 0.1)
+  const { containerRef, controls, getDelay } = useScrollStaggerAnimation(
+    images.length,
+    0.1,
+  );
 
   return (
     <section className="py-20">
       <h2 className="text-4xl font-bold mb-12">Gallery</h2>
 
-      <motion.div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div
+        ref={containerRef}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
         {images.map((image, index) => (
           <motion.div
             key={index}
@@ -396,19 +435,23 @@ export function ImageGalleryExample({ images }: { images: string[] }) {
             whileHover={{ scale: 1.05 }}
             className="overflow-hidden rounded-lg h-64 cursor-pointer"
           >
-            <img src={image} alt={`Gallery ${index}`} className="w-full h-full object-cover" />
+            <img
+              src={image}
+              alt={`Gallery ${index}`}
+              className="w-full h-full object-cover"
+            />
           </motion.div>
         ))}
       </motion.div>
     </section>
-  )
+  );
 }
 
 // ============================================================================
 // EXAMPLE 10: Loading Skeleton with Shimmer
 // ============================================================================
 
-import { shimmerAnimation } from "@/lib/animation-presets"
+import { shimmerAnimation } from "@/lib/animation-presets";
 
 export function LoadingSkeletonExample() {
   return (
@@ -422,7 +465,7 @@ export function LoadingSkeletonExample() {
         />
       ))}
     </div>
-  )
+  );
 }
 
 // ============================================================================
@@ -440,4 +483,4 @@ export const examples = {
   NewsletterSignup: NewsletterSignupExample,
   ImageGallery: ImageGalleryExample,
   LoadingSkeleton: LoadingSkeletonExample,
-}
+};

@@ -20,6 +20,7 @@ The **NeoToggle** component is an accessible, animated toggle switch with neomor
 ## Installation
 
 The component is already installed in the project at:
+
 ```
 components/ui/neo-toggle.tsx
 ```
@@ -49,20 +50,20 @@ export function MyComponent() {
 ```typescript
 interface NeoToggleProps {
   // Core State
-  checked: boolean;                          // Current toggle state
-  onChange: (checked: boolean) => void;      // State change callback
+  checked: boolean; // Current toggle state
+  onChange: (checked: boolean) => void; // State change callback
 
   // Styling
-  variant?: 'primary' | 'gold' | 'success'; // Color variant (default: 'primary')
-  size?: 'sm' | 'md' | 'lg';                // Size variant (default: 'md')
-  className?: string;                        // Additional CSS classes
+  variant?: "primary" | "gold" | "success"; // Color variant (default: 'primary')
+  size?: "sm" | "md" | "lg"; // Size variant (default: 'md')
+  className?: string; // Additional CSS classes
 
   // Label
-  label?: string;                            // Optional label text
-  labelPosition?: 'left' | 'right';          // Label position (default: 'right')
+  label?: string; // Optional label text
+  labelPosition?: "left" | "right"; // Label position (default: 'right')
 
   // State
-  disabled?: boolean;                        // Disable interaction (default: false)
+  disabled?: boolean; // Disable interaction (default: false)
 
   // HTML Button Props
   // All standard button props are supported (onClick, onKeyDown, etc.)
@@ -74,53 +75,48 @@ interface NeoToggleProps {
 ### Color Variants
 
 #### Primary (Charcoal)
+
 For default, neutral toggles. Uses charcoal color when active.
 
 ```tsx
-<NeoToggle
-  checked={value}
-  onChange={setValue}
-  variant="primary"
-/>
+<NeoToggle checked={value} onChange={setValue} variant="primary" />
 ```
 
 **Visual:**
+
 - OFF: Gray-300 with inset shadow (debossed)
 - ON: Charcoal (#1A1A1A) with light shadow (elevated)
 
 #### Gold (Premium)
+
 For premium or important toggles. Uses brand gold color when active.
 
 ```tsx
-<NeoToggle
-  checked={premium}
-  onChange={setPremium}
-  variant="gold"
-/>
+<NeoToggle checked={premium} onChange={setPremium} variant="gold" />
 ```
 
 **Visual:**
+
 - OFF: Gray-300 with inset shadow
 - ON: Brand Gold (#D4A574) with glow-gold shadow
 
 #### Success (Green)
+
 For positive actions or confirmations. Uses neo-green color when active.
 
 ```tsx
-<NeoToggle
-  checked={success}
-  onChange={setSuccess}
-  variant="success"
-/>
+<NeoToggle checked={success} onChange={setSuccess} variant="success" />
 ```
 
 **Visual:**
+
 - OFF: Gray-300 with inset shadow
 - ON: Neo-Green (#6EE7B7) with glow-green shadow
 
 ### Size Variants
 
 #### Small (sm)
+
 For compact layouts and inline usage.
 
 ```tsx
@@ -128,11 +124,13 @@ For compact layouts and inline usage.
 ```
 
 **Dimensions:**
+
 - Track: 44px × 24px
 - Indicator: 20px circle
 - Padding: 2px
 
 #### Medium (md) - Default
+
 For standard usage and form fields.
 
 ```tsx
@@ -140,11 +138,13 @@ For standard usage and form fields.
 ```
 
 **Dimensions:**
+
 - Track: 56px × 32px
 - Indicator: 28px circle
 - Padding: 2px
 
 #### Large (lg)
+
 For prominent controls and accessibility-focused layouts.
 
 ```tsx
@@ -152,6 +152,7 @@ For prominent controls and accessibility-focused layouts.
 ```
 
 **Dimensions:**
+
 - Track: 68px × 40px
 - Indicator: 36px circle
 - Padding: 2px
@@ -175,24 +176,17 @@ The label is semantic and clickable - clicking it toggles the switch.
 ### With Custom Styling
 
 ```tsx
-<NeoToggle
-  checked={value}
-  onChange={setValue}
-  className="my-custom-class"
-/>
+<NeoToggle checked={value} onChange={setValue} className="my-custom-class" />
 ```
 
 ### Disabled State
 
 ```tsx
-<NeoToggle
-  checked={value}
-  onChange={setValue}
-  disabled
-/>
+<NeoToggle checked={value} onChange={setValue} disabled />
 ```
 
 When disabled:
+
 - Opacity is reduced to 0.5
 - Cursor changes to `not-allowed`
 - Interaction is prevented
@@ -202,11 +196,11 @@ When disabled:
 
 The component supports full keyboard interaction:
 
-| Key | Action |
-|-----|--------|
-| `Space` | Toggle switch |
-| `Enter` | Toggle switch |
-| `Tab` | Focus navigation |
+| Key     | Action           |
+| ------- | ---------------- |
+| `Space` | Toggle switch    |
+| `Enter` | Toggle switch    |
+| `Tab`   | Focus navigation |
 
 ```tsx
 // Keyboard support works automatically
@@ -223,11 +217,7 @@ const handleKeyDown = (e: React.KeyboardEvent) => {
   // Custom logic
 };
 
-<NeoToggle
-  checked={value}
-  onChange={setValue}
-  onKeyDown={handleKeyDown}
-/>
+<NeoToggle checked={value} onChange={setValue} onKeyDown={handleKeyDown} />;
 ```
 
 ## Styling & Animation
@@ -237,24 +227,28 @@ const handleKeyDown = (e: React.KeyboardEvent) => {
 The component uses the neomorphic shadow system from the design tokens:
 
 #### OFF State
+
 ```css
 box-shadow: var(--shadow-neo-inset);
 /* inset 0 2px 4px rgba(0, 0, 0, 0.05); */
 ```
 
 #### ON State (Primary)
+
 ```css
 box-shadow: var(--shadow-neo-light);
 /* 0 8px 16px rgba(0, 0, 0, 0.08); */
 ```
 
 #### ON State (Gold)
+
 ```css
 box-shadow: var(--shadow-glow-gold);
 /* 0 0 20px rgba(212, 165, 116, 0.4), 0 0 40px rgba(212, 165, 116, 0.2); */
 ```
 
 #### ON State (Success)
+
 ```css
 box-shadow: var(--shadow-glow-green);
 /* 0 0 20px rgba(110, 231, 183, 0.3), 0 0 40px rgba(110, 231, 183, 0.15); */
@@ -269,6 +263,7 @@ transition: all 300ms ease-out;
 ```
 
 This applies to:
+
 - Background color change
 - Shadow changes
 - Indicator position movement
@@ -276,6 +271,7 @@ This applies to:
 ### Hover State
 
 On hover (when not disabled):
+
 ```css
 box-shadow: var(--shadow-neo-medium);
 /* 0 12px 24px rgba(0, 0, 0, 0.12); */
@@ -284,6 +280,7 @@ box-shadow: var(--shadow-neo-medium);
 ### Active State
 
 On click/active:
+
 ```css
 box-shadow: var(--shadow-neo-pressed);
 /* inset 0 2px 4px rgba(0, 0, 0, 0.08), inset 0 -2px 4px rgba(255, 255, 255, 0.8); */
@@ -292,6 +289,7 @@ box-shadow: var(--shadow-neo-pressed);
 ### Focus State
 
 When focused via keyboard:
+
 ```css
 ring: 2px var(--brand-gold);
 ```
@@ -301,6 +299,7 @@ ring: 2px var(--brand-gold);
 The component is fully accessible with:
 
 ### ARIA Attributes
+
 ```tsx
 role="switch"                    // Semantic role
 aria-checked={checked}           // Current state
@@ -309,16 +308,19 @@ aria-disabled={disabled}         // Disabled state
 ```
 
 ### Keyboard Navigation
+
 - ✅ Tab to focus
 - ✅ Space/Enter to toggle
 - ✅ Proper focus indication
 
 ### Semantic Labels
+
 - ✅ Optional label element
 - ✅ Label is clickable and toggles switch
 - ✅ Proper label association
 
 ### Visual Feedback
+
 - ✅ Clear focus ring
 - ✅ Shadow changes indicate state
 - ✅ Color contrast meets WCAG AA
@@ -338,9 +340,7 @@ function SettingsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h3>Notifications</h3>
-          <p className="text-sm text-gray-500">
-            Receive push notifications
-          </p>
+          <p className="text-sm text-gray-500">Receive push notifications</p>
         </div>
         <NeoToggle
           checked={notifications}
@@ -352,9 +352,7 @@ function SettingsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h3>Dark Mode</h3>
-          <p className="text-sm text-gray-500">
-            Use dark theme
-          </p>
+          <p className="text-sm text-gray-500">Use dark theme</p>
         </div>
         <NeoToggle
           checked={darkMode}
@@ -405,7 +403,7 @@ function MyForm() {
   const { control, watch } = useForm({
     defaultValues: {
       agreeTerms: false,
-      newsletter: true
+      newsletter: true,
     },
   });
 
@@ -439,6 +437,7 @@ function MyForm() {
 The component uses tokens from the design system:
 
 ### Colors
+
 - `bg-gray-300` - Inactive state (#D0D0D0)
 - `bg-charcoal` - Primary active (#1A1A1A)
 - `bg-brand-gold` - Gold active (#D4A574)
@@ -446,6 +445,7 @@ The component uses tokens from the design system:
 - `bg-white` - Indicator circle (#FFFFFF)
 
 ### Shadows
+
 - `shadow-neo-inset` - Inactive/debossed
 - `shadow-neo-light` - Primary active/elevated
 - `shadow-neo-subtle` - Indicator at rest
@@ -454,9 +454,11 @@ The component uses tokens from the design system:
 - `shadow-glow-green` - Success variant active
 
 ### Radii
+
 - `rounded-pill` - Full pill shape (9999px)
 
 ### Spacing
+
 - Gap for label: 8px (standard)
 
 ## TypeScript Usage
@@ -472,23 +474,25 @@ interface MyComponentProps {
 }
 
 // Or extract specific types
-type ToggleVariant = NeoToggleProps['variant'];  // 'primary' | 'gold' | 'success'
-type ToggleSize = NeoToggleProps['size'];        // 'sm' | 'md' | 'lg'
+type ToggleVariant = NeoToggleProps["variant"]; // 'primary' | 'gold' | 'success'
+type ToggleSize = NeoToggleProps["size"]; // 'sm' | 'md' | 'lg'
 ```
 
 ## Best Practices
 
 1. **Use Controlled Component Pattern**
+
    ```tsx
    // Good
    const [value, setValue] = useState(false);
-   <NeoToggle checked={value} onChange={setValue} />
+   <NeoToggle checked={value} onChange={setValue} />;
 
    // Avoid uncontrolled
    // <NeoToggle defaultChecked={false} />
    ```
 
 2. **Pair with Labels**
+
    ```tsx
    // Good - provides context
    <NeoToggle label="Enable Feature" />
@@ -501,6 +505,7 @@ type ToggleSize = NeoToggleProps['size'];        // 'sm' | 'md' | 'lg'
    ```
 
 3. **Choose Appropriate Variants**
+
    ```tsx
    // Primary for neutral actions
    <NeoToggle variant="primary" />
@@ -513,12 +518,9 @@ type ToggleSize = NeoToggleProps['size'];        // 'sm' | 'md' | 'lg'
    ```
 
 4. **Handle Disabled State**
+
    ```tsx
-   <NeoToggle
-     checked={value}
-     onChange={setValue}
-     disabled={isLoading}
-   />
+   <NeoToggle checked={value} onChange={setValue} disabled={isLoading} />
    ```
 
 5. **Use Semantic HTML**
@@ -549,39 +551,33 @@ The component is optimized for performance:
 ## Testing
 
 ```tsx
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { NeoToggle } from '@/components/ui/neo-toggle';
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { NeoToggle } from "@/components/ui/neo-toggle";
 
-describe('NeoToggle', () => {
-  it('toggles on click', async () => {
+describe("NeoToggle", () => {
+  it("toggles on click", async () => {
     const onChange = jest.fn();
-    render(
-      <NeoToggle checked={false} onChange={onChange} />
-    );
+    render(<NeoToggle checked={false} onChange={onChange} />);
 
-    await userEvent.click(screen.getByRole('switch'));
+    await userEvent.click(screen.getByRole("switch"));
     expect(onChange).toHaveBeenCalledWith(true);
   });
 
-  it('toggles on Space key', async () => {
+  it("toggles on Space key", async () => {
     const onChange = jest.fn();
-    render(
-      <NeoToggle checked={false} onChange={onChange} />
-    );
+    render(<NeoToggle checked={false} onChange={onChange} />);
 
     await userEvent.tab(); // Focus
-    await userEvent.keyboard(' ');
+    await userEvent.keyboard(" ");
     expect(onChange).toHaveBeenCalledWith(true);
   });
 
-  it('respects disabled state', async () => {
+  it("respects disabled state", async () => {
     const onChange = jest.fn();
-    render(
-      <NeoToggle checked={false} onChange={onChange} disabled />
-    );
+    render(<NeoToggle checked={false} onChange={onChange} disabled />);
 
-    await userEvent.click(screen.getByRole('switch'));
+    await userEvent.click(screen.getByRole("switch"));
     expect(onChange).not.toHaveBeenCalled();
   });
 });
@@ -603,6 +599,7 @@ describe('NeoToggle', () => {
 ## Changelog
 
 ### v1.0.0 (2025-10-30)
+
 - Initial release
 - Three color variants: primary, gold, success
 - Three size variants: sm, md, lg

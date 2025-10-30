@@ -5,12 +5,14 @@
 **Goal:** Transform gawin-home from generic e-commerce into a premium furniture brand with minimalist 1X.tech-inspired design + neomorphic interactive UI components.
 
 **Architecture:**
+
 - **Phase 1 (Setup):** Font system, Tailwind v4 design tokens (@theme, colors, shadows, utilities)
 - **Phase 2 (Components):** Neomorphic UI library (buttons, cards, sliders, toggles, badges)
 - **Phase 3 (Sections):** Rebuild Hero, Bestsellers, Testimonials with new design system
 - **Phase 4 (Polish):** Responsiveness, animations, final testing
 
 **Tech Stack:**
+
 - Next.js 15, React 19, TypeScript 5.8
 - Tailwind CSS v4 (with @theme in tailwind.css)
 - Framer Motion 11.x
@@ -23,6 +25,7 @@
 ### Task 1: Create ABC Diatype Font Files Structure
 
 **Files:**
+
 - Create: `public/fonts/abc-diatype/` directory structure
 - Reference: Design docs mention woff2 font weights: Light (300), Regular (400), Medium (500), Bold (700)
 
@@ -40,6 +43,7 @@ touch ABCDiatype-Bold.woff2
 **Step 2: Download ABC Diatype fonts**
 
 Since ABC Diatype is a premium font from Dinamo, you need to:
+
 1. Purchase/download from: https://abcdinamo.com/typefaces/diatype
 2. Convert to woff2 format (use https://cloudconvert.com or local tool)
 3. Place files in `public/fonts/abc-diatype/`
@@ -65,6 +69,7 @@ git commit -m "feat: add ABC Diatype font directory structure"
 ### Task 2: Update `app/globals.css` - Add @font-face Declarations
 
 **Files:**
+
 - Modify: `app/globals.css` - Add @font-face rules at top
 
 **Step 1: Read current globals.css**
@@ -78,29 +83,29 @@ Insert at the very top of `app/globals.css`:
 ```css
 /* ABC Diatype - Premium custom font */
 @font-face {
-  font-family: 'ABC Diatype';
-  src: url('/fonts/abc-diatype/ABCDiatype-Light.woff2') format('woff2');
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Light.woff2") format("woff2");
   font-weight: 300;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'ABC Diatype';
-  src: url('/fonts/abc-diatype/ABCDiatype-Regular.woff2') format('woff2');
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'ABC Diatype';
-  src: url('/fonts/abc-diatype/ABCDiatype-Medium.woff2') format('woff2');
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Medium.woff2") format("woff2");
   font-weight: 500;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'ABC Diatype';
-  src: url('/fonts/abc-diatype/ABCDiatype-Bold.woff2') format('woff2');
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }
@@ -108,8 +113,8 @@ Insert at the very top of `app/globals.css`:
 /* Fallback to system font if ABC Diatype loads fail */
 @supports (font-technology(variations)) {
   @font-face {
-    font-family: 'ABC Diatype Fallback';
-    src: local(-apple-system), local('Segoe UI');
+    font-family: "ABC Diatype Fallback";
+    src: local(-apple-system), local("Segoe UI");
   }
 }
 ```
@@ -120,8 +125,8 @@ Find the `@theme` block and update it to include:
 
 ```css
 @theme {
-  --font-sans: 'ABC Diatype', system-ui, -apple-system, sans-serif;
-  --font-display: 'ABC Diatype', system-ui, -apple-system, sans-serif;
+  --font-sans: "ABC Diatype", system-ui, -apple-system, sans-serif;
+  --font-display: "ABC Diatype", system-ui, -apple-system, sans-serif;
 
   /* ... rest of existing @theme ... */
 }
@@ -148,6 +153,7 @@ git commit -m "feat: add ABC Diatype font-face declarations and @theme font vari
 ### Task 3: Add Typography Utility Classes to `app/globals.css`
 
 **Files:**
+
 - Modify: `app/globals.css` - Add @layer utilities section
 
 **Step 1: Add text utilities AFTER @theme block**
@@ -239,6 +245,7 @@ git commit -m "feat: add ABC Diatype font-face declarations and @theme font vari
 **Step 2: Test typography**
 
 Create quick test in browser DevTools:
+
 ```html
 <h1 class="text-display-hero">Test Hero</h1>
 <h2 class="text-h1">Test H1</h2>
@@ -259,6 +266,7 @@ git commit -m "feat: add typography utility classes (text-display-hero, text-h1,
 ### Task 4: Add Color Variables to Tailwind `@theme` (in `app/globals.css`)
 
 **Files:**
+
 - Modify: `app/globals.css` - Extend @theme with color variables
 
 **Step 1: Add color tokens to @theme**
@@ -314,6 +322,7 @@ Update the @theme block to include:
 **Step 2: Map to Tailwind classes**
 
 These will automatically become Tailwind utilities:
+
 - `bg-charcoal`, `text-charcoal`, `border-charcoal`
 - `bg-cream`, `bg-gold`, `bg-neo-green`
 - etc.
@@ -338,6 +347,7 @@ git commit -m "feat: add brand color palette to Tailwind @theme (charcoal, cream
 ### Task 5: Add Shadow and Spacing Utilities to Tailwind
 
 **Files:**
+
 - Modify: `app/globals.css` - Add to @layer utilities
 
 **Step 1: Add shadow utilities**
@@ -458,6 +468,7 @@ git commit -m "feat: add neomorphic shadow utilities and spacing classes"
 ### Task 6: Create NeoButton Component
 
 **Files:**
+
 - Create: `components/ui/neo-button.tsx`
 
 **Step 1: Create component file**
@@ -551,6 +562,7 @@ git commit -m "feat: create NeoButton component with raised/pressed/flat variant
 ### Task 7: Create NeoCard Component
 
 **Files:**
+
 - Create: `components/ui/neo-card.tsx`
 
 **Step 1: Create component**
@@ -605,6 +617,7 @@ git commit -m "feat: create NeoCard component with neomorphic styling"
 ### Task 8: Create Badge Neomorphic Component
 
 **Files:**
+
 - Create: `components/ui/badge-neo.tsx`
 
 **Step 1: Create component**
@@ -657,6 +670,7 @@ git commit -m "feat: create BadgeNeo component with gradient backgrounds"
 ### Task 9: Create NeoSlider Component
 
 **Files:**
+
 - Create: `components/ui/neo-slider.tsx`
 
 **Step 1: Create component**
@@ -764,6 +778,7 @@ git commit -m "feat: create NeoSlider component with draggable thumb and neomorp
 ### Task 10: Create NeoToggle Component
 
 **Files:**
+
 - Create: `components/ui/neo-toggle.tsx`
 
 **Step 1: Create component**
@@ -864,6 +879,7 @@ git commit -m "feat: create NeoToggle component with ON/OFF states and animation
 ### Task 11: Rebuild HeroSection.tsx
 
 **Files:**
+
 - Modify: `components/sections/home/HeroSection.tsx` - Complete rewrite
 
 **Step 1: Read current HeroSection**
@@ -1011,6 +1027,7 @@ git commit -m "feat: rebuild HeroSection with premium minimalist design and Fram
 ### Task 12: Rebuild BestsellersSection.tsx
 
 **Files:**
+
 - Modify: `components/sections/home/BestsellersSection.tsx`
 
 **Step 1: Replace with new version**
@@ -1109,6 +1126,7 @@ git commit -m "feat: rebuild BestsellersSection with neomorphic cards and glow e
 ### Task 13: Rebuild TestimonialsSection.tsx
 
 **Files:**
+
 - Modify: `components/sections/home/TestimonialsSection.tsx`
 
 **Step 1: Replace with new version**
@@ -1270,6 +1288,7 @@ git commit -m "feat: rebuild TestimonialsSection with neomorphic cards and stats
 ### Task 14: Mobile Responsiveness - Update Utility Classes
 
 **Files:**
+
 - Modify: `app/globals.css` - Add mobile-specific overrides
 
 **Step 1: Add responsive utilities**
@@ -1329,6 +1348,7 @@ git commit -m "feat: add mobile responsiveness overrides for shadows and touch t
 ### Task 15: Framer Motion Scroll Animations
 
 **Files:**
+
 - Create: `lib/animation-presets.ts` (if doesn't exist)
 
 **Step 1: Create animation presets**
@@ -1338,41 +1358,41 @@ export const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   transition: { duration: 0.6 },
-}
+};
 
 export const fadeIn = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
   transition: { duration: 0.6 },
-}
+};
 
 export const scaleIn = {
   initial: { opacity: 0, scale: 0.95 },
   whileInView: { opacity: 1, scale: 1 },
   transition: { duration: 0.5 },
-}
+};
 
 export const slideInLeft = {
   initial: { opacity: 0, x: -30 },
   whileInView: { opacity: 1, x: 0 },
   transition: { duration: 0.6 },
-}
+};
 
 export const slideInRight = {
   initial: { opacity: 0, x: 30 },
   whileInView: { opacity: 1, x: 0 },
   transition: { duration: 0.6 },
-}
+};
 
 export const staggerContainer = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
-}
+};
 
 export const staggerItem = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-}
+};
 ```
 
 **Step 2: Use in sections (update imports)**
@@ -1391,16 +1411,18 @@ git commit -m "feat: create reusable Framer Motion animation presets"
 ### Task 16: Final Testing & Documentation
 
 **Files:**
+
 - Create: `docs/DESIGN_SYSTEM.md` - Document the new system
 
 **Step 1: Create documentation**
 
-```markdown
+````markdown
 # Gawin-Home Design System
 
 ## Typography
 
 ### Text Utilities
+
 - `.text-display-hero` - Hero section headlines (responsive: 2.5-4.5rem)
 - `.text-h1` - Section headlines (responsive: 2-3rem)
 - `.text-h2` - Subsection headers (responsive: 1.5-2.25rem)
@@ -1414,6 +1436,7 @@ git commit -m "feat: create reusable Framer Motion animation presets"
 ## Colors
 
 ### Brand Colors
+
 - `bg-charcoal` (#1a1a1a) - Primary dark
 - `bg-cream` (#fafaf9) - Primary light background
 - `bg-sand` (#f5f5f5) - Secondary background
@@ -1421,6 +1444,7 @@ git commit -m "feat: create reusable Framer Motion animation presets"
 - `bg-copper` (#b8956a) - Warm accent
 
 ### Neomorphic Accents
+
 - `bg-neo-green` (#6ee7b7) - Success/interactive
 - `bg-neo-orange` (#fdba74) - Warning/badge
 - `text-neo-green-dark` (#22c55e) - Dark text
@@ -1428,6 +1452,7 @@ git commit -m "feat: create reusable Framer Motion animation presets"
 ## Shadows
 
 ### Neomorphic Shadows
+
 - `.shadow-neo-subtle` - Light neomorphic effect
 - `.shadow-neo-light` - Medium neomorphic effect
 - `.shadow-neo-pressed` - Inset pressed effect
@@ -1438,15 +1463,19 @@ git commit -m "feat: create reusable Framer Motion animation presets"
 ## Components
 
 ### NeoButton
+
 ```tsx
 <NeoButton variant="raised" size="md">
   Click me
 </NeoButton>
 ```
+````
+
 - Variants: `raised`, `pressed`, `flat`
 - Sizes: `sm`, `md`, `lg`
 
 ### NeoCard
+
 ```tsx
 <NeoCard interactive hoverEffect>
   Content
@@ -1454,17 +1483,21 @@ git commit -m "feat: create reusable Framer Motion animation presets"
 ```
 
 ### BadgeNeo
+
 ```tsx
 <BadgeNeo color="orange">New</BadgeNeo>
 ```
+
 - Colors: `orange`, `green`, `blue`
 
 ### NeoSlider
+
 ```tsx
 <NeoSlider min={0} max={100} label="Brightness" />
 ```
 
 ### NeoToggle
+
 ```tsx
 <NeoToggle labelOn="ON" labelOff="OFF" />
 ```
@@ -1472,18 +1505,21 @@ git commit -m "feat: create reusable Framer Motion animation presets"
 ## Sections
 
 ### HeroSection
+
 - Minimalist hero with premium typography
 - Trust indicators (10 lat, 2,500+, 4.9/5)
 - Dual CTA buttons (primary + neomorphic secondary)
 - Scroll indicator animation
 
 ### BestsellersSection
+
 - Grid layout (responsive: 1-4 columns)
 - Neomorphic cards with glow on hover
 - Badge for new products
 - "Show all" CTA button
 
 ### TestimonialsSection
+
 - 3-column testimonial grid
 - Star ratings (1-5)
 - Author info with avatar
@@ -1503,7 +1539,8 @@ git commit -m "feat: create reusable Framer Motion animation presets"
 - Easing: default `ease-out`
 - Button hover: `scale(1.05)`, shadow intensification
 - Cards: `translateY(-4px)` on hover
-```
+
+````
 
 **Step 2: Run full test suite**
 
@@ -1512,7 +1549,7 @@ pnpm test
 # Expected: All tests passing
 pnpm prettier:check
 # Expected: All files formatted
-```
+````
 
 **Step 3: Build verification**
 
@@ -1554,4 +1591,3 @@ git commit -m "docs: add comprehensive design system documentation"
 
 **Option 1:** Use `superpowers:subagent-driven-development` - Fresh subagent per task, code review between tasks
 **Option 2:** Manual execution - Follow tasks one by one in your own session
-

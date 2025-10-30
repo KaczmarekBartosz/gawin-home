@@ -133,7 +133,10 @@ export function useStaggerAnimation(
  * )
  * ```
  */
-export function useScrollStaggerAnimation(itemCount: number, staggerDelay = 0.1) {
+export function useScrollStaggerAnimation(
+  itemCount: number,
+  staggerDelay = 0.1,
+) {
   const containerRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
   const hasAnimated = useRef(false);
@@ -213,7 +216,10 @@ export function useScrollProgress() {
  * )
  * ```
  */
-export function useSequentialAnimation(triggers: boolean[], delayBetween = 0.3) {
+export function useSequentialAnimation(
+  triggers: boolean[],
+  delayBetween = 0.3,
+) {
   const controlsList = useRef<ReturnType<typeof useAnimation>[]>([]);
 
   // Initialize controls if needed
@@ -228,9 +234,12 @@ export function useSequentialAnimation(triggers: boolean[], delayBetween = 0.3) 
       if (trigger) {
         const control = controls[index];
         if (control) {
-          const timeoutId = setTimeout(() => {
-            control.start("animate");
-          }, index * delayBetween * 1000);
+          const timeoutId = setTimeout(
+            () => {
+              control.start("animate");
+            },
+            index * delayBetween * 1000,
+          );
 
           return () => clearTimeout(timeoutId);
         }

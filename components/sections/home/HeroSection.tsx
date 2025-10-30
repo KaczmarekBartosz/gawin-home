@@ -52,8 +52,13 @@ export function HeroSection() {
           className="space-y-8 max-w-4xl"
         >
           {/* Subtitle with decorative line */}
-          <motion.div variants={itemVariants} className="flex items-center gap-4">
-            <span className="text-label text-brand-charcoal/70">MEBLE PREMIUM</span>
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center gap-4"
+          >
+            <span className="text-label text-brand-charcoal/70">
+              MEBLE PREMIUM
+            </span>
             <div className="w-8 h-px bg-gradient-to-r from-brand-gold to-transparent" />
           </motion.div>
 
@@ -72,12 +77,15 @@ export function HeroSection() {
             variants={itemVariants}
             className="text-body-large text-gray-500 max-w-2xl"
           >
-            Każdy detal ma znaczenie. Odkryj kolekcję mebli, które łączą ponadczasowy
-            design z najwyższą jakością rzemiosła.
+            Każdy detal ma znaczenie. Odkryj kolekcję mebli, które łączą
+            ponadczasowy design z najwyższą jakością rzemiosła.
           </motion.p>
 
           {/* CTA Buttons - responsive flex */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 pt-4">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-4 pt-4"
+          >
             <NeoButton variant="primary" size="lg" className="group">
               Odkryj Kolekcję
               <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

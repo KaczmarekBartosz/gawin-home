@@ -12,34 +12,34 @@ Complete guide to using the centralized animation presets for consistent scroll 
 ### Basic Fade-In Animation
 
 ```tsx
-import { motion } from "framer-motion"
-import { fadeIn } from "@/lib/animation-presets"
+import { motion } from "framer-motion";
+import { fadeIn } from "@/lib/animation-presets";
 
 export function MyComponent() {
-  return <motion.div {...fadeIn}>Content animates on load</motion.div>
+  return <motion.div {...fadeIn}>Content animates on load</motion.div>;
 }
 ```
 
 ### Scroll-Triggered Slide-Up
 
 ```tsx
-import { motion } from "framer-motion"
-import { scrollSlideUp } from "@/lib/animation-presets"
+import { motion } from "framer-motion";
+import { scrollSlideUp } from "@/lib/animation-presets";
 
 export function MySection() {
   return (
     <motion.section {...scrollSlideUp}>
       Content animates when scrolled into view
     </motion.section>
-  )
+  );
 }
 ```
 
 ### Stagger Effect for Lists
 
 ```tsx
-import { motion } from "framer-motion"
-import { staggerContainer, staggerItemSlideUp } from "@/lib/animation-presets"
+import { motion } from "framer-motion";
+import { staggerContainer, staggerItemSlideUp } from "@/lib/animation-presets";
 
 export function ProductList({ products }) {
   return (
@@ -55,7 +55,7 @@ export function ProductList({ products }) {
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
 ```
 
@@ -66,16 +66,21 @@ export function ProductList({ products }) {
 Smooth opacity transitions without movement.
 
 ```tsx
-import { fadeIn, fadeInFast, fadeInSlow } from "@/lib/animation-presets"
+import { fadeIn, fadeInFast, fadeInSlow } from "@/lib/animation-presets";
 
-<motion.div {...fadeIn}>              {/* 0.6s */}
-  <motion.div {...fadeInFast}>        {/* 0.3s */}
-    <motion.div {...fadeInSlow} />    {/* 1s */}
+<motion.div {...fadeIn}>
+  {" "}
+  {/* 0.6s */}
+  <motion.div {...fadeInFast}>
+    {" "}
+    {/* 0.3s */}
+    <motion.div {...fadeInSlow} /> {/* 1s */}
   </motion.div>
-</motion.div>
+</motion.div>;
 ```
 
 **Use cases:**
+
 - Text content
 - Overlay elements
 - Background images
@@ -90,16 +95,26 @@ import { fadeIn, fadeInFast, fadeInSlow } from "@/lib/animation-presets"
 Movement with opacity for entrance effects.
 
 ```tsx
-import { slideUpFadeIn, slideDownFadeIn, slideLeftFadeIn, slideRightFadeIn } from "@/lib/animation-presets"
+import {
+  slideUpFadeIn,
+  slideDownFadeIn,
+  slideLeftFadeIn,
+  slideRightFadeIn,
+} from "@/lib/animation-presets";
 
-<motion.div {...slideUpFadeIn}>      {/* From bottom */}
-  <motion.div {...slideLeftFadeIn}>  {/* From left */}
+<motion.div {...slideUpFadeIn}>
+  {" "}
+  {/* From bottom */}
+  <motion.div {...slideLeftFadeIn}>
+    {" "}
+    {/* From left */}
     Content here
   </motion.div>
-</motion.div>
+</motion.div>;
 ```
 
 **Use cases:**
+
 - Section headings
 - Navigation items
 - Card entrances
@@ -114,16 +129,21 @@ import { slideUpFadeIn, slideDownFadeIn, slideLeftFadeIn, slideRightFadeIn } fro
 Size growth with fade for emphasis.
 
 ```tsx
-import { scaleIn, scaleInSmall, scaleUpFadeIn } from "@/lib/animation-presets"
+import { scaleIn, scaleInSmall, scaleUpFadeIn } from "@/lib/animation-presets";
 
-<motion.div {...scaleIn}>          {/* 0.8 → 1 */}
-  <motion.div {...scaleInSmall}>   {/* 0.95 → 1 (subtle) */}
+<motion.div {...scaleIn}>
+  {" "}
+  {/* 0.8 → 1 */}
+  <motion.div {...scaleInSmall}>
+    {" "}
+    {/* 0.95 → 1 (subtle) */}
     <motion.div {...scaleUpFadeIn} /> {/* 0.9 → 1 with slide */}
   </motion.div>
-</motion.div>
+</motion.div>;
 ```
 
 **Use cases:**
+
 - Image reveals
 - Icon highlights
 - Button presses
@@ -166,22 +186,18 @@ import { staggerItemSlideUp, staggerItemScale, staggerItemSlideLeft, staggerItem
 **Complete example:**
 
 ```tsx
-import { staggerContainer, staggerItemSlideUp } from "@/lib/animation-presets"
+import { staggerContainer, staggerItemSlideUp } from "@/lib/animation-presets";
 
 export function Gallery({ items }) {
   return (
-    <motion.div
-      variants={staggerContainer}
-      initial="initial"
-      animate="animate"
-    >
+    <motion.div variants={staggerContainer} initial="initial" animate="animate">
       {items.map((item) => (
         <motion.div key={item.id} variants={staggerItemSlideUp}>
           <img src={item.image} alt={item.title} />
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
 ```
 
@@ -194,14 +210,17 @@ export function Gallery({ items }) {
 Physics-based animations for playful interactions.
 
 ```tsx
-import { bounceIn, bounceUp } from "@/lib/animation-presets"
+import { bounceIn, bounceUp } from "@/lib/animation-presets";
 
-<motion.div {...bounceIn}>  {/* Spring: stiffness 300, damping 20 */}
+<motion.div {...bounceIn}>
+  {" "}
+  {/* Spring: stiffness 300, damping 20 */}
   <motion.div {...bounceUp} /> {/* Spring: bounce 0.4, duration 0.8 */}
-</motion.div>
+</motion.div>;
 ```
 
 **Use cases:**
+
 - Call-to-action buttons
 - Celebratory animations
 - Interactive elements
@@ -216,23 +235,37 @@ import { bounceIn, bounceUp } from "@/lib/animation-presets"
 Animations that fire when element enters viewport.
 
 ```tsx
-import { scrollFadeIn, scrollSlideUp, scrollScale, scrollSlideLeft, scrollSlideRight } from "@/lib/animation-presets"
+import {
+  scrollFadeIn,
+  scrollSlideUp,
+  scrollScale,
+  scrollSlideLeft,
+  scrollSlideRight,
+} from "@/lib/animation-presets";
 
-{/* Only animates once when scrolled into view */}
-<motion.section {...scrollFadeIn}>        {/* Fades in */}
-  <motion.div {...scrollSlideUp}>         {/* Slides up 40px */}
-    <motion.img {...scrollScale} />       {/* Scales from 0.85 */}
+{
+  /* Only animates once when scrolled into view */
+}
+<motion.section {...scrollFadeIn}>
+  {" "}
+  {/* Fades in */}
+  <motion.div {...scrollSlideUp}>
+    {" "}
+    {/* Slides up 40px */}
+    <motion.img {...scrollScale} /> {/* Scales from 0.85 */}
   </motion.div>
-</motion.section>
+</motion.section>;
 ```
 
 **Features:**
+
 - Fires once (`viewport: { once: true }`)
 - Triggers at 30% visibility (`amount: 0.3`)
 - Perfect for sections below fold
 - No JavaScript overhead
 
 **Use cases:**
+
 - Full section animations
 - Hero parallax
 - Feature reveals
@@ -247,16 +280,26 @@ import { scrollFadeIn, scrollSlideUp, scrollScale, scrollSlideLeft, scrollSlideR
 Infinite animations for decorative elements.
 
 ```tsx
-import { floatAnimation, pulseAnimation, shimmerAnimation, rotateAnimation } from "@/lib/animation-presets"
+import {
+  floatAnimation,
+  pulseAnimation,
+  shimmerAnimation,
+  rotateAnimation,
+} from "@/lib/animation-presets";
 
-<motion.div {...floatAnimation}>    {/* Bobs up/down */}
-  <motion.div {...pulseAnimation}>  {/* Pulses in/out */}
+<motion.div {...floatAnimation}>
+  {" "}
+  {/* Bobs up/down */}
+  <motion.div {...pulseAnimation}>
+    {" "}
+    {/* Pulses in/out */}
     <motion.div {...shimmerAnimation} /> {/* Shimmer effect */}
   </motion.div>
-</motion.div>
+</motion.div>;
 ```
 
 **Use cases:**
+
 - Hero floating elements
 - Loading states
 - CTA emphasis
@@ -273,14 +316,14 @@ import { floatAnimation, pulseAnimation, shimmerAnimation, rotateAnimation } fro
 Trigger animation when element enters viewport.
 
 ```tsx
-import { useScrollAnimation } from "@/lib/animation-hooks"
-import { slideUpFadeIn } from "@/lib/animation-presets"
+import { useScrollAnimation } from "@/lib/animation-hooks";
+import { slideUpFadeIn } from "@/lib/animation-presets";
 
 export function Section() {
   const { ref, controls } = useScrollAnimation({
     threshold: 0.3, // Trigger at 30% visible
-    once: true,     // Only animate once
-  })
+    once: true, // Only animate once
+  });
 
   return (
     <motion.section
@@ -291,7 +334,7 @@ export function Section() {
     >
       Content
     </motion.section>
-  )
+  );
 }
 ```
 
@@ -302,14 +345,14 @@ export function Section() {
 Stagger animate items as they scroll into view.
 
 ```tsx
-import { useScrollStaggerAnimation } from "@/lib/animation-hooks"
-import { staggerItemSlideUp } from "@/lib/animation-presets"
+import { useScrollStaggerAnimation } from "@/lib/animation-hooks";
+import { staggerItemSlideUp } from "@/lib/animation-presets";
 
 export function ProductGrid({ products }) {
   const { containerRef, controls, getDelay } = useScrollStaggerAnimation(
     products.length,
     0.1, // 0.1s between items
-  )
+  );
 
   return (
     <motion.div ref={containerRef}>
@@ -327,7 +370,7 @@ export function ProductGrid({ products }) {
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
 ```
 
@@ -338,16 +381,16 @@ export function ProductGrid({ products }) {
 Optimize hover state animations.
 
 ```tsx
-import { useHoverAnimation } from "@/lib/animation-hooks"
+import { useHoverAnimation } from "@/lib/animation-hooks";
 
 export function CardButton() {
-  const { whileHover, whileTap } = useHoverAnimation()
+  const { whileHover, whileTap } = useHoverAnimation();
 
   return (
     <motion.button whileHover={whileHover} whileTap={whileTap}>
       Click Me
     </motion.button>
-  )
+  );
 }
 ```
 
@@ -358,13 +401,13 @@ export function CardButton() {
 Chain animations with calculated delays.
 
 ```tsx
-import { useSequentialAnimation } from "@/lib/animation-hooks"
+import { useSequentialAnimation } from "@/lib/animation-hooks";
 
 export function HeroSection() {
   const controls = useSequentialAnimation(
     [true, true, true], // Triggers for each animation
-    0.3,                // Delay between each (seconds)
-  )
+    0.3, // Delay between each (seconds)
+  );
 
   return (
     <>
@@ -372,7 +415,7 @@ export function HeroSection() {
       <motion.p animate={controls[1]}>Hero description</motion.p>
       <motion.button animate={controls[2]}>CTA Button</motion.button>
     </>
-  )
+  );
 }
 ```
 
@@ -383,15 +426,15 @@ export function HeroSection() {
 Simple callback when element enters viewport.
 
 ```tsx
-import { useOnceInView } from "@/lib/animation-hooks"
+import { useOnceInView } from "@/lib/animation-hooks";
 
 export function AnalyticsSection() {
   const elementRef = useOnceInView(() => {
     // Fire analytics event once when user scrolls here
-    trackEvent("analytics-section-viewed")
-  })
+    trackEvent("analytics-section-viewed");
+  });
 
-  return <section ref={elementRef}>Analytics content</section>
+  return <section ref={elementRef}>Analytics content</section>;
 }
 ```
 
@@ -402,15 +445,15 @@ export function AnalyticsSection() {
 Prevent jank from rapid scroll events.
 
 ```tsx
-import { useDebouncedScroll } from "@/lib/animation-hooks"
+import { useDebouncedScroll } from "@/lib/animation-hooks";
 
 export function ScrollIndicator() {
   useDebouncedScroll(() => {
     // This callback fires max once per 200ms
-    updateScrollPosition()
-  }, 200) // ms debounce
+    updateScrollPosition();
+  }, 200); // ms debounce
 
-  return <div>Scroll indicator</div>
+  return <div>Scroll indicator</div>;
 }
 ```
 
@@ -421,7 +464,7 @@ export function ScrollIndicator() {
 ### Hero Section with Multiple Animations
 
 ```tsx
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import {
   slideUpFadeIn,
   scaleIn,
@@ -429,7 +472,7 @@ import {
   staggerContainer,
   staggerItemSlideUp,
   floatAnimation,
-} from "@/lib/animation-presets"
+} from "@/lib/animation-presets";
 
 export function HeroSection() {
   return (
@@ -464,22 +507,22 @@ export function HeroSection() {
         </motion.button>
       </motion.div>
     </section>
-  )
+  );
 }
 ```
 
 ### Product Grid with Scroll Animations
 
 ```tsx
-import { motion } from "framer-motion"
-import { useScrollStaggerAnimation } from "@/lib/animation-hooks"
-import { staggerItemScale } from "@/lib/animation-presets"
+import { motion } from "framer-motion";
+import { useScrollStaggerAnimation } from "@/lib/animation-hooks";
+import { staggerItemScale } from "@/lib/animation-presets";
 
 export function ProductGrid({ products }) {
   const { containerRef, controls, getDelay } = useScrollStaggerAnimation(
     products.length,
     0.08, // Tight spacing
-  )
+  );
 
   return (
     <motion.div
@@ -501,15 +544,15 @@ export function ProductGrid({ products }) {
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
 ```
 
 ### Loading State with Shimmer
 
 ```tsx
-import { motion } from "framer-motion"
-import { shimmerAnimation } from "@/lib/animation-presets"
+import { motion } from "framer-motion";
+import { shimmerAnimation } from "@/lib/animation-presets";
 
 export function LoadingCard() {
   return (
@@ -520,7 +563,7 @@ export function LoadingCard() {
         backgroundSize: "200% 100%",
       }}
     />
-  )
+  );
 }
 ```
 
@@ -533,14 +576,15 @@ export function LoadingCard() {
 Prevents re-triggering animations on scroll:
 
 ```tsx
-{/* GOOD - animates once */}
-<motion.section {...scrollSlideUp} />
+{
+  /* GOOD - animates once */
+}
+<motion.section {...scrollSlideUp} />;
 
-{/* Avoid - animates every time in viewport */}
-<motion.section
-  whileInView={{ opacity: 1 }}
-  initial={{ opacity: 0 }}
-/>
+{
+  /* Avoid - animates every time in viewport */
+}
+<motion.section whileInView={{ opacity: 1 }} initial={{ opacity: 0 }} />;
 ```
 
 ### 2. Use CSS Transform Properties
@@ -548,11 +592,15 @@ Prevents re-triggering animations on scroll:
 Animations using `opacity`, `scale`, `x`, `y`, `rotate` are GPU-accelerated:
 
 ```tsx
-{/* GOOD - GPU accelerated */}
-<motion.div animate={{ scale: 1.1, opacity: 1 }} />
+{
+  /* GOOD - GPU accelerated */
+}
+<motion.div animate={{ scale: 1.1, opacity: 1 }} />;
 
-{/* Avoid - CPU intensive */}
-<motion.div animate={{ width: "100%", height: "100%" }} />
+{
+  /* Avoid - CPU intensive */
+}
+<motion.div animate={{ width: "100%", height: "100%" }} />;
 ```
 
 ### 3. Limit Simultaneous Animations
@@ -560,17 +608,23 @@ Animations using `opacity`, `scale`, `x`, `y`, `rotate` are GPU-accelerated:
 Too many animations at once cause jank:
 
 ```tsx
-{/* GOOD - staggered */}
+{
+  /* GOOD - staggered */
+}
 <motion.div variants={staggerContainerFast} animate="animate">
   {items.map((item) => (
     <motion.div key={item.id} variants={staggerItemSlideUp} />
   ))}
-</motion.div>
+</motion.div>;
 
-{/* Avoid - all animate at once */}
-{items.map((item) => (
-  <motion.div key={item.id} animate={{ y: 0 }} initial={{ y: 20 }} />
-))}
+{
+  /* Avoid - all animate at once */
+}
+{
+  items.map((item) => (
+    <motion.div key={item.id} animate={{ y: 0 }} initial={{ y: 20 }} />
+  ));
+}
 ```
 
 ### 4. Test on Mobile Devices
@@ -578,13 +632,13 @@ Too many animations at once cause jank:
 Mobile devices may need slower animations:
 
 ```tsx
-import { useBreakpointAnimation } from "@/lib/animation-hooks"
+import { useBreakpointAnimation } from "@/lib/animation-hooks";
 
 export function ResponsiveAnimation() {
-  const isDesktop = useBreakpointAnimation(768)
+  const isDesktop = useBreakpointAnimation(768);
 
-  const duration = isDesktop ? 0.6 : 0.8 // Slower on mobile
-  const delay = isDesktop ? 0.1 : 0.15
+  const duration = isDesktop ? 0.6 : 0.8; // Slower on mobile
+  const delay = isDesktop ? 0.1 : 0.15;
 
   return (
     <motion.div
@@ -592,7 +646,7 @@ export function ResponsiveAnimation() {
       initial={{ opacity: 0 }}
       transition={{ duration, delay }}
     />
-  )
+  );
 }
 ```
 
@@ -617,7 +671,7 @@ export const customPresets = {
     whileHover: { y: -8, boxShadow: "0 20px 25px rgba(0,0,0,0.1)" },
     transition: { duration: 0.2 },
   },
-}
+};
 ```
 
 ### Adjust Timing Globally
@@ -629,7 +683,7 @@ All presets use 0.6s default. Adjust in `animation-presets.ts`:
 export const fadeIn = {
   // ...
   transition: { duration: 0.8 }, // Changed from 0.6
-}
+};
 ```
 
 ---
@@ -642,11 +696,10 @@ export const fadeIn = {
 **Solution:** Check `viewport` settings in preset
 
 ```tsx
-{/* Add explicit viewport if scroll animation doesn't work */}
-<motion.div
-  {...scrollSlideUp}
-  viewport={{ amount: 0.3, once: true }}
-/>
+{
+  /* Add explicit viewport if scroll animation doesn't work */
+}
+<motion.div {...scrollSlideUp} viewport={{ amount: 0.3, once: true }} />;
 ```
 
 ### Animation Looks Janky
@@ -655,11 +708,15 @@ export const fadeIn = {
 **Solution:** Use GPU-accelerated properties only
 
 ```tsx
-{/* GOOD */}
-<motion.div animate={{ y: 0, opacity: 1 }} />
+{
+  /* GOOD */
+}
+<motion.div animate={{ y: 0, opacity: 1 }} />;
 
-{/* BAD */}
-<motion.div animate={{ top: 0, left: 0 }} />
+{
+  /* BAD */
+}
+<motion.div animate={{ top: 0, left: 0 }} />;
 ```
 
 ### Ref Warning
@@ -668,13 +725,17 @@ export const fadeIn = {
 **Solution:** Ensure element accepts ref prop
 
 ```tsx
-{/* GOOD - div accepts ref */}
-<motion.div ref={ref}>Content</motion.div>
+{
+  /* GOOD - div accepts ref */
+}
+<motion.div ref={ref}>Content</motion.div>;
 
-{/* May need forwardRef for custom components */}
+{
+  /* May need forwardRef for custom components */
+}
 const CustomComponent = forwardRef((props, ref) => (
   <div ref={ref}>{props.children}</div>
-))
+));
 ```
 
 ---
@@ -690,15 +751,15 @@ const CustomComponent = forwardRef((props, ref) => (
 
 ## Summary
 
-| Category | Presets | Use Case |
-|----------|---------|----------|
-| Fade | 3 | Subtle transitions |
-| Slide | 4 | Directional entrance |
-| Scale | 3 | Emphasis effects |
-| Stagger | 7 | List/grid animations |
-| Bounce | 2 | Playful interactions |
-| Scroll | 5 | Below-fold reveals |
-| Loop | 4 | Infinite/continuous |
-| **Hooks** | **10** | **Dynamic patterns** |
+| Category  | Presets | Use Case             |
+| --------- | ------- | -------------------- |
+| Fade      | 3       | Subtle transitions   |
+| Slide     | 4       | Directional entrance |
+| Scale     | 3       | Emphasis effects     |
+| Stagger   | 7       | List/grid animations |
+| Bounce    | 2       | Playful interactions |
+| Scroll    | 5       | Below-fold reveals   |
+| Loop      | 4       | Infinite/continuous  |
+| **Hooks** | **10**  | **Dynamic patterns** |
 
 Total: **38 reusable animation patterns** ready to use!

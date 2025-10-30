@@ -110,12 +110,9 @@ export function TestimonialsSection() {
           variants={headerVariants}
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <h2 className="text-h1 text-brand-charcoal mb-4">
-            Opinie klientów
-          </h2>
+          <h2 className="text-h1 text-brand-charcoal mb-4">Opinie klientów</h2>
           <p className="text-body-large text-gray-500 max-w-2xl mx-auto">
-            Czytaj, co mówią nasi zadowoleni klienci o mebli premium
-            Gawin-Home
+            Czytaj, co mówią nasi zadowoleni klienci o mebli premium Gawin-Home
           </p>
         </motion.div>
 
@@ -187,8 +184,7 @@ export function TestimonialsSection() {
           className="text-center mt-12 sm:mt-16"
         >
           <p className="text-body-large text-gray-500">
-            Ponad{" "}
-            <span className="font-semibold text-brand-gold">2 500+</span>{" "}
+            Ponad <span className="font-semibold text-brand-gold">2 500+</span>{" "}
             zadowolonych klientów na całym świecie
           </p>
         </motion.div>
