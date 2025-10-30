@@ -1,112 +1,127 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import { ChevronRight, ChevronDown } from "lucide-react";
+import { NeoButton } from "@/components/ui/neo-button";
+import { cn } from "@/lib/utils";
+
+const trustStats = [
+  { label: "10 lat", value: "Gwarancji" },
+  { label: "2,500+", value: "Klientów" },
+  { label: "4.9/5", value: "Ocena" },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1a1a1a]">
-      {/* Background Image - subtelny */}
-      <div className="absolute inset-0 opacity-20">
-        <Image
-          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2400&auto=format&fit=crop"
-          alt="Eleganckie wnętrze"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/80 via-[#1a1a1a]/60 to-[#1a1a1a]/90" />
-      </div>
+    <section className="relative w-full min-h-screen bg-brand-cream overflow-hidden">
+      {/* Background with mesh gradient overlay */}
+      <div className="absolute inset-0 mesh-gradient-light z-0" />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl">
-        <div className="text-center">
-          {/* Main Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* Subtitle */}
-            <p className="text-sm md:text-base text-[#a0a0a0] uppercase tracking-wider mb-6 font-medium">
-              Meble Premium
-            </p>
+      {/* Subtle decorative elements */}
+      <div className="absolute top-20 right-10 w-96 h-96 rounded-full bg-brand-gold/5 blur-3xl z-0" />
+      <div className="absolute bottom-0 left-20 w-96 h-96 rounded-full bg-brand-copper/5 blur-3xl z-0" />
 
-            {/* Main Heading - Space Grotesk */}
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-[#f5f5f5] mb-8 leading-tight">
-              Perfekcja
-              <br />
-              <span className="text-[#d4af37]">w prostocie</span>
-            </h1>
-
-            {/* Description */}
-            <p className="text-lg md:text-xl text-[#a0a0a0] max-w-2xl mx-auto mb-12 leading-relaxed font-sans">
-              Każdy detal ma znaczenie. Odkryj kolekcję mebli, które łączą
-              ponadczasowy design z najwyższą jakością rzemiosła.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="gold" size="lg" className="text-base px-8 group">
-                <span>Odkryj Kolekcję</span>
-                <ArrowRight
-                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                  strokeWidth={1.5}
-                />
-              </Button>
-              <Button variant="outline" size="lg" className="text-base px-8">
-                Umów konsultację
-              </Button>
-            </div>
+      {/* Main content container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col justify-center">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="space-y-8 max-w-4xl"
+        >
+          {/* Subtitle with decorative line */}
+          <motion.div variants={itemVariants} className="flex items-center gap-4">
+            <span className="text-label text-brand-charcoal/70">MEBLE PREMIUM</span>
+            <div className="w-8 h-px bg-gradient-to-r from-brand-gold to-transparent" />
           </motion.div>
 
-          {/* Trust Indicators - minimalistyczne */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-20 pt-12 border-t border-white/10"
+          {/* Main headline with gold accent */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-display-hero text-brand-charcoal font-bold leading-tight"
           >
-            <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">
-                  10 lat
-                </p>
-                <p className="text-sm text-[#a0a0a0]">Gwarancji</p>
-              </div>
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">
-                  2,500+
-                </p>
-                <p className="text-sm text-[#a0a0a0]">Klientów</p>
-              </div>
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-[#d4af37] mb-1">
-                  4.9/5
-                </p>
-                <p className="text-sm text-[#a0a0a0]">Ocena</p>
-              </div>
-            </div>
+            Perfekcja
+            <br />
+            <span className="text-brand-gold">w prostocie</span>
+          </motion.h1>
+
+          {/* Description text */}
+          <motion.p
+            variants={itemVariants}
+            className="text-body-large text-gray-500 max-w-2xl"
+          >
+            Każdy detal ma znaczenie. Odkryj kolekcję mebli, które łączą ponadczasowy
+            design z najwyższą jakością rzemiosła.
+          </motion.p>
+
+          {/* CTA Buttons - responsive flex */}
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 pt-4">
+            <NeoButton variant="primary" size="lg" className="group">
+              Odkryj Kolekcję
+              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </NeoButton>
+            <NeoButton variant="secondary" size="lg">
+              Umów konsultację
+            </NeoButton>
           </motion.div>
-        </div>
+
+          {/* Trust indicators - displayed horizontally */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-8 sm:gap-12 pt-8 border-t border-gray-200"
+          >
+            {trustStats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                variants={itemVariants}
+                className="flex flex-col"
+              >
+                <span className="text-h3 text-brand-charcoal font-bold">
+                  {stat.label}
+                </span>
+                <span className="text-caption text-gray-500">{stat.value}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
 
-      {/* Scroll Indicator - prosty */}
+      {/* Scroll indicator - bottom center with animation */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
+        <span className="text-caption text-gray-500">Przewiń</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2"
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="text-brand-gold"
         >
-          <div className="w-1 h-2 bg-[#d4af37] rounded-full" />
+          <ChevronDown className="w-5 h-5" strokeWidth={1.5} />
         </motion.div>
       </motion.div>
     </section>
