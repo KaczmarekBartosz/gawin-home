@@ -51,7 +51,7 @@ export function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
-                variant="default"
+                variant="gold"
                 size="lg"
                 className="text-base px-8 group"
               >

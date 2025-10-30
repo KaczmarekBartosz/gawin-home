@@ -76,7 +76,7 @@ export function CTASection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                variant="primary"
+                variant="gold"
                 size="lg"
                 className="text-lg px-8 py-7 h-auto shimmer glow-gold-intense hover:scale-105 transition-transform"
               >
@@ -84,7 +84,7 @@ export function CTASection() {
                 <ArrowRight className="h-5 w-5" strokeWidth={1.5} />
               </Button>
               <Button
-                variant="secondary"
+                variant="outline"
                 size="lg"
                 className="text-lg px-8 py-7 h-auto hover:scale-105 transition-transform"
               >

@@ -31,8 +31,8 @@ export async function FeaturedProducts() {
             >
               <div className="relative aspect-square w-full">
                 <Image
-                  src={p.image}
-                  alt={p.title}
+                  src={p.images[0]?.src ?? ""}
+                  alt={p.images[0]?.alt ?? p.name}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -40,7 +40,7 @@ export async function FeaturedProducts() {
               </div>
               <div className="p-4">
                 <h3 className="line-clamp-2 text-lg font-semibold">
-                  {p.title}
+                  {p.name}
                 </h3>
                 <p className="mt-1 text-sm text-neutral-500">{p.category}</p>
                 <p className="mt-2 text-base font-medium">

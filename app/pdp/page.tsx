@@ -24,7 +24,7 @@ import { fadeInUp } from "@/motion/presets";
 import productsData from "@/mock/products.json";
 
 const products = productsData as MockProduct[];
-const heroProduct = products[0];
+const heroProduct = products[0]!;
 const recommended = products.slice(1, 4);
 
 type HotspotPin = {

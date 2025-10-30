@@ -124,14 +124,14 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
             >
               <Button
-                variant="primary"
+                variant="gold"
                 size="lg"
                 className="text-lg px-10 py-7 h-auto shimmer glow-gold-intense hover:scale-105 transition-transform"
               >
                 Odkryj Kolekcję
               </Button>
               <Button
-                variant="secondary"
+                variant="outline"
                 size="lg"
                 className="text-lg px-10 py-7 h-auto hover:scale-105 transition-transform"
               >

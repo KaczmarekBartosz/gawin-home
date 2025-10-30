@@ -23,12 +23,12 @@ type CartLine = {
 const products = productsData as MockProduct[];
 const cartLines: CartLine[] = [
   {
-    product: products[0],
+    product: products[0]!,
     quantity: 1,
     variant: "Welur obsydian · Lewy narożnik",
   },
   {
-    product: products[6],
+    product: products[6]!,
     quantity: 4,
     variant: "Welur korzenny · Zestaw 4 szt.",
   },

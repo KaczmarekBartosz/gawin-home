@@ -63,7 +63,7 @@ export function NewsletterSection() {
               />
               <Button
                 type="submit"
-                variant="primary"
+                variant="gold"
                 disabled={isLoading}
                 className="sm:w-auto h-14 px-8 shimmer glow-gold hover:scale-105 transition-transform"
               >
