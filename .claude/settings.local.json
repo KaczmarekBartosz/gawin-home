@@ -47,7 +47,10 @@
       "Bash(pnpm prettier:check:*)",
       "Bash(git checkout:*)",
       "Bash(git pull:*)",
-      "Bash(git merge:*)"
+      "Bash(git merge:*)",
+      "Bash(node:*)",
+      "Bash(git push:*)",
+      "Bash(timeout 120 pnpm build:*)"
     ],
     "deny": [],
     "ask": []
