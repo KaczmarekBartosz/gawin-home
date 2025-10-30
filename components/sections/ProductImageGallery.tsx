@@ -29,6 +29,10 @@ export function ProductImageGallery({
   const currentImage = images[selectedIndex];
   const thumbnails = images.slice(0, 4); // Max 4 thumbnails visible
 
+  if (!currentImage) {
+    return null; // Prevent rendering if no images
+  }
+
   const handlePrevious = () => {
     setSelectedIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };

@@ -51,7 +51,10 @@
       "Bash(node:*)",
       "Bash(git push:*)",
       "Bash(timeout 120 pnpm build:*)",
-      "Bash(timeout 5 curl:*)"
+      "Bash(timeout 5 curl:*)",
+      "Bash(npm install:*)",
+      "Bash(timeout 60 npm run build)",
+      "Bash(pnpm add:*)"
     ],
     "deny": [],
     "ask": []

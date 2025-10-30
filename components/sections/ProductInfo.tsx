@@ -118,7 +118,7 @@ export function ProductInfo({
               <span className="text-2xl text-brand-charcoal/40 line-through">
                 {comparePrice.toLocaleString("pl-PL")} zł
               </span>
-              <BadgeNeo variant="danger" className="text-xs">
+              <BadgeNeo variant="error" className="text-xs">
                 -{discount}%
               </BadgeNeo>
             </div>
