@@ -1,0 +1,74 @@
+[
+  {
+    "id": "sofas",
+    "name": "Sofy",
+    "slug": "sofas",
+    "description": "Wygodne i stylowe sofy do każdego salonu",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    "productCount": 24,
+    "color": "from-blue-500 to-blue-600"
+  },
+  {
+    "id": "tables",
+    "name": "Stoły",
+    "slug": "tables",
+    "description": "Stołki i stoły kawowe o nowoczesnym designie",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    "productCount": 18,
+    "color": "from-amber-500 to-amber-600"
+  },
+  {
+    "id": "chairs",
+    "name": "Fotele",
+    "slug": "chairs",
+    "description": "Ergonomiczne fotele do pracy i wypoczynku",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    "productCount": 32,
+    "color": "from-emerald-500 to-emerald-600"
+  },
+  {
+    "id": "beds",
+    "name": "Łóżka",
+    "slug": "beds",
+    "description": "Premium łóżka z naturalnych materiałów",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    "productCount": 15,
+    "color": "from-rose-500 to-rose-600"
+  },
+  {
+    "id": "shelves",
+    "name": "Regały",
+    "slug": "shelves",
+    "description": "Nowoczesne regały do przechowywania",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    "productCount": 21,
+    "color": "from-purple-500 to-purple-600"
+  },
+  {
+    "id": "cabinets",
+    "name": "Szafki",
+    "slug": "cabinets",
+    "description": "Stylowe szafki i komody do każdego wnętrza",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    "productCount": 19,
+    "color": "from-indigo-500 to-indigo-600"
+  },
+  {
+    "id": "lighting",
+    "name": "Oświetlenie",
+    "slug": "lighting",
+    "description": "Nowoczesne lampy i żyrandole",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    "productCount": 27,
+    "color": "from-yellow-500 to-yellow-600"
+  },
+  {
+    "id": "decor",
+    "name": "Dekoracje",
+    "slug": "decor",
+    "description": "Dodatki do wnętrza i dekoracje",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    "productCount": 43,
+    "color": "from-teal-500 to-teal-600"
+  }
+]
