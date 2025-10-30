@@ -101,11 +101,41 @@
 }
 
 @theme inline {
+  /* Radii */
   --radius: var(--radius-xl);
   --radius-sm: calc(var(--radius-lg) - 8px);
   --radius-md: var(--radius-lg);
   --radius-lg: var(--radius-xl);
 
+  /* Primary Brand Colors */
+  --color-charcoal: #1A1A1A;
+  --color-cream: #FAFAF9;
+  --color-sand: #F5F5F5;
+  --color-gold: #D4A574;
+  --color-copper: #B8956A;
+
+  /* Neomorphic Accent Colors */
+  --color-neo-mint: #A8F5D0;
+  --color-neo-green: #6EE7B7;
+  --color-neo-green-dark: #22C55E;
+  --color-neo-orange: #FDBA74;
+  --color-neo-orange-light: #FED7AA;
+
+  /* Neutrals (Grayscale) */
+  --color-gray-50: #F9F9F9;
+  --color-gray-100: #F3F3F3;
+  --color-gray-200: #E5E5E5;
+  --color-gray-300: #D0D0D0;
+  --color-gray-400: #999999;
+  --color-gray-500: #666666;
+  --color-gray-600: #404040;
+
+  /* Semantic Colors */
+  --color-success: #6EE7B7;
+  --color-warning: #FDBA74;
+  --color-error: #E74C3C;
+
+  /* shadcn/ui Component Colors */
   --color-background: var(--color-light-bg);
   --color-foreground: var(--color-text-dark);
   --color-card: var(--color-light-surface);
