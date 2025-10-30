@@ -1,3 +1,48 @@
+/*
+ * TODO: FONT FILES ARE CURRENTLY 0-BYTE PLACEHOLDERS
+ *
+ * ABC Diatype is a premium commercial font from Dinamo foundry.
+ * To complete the implementation:
+ * 1. Purchase/license ABC Diatype from: https://abcdinamo.com/typefaces/diatype
+ * 2. Download woff2 files for weights: Light (300), Regular (400), Medium (500), Bold (700)
+ * 3. Replace the placeholder files in /public/fonts/abc-diatype/
+ *
+ * Current status: @font-face declarations are ready, strong fallbacks ensure functionality
+ */
+
+/* ABC Diatype - Premium Custom Font */
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('/fonts/abc-diatype/ABCDiatype-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('/fonts/abc-diatype/ABCDiatype-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('/fonts/abc-diatype/ABCDiatype-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Diatype';
+  src: url('/fonts/abc-diatype/ABCDiatype-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -7,9 +52,9 @@
 @plugin '@tailwindcss/typography';
 
 :root {
-  /* Typography */
-  --font-sans: var(--font-geist-sans, "Geist Sans", system-ui, sans-serif);
-  --font-display: var(--font-display, "Space Grotesk", var(--font-sans));
+  /* Typography - ABC Diatype with strong system fallbacks */
+  --font-sans: 'ABC Diatype', -apple-system, 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'ABC Diatype', -apple-system, 'Segoe UI', system-ui, sans-serif;
 
   /* Palette — dokładnie według nowy_styl.md */
   --color-dark-bg: oklch(0.11 0 0); /* #1A1A1A */
