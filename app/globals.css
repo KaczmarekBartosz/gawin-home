@@ -106,6 +106,11 @@
   --radius-sm: calc(var(--radius-lg) - 8px);
   --radius-md: var(--radius-lg);
   --radius-lg: var(--radius-xl);
+  --radius-soft: 12px;
+  --radius-soft-lg: 16px;
+  --radius-soft-xl: 24px;
+  --radius-soft-2xl: 32px;
+  --radius-pill: 9999px;
 
   /* Primary Brand Colors */
   --color-charcoal: #1A1A1A;
@@ -134,6 +139,30 @@
   --color-success: #6EE7B7;
   --color-warning: #FDBA74;
   --color-error: #E74C3C;
+
+  /* Neomorphic Shadow System */
+  --shadow-neo-subtle: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-neo-light: 0 8px 16px rgba(0, 0, 0, 0.08);
+  --shadow-neo-medium: 0 12px 24px rgba(0, 0, 0, 0.12);
+  --shadow-neo-pressed: inset 0 2px 4px rgba(0, 0, 0, 0.08), inset 0 -2px 4px rgba(255, 255, 255, 0.8);
+  --shadow-neo-inset: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
+  --shadow-card-active: 0 4px 8px rgba(0, 0, 0, 0.06);
+  --shadow-glow-gold: 0 0 20px rgba(212, 165, 116, 0.4), 0 0 40px rgba(212, 165, 116, 0.2);
+  --shadow-glow-green: 0 0 20px rgba(110, 231, 183, 0.3), 0 0 40px rgba(110, 231, 183, 0.15);
+  --shadow-glow-orange: 0 0 20px rgba(253, 186, 116, 0.3), 0 0 40px rgba(253, 186, 116, 0.15);
+
+  /* Spacing (8px grid system) */
+  --spacing-xs: 0.5rem;  /* 8px */
+  --spacing-sm: 0.75rem; /* 12px */
+  --spacing-md: 1.5rem;  /* 24px */
+  --spacing-lg: 2rem;    /* 32px */
+  --spacing-xl: 3rem;    /* 48px */
+  --spacing-2xl: 4rem;   /* 64px */
+  --spacing-compact: 0.75rem;  /* 12px */
+  --spacing-cozy: 1.5rem;      /* 24px */
+  --spacing-spacious: 2.5rem;  /* 40px */
 
   /* shadcn/ui Component Colors */
   --color-background: var(--color-light-bg);
@@ -492,5 +521,197 @@
     100% {
       transform: translateX(120%);
     }
+  }
+
+  /* ============================================
+   * NEOMORPHIC SHADOW UTILITIES
+   * ============================================ */
+
+  /* Soft Shadows (subtle UI elements) */
+  .shadow-neo-subtle {
+    box-shadow: var(--shadow-neo-subtle);
+  }
+
+  .shadow-neo-light {
+    box-shadow: var(--shadow-neo-light);
+  }
+
+  .shadow-neo-medium {
+    box-shadow: var(--shadow-neo-medium);
+  }
+
+  /* Pressed/Inset Shadows (embossed effect) */
+  .shadow-neo-pressed {
+    box-shadow: var(--shadow-neo-pressed);
+  }
+
+  .shadow-neo-inset {
+    box-shadow: var(--shadow-neo-inset);
+  }
+
+  /* Card Shadows (elevated surfaces) */
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .shadow-card-active {
+    box-shadow: var(--shadow-card-active);
+  }
+
+  /* Glow Effects (neon accents) */
+  .shadow-glow-gold {
+    box-shadow: var(--shadow-glow-gold);
+  }
+
+  .shadow-glow-green {
+    box-shadow: var(--shadow-glow-green);
+  }
+
+  .shadow-glow-orange {
+    box-shadow: var(--shadow-glow-orange);
+  }
+
+  /* ============================================
+   * SPACING UTILITIES (8px grid system)
+   * ============================================ */
+
+  /* Gap Utilities (custom values) */
+  .gap-xs {
+    gap: var(--spacing-xs);
+  }
+
+  .gap-sm {
+    gap: var(--spacing-sm);
+  }
+
+  .gap-md {
+    gap: var(--spacing-md);
+  }
+
+  .gap-lg {
+    gap: var(--spacing-lg);
+  }
+
+  .gap-xl {
+    gap: var(--spacing-xl);
+  }
+
+  .gap-2xl {
+    gap: var(--spacing-2xl);
+  }
+
+  /* Rounded/Border Radius (soft neomorphic style) */
+  .rounded-soft {
+    border-radius: var(--radius-soft);
+  }
+
+  .rounded-soft-lg {
+    border-radius: var(--radius-soft-lg);
+  }
+
+  .rounded-soft-xl {
+    border-radius: var(--radius-soft-xl);
+  }
+
+  .rounded-soft-2xl {
+    border-radius: var(--radius-soft-2xl);
+  }
+
+  .rounded-pill {
+    border-radius: var(--radius-pill);
+  }
+
+  /* Enhanced Padding (semantic spacing) */
+  .p-compact {
+    padding: var(--spacing-compact);
+  }
+
+  .p-cozy {
+    padding: var(--spacing-cozy);
+  }
+
+  .p-spacious {
+    padding: var(--spacing-spacious);
+  }
+
+  /* Enhanced Padding X-axis */
+  .px-compact {
+    padding-left: var(--spacing-compact);
+    padding-right: var(--spacing-compact);
+  }
+
+  .px-cozy {
+    padding-left: var(--spacing-cozy);
+    padding-right: var(--spacing-cozy);
+  }
+
+  .px-spacious {
+    padding-left: var(--spacing-spacious);
+    padding-right: var(--spacing-spacious);
+  }
+
+  /* Enhanced Padding Y-axis */
+  .py-compact {
+    padding-top: var(--spacing-compact);
+    padding-bottom: var(--spacing-compact);
+  }
+
+  .py-cozy {
+    padding-top: var(--spacing-cozy);
+    padding-bottom: var(--spacing-cozy);
+  }
+
+  .py-spacious {
+    padding-top: var(--spacing-spacious);
+    padding-bottom: var(--spacing-spacious);
+  }
+
+  /* Enhanced Margin (semantic spacing) */
+  .m-compact {
+    margin: var(--spacing-compact);
+  }
+
+  .m-cozy {
+    margin: var(--spacing-cozy);
+  }
+
+  .m-spacious {
+    margin: var(--spacing-spacious);
+  }
+
+  /* Enhanced Margin X-axis */
+  .mx-compact {
+    margin-left: var(--spacing-compact);
+    margin-right: var(--spacing-compact);
+  }
+
+  .mx-cozy {
+    margin-left: var(--spacing-cozy);
+    margin-right: var(--spacing-cozy);
+  }
+
+  .mx-spacious {
+    margin-left: var(--spacing-spacious);
+    margin-right: var(--spacing-spacious);
+  }
+
+  /* Enhanced Margin Y-axis */
+  .my-compact {
+    margin-top: var(--spacing-compact);
+    margin-bottom: var(--spacing-compact);
+  }
+
+  .my-cozy {
+    margin-top: var(--spacing-cozy);
+    margin-bottom: var(--spacing-cozy);
+  }
+
+  .my-spacious {
+    margin-top: var(--spacing-spacious);
+    margin-bottom: var(--spacing-spacious);
   }
 }
