@@ -50,11 +50,7 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                variant="gold"
-                size="lg"
-                className="text-base px-8 group"
-              >
+              <Button variant="gold" size="lg" className="text-base px-8 group">
                 <span>Odkryj Kolekcję</span>
                 <ArrowRight
                   className="h-4 w-4 transition-transform group-hover:translate-x-1"
