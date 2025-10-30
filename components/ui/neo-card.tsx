@@ -16,7 +16,7 @@ const neoCardVariants = cva(
         elevated: [
           "bg-white border border-gray-100",
           "shadow-neo-light",
-          "hover:shadow-neo-medium hover:scale-102",
+          "hover:shadow-neo-medium hover:scale-105",
         ].join(" "),
         flat: [
           "bg-brand-sand border border-gray-200",
