@@ -1,3 +1,48 @@
+/*
+ * TODO: FONT FILES ARE CURRENTLY 0-BYTE PLACEHOLDERS
+ *
+ * ABC Diatype is a premium commercial font from Dinamo foundry.
+ * To complete the implementation:
+ * 1. Purchase/license ABC Diatype from: https://abcdinamo.com/typefaces/diatype
+ * 2. Download woff2 files for weights: Light (300), Regular (400), Medium (500), Bold (700)
+ * 3. Replace the placeholder files in /public/fonts/abc-diatype/
+ *
+ * Current status: @font-face declarations are ready, strong fallbacks ensure functionality
+ */
+
+/* ABC Diatype - Premium Custom Font */
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ABC Diatype";
+  src: url("/fonts/abc-diatype/ABCDiatype-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -7,9 +52,10 @@
 @plugin '@tailwindcss/typography';
 
 :root {
-  /* Typography */
-  --font-sans: var(--font-geist-sans, "Geist Sans", system-ui, sans-serif);
-  --font-display: var(--font-display, "Space Grotesk", var(--font-sans));
+  /* Typography - ABC Diatype with strong system fallbacks */
+  --font-sans: "ABC Diatype", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-display:
+    "ABC Diatype", -apple-system, "Segoe UI", system-ui, sans-serif;
 
   /* Palette — dokładnie według nowy_styl.md */
   --color-dark-bg: oklch(0.11 0 0); /* #1A1A1A */
@@ -56,11 +102,75 @@
 }
 
 @theme inline {
+  /* Radii */
   --radius: var(--radius-xl);
   --radius-sm: calc(var(--radius-lg) - 8px);
   --radius-md: var(--radius-lg);
   --radius-lg: var(--radius-xl);
+  --radius-soft: 12px;
+  --radius-soft-lg: 16px;
+  --radius-soft-xl: 24px;
+  --radius-soft-2xl: 32px;
+  --radius-pill: 9999px;
 
+  /* Primary Brand Colors */
+  --color-charcoal: #1a1a1a;
+  --color-cream: #fafaf9;
+  --color-sand: #f5f5f5;
+  --color-gold: #d4a574;
+  --color-copper: #b8956a;
+
+  /* Neomorphic Accent Colors */
+  --color-neo-mint: #a8f5d0;
+  --color-neo-green: #6ee7b7;
+  --color-neo-green-dark: #22c55e;
+  --color-neo-orange: #fdba74;
+  --color-neo-orange-light: #fed7aa;
+
+  /* Neutrals (Grayscale) */
+  --color-gray-50: #f9f9f9;
+  --color-gray-100: #f3f3f3;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d0d0d0;
+  --color-gray-400: #999999;
+  --color-gray-500: #666666;
+  --color-gray-600: #404040;
+
+  /* Semantic Colors */
+  --color-success: #6ee7b7;
+  --color-warning: #fdba74;
+  --color-error: #e74c3c;
+
+  /* Neomorphic Shadow System */
+  --shadow-neo-subtle: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-neo-light: 0 8px 16px rgba(0, 0, 0, 0.08);
+  --shadow-neo-medium: 0 12px 24px rgba(0, 0, 0, 0.12);
+  --shadow-neo-pressed:
+    inset 0 2px 4px rgba(0, 0, 0, 0.08),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.8);
+  --shadow-neo-inset: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
+  --shadow-card-active: 0 4px 8px rgba(0, 0, 0, 0.06);
+  --shadow-glow-gold:
+    0 0 20px rgba(212, 165, 116, 0.4), 0 0 40px rgba(212, 165, 116, 0.2);
+  --shadow-glow-green:
+    0 0 20px rgba(110, 231, 183, 0.3), 0 0 40px rgba(110, 231, 183, 0.15);
+  --shadow-glow-orange:
+    0 0 20px rgba(253, 186, 116, 0.3), 0 0 40px rgba(253, 186, 116, 0.15);
+
+  /* Spacing (8px grid system) */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 0.75rem; /* 12px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
+  --spacing-2xl: 4rem; /* 64px */
+  --spacing-compact: 0.75rem; /* 12px */
+  --spacing-cozy: 1.5rem; /* 24px */
+  --spacing-spacious: 2.5rem; /* 40px */
+
+  /* shadcn/ui Component Colors */
   --color-background: var(--color-light-bg);
   --color-foreground: var(--color-text-dark);
   --color-card: var(--color-light-surface);
@@ -179,52 +289,84 @@
 }
 
 @layer utilities {
+  /* Display - Hero Headlines */
   .text-display-hero {
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.05;
-    font-size: clamp(2.5rem, 7vw, 5.75rem);
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
   }
 
+  /* H1 - Section Headlines */
   .text-h1 {
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.02em;
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
   }
 
+  /* H2 - Subsection Headers */
   .text-h2 {
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.02em;
-    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.2;
   }
 
+  /* H3 - Card/Feature Headers */
   .text-h3 {
     font-family: var(--font-sans);
     font-weight: 600;
     letter-spacing: -0.01em;
-    font-size: clamp(1.125rem, 2vw, 1.75rem);
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.3;
   }
 
-  .text-body-standard {
+  /* Body - Large paragraphs */
+  .text-body-large {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  /* Body - Standard paragraphs */
+  .text-body {
+    font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.7;
-    color: var(--color-text-gray);
+    font-weight: 400;
+    letter-spacing: 0;
   }
 
-  .text-body-descriptive {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.75;
-    color: var(--color-text-muted);
+  /* Body Small - Secondary text */
+  .text-body-small {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    font-weight: 400;
   }
 
+  /* Label - Uppercase labels, captions */
   .text-label {
+    font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.25em;
     text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* Caption - Small helper text */
+  .text-caption {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    font-weight: 400;
   }
 
   .font-display {
@@ -385,5 +527,832 @@
     100% {
       transform: translateX(120%);
     }
+  }
+
+  /* ============================================
+   * NEOMORPHIC SHADOW UTILITIES
+   * ============================================ */
+
+  /* Soft Shadows (subtle UI elements) */
+  .shadow-neo-subtle {
+    box-shadow: var(--shadow-neo-subtle);
+  }
+
+  .shadow-neo-light {
+    box-shadow: var(--shadow-neo-light);
+  }
+
+  .shadow-neo-medium {
+    box-shadow: var(--shadow-neo-medium);
+  }
+
+  /* Pressed/Inset Shadows (embossed effect) */
+  .shadow-neo-pressed {
+    box-shadow: var(--shadow-neo-pressed);
+  }
+
+  .shadow-neo-inset {
+    box-shadow: var(--shadow-neo-inset);
+  }
+
+  /* Card Shadows (elevated surfaces) */
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .shadow-card-active {
+    box-shadow: var(--shadow-card-active);
+  }
+
+  /* Glow Effects (neon accents) */
+  .shadow-glow-gold {
+    box-shadow: var(--shadow-glow-gold);
+  }
+
+  .shadow-glow-green {
+    box-shadow: var(--shadow-glow-green);
+  }
+
+  .shadow-glow-orange {
+    box-shadow: var(--shadow-glow-orange);
+  }
+
+  /* ============================================
+   * SPACING UTILITIES (8px grid system)
+   * ============================================ */
+
+  /* Gap Utilities (custom values) */
+  .gap-xs {
+    gap: var(--spacing-xs);
+  }
+
+  .gap-sm {
+    gap: var(--spacing-sm);
+  }
+
+  .gap-md {
+    gap: var(--spacing-md);
+  }
+
+  .gap-lg {
+    gap: var(--spacing-lg);
+  }
+
+  .gap-xl {
+    gap: var(--spacing-xl);
+  }
+
+  .gap-2xl {
+    gap: var(--spacing-2xl);
+  }
+
+  /* Rounded/Border Radius (soft neomorphic style) */
+  .rounded-soft {
+    border-radius: var(--radius-soft);
+  }
+
+  .rounded-soft-lg {
+    border-radius: var(--radius-soft-lg);
+  }
+
+  .rounded-soft-xl {
+    border-radius: var(--radius-soft-xl);
+  }
+
+  .rounded-soft-2xl {
+    border-radius: var(--radius-soft-2xl);
+  }
+
+  .rounded-pill {
+    border-radius: var(--radius-pill);
+  }
+
+  /* Enhanced Padding (semantic spacing) */
+  .p-compact {
+    padding: var(--spacing-compact);
+  }
+
+  .p-cozy {
+    padding: var(--spacing-cozy);
+  }
+
+  .p-spacious {
+    padding: var(--spacing-spacious);
+  }
+
+  /* Enhanced Padding X-axis */
+  .px-compact {
+    padding-left: var(--spacing-compact);
+    padding-right: var(--spacing-compact);
+  }
+
+  .px-cozy {
+    padding-left: var(--spacing-cozy);
+    padding-right: var(--spacing-cozy);
+  }
+
+  .px-spacious {
+    padding-left: var(--spacing-spacious);
+    padding-right: var(--spacing-spacious);
+  }
+
+  /* Enhanced Padding Y-axis */
+  .py-compact {
+    padding-top: var(--spacing-compact);
+    padding-bottom: var(--spacing-compact);
+  }
+
+  .py-cozy {
+    padding-top: var(--spacing-cozy);
+    padding-bottom: var(--spacing-cozy);
+  }
+
+  .py-spacious {
+    padding-top: var(--spacing-spacious);
+    padding-bottom: var(--spacing-spacious);
+  }
+
+  /* Enhanced Margin (semantic spacing) */
+  .m-compact {
+    margin: var(--spacing-compact);
+  }
+
+  .m-cozy {
+    margin: var(--spacing-cozy);
+  }
+
+  .m-spacious {
+    margin: var(--spacing-spacious);
+  }
+
+  /* Enhanced Margin X-axis */
+  .mx-compact {
+    margin-left: var(--spacing-compact);
+    margin-right: var(--spacing-compact);
+  }
+
+  .mx-cozy {
+    margin-left: var(--spacing-cozy);
+    margin-right: var(--spacing-cozy);
+  }
+
+  .mx-spacious {
+    margin-left: var(--spacing-spacious);
+    margin-right: var(--spacing-spacious);
+  }
+
+  /* Enhanced Margin Y-axis */
+  .my-compact {
+    margin-top: var(--spacing-compact);
+    margin-bottom: var(--spacing-compact);
+  }
+
+  .my-cozy {
+    margin-top: var(--spacing-cozy);
+    margin-bottom: var(--spacing-cozy);
+  }
+
+  .my-spacious {
+    margin-top: var(--spacing-spacious);
+    margin-bottom: var(--spacing-spacious);
+  }
+
+  /* ============================================
+   * RESPONSIVE TYPOGRAPHY UTILITIES
+   * Mobile-first typography with breakpoint variants
+   * ============================================ */
+
+  /* Hero Headlines - Mobile to Desktop */
+  .text-display-hero-mobile {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: 1.875rem; /* 30px */
+  }
+
+  @media (min-width: 640px) {
+    .text-display-hero-tablet {
+      font-size: 3rem; /* 48px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-display-hero-desktop {
+      font-size: 4.5rem; /* 72px */
+    }
+  }
+
+  /* H1 Headlines - Mobile to Desktop */
+  .text-h1-mobile {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.1;
+  }
+
+  @media (min-width: 640px) {
+    .text-h1-tablet {
+      font-size: 2rem; /* 32px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-h1-desktop {
+      font-size: 3rem; /* 48px */
+    }
+  }
+
+  /* H2 Headlines - Mobile to Desktop */
+  .text-h2-mobile {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.2;
+  }
+
+  @media (min-width: 640px) {
+    .text-h2-tablet {
+      font-size: 1.75rem; /* 28px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .text-h2-desktop {
+      font-size: 2.25rem; /* 36px */
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE SPACING UTILITIES
+   * Breakpoint-specific padding and gaps
+   * ============================================ */
+
+  /* Mobile Padding - 1rem (16px) */
+  .px-mobile {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .py-mobile {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .p-mobile {
+    padding: 1rem;
+  }
+
+  /* Tablet Padding - 1.5rem (24px) */
+  @media (min-width: 640px) {
+    .px-tablet {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .py-tablet {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .p-tablet {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Desktop Padding - 2rem (32px) */
+  @media (min-width: 1024px) {
+    .px-desktop {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .py-desktop {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .p-desktop {
+      padding: 2rem;
+    }
+  }
+
+  /* Gap Utilities for Mobile Grids */
+  .gap-mobile {
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .gap-tablet {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gap-desktop {
+      gap: 2rem;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE CONTAINER UTILITIES
+   * Viewport-aware container widths
+   * ============================================ */
+
+  .container-mobile {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 640px) {
+    .container-tablet {
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-desktop {
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-xl {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE FLEX/GRID UTILITIES
+   * Mobile-first layout primitives
+   * ============================================ */
+
+  /* Mobile Column Layout (vertical stacking) */
+  .flex-mobile-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 640px) {
+    .flex-tablet-row {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  /* Grid Auto-Sizing (1 column on mobile, responsive on larger screens) */
+  .grid-auto-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-auto-tablet {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-auto-desktop {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  /* 2-Column Grid (mobile: 1, tablet: 2) */
+  .grid-cols-mobile-1-tablet-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-cols-mobile-1-tablet-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  /* 3-Column Grid (mobile: 1, tablet: 2, desktop: 3) */
+  .grid-cols-responsive {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .grid-cols-responsive {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-cols-responsive {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  /* ============================================
+   * TOUCH-FRIENDLY INTERACTIVE ELEMENTS
+   * Minimum touch targets (48x48px WCAG AAA)
+   * ============================================ */
+
+  /* Minimum Touch Target Size */
+  .touch-target {
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile Button (large touch-friendly padding) */
+  .btn-mobile {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* Tablet Button */
+  @media (min-width: 640px) {
+    .btn-tablet {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+      min-height: 44px;
+    }
+  }
+
+  /* Desktop Button */
+  @media (min-width: 1024px) {
+    .btn-desktop {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      min-height: 40px;
+    }
+  }
+
+  /* Mobile Link (with touch padding) */
+  .link-mobile {
+    padding: 0.5rem 0.75rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Tap Target Area (invisible expanded hit area) */
+  .tap-target {
+    position: relative;
+  }
+
+  .tap-target::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 48px;
+    min-height: 48px;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+  }
+
+  /* ============================================
+   * RESPONSIVE IMAGE UTILITIES
+   * Image sizing and aspect ratios
+   * ============================================ */
+
+  /* Full-Width Mobile Images */
+  .img-mobile-full {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Responsive Image (fluid width, constrained max) */
+  .img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Image Aspect Ratios */
+  .aspect-video-mobile {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+  }
+
+  .aspect-square-mobile {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+  }
+
+  .aspect-portrait-mobile {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    height: auto;
+  }
+
+  .aspect-landscape-mobile {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ============================================
+   * RESPONSIVE VISIBILITY UTILITIES
+   * Show/hide based on breakpoints
+   * ============================================ */
+
+  /* Hide on Mobile, Show on Tablet+ */
+  .hidden-mobile {
+    display: none;
+  }
+
+  @media (min-width: 640px) {
+    .hidden-mobile {
+      display: block;
+    }
+  }
+
+  /* Show on Mobile Only, Hide on Tablet+ */
+  .visible-mobile-only {
+    display: block;
+  }
+
+  @media (min-width: 640px) {
+    .visible-mobile-only {
+      display: none;
+    }
+  }
+
+  /* Hide on Tablet, Show on Mobile and Desktop */
+  .hidden-tablet {
+    display: block;
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .hidden-tablet {
+      display: none;
+    }
+  }
+
+  /* Show on Desktop Only */
+  .visible-desktop-only {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .visible-desktop-only {
+      display: block;
+    }
+  }
+
+  /* ============================================
+   * SAFE AREA / NOTCH SUPPORT (iOS)
+   * Support for devices with notches and safe areas
+   * ============================================ */
+
+  /* Full Safe Area Padding */
+  .safe-area-inset {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Safe Area Padding (Horizontal Only) */
+  .safe-padding-x {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  /* Safe Area Padding (Vertical Only) */
+  .safe-padding-y {
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Safe Area Top Only (for status bar) */
+  .safe-padding-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  /* Safe Area Bottom Only (for home indicator) */
+  .safe-padding-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* ============================================
+   * RESPONSIVE TEXT SCALING UTILITIES
+   * Fine-grained text size control per breakpoint
+   * ============================================ */
+
+  /* Body Text - Mobile to Desktop */
+  .text-body-mobile {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  @media (min-width: 640px) {
+    .text-body-tablet {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+  }
+
+  /* Caption Text - Mobile First */
+  .text-caption-mobile {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  @media (min-width: 640px) {
+    .text-caption-tablet {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE MARGIN UTILITIES
+   * Semantic margin for mobile/tablet/desktop
+   * ============================================ */
+
+  /* Mobile Margin */
+  .m-mobile {
+    margin: 1rem;
+  }
+
+  .mx-mobile {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .my-mobile {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Tablet Margin */
+  @media (min-width: 640px) {
+    .m-tablet {
+      margin: 1.5rem;
+    }
+
+    .mx-tablet {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+
+    .my-tablet {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  /* Desktop Margin */
+  @media (min-width: 1024px) {
+    .m-desktop {
+      margin: 2rem;
+    }
+
+    .mx-desktop {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+
+    .my-desktop {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* ============================================
+   * SECTION SPACING UTILITIES
+   * Large section padding for hero and feature areas
+   * ============================================ */
+
+  /* Mobile Section Padding (compact) */
+  .section-padding-mobile {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Tablet Section Padding (medium) */
+  @media (min-width: 640px) {
+    .section-padding-tablet {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  /* Desktop Section Padding (spacious) */
+  @media (min-width: 1024px) {
+    .section-padding-desktop {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE FORM UTILITIES
+   * Mobile-optimized form elements
+   * ============================================ */
+
+  /* Mobile Input (large, touch-friendly) */
+  .input-mobile {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    min-height: 44px;
+    border-radius: var(--radius-soft);
+    border: 1px solid var(--color-border-light);
+  }
+
+  /* Full-Width Mobile Form Fields */
+  .form-field-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .form-field-tablet {
+      gap: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .form-field-desktop {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  /* ============================================
+   * RESPONSIVE SCROLL UTILITIES
+   * Mobile-friendly scrolling behavior
+   * ============================================ */
+
+  /* Smooth Scrolling */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide Scrollbar (iOS) */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Vertical Snap Scrolling */
+  .snap-y-mobile {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+
+  .snap-item {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 }

@@ -334,6 +334,7 @@
 ### 2025-10-18 20:15 - Fix: Karuzela bestsellerów - kompletna naprawa
 
 **Problem:**
+
 1. ❌ Gradient z prawej strony był zbędny i przeszkadzał
 2. ❌ Karuzela nie zaczynała się w linii z innymi sekcjami
 3. ❌ Cienie ProductCard były obcinane przez następną sekcję
@@ -343,6 +344,7 @@
 **Rozwiązanie:**
 
 **BestsellersCarousel.tsx:**
+
 - ✅ Usunięto gradient fade z prawej strony (było `<div className="...bg-gradient-to-l from-[#f5f5f5]"/>`)
 - ✅ Przeniesiono `gap-6`, `pl-4`, `first:pl-6` z dzieci `motion.div` NA kontener flex
 - ✅ Struktura przed: `<motion.div className="...pl-4 first:pl-6 last:pr-6">` - padding psował szerokość kart
@@ -350,13 +352,16 @@
 - ✅ Każda karta: `basis-[80%]` (mobile) → `basis-[45%]` (tablet) → `basis-[360px]` (desktop)
 
 **ProductCard.tsx:**
+
 - ✅ Usunięto duże cienie: `shadow-[0_26px_60px_rgba(26,26,26,0.08)]` → brak shadow (tylko hover `-translate-y-1`)
 - ✅ Zachowano transition dla hover effects bez przesadnych cieni
 
 **app/home/page.tsx:**
+
 - ✅ Sekcja bestsellerów: `overflow-visible` → `pb-20 md:pb-28` (lepszy balans, cienie nie są obcinane)
 
 **Rezultat:**
+
 - ✅ Wszystkie 6 kart wyświetlają się prawidłowo jako pełne ProductCard
 - ✅ Karuzela zaczyna się w linii z Container (first:pl-6 → first:pl-8 → responsive)
 - ✅ Brak zbędnego gradientu

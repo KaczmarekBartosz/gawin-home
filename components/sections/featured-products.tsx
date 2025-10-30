@@ -39,9 +39,7 @@ export async function FeaturedProducts() {
                 />
               </div>
               <div className="p-4">
-                <h3 className="line-clamp-2 text-lg font-semibold">
-                  {p.name}
-                </h3>
+                <h3 className="line-clamp-2 text-lg font-semibold">{p.name}</h3>
                 <p className="mt-1 text-sm text-neutral-500">{p.category}</p>
                 <p className="mt-2 text-base font-medium">
                   {new Intl.NumberFormat("pl-PL", {

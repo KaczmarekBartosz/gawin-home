@@ -45,24 +45,23 @@ const neoButtonVariants = cva(
       variant: "primary",
       size: "md",
     },
-  }
+  },
 );
 
 export interface NeoButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof neoButtonVariants> {}
 
-export const NeoButton = React.forwardRef<
-  HTMLButtonElement,
-  NeoButtonProps
->(({ className, variant, size, disabled = false, ...props }, ref) => (
-  <button
-    ref={ref}
-    disabled={disabled}
-    className={cn(neoButtonVariants({ variant, size }), className)}
-    {...props}
-  />
-));
+export const NeoButton = React.forwardRef<HTMLButtonElement, NeoButtonProps>(
+  ({ className, variant, size, disabled = false, ...props }, ref) => (
+    <button
+      ref={ref}
+      disabled={disabled}
+      className={cn(neoButtonVariants({ variant, size }), className)}
+      {...props}
+    />
+  ),
+);
 
 NeoButton.displayName = "NeoButton";
 

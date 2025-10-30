@@ -47,7 +47,8 @@ export function BestsellersSection() {
         >
           <h2 className="text-h1 text-brand-charcoal mb-4">Bestsellery</h2>
           <p className="text-body-descriptive text-gray-600 max-w-2xl">
-            Nasze najchętniej wybierane meble. Sprawdzona jakość i ponadczasowy design, które polubili już tysiące klientów.
+            Nasze najchętniej wybierane meble. Sprawdzona jakość i ponadczasowy
+            design, które polubili już tysiące klientów.
           </p>
         </motion.div>
 
@@ -100,7 +101,12 @@ function ProductCardNeo({ product }: ProductCardNeoProps) {
   const hasBadges = product.badges && product.badges.length > 0;
 
   return (
-    <NeoCard variant="elevated" hoverEffect={true} padding="none" className="h-full flex flex-col overflow-hidden">
+    <NeoCard
+      variant="elevated"
+      hoverEffect={true}
+      padding="none"
+      className="h-full flex flex-col overflow-hidden"
+    >
       {/* Header - Product Image */}
       <NeoCard.Header className="relative h-64 overflow-hidden bg-brand-sand flex-shrink-0">
         <Image
@@ -138,7 +144,7 @@ function ProductCardNeo({ product }: ProductCardNeoProps) {
                 key={index}
                 className={cn(
                   "text-sm",
-                  index < ratingInteger ? "text-brand-gold" : "text-gray-300"
+                  index < ratingInteger ? "text-brand-gold" : "text-gray-300",
                 )}
               >
                 ★
@@ -162,14 +168,8 @@ function ProductCardNeo({ product }: ProductCardNeoProps) {
 
       {/* Footer - Price and Button */}
       <NeoCard.Footer className="px-6 py-5 border-t border-gray-100">
-        <span className="text-h3 font-bold text-brand-gold">
-          {priceLabel}
-        </span>
-        <NeoButton
-          variant="primary"
-          size="sm"
-          className="gap-2 flex-shrink-0"
-        >
+        <span className="text-h3 font-bold text-brand-gold">{priceLabel}</span>
+        <NeoButton variant="primary" size="sm" className="gap-2 flex-shrink-0">
           <ShoppingCart className="w-4 h-4" />
           <span className="hidden sm:inline">Dodaj</span>
         </NeoButton>

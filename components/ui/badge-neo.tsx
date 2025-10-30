@@ -9,7 +9,7 @@ const badgeNeoVariants = cva(
     "inline-flex items-center justify-center whitespace-nowrap",
     "font-semibold transition-all duration-150",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2",
-    "[&>svg]:pointer-events-none [&>svg:not([class*=\"size-\"])]:size-4 [&>svg]:shrink-0",
+    '[&>svg]:pointer-events-none [&>svg:not([class*="size-"])]:size-4 [&>svg]:shrink-0',
     "select-none",
   ].join(" "),
   {
