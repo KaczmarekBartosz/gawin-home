@@ -8,6 +8,7 @@ import { CategoryShowcase } from "@/components/sections/CategoryShowcase";
 import { ProductGrid, FeaturedProductsGrid } from "@/components/sections/ProductGrid";
 import { FilterSidebar } from "@/components/sections/FilterSidebar";
 import { SearchSort } from "@/components/sections/SearchSort";
+import { LookbookGrid } from "@/components/sections/LookbookGrid";
 import { NewsletterSection } from "@/components/sections/newsletter/NewsletterSection";
 import { FooterLinks } from "@/components/layout/footer/FooterLinks";
 
@@ -178,6 +179,13 @@ export default function HomePage() {
           <motion.div {...fadeInUp}>
             <FeaturedProductsGrid />
           </motion.div>
+        </div>
+      </section>
+
+      {/* LOOKBOOK SECTION - INSPIRATION GALLERY */}
+      <section className="w-full bg-white dark:bg-brand-charcoal px-4 sm:px-6">
+        <div className="mx-auto max-w-7xl">
+          <LookbookGrid />
         </div>
       </section>
 

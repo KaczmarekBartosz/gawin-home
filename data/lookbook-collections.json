@@ -1,0 +1,67 @@
+[
+  {
+    "id": "minimalist-living",
+    "title": "Minimalist Living Room",
+    "subtitle": "Clean lines & timeless elegance",
+    "description": "Create a serene living space with our curated minimalist collection. Perfect for those who appreciate simplicity and functionality.",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80",
+    "overlayImage": "https://images.unsplash.com/photo-1515186011519-327ad0d01025?w=1200&q=80",
+    "theme": "Modern",
+    "color": "slate",
+    "productIds": ["sofa-modern-grey", "coffee-table-marble", "wall-shelf-floating"],
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "luxury-bedroom",
+    "title": "Luxury Bedroom Retreat",
+    "subtitle": "Premium comfort meets sophisticated design",
+    "description": "Transform your bedroom into a sanctuary of luxury with our exclusive bedroom collection. High-quality materials and timeless design.",
+    "image": "https://images.unsplash.com/photo-1540932239986-310128078ceb?w=1200&q=80",
+    "overlayImage": "https://images.unsplash.com/photo-1631049307038-da31d8bbb59e?w=1200&q=80",
+    "theme": "Classic",
+    "color": "amber",
+    "productIds": ["bed-frame-oak", "lounge-chair-leather"],
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "industrial-chic",
+    "title": "Industrial Chic Workspace",
+    "subtitle": "Modern workspace with character",
+    "description": "Design your perfect office space with our industrial collection. Combining functionality with contemporary aesthetics.",
+    "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=1200&q=80",
+    "overlayImage": "https://images.unsplash.com/photo-1486887235352-b8e73b0cd203?w=1200&q=80",
+    "theme": "Modern",
+    "color": "zinc",
+    "productIds": ["coffee-table-marble", "wall-shelf-floating"],
+    "featured": false,
+    "order": 3
+  },
+  {
+    "id": "scandinavian-warmth",
+    "title": "Scandinavian Warmth",
+    "subtitle": "Nordic simplicity with cozy appeal",
+    "description": "Embrace the Scandinavian lifestyle with natural materials and warm tones. Perfect for creating a welcoming home environment.",
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80",
+    "overlayImage": "https://images.unsplash.com/photo-1586023492125-27b2c045b222?w=1200&q=80",
+    "theme": "Scandinavian",
+    "color": "neutral",
+    "productIds": ["lounge-chair-leather", "bed-frame-oak"],
+    "featured": true,
+    "order": 4
+  },
+  {
+    "id": "contemporary-elegance",
+    "title": "Contemporary Elegance",
+    "subtitle": "Bold designs for modern living",
+    "description": "Make a statement with our contemporary collection. Premium finishes and cutting-edge designs for the discerning homeowner.",
+    "image": "https://images.unsplash.com/photo-1494217694178-cd532926d3c9?w=1200&q=80",
+    "overlayImage": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80",
+    "theme": "Modern",
+    "color": "slate",
+    "productIds": ["sofa-modern-grey", "coffee-table-marble", "lounge-chair-leather"],
+    "featured": false,
+    "order": 5
+  }
+]
