@@ -57,7 +57,8 @@
       "Bash(pnpm add:*)",
       "Bash(pnpm ls:*)",
       "Bash(pkill:*)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(lsof:*)"
     ],
     "deny": [],
     "ask": []
