@@ -54,11 +54,11 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/40 z-[1]" />
 
       {/* Subtle decorative elements with improved visibility */}
-      <div className="absolute top-32 right-10 w-96 h-96 rounded-full bg-brand-gold/10 blur-3xl z-0" />
-      <div className="absolute bottom-10 left-20 w-96 h-96 rounded-full bg-brand-copper/8 blur-3xl z-0" />
+      <div className="absolute top-20 right-5 w-96 h-96 rounded-full bg-brand-gold/20 blur-3xl z-0 opacity-50 pointer-events-none" />
+      <div className="absolute bottom-32 left-10 w-80 h-80 rounded-full bg-brand-copper/15 blur-3xl z-0 opacity-40 pointer-events-none" />
 
       {/* Main content container with improved spacing */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 min-h-screen flex flex-col justify-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48 min-h-screen flex flex-col justify-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -98,13 +98,13 @@ export function HeroSection() {
           {/* CTA Buttons - responsive flex */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 pt-6"
+            className="flex flex-col sm:flex-row gap-4 pt-10"
           >
-            <Button size="lg" className="group bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold">
+            <Button size="lg" className="group bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold shadow-lg hover:shadow-xl transition-all">
               Odkryj Kolekcję
               <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="outline" size="lg" className="border-brand-charcoal text-brand-charcoal hover:bg-brand-charcoal/5">
+            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10 font-semibold backdrop-blur-sm">
               Umów konsultację
             </Button>
           </motion.div>
@@ -112,7 +112,7 @@ export function HeroSection() {
           {/* Trust indicators - displayed horizontally */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-3 gap-6 sm:gap-10 pt-10 sm:pt-12 border-t border-white/10"
+            className="grid grid-cols-3 gap-6 sm:gap-12 pt-12 sm:pt-16 border-t border-white/10"
           >
             {trustStats.map((stat, index) => (
               <motion.div
@@ -123,7 +123,7 @@ export function HeroSection() {
                 <span className="text-h3 sm:text-h2 text-white font-bold leading-tight">
                   {stat.label}
                 </span>
-                <span className="text-caption sm:text-body-small text-white/60 mt-1">{stat.value}</span>
+                <span className="text-body-small sm:text-body text-white/70 mt-2">{stat.value}</span>
               </motion.div>
             ))}
           </motion.div>
