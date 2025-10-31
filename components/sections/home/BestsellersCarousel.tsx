@@ -68,9 +68,7 @@ export function BestsellersCarousel({
                   }}
                 >
                   <ProductCard
-                    product={product}
-                    href="/pdp"
-                    className="h-full w-full"
+                    {...product}
                   />
                 </motion.div>
               ))}

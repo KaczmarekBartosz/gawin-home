@@ -126,7 +126,7 @@ export default function ListingPage() {
                     duration: 0.4,
                   }}
                 >
-                  <ProductCard product={product} href="/pdp" />
+                  <ProductCard {...product} />
                 </motion.div>
               ))}
             </motion.div>

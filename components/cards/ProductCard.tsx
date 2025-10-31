@@ -15,11 +15,14 @@ interface ProductCardProps {
   slug: string;
   price: number;
   comparePrice?: number | null;
-  image: string;
+  compareAtPrice?: number;
+  image?: string;
+  images?: Array<{ src: string; alt: string }> | string[];
   rating: number;
   reviewCount: number;
   badge?: string | null;
-  inStock: boolean;
+  badges?: string[];
+  inStock?: boolean;
   isFeatured?: boolean;
   isNew?: boolean;
   onAddToCart?: (id: string) => void;
@@ -32,17 +35,35 @@ export function ProductCard({
   slug,
   price,
   comparePrice,
+  compareAtPrice,
   image,
+  images,
   rating,
   reviewCount,
   badge,
-  inStock,
+  badges,
+  inStock = true,
   onAddToCart,
   onAddToWishlist,
 }: ProductCardProps) {
+  // Normalize image - support multiple data structures
+  let productImage = image || "";
+  if (!productImage && images && images.length > 0) {
+    const firstImage = images[0];
+    if (firstImage) {
+      productImage = typeof firstImage === "string" ? firstImage : firstImage.src;
+    }
+  }
+
+  // Normalize badge - support both old and new data structures
+  const productBadge = badge || badges?.[0] || null;
+
+  // Normalize compare price
+  const productComparePrice = comparePrice ?? compareAtPrice;
+
   const [isWishlisted, setIsWishlisted] = React.useState(false);
-  const discount = comparePrice
-    ? Math.round(((comparePrice - price) / comparePrice) * 100)
+  const discount = productComparePrice
+    ? Math.round(((productComparePrice - price) / productComparePrice) * 100)
     : 0;
 
   return (
@@ -60,7 +81,7 @@ export function ProductCard({
           <div className="relative overflow-hidden bg-neutral-100 aspect-square">
             {/* Product image */}
             <Image
-              src={image}
+              src={productImage}
               alt={name}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -68,7 +89,7 @@ export function ProductCard({
             />
 
             {/* Badge - top left */}
-            {badge && (
+            {productBadge && (
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -78,17 +99,17 @@ export function ProductCard({
               >
                 <BadgeNeo
                   variant={
-                    badge === "BESTSELLER"
+                    productBadge === "BESTSELLER"
                       ? "gold"
-                      : badge === "NOWOŚĆ"
+                      : productBadge === "NOWOŚĆ"
                         ? "success"
-                        : badge === "NIEDOSTĘPNE"
+                        : productBadge === "NIEDOSTĘPNE"
                           ? "error"
                           : "primary"
                   }
                   className="text-xs font-bold"
                 >
-                  {badge}
+                  {productBadge}
                 </BadgeNeo>
               </motion.div>
             )}
@@ -187,9 +208,9 @@ export function ProductCard({
               <span className="text-h4 font-bold text-brand-charcoal">
                 {price.toLocaleString("pl-PL")} zł
               </span>
-              {comparePrice && (
+              {productComparePrice && (
                 <span className="text-body-small text-brand-charcoal/50 line-through">
-                  {comparePrice.toLocaleString("pl-PL")} zł
+                  {productComparePrice.toLocaleString("pl-PL")} zł
                 </span>
               )}
             </div>
