@@ -37,6 +37,16 @@ export default {
         hostname: "gawin24.pl",
         pathname: "/public/upload/**",
       },
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "logo.clearbit.com",
+        pathname: "/**",
+      },
     ],
   },
 };
