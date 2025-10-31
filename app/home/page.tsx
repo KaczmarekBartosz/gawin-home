@@ -1,7 +1,7 @@
 "use client";
 
 import { HeroSection } from "@/components/sections/home/HeroSection";
-import { InteractiveProductCarousel } from "@/components/sections/home/CategoriesCarousel";
+import { CategoriesCarousel } from "@/components/sections/home/CategoriesCarousel";
 import { BestsellersCarousel } from "@/components/sections/home/BestsellersCarousel";
 import { LookbookGrid } from "@/components/sections/LookbookGrid";
 import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
@@ -19,8 +19,8 @@ export default function HomePage() {
       {/* 1. Hero Section — LEGACY */}
       <HeroSection />
 
-      {/* 2. Categories Carousel — INTERACTIVE */}
-      <InteractiveProductCarousel />
+      {/* 2. Categories Carousel — HORIZONTAL SCROLL */}
+      <CategoriesCarousel />
 
       {/* 3. Bestsellers Carousel — LEGACY */}
       <BestsellersCarousel products={bestsellersProducts} />
