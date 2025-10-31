@@ -1,83 +1,73 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ChevronRight, X } from "lucide-react";
+import { useState } from "react";
 
-// Premium furniture hero images - luxury pieces
-const heroProducts = [
+// Sofa Ibiza hotspots with detailed information
+const sofaHotspots = [
   {
     id: 1,
-    title: "Sofa Ibiza",
-    description: "Nowoczesna sofa z tkaniny Bouclé. Wygoda i elegancja w jednym.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&h=800&fit=crop",
+    title: "Tkanina Bouclé Premium",
+    description: "Miękka, pętelkowa struktura - modna, trwała i przyjemna w dotyku",
+    position: { x: 55, y: 45 },
   },
   {
     id: 2,
-    title: "Łóżko Kontynentalne",
-    description: "Luksusowe łóżko z systemem sprężyn bonelowych. Najwyższa jakość spania.",
-    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&h=800&fit=crop",
+    title: "Ryflowane Siedzisko",
+    description: "Charakterystyczne pionowe przeszycia nadają sofie unikalnego charakteru",
+    position: { x: 50, y: 58 },
   },
   {
     id: 3,
-    title: "Fotel Chesterfield",
-    description: "Elegancki fotel welurowy z pikowanymi detalami. Klasyka nowoczesna.",
-    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=1200&h=800&fit=crop",
+    title: "Pojemnik na Pościel",
+    description: "Obszerny schowek pod siedziskiem, idealny do przechowywania pościeli i koców",
+    position: { x: 45, y: 68 },
   },
   {
     id: 4,
-    title: "Stół Drewniany",
-    description: "Masywny stół z naturalnego drewna. Centrum salonu i miejsca spotkań.",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&h=800&fit=crop",
+    title: "Funkcja Spania DL",
+    description: "Łatwe rozkładanie dzięki automatowi - powierzchnia spania 142×198 cm",
+    position: { x: 65, y: 35 },
   },
   {
     id: 5,
-    title: "Szafka Nowoczesna",
-    description: "Minimalistyczna szafka z białego lakieru. Praktyczność i design.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop",
+    title: "Wymiary & Cena",
+    description: "258×113×95 cm | 2 499,00 zł | Gwarancja 5 lat",
+    position: { x: 30, y: 75 },
   },
 ];
 
 export function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % heroProducts.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + heroProducts.length) % heroProducts.length);
-  };
-
-  const currentProduct = heroProducts[currentIndex];
+  const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-brand-cream py-12 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-brand-cream pt-20 pb-8 px-4 sm:px-6 lg:px-8">
       {/* Container with rounded corners */}
-      <div className="max-w-7xl mx-auto bg-white rounded-3xl overflow-hidden shadow-2xl">
-        <div className="grid grid-cols-1 lg:grid-cols-[35%_65%] gap-0 min-h-[600px] lg:min-h-[700px]">
+      <div className="max-w-7xl mx-auto bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 min-h-[500px] lg:min-h-[600px]">
 
-          {/* LEFT SIDE - Content with breathing space */}
-          <div className="bg-brand-cream flex flex-col justify-center px-8 sm:px-12 py-16 lg:py-24 space-y-12">
-            <div className="space-y-10">
+          {/* LEFT SIDE - Content */}
+          <div className="bg-brand-cream flex flex-col justify-center px-6 sm:px-10 py-12 lg:py-16 space-y-8">
+            <div className="space-y-6">
               {/* Website URL */}
               <p className="text-xs sm:text-sm font-semibold text-brand-gold tracking-widest uppercase">
                 Gawin24.pl
               </p>
 
               {/* Large Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-charcoal leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-charcoal leading-tight">
                 Twój dom potrzebuje czegoś więcej niż mebli
               </h1>
 
               {/* Subheading */}
-              <p className="text-lg sm:text-xl text-brand-charcoal/70 leading-relaxed max-w-md">
-                Odkryj premiumową kolekcję, która łączy ponadczasowy design z najwyższą jakością rzemiosła.
+              <p className="text-base sm:text-base text-brand-charcoal/70 leading-normal">
+                Odkryj premiumową kolekcję mebli, która łączy design z jakością.
               </p>
             </div>
 
-            {/* CTA Buttons with breathing space */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <Button variant="gold" size="lg" className="w-full sm:w-auto">
                 <span className="flex items-center gap-2">
                   Odkryj Kolekcję
@@ -94,93 +84,71 @@ export function HeroSection() {
             </div>
 
             {/* Benefits section */}
-            <div className="pt-8 border-t border-brand-gold/20 space-y-4 hidden sm:block">
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="text-brand-gold font-bold text-lg">✓</span>
+            <div className="pt-5 border-t border-brand-gold/20 space-y-2 hidden sm:block">
+              <div className="space-y-2 text-sm">
+                <div className="flex items-start gap-2">
+                  <span className="text-brand-gold font-bold text-base">✓</span>
                   <div>
-                    <p className="font-semibold text-brand-charcoal">Darmowa dostawa</p>
-                    <p className="text-sm text-brand-charcoal/60">Na terenie Polski</p>
+                    <p className="font-semibold text-brand-charcoal text-sm">Darmowa dostawa</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-brand-gold font-bold text-lg">✓</span>
+                <div className="flex items-start gap-2">
+                  <span className="text-brand-gold font-bold text-base">✓</span>
                   <div>
-                    <p className="font-semibold text-brand-charcoal">Szybka wysyłka</p>
-                    <p className="text-sm text-brand-charcoal/60">7-14 dni roboczych</p>
+                    <p className="font-semibold text-brand-charcoal text-sm">Szybka wysyłka</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* RIGHT SIDE - Product Carousel */}
+          {/* RIGHT SIDE - Product Image with Hotspots */}
           <div className="relative bg-black w-full h-full flex items-center justify-center overflow-hidden">
             {/* Product Image */}
-            {currentProduct && (
-              <div className="relative w-full h-full">
-                <img
-                  src={currentProduct.image}
-                  alt={currentProduct.title}
-                  className="w-full h-full object-cover"
-                />
+            <img
+              src="/sofa_ibiza.webp"
+              alt="Sofa Rozkładana Ibiza"
+              className="w-full h-full object-cover"
+            />
 
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                {/* Product Info Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 text-white">
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-                    {currentProduct.title}
-                  </h2>
-                  <p className="text-base sm:text-lg text-white/90 mb-8 max-w-lg leading-relaxed">
-                    {currentProduct.description}
-                  </p>
-                  <Button variant="gold" size="lg">
-                    <span className="flex items-center gap-2">
-                      Sprawdź Model
-                      <ChevronRight className="w-4 h-4" />
-                    </span>
-                  </Button>
-                </div>
-              </div>
-            )}
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 p-3 sm:p-4 rounded-full transition-all duration-200 backdrop-blur-md"
-              aria-label="Previous product"
-            >
-              <ChevronLeft className="w-6 h-6 text-white" />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 p-3 sm:p-4 rounded-full transition-all duration-200 backdrop-blur-md"
-              aria-label="Next product"
-            >
-              <ChevronRight className="w-6 h-6 text-white" />
-            </button>
-
-            {/* Slide Indicators */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-              {heroProducts.map((_, index) => (
+            {/* Hotspots */}
+            {sofaHotspots.map((hotspot) => (
+              <div
+                key={hotspot.id}
+                className="absolute"
+                style={{ left: `${hotspot.position.x}%`, top: `${hotspot.position.y}%`, transform: 'translate(-50%, -50%)' }}
+                onMouseEnter={() => setActiveHotspot(hotspot.id)}
+                onMouseLeave={() => setActiveHotspot(null)}
+              >
+                {/* Pin Button */}
                 <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "bg-brand-gold w-8" : "bg-white/40 w-2"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
+                  className="relative z-10 w-10 h-10 rounded-full bg-brand-gold hover:bg-brand-gold/80 shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center text-white font-bold text-sm"
+                  aria-label={`Pin: ${hotspot.title}`}
+                >
+                  {hotspot.id}
+                </button>
 
-            {/* Slide Counter */}
-            <div className="absolute top-6 right-6 z-20 text-white text-xs sm:text-sm font-semibold bg-black/40 px-3 py-2 rounded-full backdrop-blur-md">
-              {String(currentIndex + 1).padStart(2, "0")} / {String(heroProducts.length).padStart(2, "0")}
-            </div>
+                {/* Animated circle around pin */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-brand-gold opacity-40 animate-pulse" />
+
+                {/* Tooltip - appears on hover */}
+                {activeHotspot === hotspot.id && (
+                  <div className="absolute z-20 bg-white rounded-lg shadow-2xl p-4 w-64 -translate-x-1/2 -translate-y-full -top-2 left-1/2">
+                    <h3 className="font-bold text-brand-charcoal text-sm mb-2">{hotspot.title}</h3>
+                    <p className="text-xs text-brand-charcoal/70 leading-relaxed">{hotspot.description}</p>
+                    <div className="mt-3 pt-3 border-t border-brand-gold/20">
+                      <Button variant="gold" size="sm" className="w-full">
+                        <span className="flex items-center gap-1 justify-center">
+                          Dowiedz się więcej
+                          <ChevronRight className="w-3 h-3" />
+                        </span>
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+
           </div>
         </div>
       </div>
