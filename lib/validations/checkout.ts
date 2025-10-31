@@ -82,8 +82,8 @@ export const paymentMethodSchema = z.object({
     .string()
     .min(2, "Wybierz bank")
     .optional(),
-  saveCard: z.boolean().default(false),
-  billingAddressSame: z.boolean().default(true),
+  saveCard: z.boolean(),
+  billingAddressSame: z.boolean(),
 });
 
 // Complete Checkout Form
@@ -91,8 +91,8 @@ export const checkoutFormSchema = z.object({
   shippingAddress: shippingAddressSchema,
   shippingMethod: shippingMethodSchema,
   paymentMethod: paymentMethodSchema,
-  termsAccepted: z.boolean().default(false),
-  newsletterOptIn: z.boolean().default(false),
+  termsAccepted: z.boolean(),
+  newsletterOptIn: z.boolean(),
 });
 
 // Export types

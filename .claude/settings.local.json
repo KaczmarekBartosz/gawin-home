@@ -59,5 +59,9 @@
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enabledMcpjsonServers": [
+    "memory"
+  ],
+  "enableAllProjectMcpServers": true
 }

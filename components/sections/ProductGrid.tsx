@@ -3,11 +3,14 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { ProductCard } from "@/components/cards/ProductCard";
-import products from "@/data/products.json";
+import productsData from "@/data/products.json";
+
+type Product = (typeof productsData)[number];
 
 interface ProductGridProps {
   category?: string;
   limit?: number;
+  products?: Product[];
   onAddToCart?: (productId: string) => void;
   onAddToWishlist?: (productId: string) => void;
 }
@@ -15,13 +18,17 @@ interface ProductGridProps {
 export function ProductGrid({
   category,
   limit,
+  products,
   onAddToCart,
   onAddToWishlist,
 }: ProductGridProps) {
-  const [filteredProducts, setFilteredProducts] = React.useState(products);
+  const sourceProducts = React.useMemo<Product[]>(
+    () => (products && products.length > 0 ? products : productsData),
+    [products],
+  );
 
-  React.useEffect(() => {
-    let result = products;
+  const filteredProducts = React.useMemo(() => {
+    let result = [...sourceProducts];
 
     if (category) {
       result = result.filter((p) => p.category === category);
@@ -31,8 +38,8 @@ export function ProductGrid({
       result = result.slice(0, limit);
     }
 
-    setFilteredProducts(result);
-  }, [category, limit]);
+    return result;
+  }, [category, limit, sourceProducts]);
 
   if (filteredProducts.length === 0) {
     return (
@@ -75,11 +82,14 @@ export function ProductGrid({
 export function FeaturedProductsGrid({
   onAddToCart,
   onAddToWishlist,
+  products,
 }: {
   onAddToCart?: (productId: string) => void;
   onAddToWishlist?: (productId: string) => void;
+  products?: Product[];
 }) {
-  const featured = products.filter((p) => p.isFeatured).slice(0, 4);
+  const sourceProducts = products && products.length > 0 ? products : productsData;
+  const featured = sourceProducts.filter((p) => p.isFeatured).slice(0, 4);
 
   return (
     <motion.div
@@ -112,11 +122,14 @@ export function FeaturedProductsGrid({
 export function NewArrivalsGrid({
   onAddToCart,
   onAddToWishlist,
+  products,
 }: {
   onAddToCart?: (productId: string) => void;
   onAddToWishlist?: (productId: string) => void;
+  products?: Product[];
 }) {
-  const newArrivals = products.filter((p) => p.isNew).slice(0, 4);
+  const sourceProducts = products && products.length > 0 ? products : productsData;
+  const newArrivals = sourceProducts.filter((p) => p.isNew).slice(0, 4);
 
   return (
     <motion.div
