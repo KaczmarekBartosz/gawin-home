@@ -9,7 +9,11 @@ export async function CategoriesShowcase() {
   ]);
   const cards = categories.map((c) => {
     const first = products.find((p) => p.category === c);
-    return { category: c, image: first?.image, link: "/mock/products" };
+    return {
+      category: c,
+      image: first?.images[0]?.src,
+      link: "/mock/products",
+    };
   });
 
   return (

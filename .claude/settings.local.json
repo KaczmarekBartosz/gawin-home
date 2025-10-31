@@ -3,7 +3,9 @@
     "allow": [
       "Bash(cd:*)",
       "Bash(timeout 120 npm run build:*)",
-      "Bash(timeout 15 npm run dev)"
+      "Bash(timeout 15 npm run dev)",
+      "Bash(timeout 60 npm run build -- app/home)",
+      "Bash(ls -1 \"C:\\Users\\NicoN\\Desktop\\Claude\\Nowe Projekty 2025\\gawin-home\\components\\.sections-backup\"\" | grep -i \"product|review \")"
     ],
     "deny": [],
     "ask": []
