@@ -111,7 +111,7 @@ export function TestimonialsSection() {
           className="text-center mb-16 sm:mb-20 lg:mb-24"
         >
           <h2 className="text-h1 text-brand-charcoal mb-6">Opinie klientów</h2>
-          <p className="text-body-large text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-body-large text-brand-charcoal/60 max-w-3xl mx-auto leading-relaxed">
             Czytaj, co mówią nasi zadowoleni klienci o mebli premium Gawin-Home
           </p>
         </motion.div>
@@ -160,7 +160,7 @@ export function TestimonialsSection() {
                     <p className="text-body font-semibold text-brand-charcoal truncate">
                       {testimonial.name}
                     </p>
-                    <p className="text-caption text-gray-600 truncate">
+                    <p className="text-caption text-brand-charcoal/60 truncate">
                       {testimonial.title}
                     </p>
                   </div>
@@ -179,7 +179,7 @@ export function TestimonialsSection() {
           transition={{ delay: 0.4 }}
           className="text-center mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-gray-200"
         >
-          <p className="text-body-large text-gray-600 leading-relaxed">
+          <p className="text-body-large text-brand-charcoal/60 leading-relaxed">
             Ponad <span className="font-bold text-brand-gold">2 500+</span>{" "}
             zadowolonych klientów na całym świecie
           </p>

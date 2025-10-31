@@ -48,202 +48,195 @@ export function LookbookGrid({ className }: LookbookGridProps) {
   };
 
   return (
-    <section className={cn("py-20 md:py-32", className)}>
-      {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="mb-16 md:mb-20 px-4 md:px-0"
-      >
-        <div className="text-center space-y-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-            className="text-xs md:text-sm font-semibold uppercase tracking-widest text-brand-gold"
-          >
-            INSPIRACJA & TRENDY
-          </motion.div>
-
-          <h2 className="text-h1 md:text-display-lg font-bold text-brand-charcoal dark:text-brand-cream">
+    <section className={cn("py-24 md:py-32 bg-white", className)}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <span className="text-label uppercase tracking-widest text-brand-gold">
+            Inspiracja i trendy
+          </span>
+          <h2 className="text-h1 text-brand-charcoal mt-4 mb-6">
             Lookbook Kolekcje
           </h2>
-
-          <p className="text-body-large text-brand-charcoal/70 dark:text-brand-cream/70 max-w-2xl mx-auto">
-            Odkryj naszą wybraną kolekcję inspirujących aranżacji i stylów
-            wnętrz. Każda kolekcja opowiada swoją historię dizajnu i estetyki.
+          <p className="text-body-large text-brand-charcoal/60 max-w-3xl mx-auto leading-relaxed">
+            Odkryj naszą wybraną kolekcję inspirujących aranżacji i stylów wnętrz. Każda kolekcja opowiada swoją historię dizajnu i estetyki.
           </p>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Lookbook Grid - Masonry Style */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-4 md:px-0"
-      >
-        {sortedCollections.map((collection) => (
-          <motion.div key={collection.id} variants={item}>
-            <LookbookCard
-              id={collection.id}
-              title={collection.title}
-              subtitle={collection.subtitle}
-              description={collection.description}
-              image={collection.image}
-              overlayImage={collection.overlayImage}
-              theme={collection.theme}
-              color={collection.color}
-              featured={collection.featured}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Shopping Integration Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-20 md:mt-32 pt-16 md:pt-20 border-t border-brand-charcoal/10 dark:border-brand-cream/10"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Shopping Tips */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="space-y-4"
-          >
-            <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
-              Jak korzystać
-            </h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold">1.</span>
-                <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
-                  Wybierz interesującą Cię kolekcję z galerii
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold">2.</span>
-                <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
-                  Poznaj każdy produkt wchodzący w skład kolekcji
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold">3.</span>
-                <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
-                  Dodaj wybrane meble do koszyka
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-brand-gold font-bold">4.</span>
-                <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
-                  Stwórz swoje idealne wnętrze
-                </span>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Styling Tips */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="space-y-4"
-          >
-            <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
-              Porady stylizacyjne
-            </h3>
-            <ul className="space-y-2 text-body text-brand-charcoal/70 dark:text-brand-cream/70">
-              <li className="flex items-start gap-2">
-                <span className="text-brand-gold">✓</span>
-                <span>Łącz różne kolory w ramach jednej palety</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-brand-gold">✓</span>
-                <span>Wprowadź tekstury poprzez różne materiały</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-brand-gold">✓</span>
-                <span>Nie bój się eksperymentować z rozmiarami</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-brand-gold">✓</span>
-                <span>Oświetlenie to kluczowy element aranżacji</span>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Featured Benefits */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-            className="space-y-4"
-          >
-            <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
-              Dlaczego warto?
-            </h3>
-            <div className="space-y-3">
-              <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
-                <p className="text-sm font-semibold text-brand-gold mb-1">
-                  Gotowe rozwiązania
-                </p>
-                <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
-                  Już zaplanowane aranżacje wnętrz
-                </p>
-              </div>
-              <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
-                <p className="text-sm font-semibold text-brand-gold mb-1">
-                  Spójny design
-                </p>
-                <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
-                  Profesjonalnie dobrane elementy
-                </p>
-              </div>
-              <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
-                <p className="text-sm font-semibold text-brand-gold mb-1">
-                  Oszczędność czasu
-                </p>
-                <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
-                  Nie musisz szukać produktów
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="mt-16 md:mt-20 p-8 md:p-12 rounded-2xl bg-gradient-to-r from-brand-charcoal to-brand-charcoal/80 text-center"
-      >
-        <h3 className="text-h2 font-bold text-brand-cream mb-4">
-          Nie wiesz, od czego zacząć?
-        </h3>
-        <p className="text-body-large text-brand-cream/80 mb-8 max-w-2xl mx-auto">
-          Skontaktuj się z naszymi doradcami projektowymi. Pomogą Ci stworzyć
-          idealne wnętrze dopasowane do Twoich potrzeb i preferencji.
-        </p>
-        <button
-          className={cn(
-            "px-8 py-4 rounded-xl",
-            "bg-brand-gold hover:bg-brand-gold/90",
-            "text-brand-charcoal font-semibold",
-            "transition-all duration-300",
-            "inline-flex items-center gap-2"
-          )}
+        {/* Lookbook Grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-20 md:mb-24"
         >
-          Zarezerwuj konsultację
-        </button>
-      </motion.div>
+          {sortedCollections.map((collection) => (
+            <motion.div key={collection.id} variants={item}>
+              <LookbookCard
+                id={collection.id}
+                title={collection.title}
+                subtitle={collection.subtitle}
+                description={collection.description}
+                image={collection.image}
+                overlayImage={collection.overlayImage}
+                theme={collection.theme}
+                color={collection.color}
+                featured={collection.featured}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Shopping Integration Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-20 md:mt-32 pt-16 md:pt-20 border-t border-brand-charcoal/10 dark:border-brand-cream/10"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Shopping Tips */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="space-y-4"
+            >
+              <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
+                Jak korzystać
+              </h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold font-bold">1.</span>
+                  <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
+                    Wybierz interesującą Cię kolekcję z galerii
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold font-bold">2.</span>
+                  <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
+                    Poznaj każdy produkt wchodzący w skład kolekcji
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold font-bold">3.</span>
+                  <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
+                    Dodaj wybrane meble do koszyka
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold font-bold">4.</span>
+                  <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
+                    Stwórz swoje idealne wnętrze
+                  </span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Styling Tips */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="space-y-4"
+            >
+              <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
+                Porady stylizacyjne
+              </h3>
+              <ul className="space-y-2 text-body text-brand-charcoal/70 dark:text-brand-cream/70">
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-gold">✓</span>
+                  <span>Łącz różne kolory w ramach jednej palety</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-gold">✓</span>
+                  <span>Wprowadź tekstury poprzez różne materiały</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-gold">✓</span>
+                  <span>Nie bój się eksperymentować z rozmiarami</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-brand-gold">✓</span>
+                  <span>Oświetlenie to kluczowy element aranżacji</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Featured Benefits */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+              className="space-y-4"
+            >
+              <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
+                Dlaczego warto?
+              </h3>
+              <div className="space-y-3">
+                <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
+                  <p className="text-sm font-semibold text-brand-gold mb-1">
+                    Gotowe rozwiązania
+                  </p>
+                  <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
+                    Już zaplanowane aranżacje wnętrz
+                  </p>
+                </div>
+                <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
+                  <p className="text-sm font-semibold text-brand-gold mb-1">
+                    Spójny design
+                  </p>
+                  <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
+                    Profesjonalnie dobrane elementy
+                  </p>
+                </div>
+                <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
+                  <p className="text-sm font-semibold text-brand-gold mb-1">
+                    Oszczędność czasu
+                  </p>
+                  <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
+                    Nie musisz szukać produktów
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16 md:mt-20 p-8 md:p-12 rounded-2xl bg-gradient-to-r from-brand-charcoal to-brand-charcoal/80 text-center"
+        >
+          <h3 className="text-h2 font-bold text-brand-cream mb-4">
+            Nie wiesz, od czego zacząć?
+          </h3>
+          <p className="text-body-large text-brand-cream/80 mb-8 max-w-3xl mx-auto">
+            Skontaktuj się z naszymi doradcami projektowymi. Pomogą Ci stworzyć
+            idealne wnętrze dopasowane do Twoich potrzeb i preferencji.
+          </p>
+          <button
+            className={cn(
+              "px-8 py-4 rounded-xl",
+              "bg-brand-gold hover:bg-brand-gold/90",
+              "text-brand-charcoal font-semibold",
+              "transition-all duration-300",
+              "inline-flex items-center gap-2"
+            )}
+          >
+            Zarezerwuj konsultację
+          </button>
+        </motion.div>
+      </div>
     </section>
   );
 }

@@ -80,7 +80,7 @@ interface FooterLinksProps {
 
 export function FooterLinks({ variant = "full" }: FooterLinksProps) {
   return (
-    <footer className="bg-brand-cream border-t border-brand-charcoal/10">
+    <footer className="bg-brand-charcoal border-t border-brand-gold/20">
       {/* Social Media Section */}
       {(variant === "full" || variant === "social-only") && (
         <motion.div
@@ -88,16 +88,16 @@ export function FooterLinks({ variant = "full" }: FooterLinksProps) {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="border-b border-brand-charcoal/10 py-8 px-4 sm:px-6"
+          className="border-b border-brand-gold/20 py-12 px-4 sm:px-6"
         >
           <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
+            <div className="flex flex-col items-center gap-10 sm:flex-row sm:justify-between sm:items-start">
               {/* Social heading */}
               <div>
-                <h3 className="text-h4 font-semibold text-brand-charcoal">
+                <h3 className="text-h3 font-bold text-brand-cream">
                   Śledź nas
                 </h3>
-                <p className="mt-1 text-body-small text-brand-charcoal/60">
+                <p className="mt-2 text-body text-brand-cream/70">
                   Bądź na bieżąco z naszymi najnowszymi kolekcjami
                 </p>
               </div>

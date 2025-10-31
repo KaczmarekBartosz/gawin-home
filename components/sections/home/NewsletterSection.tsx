@@ -23,29 +23,26 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="py-20 md:py-32 mesh-gradient-light relative overflow-hidden">
-      {/* Decorative gradient orbs */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-brand-copper/5 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
+    <section className="py-24 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="max-w-2xl mx-auto"
         >
-          {/* Glass card container */}
-          <div className="glass-light rounded-3xl p-8 md:p-12 border-gradient-gold">
+          {/* Card container */}
+          <div className="rounded-2xl p-10 md:p-12 bg-gradient-to-br from-brand-charcoal to-brand-charcoal/95 border border-brand-gold/20">
             {/* Heading */}
-            <h3 className="text-h2 text-brand-charcoal mb-4 text-center">
+            <span className="text-label uppercase tracking-widest text-brand-gold block text-center mb-4">
+              Newsletter
+            </span>
+            <h2 className="text-h1 text-brand-cream mb-6 text-center">
               Dołącz do naszego klubu
-            </h3>
-            <p className="text-body-descriptive mb-8 text-center">
-              Otrzymaj <span className="font-bold text-brand-gold">-10%</span>{" "}
-              na pierwsze zakupy oraz bądź na bieżąco z nowościami i specjalnymi
-              ofertami
+            </h2>
+            <p className="text-body-large text-brand-cream/80 mb-10 text-center leading-relaxed">
+              Otrzymaj <span className="font-bold text-brand-gold">-10%</span> na pierwsze zakupy oraz bądź na bieżąco z nowościami i specjalnymi ofertami
             </p>
 
             {/* Form */}

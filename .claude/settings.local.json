@@ -55,13 +55,15 @@
       "Bash(npm install:*)",
       "Bash(timeout 60 npm run build)",
       "Bash(pnpm add:*)",
-      "Bash(pnpm ls:*)"
+      "Bash(pnpm ls:*)",
+      "Bash(pkill:*)",
+      "Bash(taskkill:*)"
     ],
     "deny": [],
     "ask": []
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "memory"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

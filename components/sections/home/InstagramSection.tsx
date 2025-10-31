@@ -46,38 +46,39 @@ const instagramPosts = [
 
 export function InstagramSection() {
   return (
-    <section className="py-20 md:py-32 mesh-gradient-light relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
+    <section className="py-24 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16 md:mb-20"
         >
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Instagram className="h-8 w-8 text-brand-gold" strokeWidth={1.5} />
-            <h2 className="text-h2 text-brand-charcoal">@GawinHome</h2>
+          <span className="text-label uppercase tracking-widest text-brand-gold">
+            Śledź nas na mediach społecznych
+          </span>
+          <div className="inline-flex items-center gap-3 mt-4 mb-6">
+            <Instagram className="h-6 w-6 text-brand-gold" strokeWidth={1.5} />
+            <h2 className="text-h1 text-brand-charcoal">@GawinHome</h2>
           </div>
-          <p className="text-body-descriptive max-w-2xl mx-auto mb-6">
+          <p className="text-body-large text-brand-charcoal/60 max-w-3xl mx-auto leading-relaxed mb-8">
             Odkryj inspiracje i zobacz nasze meble w pięknych wnętrzach
           </p>
           <Link
             href="https://instagram.com/gawinhome"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-brand-gold hover:text-brand-copper transition-colors font-semibold"
+            className="inline-flex items-center gap-2 text-brand-gold hover:text-brand-copper transition-colors font-semibold text-body"
           >
-            Obserwuj nas na Instagramie
-            <span className="inline-block transition-transform group-hover:translate-x-1">
-              →
-            </span>
+            Obserwuj nas
+            <span>→</span>
           </Link>
         </motion.div>
 
         {/* Instagram Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
           {instagramPosts.map((post, index) => (
             <motion.div
               key={post.id}

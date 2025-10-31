@@ -166,6 +166,13 @@
   --color-gold: #d4a574;
   --color-copper: #b8956a;
 
+  /* Brand Color Aliases (for Tailwind text-brand-* classes) */
+  --brand-charcoal: #1a1a1a;
+  --brand-cream: #fafaf9;
+  --brand-sand: #f5f5f5;
+  --brand-gold: #d4a574;
+  --brand-copper: #b8956a;
+
   /* Neomorphic Accent Colors */
   --color-neo-mint: #a8f5d0;
   --color-neo-green: #6ee7b7;

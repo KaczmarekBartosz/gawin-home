@@ -32,38 +32,29 @@ const brands = [
 
 export function TrustedBrandsSection() {
   return (
-    <section className="py-16 md:py-24 bg-white border-y border-neutral-border/30 relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgb(0 0 0) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
+    <section className="py-24 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-h3 text-brand-charcoal/60 mb-2 uppercase tracking-wider text-sm font-semibold">
+          <span className="text-label uppercase tracking-widest text-brand-gold">
             Zaufane marki
+          </span>
+          <h2 className="text-h1 text-brand-charcoal mt-4 mb-6">
+            Współpracujemy z liderami branży
           </h2>
-          <p className="text-body-descriptive max-w-2xl mx-auto">
-            Współpracujemy z najlepszymi światowymi producentami mebli premium
+          <p className="text-body-large text-brand-charcoal/60 max-w-3xl mx-auto leading-relaxed">
+            Najlepsi światowi producenci mebli premium wybierają nas jako partnera
           </p>
         </motion.div>
 
         {/* Brands Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 items-center">
           {brands.map((brand, index) => (
             <motion.div
               key={brand.name}
