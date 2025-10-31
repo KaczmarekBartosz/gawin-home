@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import { ProductCard } from "@/components/cards/product-card";
+import { ProductCard } from "@/components/cards/ProductCard";
 import type { MockProduct } from "@/lib/data-adapters/mock";
 import { cn } from "@/lib/utils";
 import { fadeInUp } from "@/motion/presets";
