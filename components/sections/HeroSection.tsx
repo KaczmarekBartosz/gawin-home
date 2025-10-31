@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ChevronRight, X } from "lucide-react";
 import { useState } from "react";
 
 // Sofa Ibiza hotspots with detailed information
@@ -42,74 +41,77 @@ export function HeroSection() {
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-stone-50 pt-20 pb-8 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-gradient-to-br from-[#F6F3EE] via-[#EAE4DC] to-[#DDD3C8] pt-20 pb-8 px-4 sm:px-6 lg:px-8">
       {/* Container with rounded corners */}
-      <div className="max-w-7xl mx-auto bg-brand-cream rounded-2xl overflow-hidden shadow-lg">
-        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 min-h-[500px] lg:min-h-[600px]">
+      <div className="max-w-7xl mx-auto bg-gradient-to-br from-[#F6F3EE] via-[#EAE4DC] to-[#DDD3C8] rounded-3xl overflow-hidden shadow-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[500px] lg:min-h-[600px]">
 
           {/* LEFT SIDE - Content */}
-          <div className="bg-brand-cream flex flex-col justify-center px-6 sm:px-10 py-12 lg:py-16 space-y-8">
-            <div className="space-y-6">
-              {/* Website URL */}
-              <p className="text-xs sm:text-sm font-semibold text-brand-sand-primary tracking-widest uppercase">
-                Gawin24.pl
-              </p>
+          <div className="flex flex-col justify-center px-6 sm:px-10 py-12 lg:py-16">
+            <div className="flex flex-col max-w-xl space-y-6">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 w-fit rounded-full bg-white/40 backdrop-blur-sm border border-white/50 px-4 py-1 text-xs font-medium text-stone-600 shadow-sm">
+                <span className="block h-2 w-2 rounded-full bg-stone-400" />
+                <span>Naturalne piękno wnętrz</span>
+              </div>
 
-              {/* Large Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-charcoal leading-tight">
-                Twój dom potrzebuje czegoś więcej niż mebli
+              {/* Heading */}
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-stone-800 leading-tight">
+                Twój dom zasługuje na więcej.<br />
+                <span className="text-stone-700">GAWIN MEBLE</span>
               </h1>
 
-              {/* Subheading */}
-              <p className="text-base sm:text-base text-brand-charcoal/70 leading-normal">
-                Odkryj premiumową kolekcję mebli, która łączy design z jakością.
+              {/* Subheadline */}
+              <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-md">
+                Meble, które tworzą przestrzeń pełną spokoju, światła i harmonii.
+                Zaprojektowane, by służyć przez lata — i cieszyć każdego dnia.
               </p>
-            </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <Button variant="gold" size="lg" className="w-full sm:w-auto">
-                <span className="flex items-center gap-2">
-                  Odkryj Kolekcję
-                  <ChevronRight className="w-4 h-4" />
-                </span>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="w-full sm:w-auto"
-              >
-                Umów Konsultację
-              </Button>
-            </div>
-
-            {/* Benefits section */}
-            <div className="pt-5 border-t border-brand-sand-primary/20 space-y-2 hidden sm:block">
-              <div className="space-y-2 text-sm">
-                <div className="flex items-start gap-2">
-                  <span className="text-brand-sand-primary font-bold text-base">✓</span>
-                  <div>
-                    <p className="font-semibold text-brand-charcoal text-sm">Darmowa dostawa</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-brand-sand-primary font-bold text-base">✓</span>
-                  <div>
-                    <p className="font-semibold text-brand-charcoal text-sm">Szybka wysyłka</p>
-                  </div>
-                </div>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                <Button size="lg" className="w-full sm:w-auto bg-stone-800 text-stone-100 hover:bg-stone-700 rounded-xl">
+                  Przeglądaj kolekcje
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto border-stone-400 text-stone-700 hover:bg-stone-100 rounded-xl"
+                >
+                  Zaprojektuj swoje wnętrze
+                </Button>
               </div>
+
+              {/* Benefits */}
+              <ul className="pt-8 border-t border-stone-300/40 grid gap-y-2 gap-x-6 sm:grid-cols-3 text-sm text-stone-700">
+                <li className="flex items-center gap-2">
+                  <span className="text-stone-500 font-semibold">✓</span>
+                  Polska jakość
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-stone-500 font-semibold">✓</span>
+                  5-letnia gwarancja
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-stone-500 font-semibold">✓</span>
+                  Darmowa dostawa od 1999 zł
+                </li>
+              </ul>
             </div>
           </div>
 
           {/* RIGHT SIDE - Product Image with Hotspots */}
-          <div className="relative bg-gradient-to-br from-brand-sand-lighter via-brand-sand-light to-brand-cream w-full h-full flex items-center justify-center overflow-hidden">
+          <div className="relative bg-[radial-gradient(circle_at_60%_40%,#F8F5F2_0%,#EAE4DC_60%,#DDD3C8_100%)] w-full h-full flex items-center justify-center overflow-hidden">
             {/* Product Image */}
             <img
               src="/sofa_ibiza.webp"
               alt="Sofa Rozkładana Ibiza"
               className="w-full h-full object-cover"
             />
+
+            {/* Collection label */}
+            <div className="absolute bottom-6 right-6 inline-flex items-center gap-2 bg-white/40 backdrop-blur-md border border-white/50 rounded-lg px-3 py-1.5 text-xs font-medium text-stone-700 shadow-md">
+              Sofa Ibiza · Kolekcja 2025
+            </div>
 
             {/* Hotspots */}
             {sofaHotspots.map((hotspot) => (
@@ -120,28 +122,25 @@ export function HeroSection() {
                 onMouseEnter={() => setActiveHotspot(hotspot.id)}
                 onMouseLeave={() => setActiveHotspot(null)}
               >
-                {/* Pin Button */}
+                {/* Pin Button - Glass Morphism */}
                 <button
-                  className="relative z-10 w-10 h-10 rounded-full bg-brand-sand-primary hover:bg-brand-sand-primary/80 shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center text-white font-bold text-sm"
+                  className="relative z-10 w-10 h-10 rounded-full bg-white/40 backdrop-blur-md border border-white/50 hover:bg-white/60 shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center text-stone-700 font-bold text-sm"
                   aria-label={`Pin: ${hotspot.title}`}
                 >
                   {hotspot.id}
                 </button>
 
                 {/* Animated circle around pin */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-brand-sand-primary opacity-40 animate-pulse" />
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-white/50 opacity-50 animate-pulse" />
 
-                {/* Tooltip - appears on hover */}
+                {/* Tooltip - Glass Morphism */}
                 {activeHotspot === hotspot.id && (
-                  <div className="absolute z-20 bg-white rounded-lg shadow-2xl p-4 w-64 -translate-x-1/2 -translate-y-full -top-2 left-1/2">
-                    <h3 className="font-bold text-brand-charcoal text-sm mb-2">{hotspot.title}</h3>
-                    <p className="text-xs text-brand-charcoal/70 leading-relaxed">{hotspot.description}</p>
-                    <div className="mt-3 pt-3 border-t border-brand-sand-primary/20">
-                      <Button variant="gold" size="sm" className="w-full">
-                        <span className="flex items-center gap-1 justify-center">
-                          Dowiedz się więcej
-                          <ChevronRight className="w-3 h-3" />
-                        </span>
+                  <div className="absolute z-20 bg-white/80 backdrop-blur-xl border border-stone-200/50 rounded-xl shadow-xl p-4 w-64 -translate-x-1/2 -translate-y-full -top-2 left-1/2">
+                    <h3 className="font-bold text-stone-800 text-sm mb-2">{hotspot.title}</h3>
+                    <p className="text-xs text-stone-600 leading-relaxed">{hotspot.description}</p>
+                    <div className="mt-3 pt-3 border-t border-stone-200/30">
+                      <Button size="sm" className="w-full bg-stone-800 text-stone-100 hover:bg-stone-700 rounded-lg">
+                        Dowiedz się więcej
                       </Button>
                     </div>
                   </div>
