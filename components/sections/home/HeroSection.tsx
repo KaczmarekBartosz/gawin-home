@@ -11,24 +11,24 @@ export function HeroSection() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-0 min-h-screen lg:min-h-[600px]">
         {/* LEFT SIDE - Content */}
         <div className="bg-brand-cream flex flex-col justify-center px-6 sm:px-8 lg:px-12 py-16 lg:py-24">
-          <div className="max-w-lg">
+          <div className="max-w-2xl">
             {/* Website URL */}
-            <p className="text-sm font-semibold text-brand-gold mb-6 tracking-wide">
-              GAWIN24.PL
+            <p className="text-xs sm:text-sm font-semibold text-brand-gold mb-8 tracking-widest uppercase">
+              Gawin24.pl
             </p>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-charcoal leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-charcoal leading-tight mb-8">
               Twój dom potrzebuje czegoś więcej niż mebli
             </h1>
 
             {/* Description */}
-            <p className="text-lg text-brand-charcoal/80 mb-10 leading-relaxed max-w-md">
+            <p className="text-base sm:text-lg text-brand-charcoal mb-12 leading-relaxed max-w-xl">
               Odkryj kolekcję mebli, które łączą ponadczasowy design z najwyższą jakością rzemiosła.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <div className="flex flex-col sm:flex-row gap-4 mb-20">
               <Button variant="gold" size="lg">
                 <span className="flex items-center gap-2">
                   Odkryj Kolekcję
