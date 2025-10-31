@@ -101,8 +101,8 @@ export function HeroSection() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 pt-10"
           >
-            <Button asChild size="lg" className="group bg-brand-gold hover:bg-brand-gold/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all">
-              <Link href="/products" className="flex items-center gap-2">
+            <Button asChild variant="gold" size="lg">
+              <Link href="/products" className="flex items-center gap-2 group">
                 Odkryj Kolekcję
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
