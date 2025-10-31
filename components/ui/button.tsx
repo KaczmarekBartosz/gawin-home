@@ -16,7 +16,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        gold: "bg-gradient-to-br from-[#d4a574] via-[#d4a574] to-[#c9945f] text-white shadow-md hover:shadow-lg hover:brightness-110",
+        gold: "bg-gradient-gold-premium text-white shadow-md hover:shadow-lg hover:brightness-110",
         outline:
           "border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white",
         ghost: "bg-transparent text-brand-charcoal hover:bg-black/5",
