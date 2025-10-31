@@ -43,15 +43,15 @@ export function HeroSection() {
   return (
     <section className="w-full bg-gradient-to-br from-[#F6F3EE] via-[#EAE4DC] to-[#DDD3C8] pt-20 pb-8 px-4 sm:px-6 lg:px-8">
       {/* Container with rounded corners */}
-      <div className="max-w-7xl mx-auto bg-gradient-to-br from-[#F6F3EE] via-[#EAE4DC] to-[#DDD3C8] rounded-3xl overflow-hidden shadow-xl">
+      <div className="max-w-7xl mx-auto bg-gradient-to-br from-[#F6F3EE] via-[#EAE4DC] to-[#DDD3C8] rounded-3xl overflow-hidden shadow-[0_8px_20px_rgba(150,130,110,0.15)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[500px] lg:min-h-[600px]">
 
           {/* LEFT SIDE - Content */}
           <div className="flex flex-col justify-center px-6 sm:px-10 py-12 lg:py-16">
             <div className="flex flex-col max-w-xl space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 w-fit rounded-full bg-white/40 backdrop-blur-sm border border-white/50 px-4 py-1 text-xs font-medium text-stone-600 shadow-sm">
-                <span className="block h-2 w-2 rounded-full bg-stone-400" />
+              <div className="inline-flex items-center gap-2 w-fit rounded-full bg-white/50 backdrop-blur-md border border-white/60 px-4 py-1.5 text-xs font-medium text-stone-600 shadow-sm">
+                <span className="block h-2 w-2 rounded-full bg-[#B7A99D]" />
                 <span>Naturalne piękno wnętrz</span>
               </div>
 
@@ -109,7 +109,7 @@ export function HeroSection() {
             />
 
             {/* Collection label */}
-            <div className="absolute bottom-6 right-6 inline-flex items-center gap-2 bg-white/40 backdrop-blur-md border border-white/50 rounded-lg px-3 py-1.5 text-xs font-medium text-stone-700 shadow-md">
+            <div className="absolute bottom-6 right-6 inline-flex items-center gap-2 bg-white/70 backdrop-blur-lg border border-white/50 rounded-lg px-3 py-1.5 text-xs font-medium text-stone-700 shadow-md animate-in fade-in duration-1000 delay-1000">
               Sofa Ibiza · Kolekcja 2025
             </div>
 
@@ -130,8 +130,8 @@ export function HeroSection() {
                   {hotspot.id}
                 </button>
 
-                {/* Animated circle around pin */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-white/50 opacity-50 animate-pulse" />
+                {/* Animated circle around pin - subtle ping effect */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-white/50 opacity-40 animate-ping" style={{ animationDuration: '2s' }} />
 
                 {/* Tooltip - Glass Morphism */}
                 {activeHotspot === hotspot.id && (
