@@ -1,160 +1,138 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import mockProducts from "@/mock/products.json";
+import type { MockProduct } from "@/lib/data-adapters/mock";
 
 export function HeroSection() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const products = (mockProducts as MockProduct[]).slice(0, 5); // Use first 5 products
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % products.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
+  };
+
+  const currentProduct = products[currentIndex];
+
   return (
-    <section className="w-full">
-      {/* Main split container */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-0 min-h-screen lg:min-h-[600px]">
-        {/* LEFT SIDE - Content */}
-        <div className="bg-brand-cream flex flex-col justify-center px-6 sm:px-8 lg:px-12 py-16 lg:py-24">
-          <div className="max-w-2xl">
+    <section className="w-full bg-brand-charcoal min-h-screen flex items-center overflow-hidden">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-[20%_80%] gap-0">
+        {/* LEFT SIDE - Compact Content */}
+        <div className="bg-brand-charcoal flex flex-col justify-center px-6 sm:px-8 py-16 lg:py-24 lg:pr-12">
+          <div className="space-y-8">
             {/* Website URL */}
-            <p className="text-xs sm:text-sm font-semibold text-brand-gold mb-8 tracking-widest uppercase">
+            <p className="text-xs sm:text-sm font-semibold text-brand-gold tracking-widest uppercase">
               Gawin24.pl
             </p>
 
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-charcoal leading-tight mb-8">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
               Twój dom potrzebuje czegoś więcej niż mebli
             </h1>
 
-            {/* Description */}
-            <p className="text-base sm:text-lg text-brand-charcoal mb-12 leading-relaxed max-w-xl">
-              Odkryj kolekcję mebli, które łączą ponadczasowy design z najwyższą jakością rzemiosła.
-            </p>
-
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-20">
-              <Button variant="gold" size="lg">
+            <div className="flex flex-col gap-3 pt-4">
+              <Button variant="gold" size="lg" className="w-full sm:w-auto">
                 <span className="flex items-center gap-2">
                   Odkryj Kolekcję
                   <ChevronRight className="w-4 h-4" />
                 </span>
               </Button>
-              <Button variant="outline" size="lg" className="border-brand-gold text-brand-charcoal hover:bg-brand-gold hover:text-white">
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto border-white text-white hover:bg-white/10"
+              >
                 Umów Konsultację
               </Button>
             </div>
 
-            {/* Features below buttons - mobile and desktop */}
-            <div className="grid grid-cols-2 gap-6 lg:hidden">
-              <div className="flex flex-col gap-2">
-                <p className="text-sm font-semibold text-brand-charcoal">Darmowa dostawa</p>
-                <p className="text-xs text-brand-charcoal/60">Na terenie Polski</p>
+            {/* Quick Benefits - Text Only */}
+            <div className="pt-8 border-t border-white/10 space-y-4 hidden lg:block">
+              <div className="text-sm">
+                <p className="text-brand-gold font-semibold mb-1">✓ Darmowa dostawa</p>
+                <p className="text-white/60 text-xs">Na terenie Polski</p>
               </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm font-semibold text-brand-charcoal">Szybka wysyłka</p>
-                <p className="text-xs text-brand-charcoal/60">7-14 dni roboczych</p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm font-semibold text-brand-charcoal">Od producenta</p>
-                <p className="text-xs text-brand-charcoal/60">Certyfikowane meble</p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm font-semibold text-brand-charcoal">Bezpieczne zakupy</p>
-                <p className="text-xs text-brand-charcoal/60">Gwarancja 10 lat</p>
+              <div className="text-sm">
+                <p className="text-brand-gold font-semibold mb-1">✓ Szybka wysyłka</p>
+                <p className="text-white/60 text-xs">7-14 dni roboczych</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* RIGHT SIDE - Video */}
-        <div className="relative bg-brand-charcoal hidden lg:flex items-center justify-center p-8 overflow-hidden">
-          <div className="relative w-full h-full rounded-3xl overflow-hidden bg-black shadow-2xl">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            >
-              <source
-                src="https://gawin.pl/gawin-meble-lozko-paris.mp4"
-                type="video/mp4"
+        {/* RIGHT SIDE - Product Carousel */}
+        <div className="relative bg-black w-full h-screen lg:h-auto lg:min-h-[600px] flex items-center justify-center overflow-hidden">
+          {/* Product Image */}
+          {currentProduct && (
+            <div className="relative w-full h-full">
+              <img
+                src={currentProduct.images?.[0]?.url || "/placeholder.jpg"}
+                alt={currentProduct.title}
+                className="w-full h-full object-cover"
               />
-            </video>
 
-            {/* Optional overlay gradient for better text readability if needed */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-0 transition-opacity" />
+              {/* Dark overlay with gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+              {/* Product Info Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+                  {currentProduct.title}
+                </h2>
+                <p className="text-white/80 mb-6 max-w-lg">
+                  {currentProduct.description || "Premium furniture collection"}
+                </p>
+                <Button variant="gold" size="lg">
+                  <span className="flex items-center gap-2">
+                    Sprawdź Model
+                    <ChevronRight className="w-4 h-4" />
+                  </span>
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-200 backdrop-blur-sm"
+            aria-label="Previous product"
+          >
+            <ChevronLeft className="w-6 h-6 text-white" />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-200 backdrop-blur-sm"
+            aria-label="Next product"
+          >
+            <ChevronRight className="w-6 h-6 text-white" />
+          </button>
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+            {products.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex ? "bg-brand-gold w-8" : "bg-white/40 w-2"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
-        </div>
-      </div>
 
-      {/* Mobile video section - appears below left content on mobile */}
-      <div className="lg:hidden relative bg-brand-charcoal w-full aspect-video">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source
-            src="https://gawin.pl/gawin-meble-lozko-paris.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
-
-      {/* FEATURES SECTION - Desktop only below split */}
-      <div className="hidden lg:block bg-white py-16">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-4 gap-8">
-            {/* Feature 1 */}
-            <div className="text-center lg:text-left">
-              <div className="mb-4">
-                <div className="inline-block p-3 rounded-xl bg-brand-gold/10">
-                  <svg className="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-lg font-semibold text-brand-charcoal mb-2">Darmowa dostawa</h3>
-              <p className="text-sm text-brand-charcoal/60">Na terenie całej Polski</p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="text-center lg:text-left">
-              <div className="mb-4">
-                <div className="inline-block p-3 rounded-xl bg-brand-gold/10">
-                  <svg className="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-lg font-semibold text-brand-charcoal mb-2">Szybka wysyłka</h3>
-              <p className="text-sm text-brand-charcoal/60">7-14 dni roboczych</p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="text-center lg:text-left">
-              <div className="mb-4">
-                <div className="inline-block p-3 rounded-xl bg-brand-gold/10">
-                  <svg className="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-lg font-semibold text-brand-charcoal mb-2">Od producenta</h3>
-              <p className="text-sm text-brand-charcoal/60">Certyfikowane meble</p>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="text-center lg:text-left">
-              <div className="mb-4">
-                <div className="inline-block p-3 rounded-xl bg-brand-gold/10">
-                  <svg className="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-              </div>
-              <h3 className="text-lg font-semibold text-brand-charcoal mb-2">Bezpieczne zakupy</h3>
-              <p className="text-sm text-brand-charcoal/60">Gwarancja 10 lat</p>
-            </div>
+          {/* Slide Counter */}
+          <div className="absolute top-8 right-8 z-20 text-white text-sm font-semibold">
+            {String(currentIndex + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")}
           </div>
         </div>
       </div>
