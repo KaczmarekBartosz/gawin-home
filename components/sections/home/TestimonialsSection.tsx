@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import Image from "next/image";
-import { NeoCard } from "@/components/ui/neo-card";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 const testimonials = [
@@ -94,7 +94,7 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute top-20 left-10 w-96 h-96 bg-brand-gold rounded-full blur-3xl" />
@@ -108,17 +108,17 @@ export function TestimonialsSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={headerVariants}
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          className="text-center mb-16 sm:mb-20 lg:mb-24"
         >
-          <h2 className="text-h1 text-brand-charcoal mb-4">Opinie klientów</h2>
-          <p className="text-body-large text-gray-500 max-w-2xl mx-auto">
+          <h2 className="text-h1 text-brand-charcoal mb-6">Opinie klientów</h2>
+          <p className="text-body-large text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Czytaj, co mówią nasi zadowoleni klienci o mebli premium Gawin-Home
           </p>
         </motion.div>
 
         {/* Testimonials Grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -126,33 +126,29 @@ export function TestimonialsSection() {
         >
           {testimonials.map((testimonial) => (
             <motion.div key={testimonial.id} variants={itemVariants}>
-              <NeoCard
-                variant="outlined"
-                padding="md"
-                className="h-full flex flex-col"
-              >
+              <Card className="h-full flex flex-col border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 bg-white p-8 rounded-xl">
                 {/* Star Rating */}
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
                       key={i}
-                      size={16}
+                      size={18}
                       className="text-brand-gold fill-brand-gold"
                     />
                   ))}
                 </div>
 
                 {/* Testimonial Quote */}
-                <p className="text-body text-brand-charcoal mb-6 flex-grow leading-relaxed">
+                <p className="text-body text-brand-charcoal mb-8 flex-grow leading-relaxed">
                   "{testimonial.quote}"
                 </p>
 
                 {/* Divider */}
-                <div className="w-full h-px bg-gray-200 mb-6" />
+                <div className="w-full h-px bg-gray-200 mb-8" />
 
                 {/* Author Info */}
                 <div className="flex items-center gap-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.name}
@@ -161,15 +157,15 @@ export function TestimonialsSection() {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-h3 font-semibold text-brand-charcoal truncate">
+                    <p className="text-body font-semibold text-brand-charcoal truncate">
                       {testimonial.name}
                     </p>
-                    <p className="text-caption text-gray-500 truncate">
+                    <p className="text-caption text-gray-600 truncate">
                       {testimonial.title}
                     </p>
                   </div>
                 </div>
-              </NeoCard>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
@@ -181,10 +177,10 @@ export function TestimonialsSection() {
           viewport={{ once: true, amount: 0.5 }}
           variants={headerVariants}
           transition={{ delay: 0.4 }}
-          className="text-center mt-12 sm:mt-16"
+          className="text-center mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-gray-200"
         >
-          <p className="text-body-large text-gray-500">
-            Ponad <span className="font-semibold text-brand-gold">2 500+</span>{" "}
+          <p className="text-body-large text-gray-600 leading-relaxed">
+            Ponad <span className="font-bold text-brand-gold">2 500+</span>{" "}
             zadowolonych klientów na całym świecie
           </p>
         </motion.div>

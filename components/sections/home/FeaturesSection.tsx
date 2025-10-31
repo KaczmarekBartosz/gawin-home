@@ -45,10 +45,12 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 md:py-32 mesh-gradient-gold relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-gradient-to-br from-brand-charcoal via-brand-charcoal to-brand-charcoal/95 relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-30" />
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-30" />
+      <div className="absolute inset-0">
+        <div className="absolute top-10 right-10 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-brand-copper/5 rounded-full blur-3xl" />
+      </div>
 
       <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-10">
         {/* Heading */}
@@ -57,18 +59,18 @@ export function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-20 md:mb-24"
         >
-          <h2 className="text-h2 text-brand-cream mb-4">
+          <h2 className="text-h1 text-brand-cream mb-6">
             Dlaczego Gawin-Home?
           </h2>
-          <p className="text-body-descriptive text-brand-cream/80 max-w-2xl mx-auto">
+          <p className="text-body-large text-brand-cream/80 max-w-2xl mx-auto leading-relaxed">
             Oferujemy nie tylko meble, ale kompleksowe doświadczenie premium
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -78,24 +80,24 @@ export function FeaturesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
+                className="group h-full"
               >
-                <div className="glass-dark rounded-2xl p-8 hover:glass-gold transition-all duration-300 border-gradient-gold h-full">
+                <div className="rounded-2xl p-10 hover:bg-brand-gold/5 transition-all duration-300 border border-brand-gold/20 h-full flex flex-col bg-brand-charcoal/50 backdrop-blur-sm">
                   {/* Icon */}
-                  <div className="mb-6">
-                    <div className="inline-flex p-4 rounded-xl bg-brand-gold/10 group-hover:bg-brand-gold/20 transition-colors">
+                  <div className="mb-8">
+                    <div className="inline-flex p-5 rounded-xl bg-brand-gold/15 group-hover:bg-brand-gold/25 transition-all duration-300">
                       <Icon
-                        className="h-8 w-8 text-brand-gold"
+                        className="h-10 w-10 text-brand-gold"
                         strokeWidth={1.5}
                       />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-brand-cream mb-3">
+                  <h3 className="text-h3 font-bold text-brand-cream mb-4 leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-brand-cream/70 leading-relaxed">
+                  <p className="text-body-large text-brand-cream/70 leading-relaxed flex-grow">
                     {feature.description}
                   </p>
                 </div>
