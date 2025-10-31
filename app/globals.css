@@ -58,29 +58,29 @@
     "ABC Diatype", -apple-system, "Segoe UI", system-ui, sans-serif;
 
   /* LIGHT MODE - Default colors */
-  /* Palette — dokładnie według nowy_styl.md */
-  --color-dark-bg: oklch(0.11 0 0); /* #1A1A1A */
-  --color-dark-surface: oklch(0.15 0 0); /* #252525 */
+  /* Palette — Sandy Serenity */
+  --color-dark-bg: oklch(0.24 0.01 50); /* #423A35 - Warm charcoal */
+  --color-dark-surface: oklch(0.32 0.01 50); /* #5A514C - Dark surface */
   --color-text-light: oklch(0.98 0 0); /* #FAFAF9 */
   --color-text-muted: oklch(0.63 0 0); /* #A0A0A0 */
 
   --color-light-bg: oklch(1 0 0); /* #FFFFFF */
-  --color-cream-bg: oklch(0.98 0 0); /* #FAFAF9 */
-  --color-sand-bg: oklch(0.97 0 0); /* #F5F5F5 */
-  --color-light-surface: oklch(0.98 0 0);
-  --color-border-light: oklch(0.9 0 0); /* neutral-200 */
-  --color-text-dark: oklch(0.11 0 0); /* #1A1A1A */
-  --color-text-gray: oklch(0.4 0 0); /* #666666 */
+  --color-cream-bg: oklch(0.88 0.01 70); /* #DADADD - Very light sand/white */
+  --color-sand-bg: oklch(0.82 0.01 70); /* #D1CBC5 - Light sand */
+  --color-light-surface: oklch(0.88 0.01 70);
+  --color-border-light: oklch(0.85 0.01 70); /* #C2B8B0 - Light sand border */
+  --color-text-dark: oklch(0.24 0.01 50); /* #423A35 - Warm charcoal */
+  --color-text-gray: oklch(0.48 0.01 50); /* #6B6359 - Warm gray */
 
-  --color-gold: oklch(0.78 0.11 85); /* #D4A574 */
-  --color-copper: oklch(0.72 0.1 85); /* #B8956A */
+  --color-sand-primary: oklch(0.72 0.04 70); /* #B7A99D - Medium sand */
+  --color-sand-deep: oklch(0.6 0.03 70); /* #9B8C82 - Deep sand */
 
   /* Semantic aliases */
   --brand-charcoal: var(--color-text-dark);
   --brand-cream: var(--color-cream-bg);
   --brand-sand: var(--color-sand-bg);
-  --brand-gold: var(--color-gold);
-  --brand-copper: var(--color-copper);
+  --brand-sand-primary: var(--color-sand-primary);
+  --brand-sand-deep: var(--color-sand-deep);
   --neutral-200: var(--color-border-light);
 
   /* Radii */
@@ -93,13 +93,16 @@
   --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
 
-  /* Gradients */
-  --gradient-gold-primary: linear-gradient(
+  /* Gradients - Sandy Serenity */
+  --gradient-sand-primary: linear-gradient(
     125deg,
-    var(--brand-gold) 0%,
-    color-mix(in oklch, var(--brand-gold) 55%, var(--brand-copper)) 45%,
-    var(--brand-copper) 100%
+    var(--color-sand-deep) 0%,
+    var(--color-sand-primary) 50%,
+    var(--color-sand-bg) 100%
   );
+
+  /* Legacy gold gradient (kept for compatibility) */
+  --gradient-gold-primary: var(--gradient-sand-primary);
 }
 
 /* ============================================
@@ -108,70 +111,71 @@
  * ============================================ */
 .dark {
   /* Dark theme background & text colors */
-  --color-dark-bg: oklch(0.08 0 0); /* #0F0F0F - even darker */
-  --color-dark-surface: oklch(0.12 0 0); /* #1F1F1F - dark surface */
-  --color-text-light: oklch(0.98 0 0); /* #FAFAF9 - light text */
+  --color-dark-bg: oklch(0.14 0.01 50); /* #2A2420 - warm dark background */
+  --color-dark-surface: oklch(0.18 0.01 50); /* #372E28 - dark surface */
+  --color-text-light: oklch(0.95 0 0); /* #F0EDED - warm light text */
   --color-text-muted: oklch(0.65 0 0); /* #A8A8A8 - muted light text */
 
   /* Light colors swap to dark */
-  --color-light-bg: oklch(0.08 0 0); /* Swap to dark */
-  --color-cream-bg: oklch(0.12 0 0); /* Swap to dark surface */
-  --color-sand-bg: oklch(0.15 0 0); /* Swap to dark variant */
-  --color-light-surface: oklch(0.12 0 0); /* Surface in dark */
-  --color-border-light: oklch(0.2 0 0); /* Dark mode borders */
-  --color-text-dark: oklch(0.98 0 0); /* Swap to light */
+  --color-light-bg: oklch(0.14 0.01 50); /* Swap to warm dark */
+  --color-cream-bg: oklch(0.18 0.01 50); /* Swap to dark surface */
+  --color-sand-bg: oklch(0.22 0.01 50); /* Swap to dark variant */
+  --color-light-surface: oklch(0.18 0.01 50); /* Surface in dark */
+  --color-border-light: oklch(0.28 0.01 50); /* Dark mode borders */
+  --color-text-dark: oklch(0.95 0 0); /* Swap to light */
   --color-text-gray: oklch(0.65 0 0); /* Swap to muted light */
 
-  /* Gold/Copper remain same (they look good on dark) */
-  --color-gold: oklch(0.78 0.11 85); /* #D4A574 */
-  --color-copper: oklch(0.72 0.1 85); /* #B8956A */
+  /* Sandy Serenity colors for dark mode */
+  --color-sand-primary: oklch(0.52 0.02 70); /* Lighter sand tones on dark */
+  --color-sand-deep: oklch(0.42 0.02 70); /* Adjusted sand */
 
   /* Semantic aliases for dark theme */
-  --brand-charcoal: oklch(0.98 0 0); /* Light text in dark mode */
-  --brand-cream: oklch(0.08 0 0); /* Dark background */
-  --brand-sand: oklch(0.15 0 0); /* Dark variant */
-  --brand-gold: var(--color-gold); /* Same gold */
-  --brand-copper: var(--color-copper); /* Same copper */
-  --neutral-200: oklch(0.2 0 0); /* Dark borders */
+  --brand-charcoal: oklch(0.95 0 0); /* Light text in dark mode */
+  --brand-cream: oklch(0.14 0.01 50); /* Warm dark background */
+  --brand-sand: oklch(0.22 0.01 50); /* Dark variant */
+  --brand-sand-primary: var(--color-sand-primary);
+  --brand-sand-deep: var(--color-sand-deep);
+  --neutral-200: oklch(0.28 0.01 50); /* Dark borders */
 
   /* Shadows for dark mode (much lighter) */
   --shadow-card: 0 8px 30px rgba(255, 255, 255, 0.05);
   --shadow-card-hover: 0 16px 40px rgba(255, 255, 255, 0.08);
 
   /* Gradient adjusts for dark background */
-  --gradient-gold-primary: linear-gradient(
+  --gradient-sand-primary: linear-gradient(
     125deg,
-    var(--brand-gold) 0%,
-    color-mix(in oklch, var(--brand-gold) 55%, var(--brand-copper)) 45%,
-    var(--brand-copper) 100%
+    var(--color-sand-deep) 0%,
+    var(--color-sand-primary) 50%,
+    rgba(183, 169, 157, 0.3) 100%
   );
+  --gradient-gold-primary: var(--gradient-sand-primary);
 }
 
 @theme inline {
   /* ============================================
-   * CLEAN BRAND COLOR SYSTEM
+   * CLEAN BRAND COLOR SYSTEM - Sandy Serenity
    * All Tailwind utilities use these definitions
    * ============================================ */
 
   /* Primary Brand Colors - used across entire app */
-  --color-charcoal: #1a1a1a;
-  --color-cream: #fafaf9;
-  --color-sand: #f5f5f5;
-  --color-gold: #d4a574;
-  --color-copper: #b8956a;
+  --color-charcoal: #423A35;
+  --color-cream: #DADADD;
+  --color-sand: #D1CBC5;
+  --color-sand-primary: #B7A99D;
+  --color-sand-deep: #9B8C82;
 
   /* Brand aliases for semantic usage */
-  --brand-charcoal: #1a1a1a;
-  --brand-cream: #fafaf9;
-  --brand-sand: #f5f5f5;
-  --brand-gold: #d4a574;
-  --brand-copper: #b8956a;
+  --brand-charcoal: #423A35;
+  --brand-cream: #DADADD;
+  --brand-sand: #D1CBC5;
+  --brand-sand-primary: #B7A99D;
+  --brand-sand-deep: #9B8C82;
 
   /* ============================================
    * GRADIENTS (for Tailwind to recognize)
    * ============================================ */
-  --gradient-gold-to-copper: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
-  --gradient-gold-primary: linear-gradient(125deg, #d4a574 0%, #b8956a 100%);
+  --gradient-sand-to-deep: linear-gradient(135deg, #B7A99D 0%, #9B8C82 100%);
+  --gradient-sand-primary: linear-gradient(125deg, #9B8C82 0%, #B7A99D 50%, #D1CBC5 100%);
 
   /* ============================================
    * BORDER RADIUS
@@ -192,55 +196,55 @@
   --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
   --shadow-card-active: 0 4px 8px rgba(0, 0, 0, 0.06);
-  --shadow-glow-gold: 0 0 20px rgba(212, 165, 116, 0.4), 0 0 40px rgba(212, 165, 116, 0.2);
+  --shadow-glow-gold: 0 0 20px rgba(183, 169, 157, 0.4), 0 0 40px rgba(183, 169, 157, 0.2);
 
   /* ============================================
-   * shadcn/ui COMPONENT TOKENS
+   * shadcn/ui COMPONENT TOKENS - Sandy Serenity
    * ============================================ */
   --color-background: #ffffff;
-  --color-foreground: #1a1a1a;
-  --color-card: #fafaf9;
-  --color-card-foreground: #1a1a1a;
-  --color-popover: #fafaf9;
-  --color-popover-foreground: #1a1a1a;
-  --color-primary: #d4a574;
-  --color-primary-foreground: #1a1a1a;
-  --color-secondary: #f5f5f5;
-  --color-secondary-foreground: #1a1a1a;
-  --color-muted: #f5f5f5;
-  --color-muted-foreground: #666666;
-  --color-accent: #d4a574;
-  --color-accent-foreground: #1a1a1a;
+  --color-foreground: #423A35;
+  --color-card: #DADADD;
+  --color-card-foreground: #423A35;
+  --color-popover: #DADADD;
+  --color-popover-foreground: #423A35;
+  --color-primary: #B7A99D;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #D1CBC5;
+  --color-secondary-foreground: #423A35;
+  --color-muted: #D1CBC5;
+  --color-muted-foreground: #6B6359;
+  --color-accent: #B7A99D;
+  --color-accent-foreground: #ffffff;
   --color-destructive: #e74c3c;
   --color-destructive-foreground: #ffffff;
-  --color-border: #e5e5e5;
-  --color-input: #fafaf9;
-  --color-ring: #d4a574;
+  --color-border: #C2B8B0;
+  --color-input: #DADADD;
+  --color-ring: #B7A99D;
 }
 
 /* Dark mode overrides for @theme colors */
 .dark {
   @theme {
-    /* Dark mode background & foreground swaps */
-    --color-background: oklch(0.08 0 0); /* Dark background */
-    --color-foreground: oklch(0.98 0 0); /* Light text */
-    --color-card: oklch(0.12 0 0); /* Dark card background */
-    --color-card-foreground: oklch(0.98 0 0); /* Light text on card */
-    --color-popover: oklch(0.12 0 0); /* Dark popover */
-    --color-popover-foreground: oklch(0.98 0 0); /* Light text in popover */
-    --color-primary: var(--brand-gold); /* Gold stays same */
-    --color-primary-foreground: oklch(0.08 0 0); /* Dark text on gold */
-    --color-secondary: oklch(0.15 0 0); /* Dark secondary */
-    --color-secondary-foreground: oklch(0.98 0 0); /* Light text */
-    --color-muted: oklch(0.2 0 0); /* Darker muted */
-    --color-muted-foreground: oklch(0.65 0 0); /* Muted light text */
-    --color-accent: var(--brand-gold); /* Gold accent */
-    --color-accent-foreground: oklch(0.08 0 0); /* Dark text on accent */
-    --color-destructive: oklch(0.6 0.2 30); /* Red stays visible */
-    --color-destructive-foreground: oklch(0.98 0 0); /* Light text */
-    --color-border: oklch(0.2 0 0); /* Dark borders */
-    --color-input: oklch(0.12 0 0); /* Dark input background */
-    --color-ring: var(--brand-gold); /* Gold focus ring */
+    /* Dark mode background & foreground swaps - Sandy Serenity */
+    --color-background: #2A2420; /* Warm dark background */
+    --color-foreground: #F0EDED; /* Light text */
+    --color-card: #372E28; /* Dark card background */
+    --color-card-foreground: #F0EDED; /* Light text on card */
+    --color-popover: #372E28; /* Dark popover */
+    --color-popover-foreground: #F0EDED; /* Light text in popover */
+    --color-primary: #B7A99D; /* Sandy primary */
+    --color-primary-foreground: #2A2420; /* Dark text on sandy */
+    --color-secondary: #4A4238; /* Dark secondary */
+    --color-secondary-foreground: #F0EDED; /* Light text */
+    --color-muted: #5A5450; /* Darker muted */
+    --color-muted-foreground: #A8A199; /* Muted light text */
+    --color-accent: #9B8C82; /* Sandy deep accent */
+    --color-accent-foreground: #F0EDED; /* Light text on accent */
+    --color-destructive: #e74c3c; /* Red stays visible */
+    --color-destructive-foreground: #ffffff; /* Light text */
+    --color-border: #4A4238; /* Dark borders */
+    --color-input: #372E28; /* Dark input background */
+    --color-ring: #B7A99D; /* Sandy focus ring */
   }
 }
 
@@ -507,9 +511,9 @@
   }
 
   .glass-gold {
-    background: rgba(212, 165, 116, 0.12);
+    background: rgba(183, 169, 157, 0.12);
     backdrop-filter: blur(18px) saturate(160%);
-    border: 1px solid rgba(212, 165, 116, 0.35);
+    border: 1px solid rgba(183, 169, 157, 0.35);
   }
 
   .dark .glass-light {
@@ -525,21 +529,21 @@
   }
 
   .dark .glass-gold {
-    background: rgba(212, 165, 116, 0.08);
+    background: rgba(183, 169, 157, 0.08);
     backdrop-filter: blur(18px) saturate(160%);
-    border: 1px solid rgba(212, 165, 116, 0.25);
+    border: 1px solid rgba(183, 169, 157, 0.25);
   }
 
   .mesh-gradient-gold {
     background:
       radial-gradient(
         circle at 10% 20%,
-        rgba(212, 175, 55, 0.18) 0%,
+        rgba(183, 169, 157, 0.18) 0%,
         transparent 50%
       ),
       radial-gradient(
         circle at 70% 80%,
-        rgba(184, 149, 106, 0.12) 0%,
+        rgba(155, 140, 130, 0.12) 0%,
         transparent 55%
       ),
       var(--color-dark-bg);
@@ -549,12 +553,12 @@
     background:
       radial-gradient(
         circle at 30% 40%,
-        rgba(212, 165, 116, 0.12) 0%,
+        rgba(183, 169, 157, 0.12) 0%,
         transparent 55%
       ),
       radial-gradient(
         circle at 70% 60%,
-        rgba(184, 149, 106, 0.08) 0%,
+        rgba(155, 140, 130, 0.08) 0%,
         transparent 60%
       ),
       var(--color-cream-bg);
@@ -564,30 +568,30 @@
     background:
       radial-gradient(
         circle at 10% 20%,
-        rgba(212, 175, 55, 0.12) 0%,
+        rgba(183, 169, 157, 0.12) 0%,
         transparent 50%
       ),
       radial-gradient(
         circle at 70% 80%,
-        rgba(184, 149, 106, 0.08) 0%,
+        rgba(155, 140, 130, 0.08) 0%,
         transparent 55%
       ),
-      oklch(0.08 0 0);
+      #2A2420;
   }
 
   .dark .mesh-gradient-light {
     background:
       radial-gradient(
         circle at 30% 40%,
-        rgba(212, 165, 116, 0.08) 0%,
+        rgba(183, 169, 157, 0.08) 0%,
         transparent 55%
       ),
       radial-gradient(
         circle at 70% 60%,
-        rgba(184, 149, 106, 0.05) 0%,
+        rgba(155, 140, 130, 0.05) 0%,
         transparent 60%
       ),
-      oklch(0.08 0 0);
+      #2A2420;
   }
 
   .border-gradient-gold {
@@ -600,39 +604,39 @@
 
   .glow-gold {
     box-shadow:
-      0 12px 32px rgba(26, 26, 26, 0.12),
-      0 0 40px rgba(212, 165, 116, 0.25);
+      0 12px 32px rgba(66, 58, 53, 0.12),
+      0 0 40px rgba(183, 169, 157, 0.25);
   }
 
   .glow-gold-intense {
     box-shadow:
-      0 16px 40px rgba(26, 26, 26, 0.16),
-      0 0 60px rgba(212, 165, 116, 0.35);
+      0 16px 40px rgba(66, 58, 53, 0.16),
+      0 0 60px rgba(183, 169, 157, 0.35);
   }
 
   .text-glow-gold {
     text-shadow:
-      0 0 30px rgba(212, 165, 116, 0.4),
-      0 0 60px rgba(212, 165, 116, 0.25);
+      0 0 30px rgba(183, 169, 157, 0.4),
+      0 0 60px rgba(183, 169, 157, 0.25);
   }
 
   /* Dark mode glow effects */
   .dark .glow-gold {
     box-shadow:
-      0 12px 32px rgba(15, 15, 15, 0.4),
-      0 0 40px rgba(212, 165, 116, 0.2);
+      0 12px 32px rgba(42, 36, 32, 0.4),
+      0 0 40px rgba(183, 169, 157, 0.2);
   }
 
   .dark .glow-gold-intense {
     box-shadow:
-      0 16px 40px rgba(15, 15, 15, 0.5),
-      0 0 60px rgba(212, 165, 116, 0.3);
+      0 16px 40px rgba(42, 36, 32, 0.5),
+      0 0 60px rgba(183, 169, 157, 0.3);
   }
 
   .dark .text-glow-gold {
     text-shadow:
-      0 0 30px rgba(212, 165, 116, 0.3),
-      0 0 60px rgba(212, 165, 116, 0.15);
+      0 0 30px rgba(183, 169, 157, 0.3),
+      0 0 60px rgba(183, 169, 157, 0.15);
   }
 
   .shimmer {
