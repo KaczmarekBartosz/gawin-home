@@ -41,7 +41,7 @@ export function HeroSection() {
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-brand-cream pt-20 pb-8 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-white pt-20 pb-8 px-4 sm:px-6 lg:px-8">
       {/* Container with rounded corners - uses hero-gradient from globals.css */}
       <div
         className="max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-[0_8px_20px_rgba(150,130,110,0.15)]"
@@ -103,7 +103,7 @@ export function HeroSection() {
           </div>
 
           {/* RIGHT SIDE - Product Image with Hotspots */}
-          <div className="relative bg-brand-cream w-full h-full flex items-center justify-center overflow-hidden">
+          <div className="relative bg-white w-full h-full flex items-center justify-center overflow-hidden">
             {/* Product Image */}
             <img
               src="/sofa_ibiza.webp"
