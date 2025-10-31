@@ -2,7 +2,6 @@
 
 import { HeroSection } from "@/components/sections/home/HeroSection";
 import { InteractiveProductCarousel } from "@/components/sections/home/CategoriesCarousel";
-import { CategoriesShowcase } from "@/components/sections/home/CategoriesShowcase";
 import { BestsellersCarousel } from "@/components/sections/home/BestsellersCarousel";
 import { LookbookGrid } from "@/components/sections/LookbookGrid";
 import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
@@ -23,25 +22,22 @@ export default function HomePage() {
       {/* 2. Categories Carousel — INTERACTIVE */}
       <InteractiveProductCarousel />
 
-      {/* 3. Categories Showcase — LEGACY */}
-      <CategoriesShowcase />
-
-      {/* 4. Bestsellers Carousel — LEGACY */}
+      {/* 3. Bestsellers Carousel — LEGACY */}
       <BestsellersCarousel products={bestsellersProducts} />
 
-      {/* 5. Lookbook Gallery — LEGACY */}
+      {/* 4. Lookbook Gallery — LEGACY */}
       <LookbookGrid />
 
-      {/* 6. Testimonials — LEGACY */}
+      {/* 5. Testimonials — LEGACY */}
       <TestimonialsSection />
 
-      {/* 7. Trusted Brands — LEGACY */}
+      {/* 6. Trusted Brands — LEGACY */}
       <TrustedBrandsSection />
 
-      {/* 8. Instagram Gallery — LEGACY */}
+      {/* 7. Instagram Gallery — LEGACY */}
       <InstagramSection />
 
-      {/* 9. Newsletter — LEGACY */}
+      {/* 8. Newsletter — LEGACY */}
       <NewsletterSection />
     </main>
   );
