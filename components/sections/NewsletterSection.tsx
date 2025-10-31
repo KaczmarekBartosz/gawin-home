@@ -60,9 +60,9 @@ export function NewsletterSection() {
               />
               <Button
                 type="submit"
-                variant="gold"
+                size="lg"
                 disabled={isLoading}
-                className="sm:w-auto h-14 px-8 shimmer glow-gold hover:scale-105 transition-transform"
+                className="sm:w-auto bg-stone-800 text-stone-100 hover:bg-stone-700 rounded-xl transition-transform"
               >
                 {isLoading ? "Zapisywanie..." : "Zapisz się"}
               </Button>

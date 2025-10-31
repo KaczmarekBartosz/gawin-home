@@ -48,7 +48,7 @@ export function LookbookGrid({ className }: LookbookGridProps) {
   };
 
   return (
-    <section className={cn("py-24 md:py-32 bg-white", className)}>
+    <section className={cn("py-24 md:py-32 bg-brand-cream", className)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -58,7 +58,7 @@ export function LookbookGrid({ className }: LookbookGridProps) {
           transition={{ duration: 0.5 }}
           className="text-center mb-16 md:mb-20"
         >
-          <span className="text-label uppercase tracking-widest text-[#B7A99D]">
+          <span className="text-label uppercase tracking-widest text-brand-sand-primary">
             Inspiracja i trendy
           </span>
           <h2 className="text-h1 text-brand-charcoal mt-4 mb-6">

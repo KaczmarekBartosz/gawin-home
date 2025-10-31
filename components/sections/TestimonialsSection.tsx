@@ -126,7 +126,7 @@ export function TestimonialsSection() {
         >
           {testimonials.map((testimonial) => (
             <motion.div key={testimonial.id} variants={itemVariants}>
-              <Card className="h-full flex flex-col border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 bg-white p-8 rounded-xl">
+              <Card className="h-full flex flex-col border border-[var(--color-border-light)] shadow-md hover:shadow-lg transition-all duration-300 bg-white p-8 rounded-xl">
                 {/* Star Rating */}
                 <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -144,7 +144,7 @@ export function TestimonialsSection() {
                 </p>
 
                 {/* Divider */}
-                <div className="w-full h-px bg-gray-200 mb-8" />
+                <div className="w-full h-px bg-[var(--color-border-light)] mb-8" />
 
                 {/* Author Info */}
                 <div className="flex items-center gap-4">
@@ -177,7 +177,7 @@ export function TestimonialsSection() {
           viewport={{ once: true, amount: 0.5 }}
           variants={headerVariants}
           transition={{ delay: 0.4 }}
-          className="text-center mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-gray-200"
+          className="text-center mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-[var(--color-border-light)]"
         >
           <p className="text-body-large text-brand-charcoal/60 leading-relaxed">
             Ponad <span className="font-bold text-brand-sand-primary">2 500+</span>{" "}

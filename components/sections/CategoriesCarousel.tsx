@@ -69,7 +69,7 @@ export function CategoriesCarousel() {
   });
 
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-24 md:py-32 bg-brand-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -112,7 +112,7 @@ export function CategoriesCarousel() {
                 >
                   <Link
                     href={`/search?category=${category.slug}`}
-                    className="group overflow-hidden rounded-xl border border-neutral-200 bg-white hover:shadow-lg transition-all duration-300 h-full flex flex-col"
+                    className="group overflow-hidden rounded-xl border border-[var(--color-border-light)] bg-white hover:shadow-lg transition-all duration-300 h-full flex flex-col"
                   >
                     <div className="relative aspect-square w-full overflow-hidden">
                       <Image
