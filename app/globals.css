@@ -148,101 +148,74 @@
 }
 
 @theme inline {
-  /* Radii */
-  --radius: var(--radius-xl);
-  --radius-sm: calc(var(--radius-lg) - 8px);
-  --radius-md: var(--radius-lg);
-  --radius-lg: var(--radius-xl);
-  --radius-soft: 12px;
-  --radius-soft-lg: 16px;
-  --radius-soft-xl: 24px;
-  --radius-soft-2xl: 32px;
-  --radius-pill: 9999px;
+  /* ============================================
+   * CLEAN BRAND COLOR SYSTEM
+   * All Tailwind utilities use these definitions
+   * ============================================ */
 
-  /* Primary Brand Colors */
+  /* Primary Brand Colors - used across entire app */
   --color-charcoal: #1a1a1a;
   --color-cream: #fafaf9;
   --color-sand: #f5f5f5;
   --color-gold: #d4a574;
   --color-copper: #b8956a;
 
-  /* Brand Color Aliases (for Tailwind text-brand-* classes) */
+  /* Brand aliases for semantic usage */
   --brand-charcoal: #1a1a1a;
   --brand-cream: #fafaf9;
   --brand-sand: #f5f5f5;
   --brand-gold: #d4a574;
   --brand-copper: #b8956a;
 
-  /* Neomorphic Accent Colors */
-  --color-neo-mint: #a8f5d0;
-  --color-neo-green: #6ee7b7;
-  --color-neo-green-dark: #22c55e;
-  --color-neo-orange: #fdba74;
-  --color-neo-orange-light: #fed7aa;
+  /* ============================================
+   * GRADIENTS (for Tailwind to recognize)
+   * ============================================ */
+  --gradient-gold-to-copper: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+  --gradient-gold-primary: linear-gradient(125deg, #d4a574 0%, #b8956a 100%);
 
-  /* Neutrals (Grayscale) */
-  --color-gray-50: #f9f9f9;
-  --color-gray-100: #f3f3f3;
-  --color-gray-200: #e5e5e5;
-  --color-gray-300: #d0d0d0;
-  --color-gray-400: #999999;
-  --color-gray-500: #666666;
-  --color-gray-600: #404040;
+  /* ============================================
+   * BORDER RADIUS
+   * ============================================ */
+  --radius: 24px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-soft: 12px;
+  --radius-soft-lg: 16px;
+  --radius-soft-xl: 24px;
+  --radius-soft-2xl: 32px;
+  --radius-pill: 9999px;
 
-  /* Semantic Colors */
-  --color-success: #6ee7b7;
-  --color-warning: #fdba74;
-  --color-error: #e74c3c;
-
-  /* Neomorphic Shadow System */
-  --shadow-neo-subtle: 0 4px 12px rgba(0, 0, 0, 0.04);
-  --shadow-neo-light: 0 8px 16px rgba(0, 0, 0, 0.08);
-  --shadow-neo-medium: 0 12px 24px rgba(0, 0, 0, 0.12);
-  --shadow-neo-pressed:
-    inset 0 2px 4px rgba(0, 0, 0, 0.08),
-    inset 0 -2px 4px rgba(255, 255, 255, 0.8);
-  --shadow-neo-inset: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  /* ============================================
+   * SHADOWS (essential only)
+   * ============================================ */
   --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.05);
   --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.08);
   --shadow-card-active: 0 4px 8px rgba(0, 0, 0, 0.06);
-  --shadow-glow-gold:
-    0 0 20px rgba(212, 165, 116, 0.4), 0 0 40px rgba(212, 165, 116, 0.2);
-  --shadow-glow-green:
-    0 0 20px rgba(110, 231, 183, 0.3), 0 0 40px rgba(110, 231, 183, 0.15);
-  --shadow-glow-orange:
-    0 0 20px rgba(253, 186, 116, 0.3), 0 0 40px rgba(253, 186, 116, 0.15);
+  --shadow-glow-gold: 0 0 20px rgba(212, 165, 116, 0.4), 0 0 40px rgba(212, 165, 116, 0.2);
 
-  /* Spacing (8px grid system) */
-  --spacing-xs: 0.5rem; /* 8px */
-  --spacing-sm: 0.75rem; /* 12px */
-  --spacing-md: 1.5rem; /* 24px */
-  --spacing-lg: 2rem; /* 32px */
-  --spacing-xl: 3rem; /* 48px */
-  --spacing-2xl: 4rem; /* 64px */
-  --spacing-compact: 0.75rem; /* 12px */
-  --spacing-cozy: 1.5rem; /* 24px */
-  --spacing-spacious: 2.5rem; /* 40px */
-
-  /* shadcn/ui Component Colors */
-  --color-background: var(--color-light-bg);
-  --color-foreground: var(--color-text-dark);
-  --color-card: var(--color-light-surface);
-  --color-card-foreground: var(--color-text-dark);
-  --color-popover: var(--color-light-surface);
-  --color-popover-foreground: var(--color-text-dark);
-  --color-primary: var(--brand-gold);
-  --color-primary-foreground: var(--color-dark-bg);
-  --color-secondary: var(--brand-sand);
-  --color-secondary-foreground: var(--color-text-dark);
-  --color-muted: var(--brand-sand);
-  --color-muted-foreground: var(--color-text-gray);
-  --color-accent: var(--brand-gold);
-  --color-accent-foreground: var(--color-dark-bg);
-  --color-destructive: oklch(0.6 0.2 30);
-  --color-destructive-foreground: var(--color-light-bg);
-  --color-border: var(--color-border-light);
-  --color-input: var(--color-light-surface);
-  --color-ring: var(--brand-gold);
+  /* ============================================
+   * shadcn/ui COMPONENT TOKENS
+   * ============================================ */
+  --color-background: #ffffff;
+  --color-foreground: #1a1a1a;
+  --color-card: #fafaf9;
+  --color-card-foreground: #1a1a1a;
+  --color-popover: #fafaf9;
+  --color-popover-foreground: #1a1a1a;
+  --color-primary: #d4a574;
+  --color-primary-foreground: #1a1a1a;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #1a1a1a;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #666666;
+  --color-accent: #d4a574;
+  --color-accent-foreground: #1a1a1a;
+  --color-destructive: #e74c3c;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #e5e5e5;
+  --color-input: #fafaf9;
+  --color-ring: #d4a574;
 }
 
 /* Dark mode overrides for @theme colors */
