@@ -37,8 +37,8 @@ export function PaymentMethodStep({
     >
       {/* Step Header */}
       <div className="flex items-start gap-3 mb-8">
-        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
-          <CreditCard className="w-5 h-5 text-brand-gold" />
+        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#B7A99D]/20 flex items-center justify-center">
+          <CreditCard className="w-5 h-5 text-[#B7A99D]" />
         </div>
         <div>
           <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
@@ -63,8 +63,8 @@ export function PaymentMethodStep({
                 className={cn(
                   "relative flex items-start gap-4 p-6 rounded-xl border-2 cursor-pointer transition-all duration-300",
                   isSelected
-                    ? "border-brand-gold bg-brand-gold/5 dark:bg-brand-gold/10"
-                    : "border-brand-charcoal/10 dark:border-brand-cream/10 bg-white dark:bg-brand-charcoal/50 hover:border-brand-gold/50"
+                    ? "border-[#B7A99D] bg-[#B7A99D]/5 dark:bg-[#B7A99D]/10"
+                    : "border-brand-charcoal/10 dark:border-brand-cream/10 bg-white dark:bg-brand-charcoal/50 hover:border-[#B7A99D]/50"
                 )}
               >
                 {/* Radio Button */}
@@ -74,7 +74,7 @@ export function PaymentMethodStep({
                   value={method.id}
                   checked={isSelected}
                   onChange={(e) => onChange("method", e.target.value)}
-                  className="mt-1 w-5 h-5 cursor-pointer accent-brand-gold"
+                  className="mt-1 w-5 h-5 cursor-pointer accent-[#B7A99D]"
                 />
 
                 {/* Content */}
@@ -92,7 +92,7 @@ export function PaymentMethodStep({
                   className={cn(
                     "flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center transition-colors",
                     isSelected
-                      ? "bg-brand-gold/20"
+                      ? "bg-[#B7A99D]/20"
                       : "bg-brand-charcoal/10 dark:bg-brand-cream/10"
                   )}
                 >
@@ -100,7 +100,7 @@ export function PaymentMethodStep({
                     className={cn(
                       "w-6 h-6",
                       isSelected
-                        ? "text-brand-gold"
+                        ? "text-[#B7A99D]"
                         : "text-brand-charcoal/50 dark:text-brand-cream/50"
                     )}
                   />
@@ -117,7 +117,7 @@ export function PaymentMethodStep({
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="space-y-4 p-6 bg-brand-gold/5 dark:bg-brand-gold/10 rounded-xl border border-brand-gold/20"
+          className="space-y-4 p-6 bg-[#B7A99D]/5 dark:bg-[#B7A99D]/10 rounded-xl border border-[#B7A99D]/20"
         >
           <div className="space-y-2">
             <label className="text-sm font-semibold text-brand-charcoal dark:text-brand-cream">
@@ -133,7 +133,7 @@ export function PaymentMethodStep({
                 "bg-white dark:bg-brand-charcoal/50",
                 "text-brand-charcoal dark:text-brand-cream",
                 "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-                "focus:outline-none focus:ring-2 focus:ring-brand-gold uppercase"
+                "focus:outline-none focus:ring-2 focus:ring-[#B7A99D] uppercase"
               )}
             />
           </div>
@@ -153,7 +153,7 @@ export function PaymentMethodStep({
                   "bg-white dark:bg-brand-charcoal/50",
                   "text-brand-charcoal dark:text-brand-cream",
                   "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-                  "focus:outline-none focus:ring-2 focus:ring-brand-gold"
+                  "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]"
                 )}
               />
             </div>
@@ -173,7 +173,7 @@ export function PaymentMethodStep({
                   "bg-white dark:bg-brand-charcoal/50",
                   "text-brand-charcoal dark:text-brand-cream",
                   "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-                  "focus:outline-none focus:ring-2 focus:ring-brand-gold"
+                  "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]"
                 )}
               />
             </div>
@@ -193,7 +193,7 @@ export function PaymentMethodStep({
                 "bg-white dark:bg-brand-charcoal/50",
                 "text-brand-charcoal dark:text-brand-cream",
                 "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-                "focus:outline-none focus:ring-2 focus:ring-brand-gold"
+                "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]"
               )}
             />
           </div>
@@ -223,7 +223,7 @@ export function PaymentMethodStep({
       )}
 
       {/* Security Info */}
-      <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
+      <div className="p-4 rounded-lg bg-[#B7A99D]/10 dark:bg-[#B7A99D]/5 border border-[#B7A99D]/20">
         <p className="text-sm text-brand-charcoal dark:text-brand-cream">
           <strong>🔒 Bezpieczeństwo:</strong> Wszystkie płatności kartą są
           szyfrowane i przetwarzane przez zaufanych dostawców (Stripe, PayU).

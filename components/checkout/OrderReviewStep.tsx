@@ -43,8 +43,8 @@ export function OrderReviewStep({
     >
       {/* Step Header */}
       <div className="flex items-start gap-3 mb-8">
-        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
-          <CheckCircle2 className="w-5 h-5 text-brand-gold" />
+        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#B7A99D]/20 flex items-center justify-center">
+          <CheckCircle2 className="w-5 h-5 text-[#B7A99D]" />
         </div>
         <div>
           <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
@@ -82,7 +82,7 @@ export function OrderReviewStep({
                 </p>
               </div>
               <div className="text-right flex-shrink-0">
-                <p className="font-bold text-brand-gold">
+                <p className="font-bold text-[#B7A99D]">
                   {(item.price * item.quantity).toFixed(2)} zł
                 </p>
               </div>
@@ -146,7 +146,7 @@ export function OrderReviewStep({
             <span className="font-bold text-brand-charcoal dark:text-brand-cream">
               Razem:
             </span>
-            <span className="text-h3 font-bold text-brand-gold">
+            <span className="text-h3 font-bold text-[#B7A99D]">
               {total.toFixed(2)} zł
             </span>
           </div>
@@ -188,7 +188,7 @@ export function OrderReviewStep({
         whileTap={{ scale: 0.98 }}
         className={cn(
           "w-full py-4 rounded-xl font-bold text-lg transition-all duration-300",
-          "bg-brand-gold hover:bg-brand-gold/90",
+          "bg-[#B7A99D] hover:bg-[#B7A99D]/90",
           "text-brand-charcoal",
           isLoading && "opacity-50 cursor-not-allowed"
         )}

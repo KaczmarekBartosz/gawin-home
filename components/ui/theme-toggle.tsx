@@ -41,7 +41,7 @@ export function ThemeToggle() {
         "transition-colors duration-300",
         isDark
           ? "bg-brand-charcoal/50 hover:bg-brand-charcoal/70"
-          : "bg-brand-gold/20 hover:bg-brand-gold/30"
+          : "bg-[#B7A99D]/20 hover:bg-[#B7A99D]/30"
       )}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
@@ -55,7 +55,7 @@ export function ThemeToggle() {
             exit={{ y: 20, opacity: 0, rotate: 180 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
           >
-            <Sun className={cn("size-5", "text-brand-gold")} />
+            <Sun className={cn("size-5", "text-[#B7A99D]")} />
           </motion.div>
         )}
 

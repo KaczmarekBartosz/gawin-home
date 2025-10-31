@@ -42,7 +42,7 @@ export function TrustedBrandsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16 md:mb-20"
         >
-          <span className="text-label uppercase tracking-widest text-brand-gold">
+          <span className="text-label uppercase tracking-widest text-brand-sand-primary">
             Zaufane marki
           </span>
           <h2 className="text-h1 text-brand-charcoal mt-4 mb-6">

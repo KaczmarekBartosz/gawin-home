@@ -64,7 +64,7 @@ export default async function ProductMockPage({ params }: { params: Params }) {
               {product.badges.map((badge) => (
                 <span
                   key={badge}
-                  className="rounded-full bg-[oklch(0.75_0.12_85_/_0.15)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold"
+                  className="rounded-full bg-[oklch(0.75_0.12_85_/_0.15)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-[#B7A99D]"
                 >
                   {badge}
                 </span>
@@ -73,7 +73,7 @@ export default async function ProductMockPage({ params }: { params: Params }) {
             <h1 className="mt-4 text-4xl font-bold text-brand-charcoal">
               {product.name}
             </h1>
-            <p className="mt-2 text-sm font-medium uppercase tracking-[0.3em] text-brand-gold">
+            <p className="mt-2 text-sm font-medium uppercase tracking-[0.3em] text-[#B7A99D]">
               {product.category}
             </p>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-[color:oklch(0.45_0_0)]">
@@ -102,7 +102,7 @@ export default async function ProductMockPage({ params }: { params: Params }) {
           </div>
 
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-gold">
+            <h2 className="text-sm font-semibold uppercase tracking-[0.25em] text-[#B7A99D]">
               Dostępne wykończenia
             </h2>
             <div className="mt-3 flex flex-wrap gap-3">
@@ -121,7 +121,7 @@ export default async function ProductMockPage({ params }: { params: Params }) {
           </div>
 
           <div className="rounded-2xl bg-brand-sand p-5">
-            <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-brand-gold">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-[#B7A99D]">
               Wymiary
             </h3>
             <p className="mt-3 text-base text-brand-charcoal">
@@ -135,7 +135,7 @@ export default async function ProductMockPage({ params }: { params: Params }) {
             <button className="rounded-xl bg-gradient-gold px-6 py-3 font-semibold text-brand-charcoal transition-transform duration-200 hover:scale-[1.01]">
               Dodaj do koszyka (mock)
             </button>
-            <button className="rounded-xl border border-brand-gold px-6 py-3 font-semibold text-brand-gold transition-colors duration-200 hover:bg-[oklch(0.75_0.12_85_/_0.12)]">
+            <button className="rounded-xl border border-[#B7A99D] px-6 py-3 font-semibold text-[#B7A99D] transition-colors duration-200 hover:bg-[oklch(0.75_0.12_85_/_0.12)]">
               Zapytaj o produkt
             </button>
           </div>

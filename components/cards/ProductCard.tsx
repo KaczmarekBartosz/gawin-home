@@ -172,7 +172,7 @@ export function ProductCard({
             {/* Top section */}
             <div>
               {/* Product name */}
-              <h3 className="text-h4 font-semibold text-brand-charcoal line-clamp-2 group-hover:text-brand-gold transition-colors duration-200">
+              <h3 className="text-h4 font-semibold text-brand-charcoal line-clamp-2 group-hover:text-brand-sand-primary transition-colors duration-200">
                 {name}
               </h3>
 
@@ -191,7 +191,7 @@ export function ProductCard({
                       className={cn(
                         "size-4",
                         i < Math.floor(rating)
-                          ? "fill-brand-gold text-brand-gold"
+                          ? "fill-brand-sand-primary text-brand-sand-primary"
                           : "fill-neutral-200 text-neutral-200"
                       )}
                     />

@@ -187,7 +187,7 @@ export default function ProductDetailPage() {
         <div className="mx-auto max-w-7xl">
           <motion.div {...fadeInUp} className="mb-12 text-center">
             <div className="inline-block mb-4">
-              <span className="text-label uppercase tracking-widest text-brand-gold">
+              <span className="text-label uppercase tracking-widest text-brand-sand-primary">
                 Powiązane produkty
               </span>
             </div>

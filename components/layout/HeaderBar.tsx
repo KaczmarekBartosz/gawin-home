@@ -61,13 +61,13 @@ export function HeaderBar({
                   className={cn(
                     'w-full px-4 py-2 bg-white border-2 border-gray-200 rounded-soft',
                     'text-body text-brand-charcoal placeholder:text-gray-400',
-                    'focus:outline-none focus:border-brand-gold focus:shadow-neo-light',
+                    'focus:outline-none focus:border-[#B7A99D] focus:shadow-neo-light',
                     'transition-all duration-200'
                   )}
                 />
                 <button
                   type="submit"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-charcoal hover:text-brand-gold transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-charcoal hover:text-[#B7A99D] transition-colors"
                   aria-label="Szukaj"
                 >
                   <SearchIcon className="w-5 h-5" />
@@ -160,7 +160,7 @@ export function HeaderBar({
                 className={cn(
                   'w-full px-4 py-2 bg-white border-2 border-gray-200 rounded-soft',
                   'text-body-small text-brand-charcoal placeholder:text-gray-400',
-                  'focus:outline-none focus:border-brand-gold focus:shadow-neo-light',
+                  'focus:outline-none focus:border-[#B7A99D] focus:shadow-neo-light',
                   'transition-all duration-200'
                 )}
               />

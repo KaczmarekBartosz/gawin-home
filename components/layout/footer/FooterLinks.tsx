@@ -80,7 +80,7 @@ interface FooterLinksProps {
 
 export function FooterLinks({ variant = "full" }: FooterLinksProps) {
   return (
-    <footer className="bg-brand-charcoal border-t border-brand-gold/20">
+    <footer className="bg-brand-charcoal border-t border-[#B7A99D]/20">
       {/* Social Media Section */}
       {(variant === "full" || variant === "social-only") && (
         <motion.div
@@ -88,7 +88,7 @@ export function FooterLinks({ variant = "full" }: FooterLinksProps) {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="border-b border-brand-gold/20 py-12 px-4 sm:px-6"
+          className="border-b border-[#B7A99D]/20 py-12 px-4 sm:px-6"
         >
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col items-center gap-10 sm:flex-row sm:justify-between sm:items-start">
@@ -126,7 +126,7 @@ export function FooterLinks({ variant = "full" }: FooterLinksProps) {
                         "flex h-12 w-12 items-center justify-center rounded-lg",
                         "bg-white border-2 border-brand-charcoal/10",
                         "text-brand-charcoal transition-all duration-200",
-                        "hover:border-brand-gold hover:text-brand-gold hover:shadow-neo-light",
+                        "hover:border-[#B7A99D] hover:text-[#B7A99D] hover:shadow-neo-light",
                         link.color,
                         link.hoverBg
                       )}
@@ -185,14 +185,14 @@ export function FooterLinks({ variant = "full" }: FooterLinksProps) {
                         className={cn(
                           "text-body-small text-brand-charcoal/70",
                           "relative inline-block",
-                          "hover:text-brand-gold transition-colors duration-200",
+                          "hover:text-[#B7A99D] transition-colors duration-200",
                           "group"
                         )}
                       >
                         {link.label}
                         <span
                           className={cn(
-                            "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-brand-gold to-brand-copper",
+                            "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#B7A99D] to-[#9B8C82]",
                             "w-0 transition-all duration-300 group-hover:w-full"
                           )}
                         />
@@ -235,14 +235,14 @@ export function FooterLinks({ variant = "full" }: FooterLinksProps) {
                         className={cn(
                           "text-body-small text-brand-charcoal/70",
                           "relative inline-block",
-                          "hover:text-brand-gold transition-colors duration-200",
+                          "hover:text-[#B7A99D] transition-colors duration-200",
                           "group"
                         )}
                       >
                         {link.label}
                         <span
                           className={cn(
-                            "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-brand-gold to-brand-copper",
+                            "absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#B7A99D] to-[#9B8C82]",
                             "w-0 transition-all duration-300 group-hover:w-full"
                           )}
                         />
@@ -326,7 +326,7 @@ export function SocialIcons({
               "flex h-10 w-10 items-center justify-center rounded-lg",
               "bg-white border-2 border-brand-charcoal/10",
               "text-brand-charcoal transition-all duration-200",
-              "hover:border-brand-gold hover:text-brand-gold hover:shadow-neo-light",
+              "hover:border-[#B7A99D] hover:text-[#B7A99D] hover:shadow-neo-light",
               link.color,
               link.hoverBg
             )}

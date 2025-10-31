@@ -36,7 +36,7 @@ export function BestsellersCarousel({
           transition={{ duration: 0.5 }}
           className="text-center mb-16 md:mb-20"
         >
-          <span className="text-label uppercase tracking-widest text-brand-gold">
+          <span className="text-label uppercase tracking-widest text-brand-sand-primary">
             Bestsellery
           </span>
           <h2 className="text-h1 text-brand-charcoal mt-4 mb-6">
@@ -84,7 +84,7 @@ export function BestsellersCarousel({
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-center"
         >
-          <Button size="lg" className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold">
+          <Button size="lg" className="bg-brand-sand-primary hover:bg-brand-sand-primary/90 text-brand-charcoal font-semibold">
             Przeglądaj wszystkie bestsellery
             <ChevronRight className="w-4 h-4 ml-2" />
           </Button>

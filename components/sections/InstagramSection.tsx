@@ -56,11 +56,11 @@ export function InstagramSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16 md:mb-20"
         >
-          <span className="text-label uppercase tracking-widest text-brand-gold">
+          <span className="text-label uppercase tracking-widest text-brand-sand-primary">
             Śledź nas na mediach społecznych
           </span>
           <div className="inline-flex items-center gap-3 mt-4 mb-6">
-            <Instagram className="h-6 w-6 text-brand-gold" strokeWidth={1.5} />
+            <Instagram className="h-6 w-6 text-brand-sand-primary" strokeWidth={1.5} />
             <h2 className="text-h1 text-brand-charcoal">@GawinHome</h2>
           </div>
           <p className="text-body-large text-brand-charcoal/60 max-w-3xl mx-auto leading-relaxed mb-8">
@@ -70,7 +70,7 @@ export function InstagramSection() {
             href="https://instagram.com/gawinhome"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-brand-gold hover:text-brand-copper transition-colors font-semibold text-body"
+            className="inline-flex items-center gap-2 text-brand-sand-primary hover:text-brand-sand-deep transition-colors font-semibold text-body"
           >
             Obserwuj nas
             <span>→</span>

@@ -8,7 +8,7 @@ const badgeNeoVariants = cva(
   [
     "inline-flex items-center justify-center whitespace-nowrap",
     "font-semibold transition-all duration-150",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sand-primary focus-visible:ring-offset-2",
     '[&>svg]:pointer-events-none [&>svg:not([class*="size-"])]:size-4 [&>svg]:shrink-0',
     "select-none",
   ].join(" "),
@@ -22,7 +22,7 @@ const badgeNeoVariants = cva(
         warning:
           "bg-neo-orange text-charcoal shadow-glow-orange hover:shadow-glow-orange",
         error: "bg-error text-white shadow-neo-subtle hover:shadow-neo-light",
-        info: "bg-brand-gold text-charcoal shadow-glow-gold hover:shadow-glow-gold",
+        info: "bg-brand-sand-primary text-charcoal shadow-glow-gold hover:shadow-glow-gold",
         gold: "bg-gradient-gold text-charcoal shadow-glow-gold hover:shadow-glow-gold",
       },
       size: {
@@ -68,13 +68,13 @@ const badgeNeoVariants = cva(
         outline: true,
         variant: "info",
         className:
-          "border-brand-gold text-brand-gold hover:bg-brand-gold/10 shadow-none hover:shadow-none",
+          "border-brand-sand-primary text-brand-sand-primary hover:bg-brand-sand-primary/10 shadow-none hover:shadow-none",
       },
       {
         outline: true,
         variant: "gold",
         className:
-          "border-brand-gold text-brand-gold hover:bg-brand-gold/10 shadow-none hover:shadow-none",
+          "border-brand-sand-primary text-brand-sand-primary hover:bg-brand-sand-primary/10 shadow-none hover:shadow-none",
       },
     ],
     defaultVariants: {

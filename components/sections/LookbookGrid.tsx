@@ -58,7 +58,7 @@ export function LookbookGrid({ className }: LookbookGridProps) {
           transition={{ duration: 0.5 }}
           className="text-center mb-16 md:mb-20"
         >
-          <span className="text-label uppercase tracking-widest text-brand-gold">
+          <span className="text-label uppercase tracking-widest text-[#B7A99D]">
             Inspiracja i trendy
           </span>
           <h2 className="text-h1 text-brand-charcoal mt-4 mb-6">
@@ -114,25 +114,25 @@ export function LookbookGrid({ className }: LookbookGridProps) {
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <span className="text-brand-gold font-bold">1.</span>
+                  <span className="text-[#B7A99D] font-bold">1.</span>
                   <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
                     Wybierz interesującą Cię kolekcję z galerii
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand-gold font-bold">2.</span>
+                  <span className="text-[#B7A99D] font-bold">2.</span>
                   <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
                     Poznaj każdy produkt wchodzący w skład kolekcji
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand-gold font-bold">3.</span>
+                  <span className="text-[#B7A99D] font-bold">3.</span>
                   <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
                     Dodaj wybrane meble do koszyka
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-brand-gold font-bold">4.</span>
+                  <span className="text-[#B7A99D] font-bold">4.</span>
                   <span className="text-body text-brand-charcoal/70 dark:text-brand-cream/70">
                     Stwórz swoje idealne wnętrze
                   </span>
@@ -152,19 +152,19 @@ export function LookbookGrid({ className }: LookbookGridProps) {
               </h3>
               <ul className="space-y-2 text-body text-brand-charcoal/70 dark:text-brand-cream/70">
                 <li className="flex items-start gap-2">
-                  <span className="text-brand-gold">✓</span>
+                  <span className="text-[#B7A99D]">✓</span>
                   <span>Łącz różne kolory w ramach jednej palety</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-brand-gold">✓</span>
+                  <span className="text-[#B7A99D]">✓</span>
                   <span>Wprowadź tekstury poprzez różne materiały</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-brand-gold">✓</span>
+                  <span className="text-[#B7A99D]">✓</span>
                   <span>Nie bój się eksperymentować z rozmiarami</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-brand-gold">✓</span>
+                  <span className="text-[#B7A99D]">✓</span>
                   <span>Oświetlenie to kluczowy element aranżacji</span>
                 </li>
               </ul>
@@ -181,24 +181,24 @@ export function LookbookGrid({ className }: LookbookGridProps) {
                 Dlaczego warto?
               </h3>
               <div className="space-y-3">
-                <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
-                  <p className="text-sm font-semibold text-brand-gold mb-1">
+                <div className="p-4 rounded-lg bg-[#B7A99D]/10 dark:bg-[#B7A99D]/5 border border-[#B7A99D]/20">
+                  <p className="text-sm font-semibold text-[#B7A99D] mb-1">
                     Gotowe rozwiązania
                   </p>
                   <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
                     Już zaplanowane aranżacje wnętrz
                   </p>
                 </div>
-                <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
-                  <p className="text-sm font-semibold text-brand-gold mb-1">
+                <div className="p-4 rounded-lg bg-[#B7A99D]/10 dark:bg-[#B7A99D]/5 border border-[#B7A99D]/20">
+                  <p className="text-sm font-semibold text-[#B7A99D] mb-1">
                     Spójny design
                   </p>
                   <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
                     Profesjonalnie dobrane elementy
                   </p>
                 </div>
-                <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
-                  <p className="text-sm font-semibold text-brand-gold mb-1">
+                <div className="p-4 rounded-lg bg-[#B7A99D]/10 dark:bg-[#B7A99D]/5 border border-[#B7A99D]/20">
+                  <p className="text-sm font-semibold text-[#B7A99D] mb-1">
                     Oszczędność czasu
                   </p>
                   <p className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
@@ -227,7 +227,7 @@ export function LookbookGrid({ className }: LookbookGridProps) {
           <button
             className={cn(
               "px-8 py-4 rounded-xl",
-              "bg-brand-gold hover:bg-brand-gold/90",
+              "bg-[#B7A99D] hover:bg-[#B7A99D]/90",
               "text-brand-charcoal font-semibold",
               "transition-all duration-300",
               "inline-flex items-center gap-2"

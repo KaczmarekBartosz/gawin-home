@@ -97,8 +97,8 @@ export function TestimonialsSection() {
     <section className="py-24 md:py-32 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-brand-gold rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-brand-copper rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-brand-sand-primary rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-brand-sand-deep rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -133,7 +133,7 @@ export function TestimonialsSection() {
                     <Star
                       key={i}
                       size={18}
-                      className="text-brand-gold fill-brand-gold"
+                      className="text-brand-sand-primary fill-brand-sand-primary"
                     />
                   ))}
                 </div>
@@ -180,7 +180,7 @@ export function TestimonialsSection() {
           className="text-center mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-gray-200"
         >
           <p className="text-body-large text-brand-charcoal/60 leading-relaxed">
-            Ponad <span className="font-bold text-brand-gold">2 500+</span>{" "}
+            Ponad <span className="font-bold text-brand-sand-primary">2 500+</span>{" "}
             zadowolonych klientów na całym świecie
           </p>
         </motion.div>

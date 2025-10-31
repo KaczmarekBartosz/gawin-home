@@ -72,15 +72,15 @@ function NavbarClient() {
                 className={cn(
                   "text-body transition-all duration-200 relative",
                   isActive(link.href)
-                    ? "text-brand-gold font-semibold"
-                    : "text-brand-charcoal hover:text-brand-gold"
+                    ? "text-[#B7A99D] font-semibold"
+                    : "text-brand-charcoal hover:text-[#B7A99D]"
                 )}
               >
                 {link.label}
                 {isActive(link.href) && (
                   <motion.div
                     layoutId="navUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#B7A99D]"
                     transition={{ duration: 0.3 }}
                   />
                 )}
@@ -152,7 +152,7 @@ function NavbarClient() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              className="sm:hidden border-t border-brand-gold/20 bg-white/50 backdrop-blur-sm"
+              className="sm:hidden border-t border-[#B7A99D]/20 bg-white/50 backdrop-blur-sm"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -166,8 +166,8 @@ function NavbarClient() {
                     className={cn(
                       "block px-4 py-3 text-body rounded-soft transition-all",
                       isActive(link.href)
-                        ? "text-brand-gold font-semibold bg-brand-gold/10"
-                        : "text-brand-charcoal hover:bg-brand-gold/5 hover:text-brand-gold"
+                        ? "text-[#B7A99D] font-semibold bg-[#B7A99D]/10"
+                        : "text-brand-charcoal hover:bg-[#B7A99D]/5 hover:text-[#B7A99D]"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >

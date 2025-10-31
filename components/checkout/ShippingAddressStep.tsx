@@ -31,8 +31,8 @@ export function ShippingAddressStep({
     >
       {/* Step Header */}
       <div className="flex items-start gap-3 mb-8">
-        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold/20 flex items-center justify-center">
-          <MapPin className="w-5 h-5 text-brand-gold" />
+        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#B7A99D]/20 flex items-center justify-center">
+          <MapPin className="w-5 h-5 text-[#B7A99D]" />
         </div>
         <div>
           <h3 className="text-h3 font-bold text-brand-charcoal dark:text-brand-cream">
@@ -76,7 +76,7 @@ export function ShippingAddressStep({
               "bg-white dark:bg-brand-charcoal/50",
               "text-brand-charcoal dark:text-brand-cream",
               "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-              "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+              "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
               errors.firstName && "border-red-500"
             )}
           />
@@ -100,7 +100,7 @@ export function ShippingAddressStep({
               "bg-white dark:bg-brand-charcoal/50",
               "text-brand-charcoal dark:text-brand-cream",
               "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-              "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+              "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
               errors.lastName && "border-red-500"
             )}
           />
@@ -124,7 +124,7 @@ export function ShippingAddressStep({
               "bg-white dark:bg-brand-charcoal/50",
               "text-brand-charcoal dark:text-brand-cream",
               "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-              "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+              "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
               errors.email && "border-red-500"
             )}
           />
@@ -148,7 +148,7 @@ export function ShippingAddressStep({
               "bg-white dark:bg-brand-charcoal/50",
               "text-brand-charcoal dark:text-brand-cream",
               "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-              "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+              "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
               errors.phone && "border-red-500"
             )}
           />
@@ -172,7 +172,7 @@ export function ShippingAddressStep({
               "bg-white dark:bg-brand-charcoal/50",
               "text-brand-charcoal dark:text-brand-cream",
               "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-              "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+              "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
               errors.street && "border-red-500"
             )}
           />
@@ -196,7 +196,7 @@ export function ShippingAddressStep({
               "bg-white dark:bg-brand-charcoal/50",
               "text-brand-charcoal dark:text-brand-cream",
               "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-              "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+              "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
               errors.city && "border-red-500"
             )}
           />
@@ -220,7 +220,7 @@ export function ShippingAddressStep({
               "bg-white dark:bg-brand-charcoal/50",
               "text-brand-charcoal dark:text-brand-cream",
               "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-              "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+              "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
               errors.postalCode && "border-red-500"
             )}
           />
@@ -241,7 +241,7 @@ export function ShippingAddressStep({
               "w-full px-4 py-3 rounded-lg border border-brand-charcoal/20 dark:border-brand-cream/20",
               "bg-white dark:bg-brand-charcoal/50",
               "text-brand-charcoal dark:text-brand-cream",
-              "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+              "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
               errors.country && "border-red-500"
             )}
           >
@@ -273,7 +273,7 @@ export function ShippingAddressStep({
                   "bg-white dark:bg-brand-charcoal/50",
                   "text-brand-charcoal dark:text-brand-cream",
                   "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-                  "focus:outline-none focus:ring-2 focus:ring-brand-gold"
+                  "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]"
                 )}
               />
             </div>
@@ -292,7 +292,7 @@ export function ShippingAddressStep({
                   "bg-white dark:bg-brand-charcoal/50",
                   "text-brand-charcoal dark:text-brand-cream",
                   "placeholder:text-brand-charcoal/40 dark:placeholder:text-brand-cream/40",
-                  "focus:outline-none focus:ring-2 focus:ring-brand-gold",
+                  "focus:outline-none focus:ring-2 focus:ring-[#B7A99D]",
                   errors.taxId && "border-red-500"
                 )}
               />
@@ -305,7 +305,7 @@ export function ShippingAddressStep({
       </div>
 
       {/* Info Box */}
-      <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20">
+      <div className="p-4 rounded-lg bg-[#B7A99D]/10 dark:bg-[#B7A99D]/5 border border-[#B7A99D]/20">
         <p className="text-sm text-brand-charcoal dark:text-brand-cream">
           <strong>💡 Wskazówka:</strong> Dane będą używane tylko do dostarczenia
           zamówienia. Nigdy nie udostępniamy Twoich informacji osobistych

@@ -131,14 +131,14 @@ export function LookbookCard({
           {/* Theme Badge */}
           <div className="flex items-center gap-2">
             <motion.div
-              className="text-xs font-semibold uppercase tracking-wider text-brand-gold"
+              className="text-xs font-semibold uppercase tracking-wider text-[#B7A99D]"
               animate={{
                 opacity: isHovered ? 1 : 0.8,
               }}
             >
               {theme}
             </motion.div>
-            <div className="w-8 h-px bg-gradient-to-r from-brand-gold/50 to-transparent" />
+            <div className="w-8 h-px bg-gradient-to-r from-[#B7A99D]/50 to-transparent" />
           </div>
 
           {/* Title */}
@@ -151,7 +151,7 @@ export function LookbookCard({
             >
               {title}
             </h3>
-            <p className="text-brand-gold text-lg font-semibold">{subtitle}</p>
+            <p className="text-[#B7A99D] text-lg font-semibold">{subtitle}</p>
           </div>
 
           {/* Description (hidden on non-featured, shown on hover for featured) */}
@@ -180,7 +180,7 @@ export function LookbookCard({
               href={`/lookbook/${id}`}
               className={cn(
                 "inline-flex items-center gap-2 px-6 py-3 rounded-full",
-                "bg-brand-gold hover:bg-brand-gold/90",
+                "bg-[#B7A99D] hover:bg-[#B7A99D]/90",
                 "text-brand-charcoal font-semibold",
                 "transition-all duration-300",
                 "group/cta"
@@ -203,7 +203,7 @@ export function LookbookCard({
 
       {/* Hover Border Accent */}
       <motion.div
-        className="absolute inset-0 pointer-events-none rounded-2xl border border-brand-gold"
+        className="absolute inset-0 pointer-events-none rounded-2xl border border-[#B7A99D]"
         animate={{
           opacity: isHovered ? 0.5 : 0,
         }}

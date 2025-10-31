@@ -33,16 +33,16 @@ export function NewsletterSection() {
           className="max-w-2xl mx-auto"
         >
           {/* Card container */}
-          <div className="rounded-2xl p-10 md:p-12 bg-gradient-to-br from-brand-charcoal to-brand-charcoal/95 border border-brand-gold/20">
+          <div className="rounded-2xl p-10 md:p-12 bg-gradient-to-br from-brand-charcoal to-brand-charcoal/95 border border-brand-sand-primary/20">
             {/* Heading */}
-            <span className="text-label uppercase tracking-widest text-brand-gold block text-center mb-4">
+            <span className="text-label uppercase tracking-widest text-brand-sand-primary block text-center mb-4">
               Newsletter
             </span>
             <h2 className="text-h1 text-brand-cream mb-6 text-center">
               Dołącz do naszego klubu
             </h2>
             <p className="text-body-large text-brand-cream/80 mb-10 text-center leading-relaxed">
-              Otrzymaj <span className="font-bold text-brand-gold">-10%</span> na pierwsze zakupy oraz bądź na bieżąco z nowościami i specjalnymi ofertami
+              Otrzymaj <span className="font-bold text-brand-sand-primary">-10%</span> na pierwsze zakupy oraz bądź na bieżąco z nowościami i specjalnymi ofertami
             </p>
 
             {/* Form */}
@@ -72,7 +72,7 @@ export function NewsletterSection() {
               Zapisując się, akceptujesz naszą{" "}
               <a
                 href="/privacy"
-                className="underline hover:text-brand-gold transition-colors"
+                className="underline hover:text-brand-sand-primary transition-colors"
               >
                 Politykę Prywatności
               </a>

@@ -41,7 +41,7 @@ export function CategoryCard({
           sizes="(max-width: 768px) 50vw, 25vw"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[rgba(26,26,26,0.75)] via-[rgba(26,26,26,0.35)] to-transparent" />
-        <div className="absolute inset-0 mix-blend-soft-light bg-gradient-to-tr from-brand-gold/20 via-transparent to-brand-copper/15" />
+        <div className="absolute inset-0 mix-blend-soft-light bg-gradient-to-tr from-brand-sand-primary/20 via-transparent to-brand-sand-deep/15" />
       </div>
 
       <div className="absolute inset-x-0 bottom-0 p-8">

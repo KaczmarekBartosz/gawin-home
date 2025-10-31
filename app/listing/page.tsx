@@ -26,7 +26,7 @@ export default function ListingPage() {
     <Section tone="light" className="min-h-screen">
       <Container>
         <motion.header {...fadeInUp} className="max-w-3xl">
-          <p className="text-label text-brand-gold">Showroom</p>
+          <p className="text-label text-brand-sand-primary">Showroom</p>
           <h1 className="mt-4 text-h1 text-brand-charcoal">
             Autorska kolekcja modularna
           </h1>
@@ -40,7 +40,7 @@ export default function ListingPage() {
         <div className="mt-16 grid gap-10 lg:grid-cols-[320px_1fr]">
           <aside className="space-y-8 rounded-3xl border border-neutral-200 bg-brand-cream p-6 shadow-soft">
             <div>
-              <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold">
+              <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-sand-primary">
                 Wyszukaj
               </h2>
               <div className="mt-3">
@@ -145,7 +145,7 @@ type FilterGroupProps = {
 function FilterGroup({ title, children }: FilterGroupProps) {
   return (
     <div>
-      <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold">
+      <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-sand-primary">
         {title}
       </h3>
       <div className="mt-4 space-y-3 text-sm text-brand-charcoal">

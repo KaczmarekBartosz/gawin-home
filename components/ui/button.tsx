@@ -8,7 +8,7 @@ const buttonVariants = cva(
   [
     "inline-flex items-center justify-center gap-2 whitespace-nowrap",
     "rounded-xl font-semibold transition-all duration-300",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
     "disabled:pointer-events-none disabled:opacity-50",
     '[&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 [&_svg]:shrink-0',
     "active:scale-95",
@@ -16,13 +16,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        gold: "bg-gradient-gold-premium text-white shadow-md hover:shadow-lg hover:brightness-110",
+        gold: "bg-[#9B8C82] text-white shadow-md hover:shadow-lg hover:bg-[#B7A99D] transition-colors",
         outline:
-          "border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white",
-        ghost: "bg-transparent text-brand-charcoal hover:bg-black/5",
+          "border-2 border-[#423A35] text-[#423A35] hover:bg-[#423A35] hover:text-white transition-colors",
+        ghost: "bg-transparent text-[#423A35] hover:bg-[#DADADD]",
         subtle:
-          "border border-transparent bg-brand-cream text-brand-charcoal hover:border-brand-gold/50 hover:shadow-sm",
-        link: "text-brand-gold underline-offset-4 hover:underline",
+          "border border-transparent bg-[#DADADD] text-[#423A35] hover:border-[#B7A99D]/50 hover:shadow-sm",
+        link: "text-[#B7A99D] underline-offset-4 hover:underline",
       },
       size: {
         sm: "h-10 rounded-lg px-4 text-sm",

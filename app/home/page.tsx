@@ -1,13 +1,13 @@
 "use client";
 
-import { HeroSection } from "@/components/sections/home/HeroSection";
-import { CategoriesCarousel } from "@/components/sections/home/CategoriesCarousel";
-import { BestsellersCarousel } from "@/components/sections/home/BestsellersCarousel";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { CategoriesCarousel } from "@/components/sections/CategoriesCarousel";
+import { BestsellersCarousel } from "@/components/sections/BestsellersCarousel";
 import { LookbookGrid } from "@/components/sections/LookbookGrid";
-import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
-import { TrustedBrandsSection } from "@/components/sections/home/TrustedBrandsSection";
-import { InstagramSection } from "@/components/sections/home/InstagramSection";
-import { NewsletterSection } from "@/components/sections/home/NewsletterSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { TrustedBrandsSection } from "@/components/sections/TrustedBrandsSection";
+import { InstagramSection } from "@/components/sections/InstagramSection";
+import { NewsletterSection } from "@/components/sections/NewsletterSection";
 import mockProducts from "@/mock/products.json";
 import type { MockProduct } from "@/lib/data-adapters/mock";
 

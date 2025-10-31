@@ -1,8 +1,8 @@
-import { HeroSection } from "@/components/sections/hero-section";
-import { FeaturedProducts } from "@/components/sections/featured-products";
-import { CategoriesShowcase } from "@/components/sections/categories-showcase";
-import { Newsletter } from "@/components/sections/newsletter";
-import { TrustedBrands } from "@/components/sections/trusted-brands";
+import { HeroSection } from "@/components/sections/HeroSection-Legacy";
+import { FeaturedProducts } from "@/components/sections/FeaturedProducts";
+import { CategoriesShowcase } from "@/components/sections/CategoriesShowcase";
+import { Newsletter } from "@/components/sections/Newsletter";
+import { TrustedBrands } from "@/components/sections/TrustedBrands";
 
 export const metadata = {
   title: "Gawin-Home — Strona Główna (Mock)",

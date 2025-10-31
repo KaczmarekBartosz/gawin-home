@@ -24,8 +24,8 @@ const variantStyles = {
     glow: "",
   },
   gold: {
-    thumb: "border-brand-gold",
-    progress: "bg-gradient-to-r from-brand-gold to-brand-copper",
+    thumb: "border-[#B7A99D]",
+    progress: "bg-gradient-to-r from-[#B7A99D] to-[#9B8C82]",
     thumb_hover: "shadow-glow-gold",
     glow: "group-hover:shadow-glow-gold",
   },
@@ -190,7 +190,7 @@ export const NeoSlider = React.forwardRef<HTMLDivElement, NeoSliderProps>(
             <label className="text-sm font-medium text-brand-charcoal">
               {label}
             </label>
-            <div className="text-sm font-medium text-brand-gold">
+            <div className="text-sm font-medium text-[#B7A99D]">
               {isRange ? (
                 <>
                   {(minValue ?? min).toFixed(0)}
@@ -245,7 +245,7 @@ export const NeoSlider = React.forwardRef<HTMLDivElement, NeoSliderProps>(
               "absolute top-1/2 -translate-y-1/2 -translate-x-1/2",
               "h-6 w-6 rounded-full border-2 bg-white",
               "transition-all duration-200",
-              "cursor-grab focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2",
+              "cursor-grab focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B7A99D] focus-visible:ring-offset-2",
               "hover:scale-110",
               isDragging === "min"
                 ? "shadow-neo-pressed cursor-grabbing"
@@ -275,7 +275,7 @@ export const NeoSlider = React.forwardRef<HTMLDivElement, NeoSliderProps>(
                 "absolute top-1/2 -translate-y-1/2 -translate-x-1/2",
                 "h-6 w-6 rounded-full border-2 bg-white",
                 "transition-all duration-200",
-                "cursor-grab focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2",
+                "cursor-grab focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B7A99D] focus-visible:ring-offset-2",
                 "hover:scale-110",
                 isDragging === "max"
                   ? "shadow-neo-pressed cursor-grabbing"

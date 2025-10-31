@@ -138,7 +138,7 @@ export function ProductImageGallery({
               className={cn(
                 "relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200",
                 selectedIndex === index
-                  ? "border-brand-gold shadow-lg shadow-brand-gold/50"
+                  ? "border-[#B7A99D] shadow-lg shadow-[#B7A99D]/50"
                   : "border-brand-charcoal/10 hover:border-brand-charcoal/20"
               )}
             >
@@ -157,7 +157,7 @@ export function ProductImageGallery({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 bg-brand-gold/20"
+                    className="absolute inset-0 bg-[#B7A99D]/20"
                   />
                 )}
               </AnimatePresence>

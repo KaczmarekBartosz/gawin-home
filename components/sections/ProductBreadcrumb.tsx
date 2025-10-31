@@ -42,10 +42,10 @@ export function ProductBreadcrumb({
               {item.href ? (
                 <Link href={item.href}>
                   <motion.span
-                    className="inline-flex items-center gap-2 py-2 px-3 rounded-lg transition-all duration-200 hover:bg-brand-gold/10 cursor-pointer group"
+                    className="inline-flex items-center gap-2 py-2 px-3 rounded-lg transition-all duration-200 hover:bg-[#B7A99D]/10 cursor-pointer group"
                     whileHover={{ x: 2 }}
                   >
-                    <span className="text-brand-charcoal/70 group-hover:text-brand-gold transition-colors">
+                    <span className="text-brand-charcoal/70 group-hover:text-[#B7A99D] transition-colors">
                       {item.label}
                     </span>
                   </motion.span>

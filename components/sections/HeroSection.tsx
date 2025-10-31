@@ -42,16 +42,16 @@ export function HeroSection() {
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-brand-cream pt-20 pb-8 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-stone-50 pt-20 pb-8 px-4 sm:px-6 lg:px-8">
       {/* Container with rounded corners */}
-      <div className="max-w-7xl mx-auto bg-white rounded-2xl overflow-hidden shadow-lg">
+      <div className="max-w-7xl mx-auto bg-brand-cream rounded-2xl overflow-hidden shadow-lg">
         <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 min-h-[500px] lg:min-h-[600px]">
 
           {/* LEFT SIDE - Content */}
           <div className="bg-brand-cream flex flex-col justify-center px-6 sm:px-10 py-12 lg:py-16 space-y-8">
             <div className="space-y-6">
               {/* Website URL */}
-              <p className="text-xs sm:text-sm font-semibold text-brand-gold tracking-widest uppercase">
+              <p className="text-xs sm:text-sm font-semibold text-brand-sand-primary tracking-widest uppercase">
                 Gawin24.pl
               </p>
 
@@ -77,23 +77,23 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto border-brand-gold text-brand-charcoal hover:bg-brand-gold hover:text-white"
+                className="w-full sm:w-auto"
               >
                 Umów Konsultację
               </Button>
             </div>
 
             {/* Benefits section */}
-            <div className="pt-5 border-t border-brand-gold/20 space-y-2 hidden sm:block">
+            <div className="pt-5 border-t border-brand-sand-primary/20 space-y-2 hidden sm:block">
               <div className="space-y-2 text-sm">
                 <div className="flex items-start gap-2">
-                  <span className="text-brand-gold font-bold text-base">✓</span>
+                  <span className="text-brand-sand-primary font-bold text-base">✓</span>
                   <div>
                     <p className="font-semibold text-brand-charcoal text-sm">Darmowa dostawa</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-brand-gold font-bold text-base">✓</span>
+                  <span className="text-brand-sand-primary font-bold text-base">✓</span>
                   <div>
                     <p className="font-semibold text-brand-charcoal text-sm">Szybka wysyłka</p>
                   </div>
@@ -103,7 +103,7 @@ export function HeroSection() {
           </div>
 
           {/* RIGHT SIDE - Product Image with Hotspots */}
-          <div className="relative bg-black w-full h-full flex items-center justify-center overflow-hidden">
+          <div className="relative bg-gradient-to-br from-brand-sand-lighter via-brand-sand-light to-brand-cream w-full h-full flex items-center justify-center overflow-hidden">
             {/* Product Image */}
             <img
               src="/sofa_ibiza.webp"
@@ -122,21 +122,21 @@ export function HeroSection() {
               >
                 {/* Pin Button */}
                 <button
-                  className="relative z-10 w-10 h-10 rounded-full bg-brand-gold hover:bg-brand-gold/80 shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center text-white font-bold text-sm"
+                  className="relative z-10 w-10 h-10 rounded-full bg-brand-sand-primary hover:bg-brand-sand-primary/80 shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center text-white font-bold text-sm"
                   aria-label={`Pin: ${hotspot.title}`}
                 >
                   {hotspot.id}
                 </button>
 
                 {/* Animated circle around pin */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-brand-gold opacity-40 animate-pulse" />
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 border-brand-sand-primary opacity-40 animate-pulse" />
 
                 {/* Tooltip - appears on hover */}
                 {activeHotspot === hotspot.id && (
                   <div className="absolute z-20 bg-white rounded-lg shadow-2xl p-4 w-64 -translate-x-1/2 -translate-y-full -top-2 left-1/2">
                     <h3 className="font-bold text-brand-charcoal text-sm mb-2">{hotspot.title}</h3>
                     <p className="text-xs text-brand-charcoal/70 leading-relaxed">{hotspot.description}</p>
-                    <div className="mt-3 pt-3 border-t border-brand-gold/20">
+                    <div className="mt-3 pt-3 border-t border-brand-sand-primary/20">
                       <Button variant="gold" size="sm" className="w-full">
                         <span className="flex items-center gap-1 justify-center">
                           Dowiedz się więcej

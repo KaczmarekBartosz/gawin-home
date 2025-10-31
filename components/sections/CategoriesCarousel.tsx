@@ -79,7 +79,7 @@ export function CategoriesCarousel() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16 md:mb-20"
         >
-          <span className="text-label uppercase tracking-widest text-brand-gold">
+          <span className="text-label uppercase tracking-widest text-brand-sand-primary">
             Kategorie
           </span>
           <h2 className="text-h1 text-brand-charcoal mt-4 mb-6">
@@ -124,7 +124,7 @@ export function CategoriesCarousel() {
                       />
                     </div>
                     <div className="flex-1 px-4 py-5 flex items-center justify-center">
-                      <p className="text-center text-lg font-semibold text-brand-charcoal group-hover:text-brand-gold transition-colors">
+                      <p className="text-center text-lg font-semibold text-brand-charcoal group-hover:text-brand-sand-primary transition-colors">
                         {category.name}
                       </p>
                     </div>
@@ -145,7 +145,7 @@ export function CategoriesCarousel() {
         >
           <Button
             size="lg"
-            className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold"
+            className="bg-brand-sand-primary hover:bg-brand-sand-primary/90 text-brand-charcoal font-semibold"
           >
             Przeglądaj wszystkie kategorie
             <ChevronRight className="w-4 h-4 ml-2" />

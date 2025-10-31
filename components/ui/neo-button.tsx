@@ -7,7 +7,7 @@ const neoButtonVariants = cva(
   [
     "inline-flex items-center justify-center gap-2 whitespace-nowrap",
     "rounded-soft font-semibold transition-all duration-200",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sand-primary focus-visible:ring-offset-2",
     "disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed",
     '[&_svg]:pointer-events-none [&_svg:not([class*="size-"])]:size-4 [&_svg]:shrink-0',
   ].join(" "),
@@ -25,8 +25,8 @@ const neoButtonVariants = cva(
           "active:shadow-neo-pressed active:scale-100",
         ].join(" "),
         ghost: [
-          "bg-transparent text-brand-charcoal border border-brand-gold",
-          "hover:bg-brand-gold/10 hover:shadow-neo-light hover:scale-105",
+          "bg-transparent text-brand-charcoal border border-brand-sand-primary",
+          "hover:bg-brand-sand-primary/10 hover:shadow-neo-light hover:scale-105",
           "active:shadow-neo-inset active:scale-100",
         ].join(" "),
         danger: [

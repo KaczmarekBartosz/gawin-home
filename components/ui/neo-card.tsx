@@ -8,7 +8,7 @@ const neoCardVariants = cva(
     "relative flex flex-col",
     "rounded-soft-lg overflow-hidden",
     "transition-all duration-200",
-    "focus-within:outline-none focus-within:ring-2 focus-within:ring-brand-gold focus-within:ring-offset-2",
+    "focus-within:outline-none focus-within:ring-2 focus-within:ring-[#B7A99D] focus-within:ring-offset-2",
   ].join(" "),
   {
     variants: {
@@ -24,7 +24,7 @@ const neoCardVariants = cva(
           "hover:bg-opacity-80",
         ].join(" "),
         outlined: [
-          "bg-white border-2 border-brand-gold",
+          "bg-white border-2 border-[#B7A99D]",
           "shadow-neo-subtle",
           "hover:shadow-glow-gold",
         ].join(" "),

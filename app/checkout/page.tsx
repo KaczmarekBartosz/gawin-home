@@ -194,7 +194,7 @@ export default function CheckoutPage() {
                       className={cn(
                         "flex-1 h-1 rounded-full transition-colors",
                         isCompleted
-                          ? "bg-brand-gold"
+                          ? "bg-brand-sand-primary"
                           : "bg-brand-charcoal/10 dark:bg-brand-cream/10"
                       )}
                     />
@@ -209,9 +209,9 @@ export default function CheckoutPage() {
                     className={cn(
                       "flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm transition-all",
                       isActive
-                        ? "bg-brand-gold text-brand-charcoal"
+                        ? "bg-brand-sand-primary text-brand-charcoal"
                         : isCompleted
-                          ? "bg-brand-gold text-white"
+                          ? "bg-brand-sand-primary text-white"
                           : "bg-brand-charcoal/10 dark:bg-brand-cream/10 text-brand-charcoal dark:text-brand-cream"
                     )}
                   >
@@ -336,7 +336,7 @@ export default function CheckoutPage() {
                           type="checkbox"
                           checked={watchedValues.termsAccepted || false}
                           onChange={(e) => form.setValue("termsAccepted", e.target.checked)}
-                          className="mt-1 w-4 h-4 rounded border border-brand-charcoal/20 dark:border-brand-cream/20 accent-brand-gold"
+                          className="mt-1 w-4 h-4 rounded border border-brand-charcoal/20 dark:border-brand-cream/20 accent-brand-sand-primary"
                         />
                         <span className="text-body-small text-brand-charcoal dark:text-brand-cream">
                           Akceptuję warunki umowy i politykę prywatności *
@@ -351,7 +351,7 @@ export default function CheckoutPage() {
                           type="checkbox"
                           checked={watchedValues.newsletterOptIn || false}
                           onChange={(e) => form.setValue("newsletterOptIn", e.target.checked)}
-                          className="mt-1 w-4 h-4 rounded border border-brand-charcoal/20 dark:border-brand-cream/20 accent-brand-gold"
+                          className="mt-1 w-4 h-4 rounded border border-brand-charcoal/20 dark:border-brand-cream/20 accent-brand-sand-primary"
                         />
                         <span className="text-body-small text-brand-charcoal dark:text-brand-cream">
                           Chciałbym otrzymywać wiadomości o specjalnych ofertach
@@ -383,7 +383,7 @@ export default function CheckoutPage() {
                   <button
                     type="button"
                     onClick={handleNextStep}
-                    className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal ml-auto"
+                    className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all bg-brand-sand-primary hover:bg-brand-sand-primary/90 text-brand-charcoal ml-auto"
                   >
                     Dalej
                     <ChevronRight className="w-5 h-5" />
@@ -397,8 +397,8 @@ export default function CheckoutPage() {
                     className={cn(
                       "flex items-center gap-2 px-8 py-3 rounded-xl font-semibold transition-all ml-auto",
                       watchedValues.termsAccepted
-                        ? "bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal"
-                        : "opacity-50 cursor-not-allowed bg-brand-gold text-brand-charcoal"
+                        ? "bg-brand-sand-primary hover:bg-brand-sand-primary/90 text-brand-charcoal"
+                        : "opacity-50 cursor-not-allowed bg-brand-sand-primary text-brand-charcoal"
                     )}
                   >
                     <Lock className="w-5 h-5" />
@@ -457,7 +457,7 @@ export default function CheckoutPage() {
                   <span className="text-body-small text-brand-charcoal/70 dark:text-brand-cream/70">
                     Dostawa{" "}
                     {watchedValues.shippingMethod?.method && (
-                      <span className="text-xs text-brand-gold">
+                      <span className="text-xs text-brand-sand-primary">
                         ({SHIPPING_METHODS[
                           watchedValues.shippingMethod?.method as keyof typeof SHIPPING_METHODS
                         ]?.name || "Standardowa"})
@@ -485,15 +485,15 @@ export default function CheckoutPage() {
                   <span className="text-h4 font-bold text-brand-charcoal dark:text-brand-cream">
                     Razem
                   </span>
-                  <span className="text-h3 font-bold text-brand-gold">
+                  <span className="text-h3 font-bold text-brand-sand-primary">
                     {total.toFixed(2)} zł
                   </span>
                 </div>
               </div>
 
               {/* Security Info */}
-              <div className="p-4 rounded-lg bg-brand-gold/10 dark:bg-brand-gold/5 border border-brand-gold/20 flex gap-3">
-                <Lock className="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" />
+              <div className="p-4 rounded-lg bg-brand-sand-primary/10 dark:bg-brand-sand-primary/5 border border-brand-sand-primary/20 flex gap-3">
+                <Lock className="w-5 h-5 text-brand-sand-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-xs font-semibold text-brand-charcoal dark:text-brand-cream">
                     Bezpieczna transakcja

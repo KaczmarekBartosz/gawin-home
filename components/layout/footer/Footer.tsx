@@ -147,11 +147,11 @@ export function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative overflow-hidden border-t border-brand-gold/15 bg-gradient-to-b from-brand-charcoal to-brand-charcoal/95"
+      className="relative overflow-hidden border-t border-brand-sand-primary/15 bg-gradient-to-b from-brand-charcoal to-brand-charcoal/95"
     >
       {/* Premium decorative elements */}
-      <div className="absolute top-[-10%] right-[-5%] h-[420px] w-[420px] rounded-full bg-brand-gold/12 blur-3xl" />
-      <div className="absolute bottom-[-5%] left-[-10%] h-[360px] w-[360px] rounded-full bg-brand-copper/10 blur-[120px]" />
+      <div className="absolute top-[-10%] right-[-5%] h-[420px] w-[420px] rounded-full bg-brand-sand-primary/12 blur-3xl" />
+      <div className="absolute bottom-[-5%] left-[-10%] h-[360px] w-[360px] rounded-full bg-brand-sand-deep/10 blur-[120px]" />
       <span
         aria-hidden
         className="pointer-events-none absolute right-6 top-12 text-[min(18vw,220px)] font-display uppercase tracking-[0.2em] text-white/5"
@@ -171,13 +171,13 @@ export function Footer() {
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <Link href="/" className="group mb-6 flex items-center gap-3">
               <motion.div
-                className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-gold-premium shadow-lg"
+                className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-sand-primary shadow-lg"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="text-2xl font-bold text-white">G</span>
               </motion.div>
-              <span className="text-2xl font-bold text-brand-cream transition-colors group-hover:text-brand-gold">
+              <span className="text-2xl font-bold text-brand-cream transition-colors group-hover:text-brand-sand-primary">
                 GAWIN
               </span>
             </Link>
@@ -208,7 +208,7 @@ export function Footer() {
                   >
                     <Icon className="h-5 w-5 text-brand-cream" strokeWidth={1.5} />
                     {/* Glow effect on hover */}
-                    <div className="absolute inset-0 rounded-xl bg-brand-gold/0 shadow-glow-gold/0 transition-all duration-300 group-hover:shadow-glow-gold/50" />
+                    <div className="absolute inset-0 rounded-xl bg-brand-sand-primary/0 shadow-glow-gold/0 transition-all duration-300 group-hover:shadow-glow-gold/50" />
                   </motion.a>
                 );
               })}
@@ -219,7 +219,7 @@ export function Footer() {
           <motion.div variants={itemVariants} className="sm:col-span-1">
             <h3 className="mb-4 text-lg font-bold text-brand-cream">
               Sklep
-              <div className="mt-2 h-1 w-12 bg-brand-gold" />
+              <div className="mt-2 h-1 w-12 bg-brand-sand-primary" />
             </h3>
             <motion.ul
               className="space-y-3"
@@ -231,12 +231,12 @@ export function Footer() {
                 <motion.li key={link.href} variants={linkVariants}>
                   <Link
                     href={link.href}
-                    className="relative inline-block text-sm text-brand-cream/70 transition-colors hover:text-brand-gold"
+                    className="relative inline-block text-sm text-brand-cream/70 transition-colors hover:text-brand-sand-primary"
                   >
                     <span className="relative">
                       {link.label}
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-gold"
+                        className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-sand-primary"
                         whileHover={{ width: "100%" }}
                         transition={{ duration: 0.3 }}
                       />
@@ -251,7 +251,7 @@ export function Footer() {
           <motion.div variants={itemVariants} className="sm:col-span-1">
             <h3 className="mb-4 text-lg font-bold text-brand-cream">
               Kategorie
-              <div className="mt-2 h-1 w-12 bg-brand-gold" />
+              <div className="mt-2 h-1 w-12 bg-brand-sand-primary" />
             </h3>
             <motion.ul
               className="space-y-3"
@@ -263,12 +263,12 @@ export function Footer() {
                 <motion.li key={link.href} variants={linkVariants}>
                   <Link
                     href={link.href}
-                    className="relative inline-block text-sm text-brand-cream/70 transition-colors hover:text-brand-gold"
+                    className="relative inline-block text-sm text-brand-cream/70 transition-colors hover:text-brand-sand-primary"
                   >
                     <span className="relative">
                       {link.label}
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-gold"
+                        className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-sand-primary"
                         whileHover={{ width: "100%" }}
                         transition={{ duration: 0.3 }}
                       />
@@ -283,7 +283,7 @@ export function Footer() {
           <motion.div variants={itemVariants} className="sm:col-span-2 lg:col-span-1">
             <h3 className="mb-4 text-lg font-bold text-brand-cream">
               Firma
-              <div className="mt-2 h-1 w-12 bg-brand-gold" />
+              <div className="mt-2 h-1 w-12 bg-brand-sand-primary" />
             </h3>
             <motion.ul
               className="space-y-3"
@@ -295,12 +295,12 @@ export function Footer() {
                 <motion.li key={link.href} variants={linkVariants}>
                   <Link
                     href={link.href}
-                    className="relative inline-block text-sm text-brand-cream/70 transition-colors hover:text-brand-gold"
+                    className="relative inline-block text-sm text-brand-cream/70 transition-colors hover:text-brand-sand-primary"
                   >
                     <span className="relative">
                       {link.label}
                       <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-gold"
+                        className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-sand-primary"
                         whileHover={{ width: "100%" }}
                         transition={{ duration: 0.3 }}
                       />
@@ -314,7 +314,7 @@ export function Footer() {
 
         {/* Newsletter Section Integration */}
         <motion.div
-          className="my-8 rounded-xl bg-gradient-to-r from-brand-gold/12 via-brand-copper/8 to-brand-gold/10 border border-brand-gold/25 p-6 sm:p-8"
+          className="my-8 rounded-xl bg-gradient-to-r from-brand-sand-primary/12 via-brand-sand-deep/8 to-brand-sand-primary/10 border border-brand-sand-primary/25 p-6 sm:p-8"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -332,13 +332,13 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Twój e-mail"
-                className="flex-1 rounded-lg border border-brand-gold/30 bg-brand-charcoal/50 px-4 py-2 text-sm text-brand-cream placeholder:text-brand-cream/40 transition-all duration-300 focus:border-brand-gold focus:bg-brand-charcoal focus:outline-none focus:ring-2 focus:ring-brand-gold/20"
+                className="flex-1 rounded-lg border border-brand-sand-primary/30 bg-brand-charcoal/50 px-4 py-2 text-sm text-brand-cream placeholder:text-brand-cream/40 transition-all duration-300 focus:border-brand-sand-primary focus:bg-brand-charcoal focus:outline-none focus:ring-2 focus:ring-brand-sand-primary/20"
                 aria-label="Newsletter email"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="rounded-lg bg-gradient-gold-premium px-6 py-2 text-sm font-semibold text-brand-charcoal transition-all duration-300 hover:shadow-glow-gold"
+                className="rounded-lg bg-gradient-sand-primary px-6 py-2 text-sm font-semibold text-brand-charcoal transition-all duration-300 hover:shadow-glow-gold"
               >
                 Zapisz
               </motion.button>
@@ -348,7 +348,7 @@ export function Footer() {
 
         {/* Contact Info & Payment Methods */}
         <motion.div
-          className="border-t border-brand-gold/20 py-8"
+          className="border-t border-brand-sand-primary/20 py-8"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -369,8 +369,8 @@ export function Footer() {
                       whileHover={{ x: 8 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="rounded-lg bg-brand-gold/20 p-2">
-                        <Icon className="h-5 w-5 text-brand-gold" strokeWidth={1.5} />
+                      <div className="rounded-lg bg-brand-sand-primary/20 p-2">
+                        <Icon className="h-5 w-5 text-brand-sand-primary" strokeWidth={1.5} />
                       </div>
                       <span className="text-sm text-brand-cream/80">{info.text}</span>
                     </motion.div>
@@ -388,7 +388,7 @@ export function Footer() {
                 {["Visa", "Mastercard", "PayPal"].map((method) => (
                   <motion.div
                     key={method}
-                    className="rounded-lg border border-brand-gold/30 bg-brand-gold/5 px-4 py-2 text-xs font-semibold text-brand-cream/80"
+                    className="rounded-lg border border-brand-sand-primary/30 bg-brand-sand-primary/5 px-4 py-2 text-xs font-semibold text-brand-cream/80"
                     whileHover={{ backgroundColor: "rgba(212, 165, 116, 0.15)", borderColor: "rgba(212, 165, 116, 0.5)" }}
                   >
                     {method}
@@ -401,7 +401,7 @@ export function Footer() {
 
         {/* Bottom Bar - Legal Links + Back to Top */}
         <motion.div
-          className="flex flex-col items-center justify-between gap-6 border-t border-brand-gold/20 py-6 sm:flex-row"
+          className="flex flex-col items-center justify-between gap-6 border-t border-brand-sand-primary/20 py-6 sm:flex-row"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
@@ -415,12 +415,12 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative text-xs text-brand-cream/60 transition-colors hover:text-brand-gold"
+                className="relative text-xs text-brand-cream/60 transition-colors hover:text-brand-sand-primary"
               >
                 <span className="relative">
                   {link.label}
                   <motion.div
-                    className="absolute bottom-0 left-0 h-px w-0 bg-brand-gold"
+                    className="absolute bottom-0 left-0 h-px w-0 bg-brand-sand-primary"
                     whileHover={{ width: "100%" }}
                     transition={{ duration: 0.3 }}
                   />
@@ -432,9 +432,9 @@ export function Footer() {
           {/* Back to Top Button */}
           <motion.button
             onClick={scrollToTop}
-            className={`flex h-10 w-10 items-center justify-center rounded-full border border-brand-gold/50 transition-all duration-300 ${
+            className={`flex h-10 w-10 items-center justify-center rounded-full border border-brand-sand-primary/50 transition-all duration-300 ${
               isVisible
-                ? "bg-brand-gold/20 hover:bg-brand-gold/30"
+                ? "bg-brand-sand-primary/20 hover:bg-brand-sand-primary/30"
                 : "pointer-events-none"
             }`}
             initial={{ opacity: 0, scale: 0 }}
@@ -446,7 +446,7 @@ export function Footer() {
             whileTap={{ scale: 0.9 }}
             aria-label="Back to top"
           >
-            <ArrowUp className="h-5 w-5 text-brand-gold" strokeWidth={2} />
+            <ArrowUp className="h-5 w-5 text-brand-sand-primary" strokeWidth={2} />
           </motion.button>
         </motion.div>
       </div>

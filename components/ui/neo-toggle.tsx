@@ -69,7 +69,7 @@ const toggleTrackVariants = cva(
       {
         variant: "gold",
         checked: true,
-        className: "bg-brand-gold shadow-glow-gold",
+        className: "bg-[#B7A99D] shadow-glow-gold",
       },
       // Success - ON state with glow
       {

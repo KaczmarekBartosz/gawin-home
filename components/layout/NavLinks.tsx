@@ -63,8 +63,8 @@ export function NavLinks({
                 "relative inline-flex items-center gap-2 px-2 py-2 transition-all duration-200",
                 "font-medium",
                 active
-                  ? "text-brand-gold"
-                  : "text-brand-charcoal hover:text-brand-gold",
+                  ? "text-[#B7A99D]"
+                  : "text-brand-charcoal hover:text-[#B7A99D]",
                 variant === "vertical" &&
                   "w-full px-4 py-3 hover:bg-brand-sand/50 rounded-soft",
                 variant === "horizontal" && "text-sm"
@@ -82,7 +82,7 @@ export function NavLinks({
 
               {/* Badge if provided */}
               {link.badge && (
-                <span className="ml-auto bg-brand-gold text-dark-bg text-xs font-bold rounded-full px-2 py-1">
+                <span className="ml-auto bg-[#B7A99D] text-dark-bg text-xs font-bold rounded-full px-2 py-1">
                   {link.badge}
                 </span>
               )}
@@ -91,7 +91,7 @@ export function NavLinks({
               {variant === "horizontal" && active && (
                 <motion.div
                   layoutId="navbar-underline"
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold to-brand-copper rounded-full"
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#B7A99D] to-[#9B8C82] rounded-full"
                   transition={{
                     type: "spring",
                     stiffness: 300,

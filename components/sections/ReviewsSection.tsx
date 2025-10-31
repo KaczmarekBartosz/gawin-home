@@ -54,7 +54,7 @@ function RatingStars({ rating, size = "sm" }: { rating: number; size?: "sm" | "l
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          className={cn(sizeClass, i < Math.round(rating) ? "fill-brand-gold text-brand-gold" : "text-brand-charcoal/20")}
+          className={cn(sizeClass, i < Math.round(rating) ? "fill-[#B7A99D] text-[#B7A99D]" : "text-brand-charcoal/20")}
         />
       ))}
     </div>
@@ -81,7 +81,7 @@ function RatingDistribution({ ratings }: { ratings: Record<number, number> }) {
           >
             <div className="flex items-center gap-1 w-16">
               <span className="text-sm font-medium text-brand-charcoal">{stars}</span>
-              <Star className="size-3 fill-brand-gold text-brand-gold" />
+              <Star className="size-3 fill-[#B7A99D] text-[#B7A99D]" />
             </div>
             <div className="flex-1 h-2 bg-brand-charcoal/10 rounded-full overflow-hidden">
               <motion.div
@@ -89,7 +89,7 @@ function RatingDistribution({ ratings }: { ratings: Record<number, number> }) {
                 whileInView={{ width: `${percentage}%` }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="h-full bg-gradient-to-r from-brand-gold to-brand-copper rounded-full"
+                className="h-full bg-gradient-to-r from-[#B7A99D] to-[#9B8C82] rounded-full"
               />
             </div>
             <span className="text-sm text-brand-charcoal/60 w-12 text-right">
@@ -161,7 +161,7 @@ export function ReviewsSection({
               {/* Average Rating */}
               <div className="mb-8 text-center">
                 <div className="mb-4">
-                  <div className="text-6xl font-black text-brand-gold mb-2">
+                  <div className="text-6xl font-black text-[#B7A99D] mb-2">
                     {averageRating.toFixed(1)}
                   </div>
                   <div className="flex justify-center mb-3">
@@ -202,8 +202,8 @@ export function ReviewsSection({
                   className={cn(
                     "px-4 py-2 rounded-full font-medium text-sm transition-all duration-200",
                     sortBy === option
-                      ? "bg-brand-gold text-white shadow-lg shadow-brand-gold/30"
-                      : "bg-brand-cream border border-brand-charcoal/10 text-brand-charcoal hover:border-brand-gold/50"
+                      ? "bg-[#B7A99D] text-white shadow-lg shadow-[#B7A99D]/30"
+                      : "bg-brand-cream border border-brand-charcoal/10 text-brand-charcoal hover:border-[#B7A99D]/50"
                   )}
                 >
                   {option === "helpful" && "Najbardziej pomocne"}
@@ -225,7 +225,7 @@ export function ReviewsSection({
                 <motion.article
                   key={review.id}
                   variants={itemVariants}
-                  className="p-6 rounded-xl border border-brand-charcoal/10 hover:border-brand-gold/30 transition-colors duration-200 bg-white hover:shadow-lg hover:shadow-brand-gold/10"
+                  className="p-6 rounded-xl border border-brand-charcoal/10 hover:border-[#B7A99D]/30 transition-colors duration-200 bg-white hover:shadow-lg hover:shadow-[#B7A99D]/10"
                 >
                   {/* Review Header */}
                   <div className="flex items-start justify-between gap-4 mb-4">
@@ -237,7 +237,7 @@ export function ReviewsSection({
                           className="w-10 h-10 rounded-full object-cover"
                         />
                       ) : (
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-gold to-brand-copper flex items-center justify-center text-white">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#B7A99D] to-[#9B8C82] flex items-center justify-center text-white">
                           <User className="size-5" />
                         </div>
                       )}
@@ -283,7 +283,7 @@ export function ReviewsSection({
                         whileTap={{ scale: 0.95 }}
                         className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-brand-cream transition-colors"
                       >
-                        <ThumbsUp className="size-4 text-brand-charcoal/60 hover:text-brand-gold" />
+                        <ThumbsUp className="size-4 text-brand-charcoal/60 hover:text-[#B7A99D]" />
                         <span className="text-xs text-brand-charcoal/60">
                           {review.helpful || 0}
                         </span>
@@ -312,7 +312,7 @@ export function ReviewsSection({
               viewport={{ once: true }}
               className="mt-8 text-center"
             >
-              <button className="px-6 py-3 rounded-lg border border-brand-charcoal/20 hover:border-brand-gold text-brand-charcoal hover:text-brand-gold font-medium transition-colors">
+              <button className="px-6 py-3 rounded-lg border border-brand-charcoal/20 hover:border-[#B7A99D] text-brand-charcoal hover:text-[#B7A99D] font-medium transition-colors">
                 Załaduj więcej opinii
               </button>
             </motion.div>

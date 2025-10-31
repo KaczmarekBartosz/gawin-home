@@ -26,12 +26,12 @@ export function SpecCard({ title, items, className }: SpecCardProps) {
       {title ? (
         <h3 className="text-h3 text-brand-cream">{title}</h3>
       ) : (
-        <p className="text-label text-brand-gold">Specyfikacja</p>
+        <p className="text-label text-brand-sand-primary">Specyfikacja</p>
       )}
       <dl className="mt-6 space-y-6">
         {items.map((item) => (
           <div key={item.label} className="space-y-2">
-            <dt className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-gold/80">
+            <dt className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-sand-primary/80">
               {item.label}
             </dt>
             <dd className="text-sm text-brand-cream">{item.value}</dd>

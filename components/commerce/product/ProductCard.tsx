@@ -71,7 +71,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           {/* Badges */}
           <div className="absolute top-4 left-4 flex flex-col gap-2">
             {product.isNew && (
-              <span className="px-3 py-1 gradient-gold-premium text-white text-xs font-bold rounded-lg shadow-md">
+              <span className="px-3 py-1 bg-[linear-gradient(125deg,#9B8C82_0%,#B7A99D_50%,#D1CBC5_100%)] text-white text-xs font-bold rounded-lg shadow-md">
                 NOWOŚĆ
               </span>
             )}
@@ -109,7 +109,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
                 e.preventDefault();
                 // TODO: Add to cart logic
               }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 gradient-gold-premium text-white rounded-xl font-bold shadow-lg hover:scale-105 transition-transform shimmer"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[linear-gradient(125deg,#9B8C82_0%,#B7A99D_50%,#D1CBC5_100%)] text-white rounded-xl font-bold shadow-lg hover:scale-105 transition-transform shimmer"
             >
               <ShoppingCart className="h-4 w-4" strokeWidth={1.5} />
               <span>Dodaj do koszyka</span>
@@ -130,13 +130,13 @@ export function ProductCard({ product, className }: ProductCardProps) {
               {product.colors.slice(0, 4).map((color) => (
                 <div
                   key={color.hex}
-                  className="w-7 h-7 rounded-full border-2 border-neutral-border hover:border-brand-gold transition-all duration-300 cursor-pointer hover:scale-110 shadow-sm"
+                  className="w-7 h-7 rounded-full border-2 border-neutral-border hover:border-[#B7A99D] transition-all duration-300 cursor-pointer hover:scale-110 shadow-sm"
                   style={{ backgroundColor: color.hex }}
                   title={color.name}
                 />
               ))}
               {product.colors.length > 4 && (
-                <span className="text-xs font-medium text-brand-gold">
+                <span className="text-xs font-medium text-[#B7A99D]">
                   +{product.colors.length - 4}
                 </span>
               )}
@@ -160,7 +160,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
                     className={cn(
                       "text-lg",
                       i < Math.floor(product.rating!)
-                        ? "text-brand-gold"
+                        ? "text-[#B7A99D]"
                         : "text-neutral-border",
                     )}
                   >
@@ -178,7 +178,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           <div className="pt-3 border-t border-neutral-border/50">
             <div className="flex items-baseline justify-between">
               <div>
-                <p className="text-2xl font-bold gradient-gold-premium bg-clip-text text-transparent">
+                <p className="text-2xl font-bold bg-[linear-gradient(125deg,#9B8C82_0%,#B7A99D_50%,#D1CBC5_100%)] bg-clip-text text-transparent">
                   {product.price.amount.toLocaleString("pl-PL")}{" "}
                   {product.price.currency}
                 </p>

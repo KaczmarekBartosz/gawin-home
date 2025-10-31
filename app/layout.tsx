@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${geistSans.variable} ${spaceGrotesk.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-light-showroom text-brand-charcoal selection:bg-brand-gold/20 dark:bg-brand-charcoal dark:text-brand-cream transition-colors duration-300">
+      <body className="bg-light-showroom text-brand-charcoal selection:bg-[#B7A99D]/20 dark:bg-brand-charcoal dark:text-brand-cream transition-colors duration-300">
         <ThemeProvider defaultTheme="light" storageKey="gawin-home-theme">
           <PremiumNavbar />
           <main>{children}</main>

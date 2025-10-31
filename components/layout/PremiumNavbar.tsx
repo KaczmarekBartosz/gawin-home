@@ -37,7 +37,7 @@ export function PremiumNavbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "glass-dark shadow-lg border-b border-[color:oklch(0.75_0.12_85_/_0.12)]"
+            ? "glass-dark shadow-lg border-b border-[color:rgba(183,169,157,0.2)]"
             : "bg-transparent",
         )}
       >
@@ -45,10 +45,10 @@ export function PremiumNavbar() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-gold-premium flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-sand-primary flex items-center justify-center">
                 <span className="text-white font-bold text-xl">G</span>
               </div>
-              <span className="text-xl font-bold text-brand-cream group-hover:text-brand-gold transition-colors">
+              <span className="text-xl font-bold text-brand-charcoal group-hover:text-brand-sand-primary transition-colors">
                 Gawin-Home
               </span>
             </Link>
@@ -63,11 +63,11 @@ export function PremiumNavbar() {
               {/* Search */}
               <Link
                 href="/listing"
-                className="rounded-xl p-2 transition-colors hover:bg-[oklch(0.75_0.12_85_/_0.12)]"
+                className="rounded-xl p-2 transition-colors hover:bg-[rgba(183,169,157,0.12)]"
                 aria-label="Przejdź do listingu"
               >
                 <Search
-                  className="h-5 w-5 text-brand-cream"
+                  className="h-5 w-5 text-brand-charcoal"
                   strokeWidth={1.5}
                 />
               </Link>
@@ -75,29 +75,29 @@ export function PremiumNavbar() {
               {/* Cart */}
               <Link
                 href="/cart"
-                className="relative rounded-xl p-2 transition-colors hover:bg-[oklch(0.75_0.12_85_/_0.12)]"
+                className="relative rounded-xl p-2 transition-colors hover:bg-[rgba(183,169,157,0.12)]"
                 aria-label="Koszyk"
               >
                 <ShoppingBag
-                  className="h-5 w-5 text-brand-cream"
+                  className="h-5 w-5 text-brand-charcoal"
                   strokeWidth={1.5}
                 />
-                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-gold text-xs font-bold text-white">
+                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand-sand-primary text-xs font-bold text-white">
                   0
                 </span>
               </Link>
 
               {/* Mobile Menu Toggle */}
               <button
-                className="md:hidden p-2 rounded-xl transition-colors hover:bg-[oklch(0.75_0.12_85_/_0.12)]"
+                className="md:hidden p-2 rounded-xl transition-colors hover:bg-[rgba(183,169,157,0.12)]"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Menu"
               >
                 {isMobileMenuOpen ? (
-                  <X className="h-6 w-6 text-brand-cream" strokeWidth={1.5} />
+                  <X className="h-6 w-6 text-brand-charcoal" strokeWidth={1.5} />
                 ) : (
                   <Menu
-                    className="h-6 w-6 text-brand-cream"
+                    className="h-6 w-6 text-brand-charcoal"
                     strokeWidth={1.5}
                   />
                 )}
@@ -122,7 +122,7 @@ export function PremiumNavbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 backdrop-blur-sm bg-[oklch(0.11_0_0_/_0.82)]"
+              className="absolute inset-0 backdrop-blur-sm bg-[rgba(66,58,53,0.82)]"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -132,7 +132,7 @@ export function PremiumNavbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm glass-dark border-l border-[color:oklch(0.75_0.12_85_/_0.2)]"
+              className="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm glass-dark border-l border-[color:rgba(183,169,157,0.2)]"
             >
               <div className="p-6 pt-24">
                 <NavLinks

@@ -78,7 +78,7 @@ export function ProductInfo({
               className={cn(
                 "size-4",
                 i < Math.round(rating)
-                  ? "fill-brand-gold text-brand-gold"
+                  ? "fill-[#B7A99D] text-[#B7A99D]"
                   : "text-brand-charcoal/20"
               )}
             />
@@ -90,7 +90,7 @@ export function ProductInfo({
           </span>
           <a
             href="#reviews"
-            className="text-brand-gold hover:text-brand-copper transition-colors underline"
+            className="text-[#B7A99D] hover:text-[#9B8C82] transition-colors underline"
           >
             ({reviewCount} opinii)
           </a>
@@ -110,7 +110,7 @@ export function ProductInfo({
         className="space-y-2"
       >
         <div className="flex items-baseline gap-3">
-          <div className="text-5xl font-black text-brand-gold">
+          <div className="text-5xl font-black text-[#B7A99D]">
             {price.toLocaleString("pl-PL")} zł
           </div>
           {comparePrice && (
@@ -158,7 +158,7 @@ export function ProductInfo({
               whileHover={{ backgroundColor: "rgba(212, 165, 116, 0.1)" }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="px-4 py-2 hover:bg-brand-gold/10 transition-colors"
+              className="px-4 py-2 hover:bg-[#B7A99D]/10 transition-colors"
             >
               −
             </motion.button>
@@ -174,7 +174,7 @@ export function ProductInfo({
               whileHover={{ backgroundColor: "rgba(212, 165, 116, 0.1)" }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setQuantity(quantity + 1)}
-              className="px-4 py-2 hover:bg-brand-gold/10 transition-colors"
+              className="px-4 py-2 hover:bg-[#B7A99D]/10 transition-colors"
             >
               +
             </motion.button>
@@ -200,8 +200,8 @@ export function ProductInfo({
             className={cn(
               "p-3 rounded-lg border-2 transition-all duration-200",
               isWishlisted
-                ? "border-brand-gold bg-brand-gold/10"
-                : "border-brand-charcoal/20 hover:border-brand-gold"
+                ? "border-[#B7A99D] bg-[#B7A99D]/10"
+                : "border-brand-charcoal/20 hover:border-[#B7A99D]"
             )}
             aria-label="Add to wishlist"
           >
@@ -209,7 +209,7 @@ export function ProductInfo({
               className={cn(
                 "size-5",
                 isWishlisted
-                  ? "fill-brand-gold text-brand-gold"
+                  ? "fill-[#B7A99D] text-[#B7A99D]"
                   : "text-brand-charcoal"
               )}
             />
@@ -218,7 +218,7 @@ export function ProductInfo({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="p-3 rounded-lg border-2 border-brand-charcoal/20 hover:border-brand-gold transition-all"
+            className="p-3 rounded-lg border-2 border-brand-charcoal/20 hover:border-[#B7A99D] transition-all"
             aria-label="Share"
           >
             <Share2 className="size-5 text-brand-charcoal" />
@@ -255,7 +255,7 @@ export function ProductInfo({
               whileHover={{ scale: 1.1 }}
               className="flex justify-center mb-3"
             >
-              <signal.icon className="size-6 text-brand-gold" />
+              <signal.icon className="size-6 text-[#B7A99D]" />
             </motion.div>
             <h3 className="text-body-small font-semibold text-brand-charcoal mb-1">
               {signal.label}
@@ -278,7 +278,7 @@ export function ProductInfo({
         </div>
         <div className="flex justify-between">
           <span className="text-brand-charcoal/60">Kategoria</span>
-          <a href="#" className="text-brand-gold hover:text-brand-copper">
+          <a href="#" className="text-[#B7A99D] hover:text-[#9B8C82]">
             {category}
           </a>
         </div>

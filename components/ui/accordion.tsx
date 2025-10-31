@@ -20,7 +20,7 @@ function AccordionItem({
     <AccordionPrimitive.Item
       data-slot="accordion-item"
       className={cn(
-        "overflow-hidden rounded-2xl border border-neutral-200 bg-brand-cream transition-colors data-[state=open]:border-brand-gold",
+        "overflow-hidden rounded-2xl border border-neutral-200 bg-brand-cream transition-colors data-[state=open]:border-[#B7A99D]",
         className,
       )}
       {...props}
@@ -38,14 +38,14 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group flex flex-1 items-start justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-brand-charcoal transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-cream",
-          "data-[state=open]:text-brand-gold",
+          "group flex flex-1 items-start justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-brand-charcoal transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B7A99D] focus-visible:ring-offset-2 focus-visible:ring-offset-brand-cream",
+          "data-[state=open]:text-[#B7A99D]",
           className,
         )}
         {...props}
       >
         {children}
-        <ChevronDownIcon className="pointer-events-none size-5 shrink-0 translate-y-0.5 text-brand-charcoal/60 transition-transform duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:text-brand-gold" />
+        <ChevronDownIcon className="pointer-events-none size-5 shrink-0 translate-y-0.5 text-brand-charcoal/60 transition-transform duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:text-[#B7A99D]" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );

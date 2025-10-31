@@ -46,7 +46,7 @@ export default function CartPage() {
     <Section tone="light">
       <Container className="space-y-10">
         <motion.header {...fadeInUp} className="flex flex-col gap-4">
-          <p className="text-label text-brand-gold">Koszyk (mock)</p>
+          <p className="text-label text-brand-sand-primary">Koszyk (mock)</p>
           <h1 className="text-h1 text-brand-charcoal">Twoje zestawienie</h1>
           <p className="text-body-descriptive max-w-3xl">
             Makieta koszyka prezentuje układ modułów, kosztorys i elementy
@@ -117,7 +117,7 @@ export default function CartPage() {
 
             <div className="rounded-3xl border border-neutral-200 bg-brand-cream p-6 shadow-soft">
               <div className="flex items-center gap-3 text-sm text-brand-charcoal">
-                <Truck className="h-5 w-5 text-brand-gold" strokeWidth={1.5} />
+                <Truck className="h-5 w-5 text-brand-sand-primary" strokeWidth={1.5} />
                 Darmowa dostawa i wniesienie dla zamówień powyżej 5000 PLN. Czas
                 realizacji: 21-30 dni (mock danych logistycznych).
               </div>
@@ -154,7 +154,7 @@ export default function CartPage() {
 
             <div className="rounded-2xl bg-brand-sand/60 p-4">
               <div className="flex items-start gap-3">
-                <Gift className="h-5 w-5 text-brand-gold" strokeWidth={1.5} />
+                <Gift className="h-5 w-5 text-brand-sand-primary" strokeWidth={1.5} />
                 <div className="space-y-2 text-sm text-brand-charcoal">
                   <p className="font-semibold uppercase tracking-[0.25em]">
                     Kod rabatowy
@@ -168,7 +168,7 @@ export default function CartPage() {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-gold">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-sand-primary">
                 Notatka dla projektanta
               </h3>
               <Input placeholder="Uwagi do dostawy / montażu (mock)" />

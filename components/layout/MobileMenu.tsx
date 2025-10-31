@@ -156,7 +156,7 @@ export function MobileMenu({
                           onClick={() => toggleSubmenu(link.label)}
                           className={cn(
                             "w-full flex items-center justify-between px-4 py-3",
-                            "text-body text-brand-charcoal hover:text-brand-gold",
+                            "text-body text-brand-charcoal hover:text-[#B7A99D]",
                             "transition-colors hover:bg-brand-sand/30"
                           )}
                           aria-expanded={expandedItems.includes(link.label)}
@@ -194,7 +194,7 @@ export function MobileMenu({
                                   className={cn(
                                     "block px-8 py-2.5",
                                     "text-body-small text-gray-700",
-                                    "hover:text-brand-gold hover:bg-brand-sand/40",
+                                    "hover:text-[#B7A99D] hover:bg-brand-sand/40",
                                     "transition-colors"
                                   )}
                                   onClick={onClose}
@@ -212,7 +212,7 @@ export function MobileMenu({
                         href={link.href}
                         className={cn(
                           "block px-4 py-3",
-                          "text-body text-brand-charcoal hover:text-brand-gold",
+                          "text-body text-brand-charcoal hover:text-[#B7A99D]",
                           "transition-colors hover:bg-brand-sand/30"
                         )}
                         onClick={onClose}
@@ -231,7 +231,7 @@ export function MobileMenu({
                 href="/account"
                 className={cn(
                   "block px-4 py-3 -mx-4",
-                  "text-body text-brand-charcoal hover:text-brand-gold",
+                  "text-body text-brand-charcoal hover:text-[#B7A99D]",
                   "transition-colors hover:bg-brand-sand/30"
                 )}
                 onClick={onClose}
@@ -242,7 +242,7 @@ export function MobileMenu({
                 href="/about"
                 className={cn(
                   "block px-4 py-3 -mx-4",
-                  "text-body text-brand-charcoal hover:text-brand-gold",
+                  "text-body text-brand-charcoal hover:text-[#B7A99D]",
                   "transition-colors hover:bg-brand-sand/30"
                 )}
                 onClick={onClose}
@@ -253,7 +253,7 @@ export function MobileMenu({
                 href="/contact"
                 className={cn(
                   "block px-4 py-3 -mx-4",
-                  "text-body text-brand-charcoal hover:text-brand-gold",
+                  "text-body text-brand-charcoal hover:text-[#B7A99D]",
                   "transition-colors hover:bg-brand-sand/30"
                 )}
                 onClick={onClose}
