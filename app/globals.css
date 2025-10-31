@@ -176,6 +176,7 @@
    * ============================================ */
   --gradient-sand-to-deep: linear-gradient(135deg, #B7A99D 0%, #9B8C82 100%);
   --gradient-sand-primary: linear-gradient(125deg, #9B8C82 0%, #B7A99D 50%, #D1CBC5 100%);
+  --hero-gradient: linear-gradient(135deg, #F6F3EE 0%, #EAE4DC 50%, #DDD3C8 100%);
 
   /* ============================================
    * BORDER RADIUS
