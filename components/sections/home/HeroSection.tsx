@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ChevronRight, ChevronDown } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -100,9 +101,11 @@ export function HeroSection() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 pt-10"
           >
-            <Button size="lg" className="group bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold shadow-lg hover:shadow-xl transition-all">
-              Odkryj Kolekcję
-              <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <Button asChild size="lg" className="group bg-brand-gold hover:bg-brand-gold/90 text-white font-semibold shadow-lg hover:shadow-xl transition-all">
+              <Link href="/products" className="flex items-center gap-2">
+                Odkryj Kolekcję
+                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10 font-semibold backdrop-blur-sm">
               Umów konsultację
